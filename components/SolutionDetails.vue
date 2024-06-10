@@ -14,6 +14,11 @@ const props = defineProps({
 
 const relatedCase = ref();
 
+watch(() => props.item, (item) => {
+  console.log('fire')
+  relatedCase.value = cases.find((c) => c.id === item.case);
+});
+
 onMounted(() => {
   relatedCase.value = cases.find((c) => c.id === props.item.case);
 });
