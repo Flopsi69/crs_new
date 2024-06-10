@@ -160,10 +160,13 @@ const infoEstimate = {
     <!-- TODO button event -->
     <div class="control flex-center">
       <button
-        class="button button_yellow"
+        class="control__button button button_yellow"
         @click="openModal({info: infoEstimate})"
       >
-        Get an estimate of the expected result
+        <span class="control__button-mob">Get results estimates</span>
+        <span class="control__button-desk"
+          >Get an estimate of the expected result</span
+        >
       </button>
     </div>
   </BaseSection>
@@ -297,6 +300,24 @@ const infoEstimate = {
 
 .control {
   margin-top: 40px;
+  &__button {
+    &-mob {
+      display: none;
+      @media(max-width: $sm) {
+        display: inline;
+      }
+    }
+    &-desk {
+      @media(max-width: $sm) {
+        display: none;
+      }
+    }
+    @media(max-width: $sm) {
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 100%;
+    }
+  }
 }
 
 .button {

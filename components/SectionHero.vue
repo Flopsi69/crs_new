@@ -184,12 +184,19 @@ function handleOpenModal() {
   @media(max-width: $sm) {
     flex-flow: column;
     height: auto;
+    gap: 20px;
   }
   &__input {
     flex-grow: 1;
+    @media(max-width: $sm) {
+      height: 60px;
+    }
   }
   &__button {
     font-size: 18px;
+    @media(max-width: $sm) {
+      height: 60px;
+    }
   }
 }
 </style>

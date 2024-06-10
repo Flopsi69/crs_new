@@ -198,10 +198,14 @@ onClickOutside(target, () => {
   &__error {
     position: absolute;
     top: 105%;
-    right: 0;
+    right: 20px;
     color: #F40000;
     font-size: 14px;
     text-align: right;
+    @media(max-width: $sm) {
+      top: 101%;
+      font-size: 13px;
+    }
   }
 }
 
