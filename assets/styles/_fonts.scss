@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Circe'), url('@/assets/fonts/circe-regular.woff') format('woff');
+}
+
+// @font-face {
+//   // font-family: 'Circe Extra Light';
+//   font-family: 'Circe';
+//   font-style: normal;
+//   font-weight: 200;
+//   src: local('Circe Extra Light'),
+//     url('@/assets/fonts/circe-extra-light.woff') format('woff');
+// }
+
+// @font-face {
+//   // font-family: 'Circe Light';
+//   font-family: 'Circe';
+//   font-style: normal;
+//   font-weight: 300;
+//   src: local('Circe Light'),
+//     url('@/assets/fonts/circe-light.woff') format('woff');
+// }
+
+@font-face {
+  // font-family: 'Circe Bold';
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Circe Bold'), url('@/assets/fonts/circe-bold.woff') format('woff');
+}

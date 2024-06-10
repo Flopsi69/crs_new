@@ -1,0 +1,214 @@
+export default [
+  {
+    logo: 'samCart.png',
+    label: 'SaaS',
+    description:
+      'is a powerful e-commerce platform enabling entrepreneurs and businesses to sell products online with advanced checkout solutions',
+    mark: 'SamCart',
+    metrics: [
+      {
+        label: 'Our goal',
+        caption: 'Optimize CR to webinars purchases'
+      },
+      {
+        label: 'Areas of improvement',
+        caption: 'Product page, checkout flow'
+      }
+    ],
+    results: [
+      {
+        value: '+14.1%',
+        caption: 'Conversion rate'
+      },
+      {
+        value: '+12.9%',
+        caption: 'Average revenue per user'
+      }
+    ]
+  },
+  {
+    logo: 'papayaGlobal.svg',
+    label: 'Leadgen',
+    description:
+      'is a leading workforce management platform, revolutionizing global payroll and compliance solutions for companies of all sizes',
+    mark: 'PapayaGlobal',
+    metrics: [
+      {
+        label: 'Our goal',
+        caption: 'Increase conversion to booking a call'
+      },
+      {
+        label: 'Areas of improvement',
+        caption: 'Conversion mechanisms'
+      }
+    ],
+    results: [
+      {
+        value: '+106.2%',
+        caption: 'Conversion to getting a quote'
+      },
+      {
+        value: '+88.5%',
+        caption: 'Conversion to scheduling a demo'
+      }
+    ]
+  },
+  {
+    logo: 'zenithPrep.png',
+    label: 'Leadgen',
+    description:
+      'is an award-winning college consulting company and is ranked #1 in Education on USA Today.',
+    mark: 'Zenith Prep Academy',
+    metrics: [
+      {
+        label: 'Our goal',
+        caption: 'Increase conversion to booking a call'
+      },
+      {
+        label: 'Areas of improvement',
+        caption: 'Product page, registration flow, booking flow'
+      }
+    ],
+    results: [
+      {
+        value: '+43.9%',
+        caption: 'Conversion to booked and requested calls'
+      },
+      {
+        value: '+47.7%',
+        caption: 'Conversion to Webinars view from Thank You page'
+      }
+    ]
+  },
+  {
+    logo: 'swingu.png',
+    label: 'App',
+    description:
+      'is a top golf app offering real-time scoring, advanced statistics, and personalized coaching, trusted by over 5 million golfers globally',
+    mark: 'Swing U',
+    metrics: [
+      {
+        label: 'Our goal',
+        caption: 'Increase conversion to paid subscribers'
+      },
+      {
+        label: 'Areas of improvement',
+        caption: 'Purchase funnel, paywall screen'
+      }
+    ],
+    results: [
+      {
+        value: '+46.9%',
+        caption: 'Conversion rate subscription on upgrade screen'
+      },
+      {
+        value: '+49.41%',
+        caption: 'Average revenue per user'
+      }
+    ]
+  },
+  {
+    logo: 'natPat.png',
+    label: 'eComm',
+    description:
+      'is a health and wellness company acclaimed for its award-winning natural solutions and trusted by families worldwide',
+    mark: 'Natural Patch',
+    metrics: [
+      {
+        label: 'Our goal',
+        caption: 'ECR uplift across all products'
+      },
+      {
+        label: 'Areas of improvement',
+        caption: 'Homepage, product page, checkout'
+      }
+    ],
+    results: [
+      {
+        value: '+26.4%',
+        caption: 'Conversion rate to purchase'
+      },
+      {
+        value: '+17%',
+        caption: 'Average revenue per user'
+      }
+    ]
+  },
+  {
+    logo: 'depositphotos.svg',
+    label: 'Marketplace',
+    description:
+      'is a premier stock photo agency, offering over 200 million high-quality images, vectors, and videos to creatives and businesses worldwide',
+    mark: 'Depositphotos',
+    metrics: [
+      {
+        label: 'Our goal',
+        caption: 'Increase conversion to sign-up'
+      },
+      {
+        label: 'Areas of improvement',
+        caption: 'Registration flow'
+      }
+    ],
+    results: [
+      {
+        value: '9.3%',
+        caption: 'Conversion to sign-up'
+      }
+    ]
+  },
+  {
+    logo: 'carId.png',
+    label: 'eComm',
+    description:
+      'is a leading automotive parts retailer, offering a vast selection of aftermarket parts, accessories, and customizations for vehicles of all types',
+    mark: 'Car ID',
+    metrics: [
+      {
+        label: 'Our goal',
+        caption: 'ECR uplift across all product'
+      },
+      {
+        label: 'Areas of improvement',
+        caption: 'Homepage, product details page'
+      }
+    ],
+    results: [
+      {
+        value: '+4%',
+        caption: 'E-commerce conversion rate'
+      },
+      {
+        value: '+5%',
+        caption: 'Average revenue per user'
+      }
+    ]
+  },
+  {
+    logo: 'moneyGeek.png',
+    label: 'Leadgen',
+    description:
+      'is a top-rated personal finance website providing expert advice and resources to help individuals make smart financial decisions',
+    mark: 'MoneyGeek',
+    metrics: [
+      {
+        label: 'Our goal',
+        caption: 'Increase conversion to partner products'
+      },
+      {
+        label: 'Areas of improvement',
+        caption: 'Insurance content pages'
+      }
+    ],
+    results: [
+      {
+        value: '+41.0%',
+        caption: 'Conversion to leads'
+      },
+      {
+        value: '+24.3% ',
+        caption: 'Average revenue per user'
+      }
+    ]
+  }
+]

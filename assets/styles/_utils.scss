@@ -1,0 +1,152 @@
+.fw-bold {
+  font-weight: 700;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.text {
+  &-center {
+    text-align: center;
+  }
+  &-right {
+    text-align: right;
+  }
+}
+
+.flex {
+  display: flex;
+  &-center {
+    @extend .flex;
+    @extend .align-center;
+    @extend .justify-center;
+  }
+  &-between {
+    @extend .flex;
+    @extend .align-center;
+    @extend .justify-between;
+  }
+}
+
+.align {
+  &-start {
+    align-items: start;
+  }
+  &-center {
+    align-items: center;
+  }
+  &-end {
+    align-items: end;
+  }
+}
+
+.justify {
+  &-center {
+    justify-content: center;
+  }
+  &-between {
+    justify-content: space-between;
+  }
+  &-end {
+    justify-content: end;
+  }
+}
+
+.color {
+  &-purple {
+    color: $purple;
+  }
+  &-yellow {
+    color: $yellow;
+  }
+  &-primary {
+    color: $font-primary;
+  }
+  &-secondary {
+    color: $font-secondary;
+  }
+  &-white {
+    color: #fff;
+  }
+}
+
+.bg {
+  &-purple {
+    background-color: $purple;
+    &_light {
+      background-color: $bg--purple-light;
+    }
+    &_dark {
+      background-color: $bg--purple-dark;
+      color: #fff;
+    }
+  }
+  &-white {
+    background-color: #fff;
+  }
+}
+
+.bg {
+  &--purple {
+    background-color: $purple;
+    &-light {
+      background-color: $bg--purple-light;
+    }
+    &-dark {
+      background-color: $bg--purple-dark;
+      color: #fff;
+    }
+  }
+  &--white {
+    background-color: #fff;
+  }
+  &--gradient {
+    background: $gradient-dark;
+    color: #fff;
+    &-light {
+      background: $gradient-light;
+      &_smooth {
+        background: $gradient-light-smooth;
+      }
+    }
+  }
+}
+
+.border {
+  border: 1px solid $border;
+}
+
+.lh {
+  &-15 {
+    line-height: 1.5;
+  }
+  &-0 {
+    line-height: 0;
+  }
+  &-1 {
+    line-height: 1;
+  }
+}
+
+.transition {
+  transition: 0.3s;
+}
+
+.border-decor {
+  background-image: linear-gradient(
+    to right,
+    #c4c2de 20%,
+    rgba(196, 194, 222, 0) 0%
+  );
+  background-size: 6px 1px;
+  background-repeat: repeat-x;
+  &_bottom {
+    @extend .border-decor;
+    background-position: bottom;
+  }
+  &_top {
+    @extend .border-decor;
+    background-position: top;
+  }
+}
