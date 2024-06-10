@@ -51,7 +51,6 @@ const isAgree = ref(true);
 const isSubmitted = ref(false);
 
 function goToNextStep() {
-  console.log('fire')
   error.name = validateInput(form.name, 'name');
   error.url = validateInput(form.url, 'url');
   error.email = validateInput(form.email, 'email');
@@ -93,7 +92,6 @@ function goToNextStep() {
       class="modal__inner"
     >
       <div class="info bg-purple_dark">
-        {{ form }} {{ error }}
         <div class="info__head flex-between">
           <img
             class="info__logo"
