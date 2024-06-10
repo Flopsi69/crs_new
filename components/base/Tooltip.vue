@@ -2,7 +2,7 @@
 
 <template>
   <div class="tooltip">
-    <!-- <TooltipProvider>
+    <TooltipProvider>
       <TooltipRoot :delay-duration="0">
         <TooltipTrigger class="tooltip__trigger button">
           <Icon
@@ -27,7 +27,7 @@
           />
         </TooltipContent>
       </TooltipRoot>
-    </TooltipProvider> -->
+    </TooltipProvider>
   </div>
 </template>
 

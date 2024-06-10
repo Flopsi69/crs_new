@@ -51,31 +51,37 @@ const isAgree = ref(true);
 const isSubmitted = ref(false);
 
 function goToNextStep() {
+  console.log('fire')
   error.name = validateInput(form.name, 'name');
   error.url = validateInput(form.url, 'url');
   error.email = validateInput(form.email, 'email');
 
-  if (step.value === 1 && !error.name && !error.url && !error.email) {
+  if (step.value === 1) {
+    if (error.name || error.url || error.email) return
+
     step.value = 2;
     return;
   }
 
-  if (step.value === 2 && !isAgree.value) {
+
+  if (step.value === 2) {
+    if (!isAgree.value) {
       error.agree = true;
       alert('Please agree to the terms');
       return;
+    }
+
+    const gtm = useGtm()
+
+    gtm?.trackEvent({
+      event: 'gtm_hubspot',
+      data: toRaw(form)
+    })
+
+    window.open('https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=' + form.name + '&email=' + form.email, '_blank');
+
+    isSubmitted.value = true;
   }
-
-  const gtm = useGtm()
-
-  gtm?.trackEvent({
-    event: 'gtm_hubspot',
-    data: toRaw(form)
-  })
-
-  window.open('https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=' + form.name + '&email=' + form.email, '_blank');
-
-  isSubmitted.value = true;
 }
 </script>
 
@@ -87,6 +93,7 @@ function goToNextStep() {
       class="modal__inner"
     >
       <div class="info bg-purple_dark">
+        {{ form }} {{ error }}
         <div class="info__head flex-between">
           <img
             class="info__logo"
