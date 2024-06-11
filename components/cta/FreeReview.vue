@@ -4,7 +4,7 @@ const { openModal } = useModal();
 const url = ref('');
 const error = ref();
 const info = {
-  title: 'Estimate the Potential Uplift of Your Key Revenue Metric',
+  title: 'Book a call to discover the top CRO/UXO opportunities for your business and receive an estimate of the expected uplift in your revenue metrics',
   subtitle: 'On the call, you will receive:',
   list: [
     'A projected ROI from a CRO/UXO project for your site/product',

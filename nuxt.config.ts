@@ -24,7 +24,7 @@ export default defineNuxtConfig({
   // '@vee-validate/nuxt',
 
   gtm: {
-    id: 'GTM-TLSMF6T',
+    id: 'GTM-MR6SLVZ6',
     defer: true,
     compatibility: true,
     debug: false,

@@ -129,7 +129,6 @@ onMounted(() => {
 .solution {
   overflow: initial;
   padding: 60px;
-  margin-top: 30px;
   @media(max-width: $sm) {
     padding: 32px 20px;
   }

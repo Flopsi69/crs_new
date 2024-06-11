@@ -11,7 +11,8 @@ const info = {
   ],
   formTitle: 'Schedule Your Quote Discussion',
   cta: 'Get a quote for CRO project',
-  note: 'If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift'
+  note: 'If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift',
+  isGoal: true
 }
 </script>
 

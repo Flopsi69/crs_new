@@ -20,7 +20,8 @@ const props = defineProps({
       list: [],
       formTitle: 'Schedule Your Results Discussion',
       cta: 'Submit',
-      note: 'If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift'
+      note: 'If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift',
+      isGoal: false
     }
   },
 });
@@ -36,7 +37,8 @@ const form = reactive({
   url: props.url || '',
   email: props.email || '',
   monthly_revenue: '',
-  monthly_visitors: ''
+  monthly_visitors: '',
+  project_goal: ''
 });
 
 const error = reactive({
@@ -171,7 +173,11 @@ function goToNextStep() {
           ></Icon>
         </button>
 
-        <h3 class="form__title subtitle-1">{{ info?.formTitle || '-' }}</h3>
+        <h2 class="form__title subtitle-1">
+          {{ info.title }}
+        </h2>
+
+        <h3 class="form__subtitle subtitle-1">{{ info?.formTitle || '-' }}</h3>
 
         <div
           class="form"
@@ -221,6 +227,7 @@ function goToNextStep() {
             class="form__step"
           >
             <BaseInput
+              v-if="!info.isGoal"
               v-model="form.monthly_revenue"
               small
               label="Monthly Revenue"
@@ -236,6 +243,15 @@ function goToNextStep() {
               placeholder="Number of Monthly Visitors"
               icon="fa6-solid:people-group"
               :items="['less than 50,000', '50,000 - 200,000', '200,000 - 1 million', 'more than 1 million', 'I prefer not to say']"
+            />
+
+            <BaseInput
+              v-if="info.isGoal"
+              v-model="form.project_goal"
+              small
+              label="CRO project goal"
+              placeholder="CRO project goal"
+              icon="octicon:goal-16"
             />
 
             <div
@@ -458,6 +474,7 @@ function goToNextStep() {
     }
     @media(max-width: $sm) {
       padding: 80px 20px 24px;
+      gap: 16px;
     }
   }
 
@@ -476,18 +493,36 @@ function goToNextStep() {
       left: 10px;
       top: 18px;
     }
+    & + .form__logo {
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   &__logo {
     display: none;
     position: absolute;
     top: 24px;
-    left: 0;
+    left: 20px;
     right: 0;
-    margin: auto;
     filter: invert(100%) sepia(7%) saturate(29%) hue-rotate(253deg) brightness(101%) contrast(106%);
+    transition: .3s;
     @media(max-width: $md) {
       display: block;
+    }
+  }
+
+  &__title {
+    display: none;
+    line-height: 32px;
+    @media(max-width: $md) {
+      display: block;
+    }
+  }
+
+  &__subtitle {
+    @media(max-width: $sm) {
+      font-size: 18px;
     }
   }
 

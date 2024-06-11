@@ -2,7 +2,7 @@
 const { openModal } = useModal();
 
 const info = {
-  title: 'Book a call to discover the top CRO/UXO opportunities for your business and receive an estimate of the expected uplift in your revenue metrics',
+  title: 'Estimate Your ROI from a CRO/UXO Project for Your Business',
   subtitle: 'On the call, you will receive:',
   list: [
     'A projected ROI from a CRO/UXO project for your site/product',
