@@ -57,9 +57,11 @@ function handleOpenModal() {
               icon="fa6-solid:link"
               :error="error"
               @click="error = ''"
+              id="hero_url"
             />
 
             <button
+              data-related="hero_url"
               @click="handleOpenModal"
               class="button button_yellow form__button"
             >

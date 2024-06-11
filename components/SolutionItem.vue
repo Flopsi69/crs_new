@@ -15,7 +15,7 @@ defineProps({
       class="item__open link"
       @click="$emit('setActiveSolution', item)"
     >
-      <span>View Solutios</span>
+      <span>View Solutions</span>
       <Icon
         name="line-md:chevron-small-right"
         size="24"
@@ -46,6 +46,8 @@ defineProps({
 
   &__open {
     padding: 9px 40px;
+    white-space: nowrap;
+    flex-shrink: 0;
     @media(max-width: $sm) {
       padding: 0;
     }

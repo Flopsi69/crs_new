@@ -33,6 +33,7 @@ const info = {
       </h2>
 
       <button
+        id="guaranted_cta"
         class="button button_yellow"
         @click="openModal({ info })"
       >

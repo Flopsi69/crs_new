@@ -145,7 +145,7 @@ export default [
         ]
       },
       {
-        case: 'somnifix1',
+        case: 'somnifix2',
         problem: 'Low AOV because user predominately buy cheaper products',
         causes: [
           'Lack of clarity on the benefits of more expensive products ',
@@ -217,7 +217,7 @@ export default [
         ]
       },
       {
-        case: 'somnifix2',
+        case: 'somnifix1',
         problem: 'High bounce rate',
         causes: [
           'Lack of ad scent - consistent ad-to-site experience in terms of design language, messaging and product offering ',

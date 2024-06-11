@@ -186,7 +186,8 @@ function goToNextStep() {
           <div
             v-if="step == 1"
             key="firstStep"
-            class="form__step"
+            class="form__step form__step--first"
+            data-step="1"
           >
             <BaseInput
               v-model="form.name"
@@ -197,6 +198,7 @@ function goToNextStep() {
               icon="fa6-solid:user"
               :error="error.name"
               @click="error.name = ''"
+              id="modal_name"
             />
 
             <BaseInput
@@ -208,6 +210,7 @@ function goToNextStep() {
               icon="fa6-solid:link"
               :error="error.url"
               @click="error.url = ''"
+              id="modal_url"
             />
 
             <BaseInput
@@ -219,12 +222,14 @@ function goToNextStep() {
               icon="fa6-solid:envelope"
               :error="error.email"
               @click="error.email = ''"
+              id="modal_email"
             />
           </div>
           <div
             v-else
             key="secondStep"
-            class="form__step"
+            class="form__step form__step--second"
+            data-step="2"
           >
             <BaseInput
               v-if="!info.isGoal"
@@ -234,6 +239,7 @@ function goToNextStep() {
               placeholder="Monthly Revenue"
               icon="fa6-solid:coins"
               :items="['less than $250,000', '$250,000 - $1 million', '$1 million - $10 million', 'more than $10 million', 'I prefer not to say']"
+              id="monthly_revenue"
             />
 
             <BaseInput
@@ -243,6 +249,7 @@ function goToNextStep() {
               placeholder="Number of Monthly Visitors"
               icon="fa6-solid:people-group"
               :items="['less than 50,000', '50,000 - 200,000', '200,000 - 1 million', 'more than 1 million', 'I prefer not to say']"
+              id="monthly_visitors"
             />
 
             <BaseInput
@@ -252,6 +259,7 @@ function goToNextStep() {
               label="CRO project goal"
               placeholder="CRO project goal"
               icon="octicon:goal-16"
+              id="project_goal"
             />
 
             <div
@@ -284,6 +292,7 @@ function goToNextStep() {
         <button
           :disabled="!form.name || !form.url || !form.email"
           class="form__submit button button_yellow subtitle-3"
+          :data-step="step"
           @click="goToNextStep"
         >
           {{ step === 1 ?  'Next step &nbsp; 1/2' : info?.cta }}

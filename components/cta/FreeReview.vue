@@ -46,11 +46,14 @@ function handleOpenModal() {
           icon="fa6-solid:link"
           :error="error"
           @click="error = ''"
+          id="free_review_url"
         />
 
         <button
+          data-related="free_review_url"
           class="button button_yellow form__button"
           @click="handleOpenModal"
+          id="free_review_cta"
         >
           Get my free review
         </button>

@@ -30,6 +30,10 @@ const props = defineProps({
     type: String,
     default: null,
   },
+  id: {
+    type: String,
+    default: null,
+  },
 })
 
 const isOpen = ref(false);
@@ -59,6 +63,7 @@ onClickOutside(target, () => {
     ref="target"
     class="input__group"
     :class="{ group_required: required, group_icon: icon, group_error: error, group_small: small, group_dropdown: items?.length, active: isOpen}"
+    :id="id + '_wrap'"
   >
     <span
       v-if="label"
@@ -90,6 +95,7 @@ onClickOutside(target, () => {
       </template>
       <input
         v-model="model"
+        :id="id"
         type="text"
         class="input"
         :placeholder="placeholder"

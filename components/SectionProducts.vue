@@ -123,6 +123,7 @@ const infoEstimate = {
           <div class="row">
             <div class="col subtitle-2 fw-700"></div>
             <div
+              id="products_1-cta"
               class="col subtitle-3 link"
               @click="openModal({ info: infoBook })"
             >
@@ -133,6 +134,7 @@ const infoEstimate = {
               />
             </div>
             <div
+              id="products_2-cta"
               class="col subtitle-3 link"
               @click="openModal({ info: infoBook })"
             >
@@ -143,6 +145,7 @@ const infoEstimate = {
               />
             </div>
             <div
+              id="products_3-cta"
               class="col subtitle-3 link"
               @click="openModal({ info: infoBook })"
             >
@@ -160,6 +163,7 @@ const infoEstimate = {
     <!-- TODO button event -->
     <div class="control flex-center">
       <button
+        id="products_main-cta"
         class="control__button button button_yellow"
         @click="openModal({info: infoEstimate})"
       >

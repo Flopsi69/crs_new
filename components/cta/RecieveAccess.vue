@@ -40,9 +40,12 @@ const info = {
           required
           placeholder="Business email"
           icon="fa6-solid:envelope"
+          id="recieve_access_url"
         />
 
         <button
+          data-related="recieve_access_url"
+          id="recieve_access_cta"
           disabled
           class="form__button button button_yellow"
         >

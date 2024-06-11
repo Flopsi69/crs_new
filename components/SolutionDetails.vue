@@ -15,13 +15,20 @@ const props = defineProps({
 const relatedCase = ref();
 
 watch(() => props.item, (item) => {
-  console.log('fire')
-  relatedCase.value = cases.find((c) => c.id === item.case);
+  getRelatedCase();
 });
 
 onMounted(() => {
-  relatedCase.value = cases.find((c) => c.id === props.item.case);
+  getRelatedCase();
 });
+
+function getRelatedCase() {
+  relatedCase.value = cases.find((c) => c.id === props.item.case);
+
+  if (relatedCase.value?.result?.url2) {
+    relatedCase.value.result.url = relatedCase.value.result.url2;
+  }
+}
 </script>
 
 <template>
@@ -94,11 +101,27 @@ onMounted(() => {
           </div>
         </div>
 
+        <div
+          class="solution__case-wrap"
+          data-view="mob"
+          v-if="relatedCase"
+        >
+          <h3 class="subtitle-1 solution__case-title">
+            View our relevant case study
+          </h3>
+
+          <CaseItem
+            class="solution__case"
+            :caseStudy="relatedCase"
+          />
+        </div>
+
         <CtaFreeReview class="solution__cta" />
       </div>
 
       <div
         class="solution__case-wrap"
+        data-view="desk"
         v-if="relatedCase"
       >
         <h3 class="subtitle-1 solution__case-title">
@@ -224,21 +247,38 @@ onMounted(() => {
 
   &__case {
     margin-top: 24px;
-    @media(max-width: $sm) {
-      margin-top: 0;
+    @media(max-width: $md) {
+      margin-top: 16px;
     }
     &-wrap {
       position: sticky;
       top: 10px;
       max-width: 390px;
       width: 100%;
+      @media(max-width: $md) {
+        position: static;
+        margin-top: 24px;
+      }
       @media(max-width: $sm) {
         max-width: 100%;
+      }
+
+      &[data-view="mob"] {
+        display: none;
+        @media(max-width: $md) {
+          display: block;;
+        }
+      }
+
+      &[data-view="desk"] {
+        @media(max-width: $md) {
+          display: none;;
+        }
       }
     }
     &-title {
       @media(max-width: $sm) {
-        display: none;
+        font-size: 20px;
       }
     }
   }

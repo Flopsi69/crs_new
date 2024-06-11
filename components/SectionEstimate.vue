@@ -170,6 +170,7 @@ function validateInput(field: keyof typeof form, event: any) {
             required
             placeholder="Number of monthly users"
             @input="validateInput('users', $event)"
+            id="calc_users"
           />
 
           <BaseInput
@@ -177,6 +178,7 @@ function validateInput(field: keyof typeof form, event: any) {
             label="What percentage of visitors make a purchase or convert?"
             required
             placeholder="Conversion Rate (CR),%:"
+            id="calc_conversion_rate"
           />
 
           <BaseInput
@@ -184,6 +186,7 @@ function validateInput(field: keyof typeof form, event: any) {
             label="What is the average spend per transaction?"
             required
             placeholder="Average order value (AoV), $"
+            id="calc_aov"
           />
 
           <BaseInput
@@ -191,6 +194,7 @@ function validateInput(field: keyof typeof form, event: any) {
             label="What is your current profit margin?"
             required
             placeholder="Profit margin, %"
+            id="calc_profit_margin"
           />
         </div>
 

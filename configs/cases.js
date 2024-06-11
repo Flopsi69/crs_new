@@ -71,7 +71,8 @@ export default [
     result: {
       value: 28.3,
       caption: 'ARPU UPLIFT',
-      url: 'https://conversionrate.store/shopify-personalized-landing-pages-uplift-arpu/'
+      url: 'https://conversionrate.store/shopify-personalized-landing-pages-uplift-arpu/',
+      url2: 'https://conversionrate.store/subscribe-and-save-arpu-boost-ecommerce/'
     }
   },
   {

@@ -79,12 +79,14 @@ const infoCalcHelp = {
       ></h3>
       <div class="cta__actions flex-center">
         <button
+          :id="type + '_1-cta'"
           @click="openModal({ info: type === 'benchmark' ? infoBenchmarkBook : infoCalcBook })"
           class="button cta__button button_yellow"
         >
           {{ bookTitle }}
         </button>
         <button
+          :id="type + '_2-cta'"
           @click="openModal({ info: type === 'benchmark' ? infoBenchmarkHelp : infoCalcHelp})"
           class="button cta__button button_trans-yellow"
         >

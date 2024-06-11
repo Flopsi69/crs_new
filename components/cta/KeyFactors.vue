@@ -43,6 +43,7 @@ const info = {
       </div>
 
       <button
+        id="key_factors_cta"
         class="button button_yellow"
         @click="openModal({info})"
       >
