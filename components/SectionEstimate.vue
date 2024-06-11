@@ -15,7 +15,7 @@ const info = {
 }
 
 const activeTab = ref<'cvr' | 'arpu'>('cvr');
-const isShowDetails = ref(false);
+const isShowDetails = ref(true);
 
 const form = reactive<any>({
   conversionRate: 3,
@@ -49,7 +49,8 @@ const config = reactive({
   },
 });
 
-const expected = ref(0.05); // procent
+
+const expected = ref(5); // procent
 const totalLifetimeCost = 20000;
 const arpu = 3;
 
@@ -60,13 +61,14 @@ const calculaton = computed(() => {
 
   const conversionRate = form.conversionRate / 100;
   const profitMargin = form.profitMargin / 100;
+  const expectedProcent = expected.value / 100;
 
-  const cvr1 = conversionRate * (1 + (1 * expected.value));
+  const cvr1 = conversionRate * (1 + (1 * expectedProcent));
   const cvr2 = +((((cvr1-conversionRate)*form.users)*(form.averageOrderValue*profitMargin))).toFixed(2);
   const cvr3 = totalLifetimeCost / cvr2;
   const cvr4 = cvr2 * 12 - totalLifetimeCost;
 
-  const arpu1 = arpu * (expected.value + 1) - arpu;
+  const arpu1 = arpu * (expectedProcent + 1) - arpu;
   const arpu2 = arpu1 * form.users * profitMargin;
   const arpu3 = totalLifetimeCost / arpu2;
   const arpu4 = arpu2 * 12 - totalLifetimeCost;
@@ -77,6 +79,13 @@ const calculaton = computed(() => {
   }
 })
 
+const sliderInput = ref()
+const sliderLabel = ref()
+
+
+onMounted(() => {
+  recalculateLabel()
+});
 
 const scrollToElement = useSmoothScroll()
 
@@ -92,6 +101,24 @@ watch(isShowDetails, async (value) => {
   })
 });
 
+function recalculateLabel() {
+  const max = +sliderInput.value.max;
+  const min = +sliderInput.value.min;
+
+  const range_width = getComputedStyle(sliderInput.value).getPropertyValue('width');
+  const label_width = getComputedStyle(sliderLabel.value).getPropertyValue('width');
+
+  const num_width = +range_width.substring(0, range_width.length - 2);
+  const num_label_width = +label_width.substring(0, label_width.length - 2);
+
+  const left = expected.value * (num_width / max) - num_label_width / 2 + scale(expected.value, min, max, 10, -10);
+
+  sliderLabel.value.style.left = `${left}px`;
+}
+
+function scale(num: number, in_min: number, in_max: number, out_min: number, out_max: number): number {
+  return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
 
 function calculate() {
   isShowDetails.value = true;
@@ -111,8 +138,8 @@ function validateInput(field: keyof typeof form, event: any) {
       mob-full
       class="estimate__head"
     >
-      {{ form }} <br /><br />
-      {{ calculaton }}
+      <!-- {{ form }} <br /><br />
+      {{ calculaton }} -->
       <h3 class="estimate__head-caption section-caption subtitle-2">
         Use our calculator to see how CRO improvements can impact your bottom
         line
@@ -138,18 +165,18 @@ function validateInput(field: keyof typeof form, event: any) {
 
         <div class="form">
           <BaseInput
-            v-model="form.conversionRate"
-            label="What percentage of visitors make a purchase or convert?"
-            required
-            placeholder="Conversion Rate (CR),%:"
-          />
-
-          <BaseInput
             v-model="form.users"
             label="How many users visit your site each month?"
             required
             placeholder="Number of monthly users"
             @input="validateInput('users', $event)"
+          />
+
+          <BaseInput
+            v-model="form.conversionRate"
+            label="What percentage of visitors make a purchase or convert?"
+            required
+            placeholder="Conversion Rate (CR),%:"
           />
 
           <BaseInput
@@ -217,14 +244,16 @@ function validateInput(field: keyof typeof form, event: any) {
             :class="{active: activeTab === 'cvr'}"
             @click="activeTab = 'cvr'"
           >
-            Conversion Rate
+            <span class="toggler__item-desk">Conversion Rate</span>
+            <span class="toggler__item-mob">CVR</span>
           </div>
           <div
             class="toggler__item"
             :class="{ active: activeTab === 'arpu'}"
             @click="activeTab = 'arpu'"
           >
-            Average Revenue Per User
+            <span class="toggler__item-desk">Average Revenue Per User</span>
+            <span class="toggler__item-mob">ARPU</span>
           </div>
         </div>
 
@@ -234,10 +263,28 @@ function validateInput(field: keyof typeof form, event: any) {
         >
           <div
             :key="activeTab"
-            class="calculation__slider"
+            class="slider"
           >
             <div class="slider__caption">
               {{ config[activeTab].slideCaption }}
+            </div>
+
+            <div class="slider__wrap">
+              <input
+                v-model="expected"
+                class="slider__input"
+                type="range"
+                ref="sliderInput"
+                max="300"
+                min="5"
+                @input="recalculateLabel"
+              />
+              <label
+                ref="sliderLabel"
+                class="slider__label"
+                for="range"
+                >{{ expected }}</label
+              >
             </div>
 
             <!-- <SliderRoot
@@ -264,6 +311,7 @@ function validateInput(field: keyof typeof form, event: any) {
               background="white"
               solid-border
               class="metric"
+              v-if="calculaton"
             >
               <h5 class="metric__title subtitle-1">
                 {{ config[activeTab].colLeft.title }}
@@ -273,14 +321,23 @@ function validateInput(field: keyof typeof form, event: any) {
                 <div class="metric__caption">
                   {{ config[activeTab].colLeft.captions[0] }}
                 </div>
-                <div class="metric__value">3.5%</div>
+                <div class="metric__value">
+                  <template v-if="activeTab === 'cvr'">
+                    {{ +(calculaton[activeTab][0] * 100).toFixed(2) }}%
+                  </template>
+                  <template v-else>
+                    ${{ +(calculaton[activeTab][0]).toFixed(2) }}
+                  </template>
+                </div>
               </div>
 
               <div class="metric__block border-decor_top">
                 <div class="metric__caption">
                   {{ config[activeTab].colLeft.captions[1] }}
                 </div>
-                <div class="metric__value">$3700</div>
+                <div class="metric__value">
+                  ${{ +(calculaton[activeTab][1]).toFixed(0) }}
+                </div>
               </div>
             </BasePlate>
 
@@ -288,6 +345,7 @@ function validateInput(field: keyof typeof form, event: any) {
               background="white"
               solid-border
               class="metric"
+              v-if="calculaton"
             >
               <h3 class="metric__title">
                 {{ config[activeTab].colRight.title }}
@@ -297,14 +355,18 @@ function validateInput(field: keyof typeof form, event: any) {
                 <div class="metric__caption">
                   {{ config[activeTab].colRight.captions[1] }}
                 </div>
-                <div class="metric__value">5.3</div>
+                <div class="metric__value">
+                  {{ +(calculaton[activeTab][2]).toFixed(1) }}
+                </div>
               </div>
 
               <div class="metric__block border-decor_top">
                 <div class="metric__caption">
                   {{ config[activeTab].colRight.captions[1] }}
                 </div>
-                <div class="metric__value">$25 000</div>
+                <div class="metric__value">
+                  ${{ +(calculaton[activeTab][3]).toFixed(0) }}
+                </div>
               </div>
             </BasePlate>
           </div>
@@ -350,6 +412,11 @@ function validateInput(field: keyof typeof form, event: any) {
   &__title {
     padding-bottom: 16px;
     margin-bottom: 24px;
+    @media(max-width: $sm) {
+      background: none;
+      margin-bottom: 20px;
+      padding: 0;
+    }
   }
 }
 
@@ -357,10 +424,18 @@ function validateInput(field: keyof typeof form, event: any) {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
+  @media(max-width: $md) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 
   &__control {
     margin-top: 40px;
     gap: 40px;
+    @media(max-width: $sm) {
+      display: block;
+      margin-top: 20px;
+    }
   }
 
   &__btn {
@@ -368,16 +443,25 @@ function validateInput(field: keyof typeof form, event: any) {
     padding-right: 15px;
     max-width: 230px;
     width: 100%;
+    @media(max-width: $sm) {
+      max-width: 100%;
+    }
   }
 }
 
 .identify {
+  @media(max-width: $sm) {
+    margin-top: 20px;
+  }
   &__caption {
     font-size: 14px;
   }
 
   &__link {
     margin-top: 2px;
+    @media(max-width: $sm) {
+      font-size: 16px;
+    }
   }
 }
 
@@ -386,12 +470,24 @@ function validateInput(field: keyof typeof form, event: any) {
     margin-top: 24px;
     margin-bottom: 16px;
     padding-bottom: 16px;
+    @media(max-width: $sm) {
+      margin-top: 20px;
+      background: none;
+      padding-bottom: 0;
+    }
   }
   &__row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     margin-top: 40px;
+    @media(max-width: $md) {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    @media(max-width: $sm) {
+      margin-top: 20px;
+    }
   }
 }
 
@@ -405,6 +501,20 @@ function validateInput(field: keyof typeof form, event: any) {
     color: $font-secondary;
     cursor: pointer;
     transition: 0.3s;
+    &-mob {
+      display: none;
+    }
+    @media(max-width: $sm) {
+      paadding: 16px 36px;
+      font-size: 14px;
+      &-desk {
+        display: none;
+      }
+      &-mob {
+        display: inline;
+      }
+    }
+
     &:before {
       content: '';
       position: absolute;
@@ -437,25 +547,37 @@ function validateInput(field: keyof typeof form, event: any) {
 }
 
 .calculation {
-  &__slider {
-    margin-top: 40px;
-  }
   &__cta {
     margin-top: 40px;
+    @media(max-width: $sm) {
+      margin-top: 20px;
+    }
   }
 }
 
 .metric {
   padding: 30px 40px;
+  @media(max-width: $sm) {
+    padding: 30px 20px;
+  }
   &__title {
     font-size: 24px;
     line-height: 32px;
     margin-bottom: 24px;
+    @media(max-width: $sm) {
+      font-size: 20px;
+      margin-bottom: 20px;
+      line-height: normal;
+    }
   }
   &__block {
     & + & {
       margin-top: 16px;
       padding-top: 17px;
+      @media(max-width: $sm) {
+        margin-top: 12px;
+        padding-top: 12px;
+      }
     }
   }
   &__caption {
@@ -465,12 +587,95 @@ function validateInput(field: keyof typeof form, event: any) {
     font-size: 32px;
     color: $purple;
     margin-top: 8px;
+    height: 47px;
   }
 }
 
 .slider {
+  margin-top: 40px;
+  @media(max-width: $sm) {
+    margin-top: 20px;
+  }
+  &__wrap {
+    position: relative;
+  }
   &__caption {
     font-size: 14px;
+  }
+  &__input {
+    width: 300px;
+  	margin: 18px 0;
+  	-webkit-appearance: none;
+    appearance: none;
+    &:active {
+	    outline: none;
+    }
+    &::-webkit-slider-runnable-track {
+      transition: 0.2s;
+      background-color: purple;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      height: 7.5px;
+    }
+    &::-webkit-slider-thumb {
+      background: #ffffff;
+      border-radius: 50%;
+      border: 1px solid purple;
+      cursor: pointer;
+      height: 20px;
+      width: 20px;
+      margin-top: -7px;
+      -webkit-appearance: none;
+    }
+    &::-moz-range-track {
+      transition: 0.2s;
+      background-color: purple;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      height: 7.5px;
+    }
+    &::-moz-range-thumb {
+      background: #ffffff;
+      border-radius: 50%;
+      border: 1px solid purple;
+        cursor: pointer;
+      height: 20px;
+      width: 20px;
+    }
+    &::-ms-track {
+      transition: 0.2s;
+      background-color: purple;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      height: 7.5px;
+    }
+    &::-ms-thumb {
+      background: #ffffff;
+      border-radius: 50%;
+      border: 1px solid purple;
+        cursor: pointer;
+      height: 20px;
+      width: 20px;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    &:active::-webkit-slider-runnable-track {
+      opacity: 0.8;
+    }
+  }
+  &__label {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    padding: 5px 0;
+    position: absolute;
+    top: -25px;
+    left: 110px;
+    text-align: center;
+    width: 80px;
   }
 }
 </style>

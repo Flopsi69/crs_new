@@ -8,7 +8,7 @@ const props = defineProps({
 
 const { openModal } = useModal();
 
-const title = ref(props.type === 'benchmark' ? 'Are you below the benchmarks in any metric? We will help you analyse and improve conversions with our free product review' : 'Discover how we can drive these results for your business.<br />Book a call with a CRO strategist now');
+const title = ref(props.type === 'benchmark' ? 'Are you below the benchmarks in any metric? We will help you analyse and improve conversions with our free product review' : 'Discover how we can drive these results for your business.<br /> Book a call with a CRO strategist now');
 
 const bookTitle = ref(props.type === 'benchmark' ? 'Book a consultation' : 'Book a Call');
 const helpTitle = ref(props.type === 'benchmark' ? 'Get help in KPi calculation' : 'Get help in roi calculation');
@@ -101,6 +101,9 @@ const infoCalcHelp = {
   @media(max-width: $sm) {
     padding: 32px 20px;
     text-align: left;
+    &__title :deep(br) {
+      display: none;
+    }
   }
   &__inner {
     max-width: 824px;

@@ -9,13 +9,13 @@
 
     <div class="chart__image">
       <img
-        src="img/heroChart.svg"
+        src="img/heroChart.png"
         alt="Chart"
       />
     </div>
 
     <div class="chart__footer">
-      *Based on performance data from our CRO projects for clients
+      *Based on performance data from our CRO projects&nbsp;for&nbsp;clients
     </div>
   </div>
 </template>

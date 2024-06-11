@@ -20,7 +20,7 @@ defineProps({
 <style lang="scss" scoped>
 .pill {
   border-radius: 24px;
-  padding: 7px 16px 4px;
+  padding: 7px 16px 5px;
   min-height: 40px;
   cursor: pointer;
   transition: .3s;

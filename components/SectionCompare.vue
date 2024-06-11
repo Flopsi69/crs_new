@@ -74,12 +74,12 @@
             <div class="col text">
               Our prices are typically 20-30% lower than those of top US and UK
               based agencies, thanks to our cost-efficient remote team structure
-              in Europe.
+              in Europe
             </div>
 
             <div class="col text">
               Other leading CRO agencies in the US and Europe typically charge
-              30-40% more for their services without guaranteeing results.
+              30-40% more for their services without guaranteeing results
             </div>
 
             <div class="col text">
