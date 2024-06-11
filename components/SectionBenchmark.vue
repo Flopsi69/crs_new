@@ -56,10 +56,10 @@ watch(isShowDetails, async (value) => {
       mob-full
       class="benchmarks__head"
     >
-      <h3 class="head__caption section-caption subtitle-2">
+      <h3 class="benchmarks__head-caption section-caption subtitle-2">
         Instantly compare key e-commerce metrics with your peers
       </h3>
-      <h2 class="head__title title section-title title-2">
+      <h2 class="benchmarks__head-title title section-title title-2">
         Benchmark Your E-commerce Performance
       </h2>
     </BasePlate>
@@ -109,11 +109,12 @@ watch(isShowDetails, async (value) => {
         class="details benchmarks__body-plate"
       >
         <BasePill
-          class="subtitle-3"
+          class="details__back subtitle-3"
           back
           @click="isShowDetails = false"
-          >Back</BasePill
         >
+          Back
+        </BasePill>
 
         <h3 class="details__title subitlte-2 border-decor_bottom">
           {{ currentBenchmark.title }} funnel benchmarks
@@ -137,10 +138,7 @@ watch(isShowDetails, async (value) => {
           </div>
         </div>
 
-        <CtaHelp class="details__cta">
-          Are you below the benchmarks in any metric? We will help you analyse
-          and improve conversions with our free product review
-        </CtaHelp>
+        <CtaHelp class="details__cta" />
       </BasePlate>
     </div>
   </BaseSection>
@@ -153,7 +151,7 @@ watch(isShowDetails, async (value) => {
     @media(max-width: $sm) {
       padding: 20px;
     }
-    &__caption {
+    &-caption {
       @media(max-width: $sm) {
         font-size: 16px;
       }

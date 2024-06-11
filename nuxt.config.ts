@@ -7,7 +7,10 @@ export default defineNuxtConfig({
   app: {
     head: {
       charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0'
+      viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0',
+      link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
+      htmlAttrs: { lang: 'en' },
+      title: 'Conversion Rate Store'
     }
   },
 
@@ -25,6 +28,7 @@ export default defineNuxtConfig({
 
   gtm: {
     id: 'GTM-MR6SLVZ6',
+    source: 'https://yfduetmi.euw.stape.io/yfduetmi.js',
     defer: true,
     compatibility: true,
     debug: false,

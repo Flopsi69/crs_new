@@ -16,16 +16,15 @@ const otherProblems = computed(() => {
 })
 
 watch(activeSolution, (value) => {
-  setTimeout(() => {
-    // nextTick(() => {
-    if (value) {
-      scrollToElement('.solutions__details')
-    } else {
-      scrollToElement('.solutions__all .solutions__list', 'center')
-    }
-  // })
-  }, 300);
-
+  nextTick(() => {
+    setTimeout(() => {
+        if (value) {
+          scrollToElement('.solutions__details')
+        } else {
+          scrollToElement('.solutions__all .solutions__list', 'center')
+        }
+    }, 400);
+  })
 });
 </script>
 
