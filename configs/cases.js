@@ -131,7 +131,8 @@ export default [
     result: {
       value: 9,
       caption: 'ARPU UPLIFT',
-      url: 'https://conversionrate.store/shopify-cross-sell/'
+      url: 'https://conversionrate.store/shopify-cross-sell/',
+      url2: 'https://conversionrate.store/how-to-increase-conversion-rate-shopify/'
     }
   },
   {
