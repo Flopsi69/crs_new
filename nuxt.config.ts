@@ -19,12 +19,12 @@ export default defineNuxtConfig({
     'vue3-carousel-nuxt',
     '@vueuse/nuxt',
     '@formkit/auto-animate/nuxt',
-    'radix-vue',
     'nuxt-icon',
     'nuxt-aos',
     '@zadigetvoltaire/nuxt-gtm'
   ],
   // '@vee-validate/nuxt',
+  // 'radix-vue',
 
   gtm: {
     id: 'GTM-MR6SLVZ6',

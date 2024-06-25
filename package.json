@@ -8,7 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "eslint --ext .js,.vue,.ts,.tsx --ignore-path .gitignore ."
+    "lint": "eslint --ext .js,.vue,.ts,.tsx --ignore-path .gitignore .",
+    "start": "node .output/server/index.mjs"
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
@@ -16,6 +17,7 @@
     "@vee-validate/nuxt": "^4.13.1",
     "@vueuse/nuxt": "^10.10.0",
     "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
+    "googleapis": "^140.0.0",
     "nuxt": "^3.11.2",
     "nuxt-aos": "^1.2.4",
     "radix-vue": "^1.8.3",

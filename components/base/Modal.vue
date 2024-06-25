@@ -72,6 +72,8 @@ function goToNextStep() {
       return;
     }
 
+    saveToExcel();
+
     const gtm = useGtm()
 
     gtm?.trackEvent({
@@ -82,6 +84,19 @@ function goToNextStep() {
     window.open('https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=' + form.name + '&email=' + form.email, '_blank');
 
     isSubmitted.value = true;
+  }
+}
+
+async function saveToExcel() {
+  try {
+    const result = await $fetch('/api/saveToGoogleSheet', {
+      method: 'POST',
+      body: { ...form, title: props.info.title }
+    });
+
+    console.log('result', result)
+  } catch (error) {
+    console.error('Error saving data to Google Sheets:', error);
   }
 }
 </script>
