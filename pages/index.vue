@@ -42,8 +42,5 @@
   @media(max-width: $md) {
     gap: 60px;
   }
-  @media(max-width: $sm) {
-    gap: 42px;
-  }
 }
 </style>

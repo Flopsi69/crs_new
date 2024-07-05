@@ -37,8 +37,6 @@ export default defineEventHandler(async (event) => {
     title
   } = body
 
-  console.log(config.googleCredentials)
-
   const auth = new google.auth.GoogleAuth({
     credentials: config.googleCredentials,
     scopes: ['https://www.googleapis.com/auth/spreadsheets']

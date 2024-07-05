@@ -37,8 +37,8 @@ function handleOpenModal() {
         </h2>
 
         <h1 class="info__title title-1">
-          Grow your conversion and revenue metrics and pay only for the actual
-          uplift
+          We grow your revenue metrics. <br />
+          You pay only for the actual&nbsp;uplift.
         </h1>
 
         <HeroChart class="info__chart-mob" />
@@ -146,7 +146,7 @@ function handleOpenModal() {
   }
   &__title {
     margin-top: 24px;
-    max-width: 590px;
+    max-width: 600px;
     @media(max-width: $sm) {
       margin-top: 16px;
       font-size: 30px;

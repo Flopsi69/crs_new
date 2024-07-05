@@ -21,17 +21,10 @@
 
 <style lang="scss" scoped>
 .banner {
-  margin: 40px -17px 0;
+  margin-top: 40px;
   line-height: 0;
-  @media(max-width: 1250px) {
-    margin-left: -7px;
-    margin-right: -7px;
-  }
   @media(max-width: $sm) {
-    overflow: auto;
-    margin: 24px -20px 0;
-    padding-left: 20px;
-    padding-right: 20px;
+    margin-top: 24px;
   }
   &__desk {
     @media(max-width: $sm) {
@@ -40,9 +33,7 @@
   }
   &__mob {
     display: none;
-    width: 900px;
-    max-width: initial;
-    max-height: initial;
+    margin: 0 auto;
     @media(max-width: $sm) {
       display: block;
     }

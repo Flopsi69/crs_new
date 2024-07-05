@@ -58,7 +58,6 @@ onClickOutside(target, () => {
 
 <template>
   <!-- v-on-click-outside="toggleDropdown" -->
-
   <label
     ref="target"
     class="input__group"
@@ -68,7 +67,7 @@ onClickOutside(target, () => {
     <span
       v-if="label"
       class="input__label"
-      >{{ label }}</span
+      >{{ label }}&nbsp;</span
     >
 
     <div class="input__wrap">
@@ -98,6 +97,7 @@ onClickOutside(target, () => {
         :id="id"
         type="text"
         class="input"
+        v-bind="$attrs"
         :placeholder="placeholder"
         :readonly="!!items?.length"
         @click="toggleDropdown"

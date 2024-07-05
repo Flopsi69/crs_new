@@ -77,9 +77,9 @@ onMounted(() => {
     &_offset {
       position: relative;
       z-index: 1;
-      padding: 26px 0 16px;
+      padding: 85px 0 0;
       background: linear-gradient(0deg, #FFF 59%, rgba(255, 255, 255, 0.00) 100%);
-      margin: -45px -20px -32px;
+      margin: -70px -20px -32px;
     }
     text-align: center;
   }

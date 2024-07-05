@@ -342,12 +342,13 @@ async function saveToExcel() {
         <div class="success__title title-1">Thank You!</div>
 
         <div class="success__subtitle subtitle-1">
-          We’ve successfully received your&nbsp;information.
+          We have received your request and will be in touch shortly
         </div>
 
-        <div class="success__caption subtitle-3">
+        <!-- TODO remove; -->
+        <!-- <div class="success__caption subtitle-3">
           Our team will review your details and get back to you shortly
-        </div>
+        </div> -->
 
         <button
           class="success__button button button_yellow subtitle-3"

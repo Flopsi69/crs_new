@@ -276,11 +276,11 @@ function getRelatedCase() {
         }
       }
     }
-    &-title {
-      @media(max-width: $sm) {
-        font-size: 20px;
-      }
-    }
+    // &-title {
+    //   @media(max-width: $sm) {
+    //     font-size: 24px;
+    //   }
+    // }
   }
 
   &__cta {
