@@ -33,7 +33,7 @@ function handleOpenModal() {
     <div class="row flex-center">
       <div class="info">
         <h2 class="info__subtitle bg--purple subtitle-2">
-          Performance-based Conversion Rate Optimization agency
+          Performance-based Conversion&nbsp;Rate&nbsp;Optimization agency
         </h2>
 
         <h1 class="info__title title-1">

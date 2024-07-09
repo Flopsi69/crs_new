@@ -4,6 +4,10 @@ import { fileURLToPath } from 'url'
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
+  experimental: {
+    inlineSSRStyles: false
+  },
+
   app: {
     head: {
       charset: 'utf-8',

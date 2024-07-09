@@ -60,7 +60,7 @@ watch(isShowDetails, async (value) => {
         Instantly compare key e-commerce metrics with your peers
       </h3>
       <h2 class="benchmarks__head-title title section-title title-2">
-        Benchmark Your E-commerce Performance
+        Benchmark Your E&#8209;commerce Performance
       </h2>
     </BasePlate>
 

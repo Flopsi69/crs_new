@@ -15,7 +15,7 @@ const info = {
 }
 
 const activeTab = ref<'cvr' | 'arpu'>('cvr');
-const isShowDetails = ref(true);
+const isShowDetails = ref(false);
 
 const form = reactive<any>({
   conversionRate: 3,
@@ -23,6 +23,13 @@ const form = reactive<any>({
   averageOrderValue: 100,
   profitMargin: 25,
 });
+
+// const form = reactive<any>({
+//   conversionRate: '',
+//   users: '',
+//   averageOrderValue: '',
+//   profitMargin: '',
+// });
 
 const config = reactive({
   cvr: {
@@ -82,11 +89,15 @@ const calculaton = computed(() => {
 const sliderInput = ref()
 const sliderLabel = ref()
 
-
 onMounted(() => {
   recalculateLabel()
 });
 
+watch([activeTab, isShowDetails], () => {
+  nextTick(() => {
+    recalculateLabel();
+  })
+})
 const scrollToElement = useSmoothScroll()
 
 watch(isShowDetails, async (value) => {
@@ -102,6 +113,8 @@ watch(isShowDetails, async (value) => {
 });
 
 function recalculateLabel() {
+  if (!isShowDetails.value) return;
+
   const max = +sliderInput.value.max;
   const min = +sliderInput.value.min;
 
@@ -111,9 +124,10 @@ function recalculateLabel() {
   const num_width = +range_width.substring(0, range_width.length - 2);
   const num_label_width = +label_width.substring(0, label_width.length - 2);
 
-  const left = expected.value * (num_width / max) - num_label_width / 2 + scale(expected.value, min, max, 10, -10);
+  const left = expected.value * (num_width / max) - num_label_width / 2 + scale(expected.value, min, max, 5, -10);
 
   sliderLabel.value.style.left = `${left}px`;
+  // sliderProgress.value.style.width = `${left}px`;
 }
 
 function scale(num: number, in_min: number, in_max: number, out_min: number, out_max: number): number {
@@ -171,6 +185,7 @@ function validateInput(field: keyof typeof form, event: any) {
             placeholder="Number of monthly users"
             @input="validateInput('users', $event)"
             id="calc_users"
+            v-bind="{ type: 'number' }"
           />
 
           <BaseInput
@@ -178,7 +193,9 @@ function validateInput(field: keyof typeof form, event: any) {
             label="What percentage of visitors make a purchase or convert?"
             required
             placeholder="Conversion Rate (CR),%:"
+            @input="validateInput('conversionRate', $event)"
             id="calc_conversion_rate"
+            v-bind="{ type: 'number' }"
           />
 
           <BaseInput
@@ -186,7 +203,9 @@ function validateInput(field: keyof typeof form, event: any) {
             label="What is the average spend per transaction?"
             required
             placeholder="Average order value (AoV), $"
+            @input="validateInput('averageOrderValue', $event)"
             id="calc_aov"
+            v-bind="{ type: 'number' }"
           />
 
           <BaseInput
@@ -194,7 +213,9 @@ function validateInput(field: keyof typeof form, event: any) {
             label="What is your current profit margin?"
             required
             placeholder="Profit margin, %"
+            @input="validateInput('profitMargin', $event)"
             id="calc_profit_margin"
+            v-bind="{ type: 'number' }"
           />
         </div>
 
@@ -202,6 +223,7 @@ function validateInput(field: keyof typeof form, event: any) {
           <button
             class="form__btn button button_purple "
             @click.prevent="calculate"
+            :disabled="!form.users || !form.conversionRate || !form.averageOrderValue || !form.profitMargin"
           >
             Calculate
           </button>
@@ -279,8 +301,9 @@ function validateInput(field: keyof typeof form, event: any) {
                 class="slider__input"
                 type="range"
                 ref="sliderInput"
-                max="300"
+                max="200"
                 min="5"
+                step="5"
                 @input="recalculateLabel"
               />
               <label
@@ -387,6 +410,7 @@ function validateInput(field: keyof typeof form, event: any) {
 
 <style lang="scss" scoped>
 .estimate {
+  overflow: hidden;
   &__head {
     padding: 40px 60px;
     @media(max-width: $sm) {
@@ -484,13 +508,13 @@ function validateInput(field: keyof typeof form, event: any) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    margin-top: 40px;
+    margin-top: 65px;
     @media(max-width: $md) {
       grid-template-columns: 1fr;
       gap: 20px;
     }
     @media(max-width: $sm) {
-      margin-top: 20px;
+      margin-top: 46px;
     }
   }
 }
@@ -602,84 +626,89 @@ function validateInput(field: keyof typeof form, event: any) {
   }
   &__wrap {
     position: relative;
+    line-height: 0;
   }
   &__caption {
     font-size: 14px;
+  	margin-bottom: 24px;
   }
   &__input {
-    width: 300px;
-  	margin: 18px 0;
+    max-width: 520px;
+    width: 100%;
+    border-radius: 50%;
   	-webkit-appearance: none;
     appearance: none;
     &:active {
 	    outline: none;
     }
-    &::-webkit-slider-runnable-track {
-      transition: 0.2s;
-      background-color: purple;
-      border-radius: 4px;
-      cursor: pointer;
-      width: 100%;
-      height: 7.5px;
-    }
     &::-webkit-slider-thumb {
       background: #ffffff;
       border-radius: 50%;
-      border: 1px solid purple;
+      border: 2px solid $purple;
       cursor: pointer;
       height: 20px;
       width: 20px;
       margin-top: -7px;
       -webkit-appearance: none;
     }
-    &::-moz-range-track {
-      transition: 0.2s;
-      background-color: purple;
-      border-radius: 4px;
-      cursor: pointer;
-      width: 100%;
-      height: 7.5px;
-    }
     &::-moz-range-thumb {
       background: #ffffff;
       border-radius: 50%;
-      border: 1px solid purple;
+      border: 2px solid $purple;
         cursor: pointer;
-      height: 20px;
-      width: 20px;
-    }
-    &::-ms-track {
-      transition: 0.2s;
-      background-color: purple;
-      border-radius: 4px;
-      cursor: pointer;
-      width: 100%;
-      height: 7.5px;
+      height: 24px;
+      width: 24px;
     }
     &::-ms-thumb {
       background: #ffffff;
       border-radius: 50%;
-      border: 1px solid purple;
-        cursor: pointer;
-      height: 20px;
-      width: 20px;
+      border: 2px solid $purple;
+      cursor: pointer;
+      height: 24px;
+      width: 24px;
       margin: 0;
       box-sizing: border-box;
+    }
+    &::-webkit-slider-runnable-track {
+      transition: 0.2s;
+      background-color: #fff;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      height: 8px;
+    }
+    &::-moz-range-track {
+      transition: 0.2s;
+      background-color: #fff;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      height: 8px;
+    }
+    &::-ms-track {
+      transition: 0.2s;
+      background-color: #fff;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      height: 8px;
     }
     &:active::-webkit-slider-runnable-track {
       opacity: 0.8;
     }
   }
   &__label {
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    padding: 5px 0;
     position: absolute;
-    top: -25px;
-    left: 110px;
+    top: 20px;
+    left: 0;
     text-align: center;
-    width: 80px;
+    line-height: 1;
+    width: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    &:after {
+      content: '%';
+    }
   }
 }
 </style>

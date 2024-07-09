@@ -6,7 +6,7 @@
     background="purple-dark text-center"
   >
     <div class="plate__inner">
-      <h2 class="plate__titel section-title title-2">
+      <h2 class="plate__title section-title title-2">
         Our A/B test <span class="color-yellow">win rate is 52%</span>, meaning
         our alternative variations beat the control in every other test we
         launch
