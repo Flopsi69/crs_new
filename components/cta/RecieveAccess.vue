@@ -1,20 +1,51 @@
 <script lang="ts" setup>
-// TODO
-const { openModal } = useModal();
+const form = reactive({
+  name: '',
+  email:''
+});
 
-const email = ref('');
+const error = reactive({
+  name: '',
+  email: '',
+});
 
-const info = {
-  title: 'Estimate the Potential Uplift of Your Key Revenue Metric',
-  subtitle: 'On the call, you will receive:',
-  list: [
-    'A projected ROI from a CRO/UXO project for your site/product',
-    'An estimated uplift of your key revenue metric that we can commit to',
-    'An overview of the most significant CRO/UXO opportunities we see for your site',
-  ],
-  formTitle: 'Schedule Your Results Discussion',
-  cta: 'Book a call to estimate ROI',
-  note: 'If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift'
+const isLoading = ref(false)
+
+function initSave() {
+  error.name = validateInput(form.name, 'name');
+  error.email = validateInput(form.email, 'email');
+
+  if (error.name || error.email) {
+    return;
+  }
+
+  isLoading.value = true;
+
+  useNuxtApp().$toast.promise(saveToExcel, {
+    pending: 'Submitting your data...',
+    success: 'Data submitted successfully',
+    error: 'Error submitting data',
+  });
+}
+
+async function saveToExcel() {
+  try {
+    const result = await $fetch('/api/saveToGoogleSheet', {
+      method: 'POST',
+      body: { type: 'newsletter', data: { ...form, title: 'Sign up to receive access to an additional 16 CRO case studies and all future updates' } }
+    });
+
+    if (result.status === 200) {
+      form.name = '';
+      form.email = '';
+    }
+
+    return result
+  } catch (error) {
+    throw new Error("Error saving data to Google Sheets", error);
+  } finally {
+    isLoading.value = false;
+  }
 }
 </script>
 
@@ -32,26 +63,40 @@ const info = {
         Sign up to receive access to an additional 16&nbsp;CRO case studies and
         all future updates
       </h2>
+    </div>
 
-      <div class="info__form form flex">
-        <BaseInput
-          v-model="email"
-          class="form__input"
-          required
-          placeholder="Business email"
-          icon="fa6-solid:envelope"
-          id="recieve_access_url"
-        />
+    <div class="form flex">
+      <BaseInput
+        v-model="form.name"
+        class="form__input"
+        required
+        placeholder="Name"
+        icon="fa6-solid:user"
+        :error="error.name"
+        @click="error.name = ''"
+        id="recieve_access_name"
+      />
 
-        <button
-          data-related="recieve_access_url"
-          id="recieve_access_cta"
-          disabled
-          class="form__button button button_yellow"
-        >
-          Receive all case studies
-        </button>
-      </div>
+      <BaseInput
+        v-model="form.email"
+        class="form__input"
+        required
+        placeholder="Business email"
+        icon="fa6-solid:envelope"
+        :error="error.email"
+        @click="error.email = ''"
+        id="recieve_access_email"
+      />
+
+      <button
+        @click="initSave"
+        data-related="recieve_access_url"
+        id="recieve_access_cta"
+        class="form__button button button_yellow"
+        :disabled="isLoading"
+      >
+        Receive all case studies
+      </button>
     </div>
   </BasePlate>
 </template>
@@ -90,7 +135,16 @@ const info = {
 
 .form {
   margin-top: 40px;
-  gap: 12px;
+  gap: 16px 12px;
+  position: relative;
+  z-index: 1;
+  opacity: .99;
+  max-width: 1024px;
+  @media(max-width: $md) {
+    flex-flow: column;
+    margin-top: 24px;
+    gap: 20px;
+  }
   &__input {
     height: 60px;
   }
@@ -99,14 +153,9 @@ const info = {
     font-size: 18px;
     padding: 17px 35px 15px;
     @media(max-width: $sm) {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  }
-  @media(max-width: $sm) {
-    flex-flow: column;
-    margin-top: 24px;
-    gap: 16px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
   }
 }
 </style>

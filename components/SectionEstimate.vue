@@ -86,6 +86,10 @@ const calculaton = computed(() => {
   }
 })
 
+const isErrorButton = computed(() => {
+  return !parseInt(form.users) || !parseInt(form.conversionRate) || !parseInt(form.averageOrderValue) || !parseInt(form.profitMargin);
+})
+
 const sliderInput = ref()
 const sliderLabel = ref()
 
@@ -138,9 +142,13 @@ function calculate() {
   isShowDetails.value = true;
 }
 
-function validateInput(field: keyof typeof form, event: any) {
+function validateInputEstimate(field: keyof typeof form, event: any) {
   const value = event.target.value;
-  const cleanedValue = value.replace(/[^0-9]/g, '');
+  let cleanedValue = value.replace(/[^0-9]/g, '');
+
+  if (cleanedValue && isNaN(cleanedValue)) {
+    cleanedValue = '';
+  }
 
   form[field] = cleanedValue;
 }
@@ -183,9 +191,10 @@ function validateInput(field: keyof typeof form, event: any) {
             label="How many users visit your site each month?"
             required
             placeholder="Number of monthly users"
-            @input="validateInput('users', $event)"
-            id="calc_users"
+            @input="validateInputEstimate('users', $event)"
+            :error="form.users[0] === '0' ? 'The value must be greater than 0' : ''"
             v-bind="{ type: 'number' }"
+            id="calc_users"
           />
 
           <BaseInput
@@ -193,7 +202,8 @@ function validateInput(field: keyof typeof form, event: any) {
             label="What percentage of visitors make a purchase or convert?"
             required
             placeholder="Conversion Rate (CR),%:"
-            @input="validateInput('conversionRate', $event)"
+            @input="validateInputEstimate('conversionRate', $event)"
+            :error="form.conversionRate[0] === '0' ? 'The value must be greater than 0' : ''"
             id="calc_conversion_rate"
             v-bind="{ type: 'number' }"
           />
@@ -203,7 +213,8 @@ function validateInput(field: keyof typeof form, event: any) {
             label="What is the average spend per transaction?"
             required
             placeholder="Average order value (AoV), $"
-            @input="validateInput('averageOrderValue', $event)"
+            @input="validateInputEstimate('averageOrderValue', $event)"
+            :error="form.averageOrderValue[0] === '0' ? 'The value must be greater than 0' : ''"
             id="calc_aov"
             v-bind="{ type: 'number' }"
           />
@@ -213,7 +224,8 @@ function validateInput(field: keyof typeof form, event: any) {
             label="What is your current profit margin?"
             required
             placeholder="Profit margin, %"
-            @input="validateInput('profitMargin', $event)"
+            @input="validateInputEstimate('profitMargin', $event)"
+            :error="form.profitMargin[0] === '0' ? 'The value must be greater than 0' : ''"
             id="calc_profit_margin"
             v-bind="{ type: 'number' }"
           />
@@ -223,7 +235,7 @@ function validateInput(field: keyof typeof form, event: any) {
           <button
             class="form__btn button button_purple "
             @click.prevent="calculate"
-            :disabled="!form.users || !form.conversionRate || !form.averageOrderValue || !form.profitMargin"
+            :disabled="isErrorButton"
           >
             Calculate
           </button>
@@ -380,7 +392,7 @@ function validateInput(field: keyof typeof form, event: any) {
 
               <div class="metric__block">
                 <div class="metric__caption">
-                  {{ config[activeTab].colRight.captions[1] }}
+                  {{ config[activeTab].colRight.captions[0] }}
                 </div>
                 <div class="metric__value">
                   {{ +(calculaton[activeTab][2]).toFixed(1) }}
