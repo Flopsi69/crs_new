@@ -13,8 +13,8 @@ const config = useRuntimeConfig()
 
 async function sendToTelegram(text: string) {
   // Telegram bot details
-  const botToken = '7135531901:AAFdTIEPfxkATU60KnFN_9H1GgLRt8AF0CY'
-  const chatId = '313607654'
+  const botToken = config.telegram.botToken
+  const chatId = config.telegram.chatId
 
   // Telegram API URL
   const url = `https://api.telegram.org/bot${botToken}/sendMessage`
@@ -41,7 +41,7 @@ async function sendToTelegram(text: string) {
     return {
       success: false,
       message: 'Failed to send message to Telegram',
-      error: error.message
+      error
     }
   }
 }
@@ -76,7 +76,7 @@ export default defineEventHandler(async (event) => {
   })
   const sheets = google.sheets({ version: 'v4', auth })
 
-  const spreadsheetId = '1gIPaRJiN44aWbPftGZ_EWTiZvcmDek3u5QaTeMhIlr0'
+  const spreadsheetId = config.spreadsheetId
 
   let sheetName = 'crsNew2024'
 
