@@ -87,7 +87,7 @@ function goToNextStep() {
 
     gtm?.trackEvent({
       event: 'gtm_hubspot',
-      data: toRaw(form)
+      data:  { ...toRaw(form) }
     })
 
     window.open('https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=' + form.name + '&email=' + form.email, '_blank');

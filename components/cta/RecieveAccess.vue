@@ -24,7 +24,7 @@ function initSave() {
 
   gtm?.trackEvent({
     event: 'gtm_hubspot_newsletter',
-    data: toRaw(form)
+    data: {...toRaw(form)}
   })
 
   isLoading.value = true;
