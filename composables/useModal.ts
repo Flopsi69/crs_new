@@ -2,6 +2,8 @@ type ModalDataType = {
   url?: string
   name?: string
   email?: string
+  id?: string
+  info?: Object
   // add other properties as needed
 }
 

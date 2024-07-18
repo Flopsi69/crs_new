@@ -1,20 +1,60 @@
 <script lang="ts" setup>
-// TODO
-const { openModal } = useModal();
+const form = reactive({
+  name: '',
+  email: '',
+  id: 'homepage_newsletter_0',
+});
 
-const email = ref('');
+const error = reactive({
+  name: '',
+  email: '',
+});
 
-const info = {
-  title: 'Estimate the Potential Uplift of Your Key Revenue Metric',
-  subtitle: 'On the call, you will receive:',
-  list: [
-    'A projected ROI from a CRO/UXO project for your site/product',
-    'An estimated uplift of your key revenue metric that we can commit to',
-    'An overview of the most significant CRO/UXO opportunities we see for your site',
-  ],
-  formTitle: 'Schedule Your Results Discussion',
-  cta: 'Book a call to estimate ROI',
-  note: 'If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift'
+const isLoading = ref(false)
+
+const gtm = useGtm()
+
+function initSave() {
+  error.name = validateInput(form.name, 'name');
+  error.email = validateInput(form.email, 'email');
+
+  if (error.name || error.email) {
+    return;
+  }
+
+  gtm?.trackEvent({
+    event: 'gtm_hubspot_newsletter',
+    data: toRaw(form)
+  })
+
+  isLoading.value = true;
+
+  useNuxtApp().$toast.promise(saveToExcel, {
+    pending: 'Submitting your data...',
+    success: 'Data submitted successfully',
+    error: 'Error submitting data',
+  });
+}
+
+async function saveToExcel() {
+  try {
+    const result = await $fetch('/api/saveToGoogleSheet', {
+      method: 'POST',
+      body: { type: 'newsletter', data: { ...form, title: 'Sign up to receive access to an additional 16 CRO case studies and all future updates' } }
+    });
+
+    if (result.status === 200) {
+      form.name = '';
+      form.email = '';
+    }
+
+    return result
+  } catch (error) {
+    // @ts-ignore
+    throw new Error("Error saving data to Google Sheets", error);
+  } finally {
+    isLoading.value = false;
+  }
 }
 </script>
 
