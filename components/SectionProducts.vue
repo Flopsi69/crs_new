@@ -125,7 +125,7 @@ const infoEstimate = {
             <div
               id="products_1-cta"
               class="col subtitle-3 link"
-              @click="openModal({ info: infoBook })"
+              @click="openModal({ info: infoBook, id: 'homepage_products_1' })"
             >
               <span>Book a call to learn more</span>
               <Icon
@@ -136,7 +136,7 @@ const infoEstimate = {
             <div
               id="products_2-cta"
               class="col subtitle-3 link"
-              @click="openModal({ info: infoBook })"
+              @click="openModal({ info: infoBook, id: 'homepage_products_2' })"
             >
               <span>Book a call to learn more</span>
               <Icon
@@ -147,7 +147,7 @@ const infoEstimate = {
             <div
               id="products_3-cta"
               class="col subtitle-3 link"
-              @click="openModal({ info: infoBook })"
+              @click="openModal({ info: infoBook, id: 'homepage_products_3' })"
             >
               <span> Book a call to learn more</span>
               <Icon
@@ -165,7 +165,7 @@ const infoEstimate = {
       <button
         id="products_main-cta"
         class="control__button button button_yellow"
-        @click="openModal({info: infoEstimate})"
+        @click="openModal({ info: infoEstimate, id: 'homepage_products_4' })"
       >
         <span class="control__button-mob">Get results estimates</span>
         <span class="control__button-desk"

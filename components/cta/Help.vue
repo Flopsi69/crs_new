@@ -80,14 +80,14 @@ const infoCalcHelp = {
       <div class="cta__actions flex-center">
         <button
           :id="type + '_1-cta'"
-          @click="openModal({ info: type === 'benchmark' ? infoBenchmarkBook : infoCalcBook })"
+          @click="openModal({ info: type === 'benchmark' ? infoBenchmarkBook : infoCalcBook, id: type === 'benchmark' ? 'homepage_benchmark_0' : 'homepage_calc_0' })"
           class="button cta__button button_yellow"
         >
           {{ bookTitle }}
         </button>
         <button
           :id="type + '_2-cta'"
-          @click="openModal({ info: type === 'benchmark' ? infoBenchmarkHelp : infoCalcHelp})"
+          @click="openModal({ info: type === 'benchmark' ? infoBenchmarkHelp : infoCalcHelp, id: type === 'benchmark' ? 'homepage_benchmark_1' : 'homepage_calc_1'})"
           class="button cta__button button_trans-yellow"
         >
           {{ helpTitle }}

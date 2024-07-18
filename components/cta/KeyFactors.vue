@@ -45,7 +45,7 @@ const info = {
       <button
         id="key_factors_cta"
         class="button button_yellow"
-        @click="openModal({info})"
+        @click="openModal({ info, id: 'homepage_custom-quote_0' })"
       >
         Get Your Custom Quote
       </button>

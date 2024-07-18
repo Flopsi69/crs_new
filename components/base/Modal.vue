@@ -12,6 +12,10 @@ const props = defineProps({
     type: String,
     default: ''
   },
+  id: {
+    type: String,
+    default: ''
+  },
   info: {
     type: Object,
     default: {
@@ -23,7 +27,7 @@ const props = defineProps({
       note: 'If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift',
       isGoal: false
     }
-  },
+  }
 });
 
 const { closeModal } = useModal();
@@ -38,7 +42,12 @@ const form = reactive({
   email: props.email || '',
   monthly_revenue: '',
   monthly_visitors: '',
-  project_goal: ''
+  project_goal: '',
+  metadata: {
+    page: location.href,
+    form_title: props.info.title || '',
+    id: props.id || ''
+  }
 });
 
 const error = reactive({

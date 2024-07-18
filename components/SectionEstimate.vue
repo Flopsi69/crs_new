@@ -246,7 +246,7 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
             </div>
             <div
               class="identify__link link flex align-center subtitle-3"
-              @click="openModal({ info: info })"
+              @click="openModal({ info: info, id: 'homepage_calc_2' })"
             >
               Contact us and we will help to identify them
               <Icon

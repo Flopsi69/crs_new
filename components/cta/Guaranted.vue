@@ -35,7 +35,7 @@ const info = {
       <button
         id="guaranted_cta"
         class="button button_yellow"
-        @click="openModal({ info })"
+        @click="openModal({ info, id: 'homepage_guaranted_0' })"
       >
         Estimate your CRO project ROI
       </button>

@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 const form = reactive({
   name: '',
-  email:''
+  email: '',
+  id: 'homepage_newsletter_0',
 });
 
 const error = reactive({
@@ -11,6 +12,8 @@ const error = reactive({
 
 const isLoading = ref(false)
 
+const gtm = useGtm()
+
 function initSave() {
   error.name = validateInput(form.name, 'name');
   error.email = validateInput(form.email, 'email');
@@ -18,6 +21,11 @@ function initSave() {
   if (error.name || error.email) {
     return;
   }
+
+  gtm?.trackEvent({
+    event: 'gtm_hubspot_newsletter',
+    data: toRaw(form)
+  })
 
   isLoading.value = true;
 
@@ -42,6 +50,7 @@ async function saveToExcel() {
 
     return result
   } catch (error) {
+    // @ts-ignore
     throw new Error("Error saving data to Google Sheets", error);
   } finally {
     isLoading.value = false;
