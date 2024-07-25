@@ -75,8 +75,10 @@ async function saveToMailChimp(name: string, email: string, title: string) {
       body: JSON.stringify(data)
     })
 
+    console.log('chimp response', response)
     return response
   } catch (error) {
+    console.log('chimp error', error)
     return {
       success: false,
       message: 'Failed to save contact to MailChimp',
