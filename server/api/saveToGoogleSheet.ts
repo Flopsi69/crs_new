@@ -11,10 +11,6 @@ const config = useRuntimeConfig()
 //   title?: string
 // }
 
-const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY
-const MAILCHIMP_SERVER_PREFIX = 'us17'
-const AUDIENCE_ID = process.env.AUDIENCE_ID
-
 async function sendToTelegram(text: string) {
   // Telegram bot details
   const botToken = config.telegram.botToken
@@ -51,7 +47,7 @@ async function sendToTelegram(text: string) {
 }
 
 async function saveToMailChimp(name: string, email: string, title: string) {
-  const url = `https://${MAILCHIMP_SERVER_PREFIX}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`
+  const url = `https://${config.serverPrefix}.api.mailchimp.com/3.0/lists/${config.audienceId}/members`
 
   const data = {
     email_address: email,
@@ -69,7 +65,7 @@ async function saveToMailChimp(name: string, email: string, title: string) {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Basic ${Buffer.from(
-          'anystring:' + MAILCHIMP_API_KEY
+          'anystring:' + config.apiKey
         ).toString('base64')}`
       },
       body: JSON.stringify(data)

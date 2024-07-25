@@ -54,6 +54,11 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    mailchimp: {
+      serverPrefix: 'us17',
+      audienceId: process.env.MAILCHIMP_AUDIENCE_ID,
+      apiKey: process.env.MAILCHIMP_API_KEY
+    },
     telegram: {
       botToken: process.env.TELEGRAM_BOT_TOKEN,
       chatId: process.env.TELEGRAM_CHAT_ID
