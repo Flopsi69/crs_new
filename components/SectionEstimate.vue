@@ -17,19 +17,19 @@ const info = {
 const activeTab = ref<'cvr' | 'arpu'>('cvr');
 const isShowDetails = ref(false);
 
-const form = reactive<any>({
-  conversionRate: 3,
-  users: 100000,
-  averageOrderValue: 100,
-  profitMargin: 25,
-});
-
 // const form = reactive<any>({
-//   conversionRate: '',
-//   users: '',
-//   averageOrderValue: '',
-//   profitMargin: '',
+//   conversionRate: 3,
+//   users: 100000,
+//   averageOrderValue: 100,
+//   profitMargin: 25,
 // });
+
+const form = reactive<any>({
+  conversionRate: '',
+  users: '',
+  averageOrderValue: '',
+  profitMargin: '',
+});
 
 const config = reactive({
   cvr: {
