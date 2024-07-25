@@ -40,7 +40,7 @@ async function saveToExcel() {
   try {
     const result = await $fetch('/api/saveToGoogleSheet', {
       method: 'POST',
-      body: { type: 'newsletter', data: { ...form, title: 'Sign up to receive access to an additional 16 CRO case studies and all future updates' } }
+      body: { type: 'newsletter', data: { ...form, title: 'Sign up to receive access to additional 16 CRO case studies and all future updates' } }
     });
 
     if (result.status === 200) {
@@ -69,8 +69,8 @@ async function saveToExcel() {
       </h3>
 
       <h2 class="info__title section-title title-2">
-        Sign up to receive access to an additional 16&nbsp;CRO case studies and
-        all future updates
+        Sign up to receive access to additional 16&nbsp;CRO case studies and all
+        future updates
       </h2>
     </div>
 

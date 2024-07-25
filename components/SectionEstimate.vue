@@ -17,19 +17,19 @@ const info = {
 const activeTab = ref<'cvr' | 'arpu'>('cvr');
 const isShowDetails = ref(false);
 
-// const form = reactive<any>({
-//   conversionRate: 3,
-//   users: 100000,
-//   averageOrderValue: 100,
-//   profitMargin: 25,
-// });
-
 const form = reactive<any>({
-  conversionRate: '',
-  users: '',
-  averageOrderValue: '',
-  profitMargin: '',
+  conversionRate: 3,
+  users: 100000,
+  averageOrderValue: 100,
+  profitMargin: 25,
 });
+
+// const form = reactive<any>({
+//   conversionRate: '',
+//   users: '',
+//   averageOrderValue: '',
+//   profitMargin: '',
+// });
 
 const config = reactive({
   cvr: {
@@ -40,7 +40,7 @@ const config = reactive({
     },
     colRight: {
       title: 'Estimate your ROI from collaboration with ConversionRate.Store',
-      captions: ['Break even point (month)', 'Additional profit in 12 months ($)']
+      captions: ['Break even point (months)', 'Additional profit in 12 months (assuming cost of service is&nbsp;$20k)']
     }
   },
   arpu: {
@@ -51,7 +51,7 @@ const config = reactive({
     },
     colRight: {
       title: 'Estimate your ROI from collaboration with ConversionRate.Store',
-      captions: ['Break even point (month)', 'Additional profit in 12 months ($)']
+      captions: ['Break even point (months)', 'Additional profit in 12 months (assuming cost of service is&nbsp;$20k)']
     }
   },
 });
@@ -92,6 +92,7 @@ const isErrorButton = computed(() => {
 
 const sliderInput = ref()
 const sliderLabel = ref()
+const sliderProgress = ref()
 
 onMounted(() => {
   recalculateLabel()
@@ -128,10 +129,10 @@ function recalculateLabel() {
   const num_width = +range_width.substring(0, range_width.length - 2);
   const num_label_width = +label_width.substring(0, label_width.length - 2);
 
-  const left = expected.value * (num_width / max) - num_label_width / 2 + scale(expected.value, min, max, 5, -10);
+  const left = expected.value * (num_width / max) - num_label_width / 2 + scale(expected.value, min, max, 5, -20);
 
+  sliderProgress.value.style.width = `${left + 15}px`;
   sliderLabel.value.style.left = `${left}px`;
-  // sliderProgress.value.style.width = `${left}px`;
 }
 
 function scale(num: number, in_min: number, in_max: number, out_min: number, out_max: number): number {
@@ -308,6 +309,10 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
             </div>
 
             <div class="slider__wrap">
+              <span
+                ref="sliderProgress"
+                class="slider__progress"
+              ></span>
               <input
                 v-model="expected"
                 class="slider__input"
@@ -371,9 +376,10 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
               </div>
 
               <div class="metric__block border-decor_top">
-                <div class="metric__caption">
-                  {{ config[activeTab].colLeft.captions[1] }}
-                </div>
+                <div
+                  class="metric__caption"
+                  v-html="config[activeTab].colLeft.captions[1]"
+                ></div>
                 <div class="metric__value">
                   ${{ +(calculaton[activeTab][1]).toFixed(0) }}
                 </div>
@@ -400,9 +406,10 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
               </div>
 
               <div class="metric__block border-decor_top">
-                <div class="metric__caption">
-                  {{ config[activeTab].colRight.captions[1] }}
-                </div>
+                <div
+                  class="metric__caption"
+                  v-html="config[activeTab].colRight.captions[1]"
+                ></div>
                 <div class="metric__value">
                   ${{ +(calculaton[activeTab][3]).toFixed(0) }}
                 </div>
@@ -520,7 +527,7 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    margin-top: 65px;
+    margin-top: 55px;
     @media(max-width: $md) {
       grid-template-columns: 1fr;
       gap: 20px;
@@ -596,7 +603,7 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
 }
 
 .metric {
-  padding: 30px 40px;
+  padding: 30px 35px;
   @media(max-width: $sm) {
     padding: 30px 20px;
   }
@@ -649,6 +656,7 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
     width: 100%;
     border-radius: 50%;
   	-webkit-appearance: none;
+    outline: none;
     appearance: none;
     &:active {
 	    outline: none;
@@ -656,71 +664,93 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
     &::-webkit-slider-thumb {
       background: #ffffff;
       border-radius: 50%;
-      border: 2px solid $purple;
+      border: 2px solid $border;
+      background: $purple;
       cursor: pointer;
-      height: 20px;
-      width: 20px;
-      margin-top: -7px;
+      transform: scale(1.2);
+      height: 25px;
+      width: 25px;
+      margin-top: -8px;
       -webkit-appearance: none;
     }
     &::-moz-range-thumb {
       background: #ffffff;
       border-radius: 50%;
-      border: 2px solid $purple;
+      border: 2px solid $border;
+      background: $purple;
         cursor: pointer;
-      height: 24px;
-      width: 24px;
+      transform: scale(1.1);
+      height: 25px;
+      width: 25px;
     }
     &::-ms-thumb {
       background: #ffffff;
       border-radius: 50%;
-      border: 2px solid $purple;
+      border: 2px solid $border;
+      background: $purple;
       cursor: pointer;
-      height: 24px;
-      width: 24px;
+      height: 25px;
+      width: 25px;
       margin: 0;
       box-sizing: border-box;
     }
     &::-webkit-slider-runnable-track {
       transition: 0.2s;
       background-color: #fff;
-      border-radius: 10px;
+      border-radius: 16px;
       cursor: pointer;
       width: 100%;
-      height: 8px;
+      height: 14px;
+      border: 2px solid $border;
     }
     &::-moz-range-track {
       transition: 0.2s;
       background-color: #fff;
-      border-radius: 10px;
+      border-radius: 16px;
       cursor: pointer;
       width: 100%;
-      height: 8px;
+      height: 14px;
+      border: 2px solid $border;
     }
     &::-ms-track {
       transition: 0.2s;
       background-color: #fff;
-      border-radius: 10px;
+      border-radius: 16px;
       cursor: pointer;
       width: 100%;
-      height: 8px;
+      height: 14px;
+      border: 2px solid $border;
     }
     &:active::-webkit-slider-runnable-track {
-      opacity: 0.8;
+      // opacity: 0.95;
     }
   }
   &__label {
     position: absolute;
-    top: 20px;
+    top: 30px;
     left: 0;
     text-align: center;
     line-height: 1;
     width: 30px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     &:after {
       content: '%';
     }
+  }
+  &__progress {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 14px;
+    border: 15px;
+    background: $purple;
+    width: 50px;
+    transform: translateY(-50%);
+    border-radius: 15px;
+    min-width: 15px;
+    pointer-events: none;
+    // transition: 0.05s;
   }
 }
 </style>

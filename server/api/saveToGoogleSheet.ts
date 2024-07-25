@@ -11,6 +11,11 @@ const config = useRuntimeConfig()
 //   title?: string
 // }
 
+const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY
+const MAILCHIMP_SERVER_PREFIX = MAILCHIMP_API_KEY?.split('-')[1]
+const AUDIENCE_ID = process.env.AUDIENCE_ID
+// aea64729a16a93fdf645ded3ed101311-us17
+// be75fe5092
 async function sendToTelegram(text: string) {
   // Telegram bot details
   const botToken = config.telegram.botToken
@@ -41,6 +46,41 @@ async function sendToTelegram(text: string) {
     return {
       success: false,
       message: 'Failed to send message to Telegram',
+      error
+    }
+  }
+}
+
+async function saveToMailChimp(name: string, email: string, title: string) {
+  const url = `https://${MAILCHIMP_SERVER_PREFIX}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`
+
+  const data = {
+    email_address: email,
+    status: 'subscribed',
+    merge_fields: {
+      FNAME: name,
+      MMERGE6: title
+    }
+  }
+
+  try {
+    // Send POST request to Telegram API
+    const response = await $fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Basic ${Buffer.from(
+          'anystring:' + MAILCHIMP_API_KEY
+        ).toString('base64')}`
+      },
+      body: JSON.stringify(data)
+    })
+
+    return response
+  } catch (error) {
+    return {
+      success: false,
+      message: 'Failed to save contact to MailChimp',
       error
     }
   }
@@ -86,6 +126,8 @@ export default defineEventHandler(async (event) => {
     sendToTelegram(
       `New newsletter subscriber:\n\nEmail: ${data.email}\nName: ${data.name}`
     )
+
+    saveToMailChimp(data.name, data.email, data.title)
   }
 
   const range = sheetName + '!A1:F1'
