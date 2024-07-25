@@ -47,7 +47,7 @@ async function sendToTelegram(text: string) {
 }
 
 async function saveToMailChimp(name: string, email: string, title: string) {
-  const url = `https://${config.serverPrefix}.api.mailchimp.com/3.0/lists/${config.audienceId}/members`
+  const url = `https://${config.mailchimp.serverPrefix}.api.mailchimp.com/3.0/lists/${config.mailchimp.audienceId}/members`
 
   const data = {
     email_address: email,
@@ -65,7 +65,7 @@ async function saveToMailChimp(name: string, email: string, title: string) {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Basic ${Buffer.from(
-          'anystring:' + config.apiKey
+          'anystring:' + config.mailchimp.apiKey
         ).toString('base64')}`
       },
       body: JSON.stringify(data)
