@@ -14,8 +14,7 @@ const config = useRuntimeConfig()
 const MAILCHIMP_API_KEY = process.env.MAILCHIMP_API_KEY
 const MAILCHIMP_SERVER_PREFIX = MAILCHIMP_API_KEY?.split('-')[1]
 const AUDIENCE_ID = process.env.AUDIENCE_ID
-// aea64729a16a93fdf645ded3ed101311-us17
-// be75fe5092
+
 async function sendToTelegram(text: string) {
   // Telegram bot details
   const botToken = config.telegram.botToken
