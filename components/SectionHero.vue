@@ -16,6 +16,8 @@ const info = {
   note: 'If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift'
 }
 
+const words = ['eCommerce', 'SaaS', 'App', 'LeadGen'];
+
 function handleOpenModal() {
   error.value = validateInput(url.value, 'url')
 
@@ -37,8 +39,16 @@ function handleOpenModal() {
         </h2>
 
         <h1 class="info__title title-1">
-          We grow your revenue metrics. <br />
-          You pay only for the actual&nbsp;uplift.
+          We increase your
+          <word-flipper
+            class="color-yellow info__flipper"
+            :words="words"
+            :delay="3000"
+          />
+          <br />
+          revenue metrics
+          <br />
+          You pay only for the actual uplift
         </h1>
 
         <HeroChart class="info__chart-mob" />
@@ -100,7 +110,28 @@ function handleOpenModal() {
   </BaseSection>
 </template>
 
+<style>
+/* .letter {
+  display: inline-block;
+  animation: rotate 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+}
+*/
+</style>
+
 <style lang="scss" scoped>
+
 .hero {
   padding: 65px 0 60px;
   @media(max-width: $md) {
@@ -146,11 +177,20 @@ function handleOpenModal() {
   }
   &__title {
     margin-top: 24px;
-    max-width: 600px;
+    max-width: 625px;
+    &-word {
+      white-space: nowrap;
+    }
     @media(max-width: $sm) {
       margin-top: 16px;
-      font-size: 30px;
-      line-height: 38px;
+      font-size: 26px;
+      line-height: 34px;
+    }
+  }
+  &__flipper {
+    width: 220px;
+    @media(max-width: $sm) {
+      width: 100px;
     }
   }
   &__chart {

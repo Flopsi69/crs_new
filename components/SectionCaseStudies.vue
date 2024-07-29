@@ -18,7 +18,7 @@
     <!-- TODO components -->
     <CaseList />
 
-    <!-- <CtaRecieveAccess class="cta" /> -->
+    <CtaRecieveAccess class="cta" />
   </BaseSection>
 </template>
 

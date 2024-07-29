@@ -1,4 +1,8 @@
 <script lang="ts" setup>
+const title = ref('Sign up to receive access to additional 16\xA0CRO case studies and all future updates');
+const subtitle = ref('Stay ahead of the game');
+const isSubmitted = ref(false);
+
 const form = reactive({
   name: '',
   email: '',
@@ -40,12 +44,16 @@ async function saveToExcel() {
   try {
     const result = await $fetch('/api/saveToGoogleSheet', {
       method: 'POST',
-      body: { type: 'newsletter', data: { ...form, title: 'Sign up to receive access to an additional 16 CRO case studies and all future updates' } }
+      body: { type: 'newsletter', data: { ...form, title: 'Sign up to receive access to additional 16 CRO case studies and all future updates' } }
     });
 
     if (result.status === 200) {
       form.name = '';
       form.email = '';
+
+      isSubmitted.value = true;
+      title.value = 'You\'ll now receive all case studies straight to your inbox';
+      subtitle.value = 'Successfully!';
     }
 
     return result
@@ -62,36 +70,52 @@ async function saveToExcel() {
   <BasePlate
     background="purple-dark"
     chart
+    v-auto-animate
   >
-    <div class="info">
-      <h3 class="info__caption section-caption subtitle-2">
-        Stay ahead of the game
-      </h3>
+    <div
+      class="info"
+      :class="{'info_submitted': isSubmitted}"
+    >
+      <h3 class="info__caption section-caption subtitle-2">{{ subtitle }}</h3>
 
-      <h2 class="info__title section-title title-2">
-        Sign up to receive access to an additional 16&nbsp;CRO case studies and
-        all future updates
-      </h2>
+      <h2 class="info__title section-title title-2">{{ title }}</h2>
+    </div>
 
-      <div class="info__form form flex">
-        <BaseInput
-          v-model="email"
-          class="form__input"
-          required
-          placeholder="Business email"
-          icon="fa6-solid:envelope"
-          id="recieve_access_url"
-        />
+    <div
+      v-if="!isSubmitted"
+      class="form flex"
+    >
+      <BaseInput
+        v-model="form.name"
+        class="form__input"
+        required
+        placeholder="Name"
+        icon="fa6-solid:user"
+        :error="error.name"
+        @click="error.name = ''"
+        id="recieve_access_name"
+      />
 
-        <button
-          data-related="recieve_access_url"
-          id="recieve_access_cta"
-          disabled
-          class="form__button button button_yellow"
-        >
-          Receive all case studies
-        </button>
-      </div>
+      <BaseInput
+        v-model="form.email"
+        class="form__input"
+        required
+        placeholder="Business email"
+        icon="fa6-solid:envelope"
+        :error="error.email"
+        @click="error.email = ''"
+        id="recieve_access_email"
+      />
+
+      <button
+        @click="initSave"
+        data-related="recieve_access_url"
+        id="recieve_access_cta"
+        class="form__button button button_yellow"
+        :disabled="isLoading"
+      >
+        Receive all case studies
+      </button>
     </div>
   </BasePlate>
 </template>
@@ -115,6 +139,10 @@ async function saveToExcel() {
   z-index: 1;
   opacity: .99;
   max-width: 680px;
+  &_submitted {
+    margin: auto;
+    text-align: center;
+  }
   &__caption {
     @media(max-width: $sm) {
       font-size: 16px;
@@ -130,7 +158,16 @@ async function saveToExcel() {
 
 .form {
   margin-top: 40px;
-  gap: 12px;
+  gap: 16px 12px;
+  position: relative;
+  z-index: 1;
+  opacity: .99;
+  max-width: 1024px;
+  @media(max-width: $md) {
+    flex-flow: column;
+    margin-top: 24px;
+    gap: 20px;
+  }
   &__input {
     height: 60px;
   }
@@ -139,14 +176,9 @@ async function saveToExcel() {
     font-size: 18px;
     padding: 17px 35px 15px;
     @media(max-width: $sm) {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  }
-  @media(max-width: $sm) {
-    flex-flow: column;
-    margin-top: 24px;
-    gap: 16px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
   }
 }
 </style>

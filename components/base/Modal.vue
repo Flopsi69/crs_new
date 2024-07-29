@@ -77,7 +77,7 @@ function goToNextStep() {
   if (step.value === 2) {
     if (!isAgree.value) {
       error.agree = true;
-      alert('Please agree to the terms');
+      useNuxtApp().$toast.error('Please agree to the terms');
       return;
     }
 
@@ -100,7 +100,7 @@ async function saveToExcel() {
   try {
     const result = await $fetch('/api/saveToGoogleSheet', {
       method: 'POST',
-      body: { ...form, title: props.info.title }
+      body: { type: 'lead', data: { ...form, title: props.info.title } }
     });
 
     console.log('result', result)
