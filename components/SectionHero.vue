@@ -38,22 +38,6 @@ function handleOpenModal() {
           Performance-based Conversion&nbsp;Rate&nbsp;Optimization agency
         </h2>
 
-        <!-- <h1 class="info__title title-1">
-          We grow your revenue metrics <br />
-          You pay only for the actual&nbsp;uplift
-        </h1> -->
-
-        <!-- <h1 class="info__title title-1">
-          Performance-based Conversion Optimisation for your
-          <WordFlipper
-            class="color-yellow"
-            :words="words"
-            :delay="3000"
-          />
-          <br />
-          Pay only for the actual uplift
-        </h1> -->
-
         <h1 class="info__title title-1">
           We increase your
           <word-flipper
@@ -63,9 +47,8 @@ function handleOpenModal() {
           />
           <br />
           revenue metrics
-
           <br />
-          Pay only for the actual uplift
+          You pay only for the actual uplift
         </h1>
 
         <HeroChart class="info__chart-mob" />

@@ -1,4 +1,8 @@
 <script lang="ts" setup>
+const title = ref('Sign up to receive access to additional 16\xA0CRO case studies and all future updates');
+const subtitle = ref('Stay ahead of the game');
+const isSubmitted = ref(false);
+
 const form = reactive({
   name: '',
   email: '',
@@ -46,6 +50,10 @@ async function saveToExcel() {
     if (result.status === 200) {
       form.name = '';
       form.email = '';
+
+      isSubmitted.value = true;
+      title.value = 'You\'ll now receive all case studies straight to your inbox';
+      subtitle.value = 'Successfully!';
     }
 
     return result
@@ -62,19 +70,21 @@ async function saveToExcel() {
   <BasePlate
     background="purple-dark"
     chart
+    v-auto-animate
   >
-    <div class="info">
-      <h3 class="info__caption section-caption subtitle-2">
-        Stay ahead of the game
-      </h3>
+    <div
+      class="info"
+      :class="{'info_submitted': isSubmitted}"
+    >
+      <h3 class="info__caption section-caption subtitle-2">{{ subtitle }}</h3>
 
-      <h2 class="info__title section-title title-2">
-        Sign up to receive access to additional 16&nbsp;CRO case studies and all
-        future updates
-      </h2>
+      <h2 class="info__title section-title title-2">{{ title }}</h2>
     </div>
 
-    <div class="form flex">
+    <div
+      v-if="!isSubmitted"
+      class="form flex"
+    >
       <BaseInput
         v-model="form.name"
         class="form__input"
@@ -129,6 +139,10 @@ async function saveToExcel() {
   z-index: 1;
   opacity: .99;
   max-width: 680px;
+  &_submitted {
+    margin: auto;
+    text-align: center;
+  }
   &__caption {
     @media(max-width: $sm) {
       font-size: 16px;

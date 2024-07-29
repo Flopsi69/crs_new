@@ -40,7 +40,7 @@ const config = reactive({
     },
     colRight: {
       title: 'Estimate your ROI from collaboration with ConversionRate.Store',
-      captions: ['Break even point (months)', 'Additional profit in 12 months (assuming cost of service is&nbsp;$20k)']
+      captions: ['Break even point (months)', 'Additional profit in 12 months (assuming cost of CRO service is&nbsp;$20k)']
     }
   },
   arpu: {
@@ -51,13 +51,13 @@ const config = reactive({
     },
     colRight: {
       title: 'Estimate your ROI from collaboration with ConversionRate.Store',
-      captions: ['Break even point (months)', 'Additional profit in 12 months (assuming cost of service is&nbsp;$20k)']
+      captions: ['Break even point (months)', 'Additional profit in 12 months (assuming cost of CRO service is&nbsp;$20k)']
     }
   },
 });
 
 
-const expected = ref(5); // procent
+const expected = ref(10); // procent
 const totalLifetimeCost = 20000;
 const arpu = 3;
 
@@ -629,6 +629,7 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
   }
   &__caption {
     color: $font-secondary;
+    font-size: 15px;
   }
   &__value {
     font-size: 32px;
