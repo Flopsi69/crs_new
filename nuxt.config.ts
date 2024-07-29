@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   experimental: {
+    // @ts-ignore
     inlineSSRStyles: false
   },
 
@@ -14,7 +15,13 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0',
       link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
       htmlAttrs: { lang: 'en' },
-      title: 'Conversion Rate Store'
+      title: 'Conversion Rate Store',
+      meta: [
+        {
+          name: 'google-site-verification',
+          content: 'Fn7FA9pzNzwU-HJR8v8udMGPONHkfD6fdENRnUt1-ps'
+        }
+      ]
     }
   },
 
