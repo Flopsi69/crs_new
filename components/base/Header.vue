@@ -37,7 +37,6 @@ const toggleBurger = () => {
           v-for="menuItem in menu"
           :key="menuItem.title"
           :to="menuItem.url"
-          target="_blank"
           class="nav__link"
           external
         >
@@ -110,9 +109,10 @@ const toggleBurger = () => {
 }
 
 .nav {
-  gap: 40px;
+  gap: 32px;
   @media(max-width: 1100px) {
     gap: 30px;
+    font-size: 14px;
   }
   @media(max-width: $md) {
     padding: 24px 20px;
@@ -126,7 +126,6 @@ const toggleBurger = () => {
     gap: 40px;
     bottom: 0;
     transform: translateX(-100%);
-    transition: .5s;
     overflow: auto;
     &.active {
       transform: translateX(0);
@@ -134,6 +133,7 @@ const toggleBurger = () => {
   }
 
   &__link {
+    transition: color .5s;
     @media(hover: hover) {
       &:hover {
         color: $yellow;

@@ -24,7 +24,6 @@ import { serviceLinks, menu} from '~/configs';
             v-for="menuItem in menu"
             :key="menuItem.title"
             :to="menuItem.url"
-            target="_blank"
             class="nav__link"
             external
           >
@@ -98,12 +97,24 @@ import { serviceLinks, menu} from '~/configs';
 }
 
 .nav {
-  gap: 40px;
+  gap: 30px;
+  @media(max-width: 1100px) {
+    font-size: 14px;
+    gap: 20px;
+  }
   @media(max-width: $md) {
     gap: 16px;
   }
   @media(max-width: $sm) {
     flex-flow: column;
+    font-size: 16px;
+  }
+
+  &__link:hover {
+    transition: color 0.3s;
+    @media(hover:hover) {
+      color: $yellow;
+    }
   }
 }
 
@@ -118,6 +129,12 @@ import { serviceLinks, menu} from '~/configs';
     font-size: 12px;
     text-decoration-line: underline;
     text-underline-offset: 3px;
+
+    &:hover {
+      @media(hover:hover) {
+        color: $yellow;
+      }
+    }
   }
 }
 </style>

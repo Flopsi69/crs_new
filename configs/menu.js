@@ -1,5 +1,9 @@
 export default [
   {
+    title: 'Ecommerce CRO Agency',
+    url: 'https://conversionrate.store/ecommerce-cro-agency/'
+  },
+  {
     title: 'CRO Case Studies',
     url: 'https://conversionrate.store/cro-case-studies/'
   },
@@ -15,10 +19,10 @@ export default [
     title: 'CRO audit',
     url: 'https://conversionrate.store/cro-audit/'
   },
-  {
-    title: 'Careers',
-    url: 'https://conversionrate.store/career/'
-  },
+  // {
+  //   title: 'Careers',
+  //   url: 'https://conversionrate.store/career/'
+  // },
   {
     title: 'Contact us',
     url: 'https://conversionrate.store/contact-us/'
