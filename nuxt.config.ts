@@ -32,10 +32,24 @@ export default defineNuxtConfig({
     '@formkit/auto-animate/nuxt',
     'nuxt-icon',
     'nuxt-aos',
-    '@zadigetvoltaire/nuxt-gtm'
+    '@zadigetvoltaire/nuxt-gtm',
+    'nuxt-mail'
   ],
   // '@vee-validate/nuxt',
   // 'radix-vue',
+
+  mail: {
+    message: {
+      to: 'flopsi69@gmail.com,al@conversionrate.store,g@conversionrate.store,i@conversionrate.store'
+    },
+    smtp: {
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASSWORD
+      }
+    }
+  },
 
   gtm: {
     id: 'GTM-MR6SLVZ6',
@@ -78,6 +92,10 @@ export default defineNuxtConfig({
       private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
       client_email: process.env.GOOGLE_CLIENT_EMAIL,
       client_id: '116906147343419850380'
+    },
+    email: {
+      user: process.env.EMAIL_USER,
+      password: process.env.EMAIL_PASSWORD
     }
   }
 })
