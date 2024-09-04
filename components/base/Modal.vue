@@ -30,6 +30,8 @@ const props = defineProps({
   }
 });
 
+// console.log('res', res)
+
 const { closeModal } = useModal();
 
 const logos = [
@@ -82,6 +84,7 @@ function goToNextStep() {
     }
 
     saveToExcel();
+    sendEmail();
 
     const gtm = useGtm()
 
@@ -93,6 +96,35 @@ function goToNextStep() {
     window.open('https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=' + form.name + '&email=' + form.email, '_blank');
 
     isSubmitted.value = true;
+  }
+}
+
+async function sendEmail() {
+  try {
+    const mail = useMail()
+    const text = `
+      **New lead from the website:**
+
+      Name: ${form.name || '-'}
+      Company: ${form.url || '-'}
+      Email: ${form.email || '-'}
+      Monthly Revenue: ${form.monthly_revenue || '-'}
+      Monthly Visitors: ${form.monthly_visitors || '-'}
+      Project Goal: ${form.project_goal || '-'}
+      ========================
+      Metadata:
+        -- Form Title: ${form.metadata.form_title || '-'}
+        -- Page: ${form.metadata.page || '-'}
+        -- ID: ${form.metadata.id || '-'}
+    `;
+    // JSON.stringify(form, null, 2)
+    await mail.send({
+      from: 'Conversionrate.store <analytics@conversionrate.store>',
+      subject: 'Lead from the website',
+      text
+    })
+  } catch (error) {
+    console.error('Error sending mail:', error);
   }
 }
 
@@ -162,6 +194,7 @@ async function saveToExcel() {
         <div class="info__footer flex-center">
           <img
             v-for="logo of logos"
+            :key="logo"
             :src="`/images/logo/${logo}`"
             alt=""
           />

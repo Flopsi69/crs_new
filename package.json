@@ -20,6 +20,7 @@
     "googleapis": "^140.0.0",
     "nuxt": "^3.11.2",
     "nuxt-aos": "^1.2.4",
+    "nuxt-mail": "^5.0.1",
     "radix-vue": "^1.8.3",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2",
