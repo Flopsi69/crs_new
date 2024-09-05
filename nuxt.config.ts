@@ -77,7 +77,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     mailchimp: {
       serverPrefix: 'us17',
-      audienceId: process.env.MAILCHIMP_AUDIENCE_ID,
+      audienceNewsletterId: process.env.MAILCHIMP_AUDIENCE_NEWSLETTER_ID,
+      audienceLeadsId: process.env.MAILCHIMP_AUDIENCE_LEADS_ID,
       apiKey: process.env.MAILCHIMP_API_KEY
     },
     telegram: {
