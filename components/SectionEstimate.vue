@@ -105,7 +105,7 @@ watch([activeTab, isShowDetails], () => {
 })
 const scrollToElement = useSmoothScroll()
 
-watch(isShowDetails, async (value) => {
+watch(isShowDetails, async (value: any) => {
   nextTick(() => {
     setTimeout(() => {
       if (value) {

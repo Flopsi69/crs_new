@@ -1,86 +1,6 @@
 import { google } from 'googleapis'
 const config = useRuntimeConfig()
 
-// interface Lead {
-//   name?: string
-//   url?: string
-//   email?: string
-//   monthly_revenue?: number
-//   monthly_visitors?: number
-//   project_goal?: string
-//   title?: string
-// }
-
-async function sendToTelegram(text: string) {
-  // Telegram bot details
-  const botToken = config.telegram.botToken
-  const chatId = config.telegram.chatId
-
-  // Telegram API URL
-  const url = `https://api.telegram.org/bot${botToken}/sendMessage`
-
-  const data = {
-    chat_id: chatId,
-    text
-  }
-
-  try {
-    // Send POST request to Telegram API
-    const response = await $fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-
-    // Return the API response
-    return response
-  } catch (error) {
-    // Handle errors
-    return {
-      success: false,
-      message: 'Failed to send message to Telegram',
-      error
-    }
-  }
-}
-
-async function saveToMailChimp(name: string, email: string, title: string) {
-  const url = `https://${config.mailchimp.serverPrefix}.api.mailchimp.com/3.0/lists/${config.mailchimp.audienceId}/members`
-
-  const data = {
-    email_address: email,
-    status: 'subscribed',
-    merge_fields: {
-      FNAME: name,
-      MMERGE6: title
-    }
-  }
-
-  try {
-    // Send POST request to Telegram API
-    const response = await $fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Basic ${Buffer.from(
-          'anystring:' + config.mailchimp.apiKey
-        ).toString('base64')}`
-      },
-      body: JSON.stringify(data)
-    })
-
-    return response
-  } catch (error) {
-    return {
-      success: false,
-      message: 'Failed to save contact to MailChimp',
-      error
-    }
-  }
-}
-
 export default defineEventHandler(async (event) => {
   if (event.method !== 'POST') {
     return {
@@ -117,12 +37,6 @@ export default defineEventHandler(async (event) => {
 
   if (type === 'newsletter') {
     sheetName = 'newsletter'
-
-    sendToTelegram(
-      `New newsletter subscriber:\n\nEmail: ${data.email}\nName: ${data.name}`
-    )
-
-    saveToMailChimp(data.name, data.email, data.title)
   }
 
   const range = sheetName + '!A1:F1'

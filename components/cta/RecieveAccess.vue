@@ -33,11 +33,54 @@ function initSave() {
 
   isLoading.value = true;
 
-  useNuxtApp().$toast.promise(saveToExcel, {
+  // @ts-ignore
+  useNuxtApp().$toast.promise(save, {
     pending: 'Submitting your data...',
     success: 'Data submitted successfully',
     error: 'Error submitting data',
   });
+}
+
+async function save() {
+  saveToMailchimp();
+  sendTelegramMessage();
+  await saveToExcel();
+}
+
+async function sendTelegramMessage() {
+  try {
+    const result = await $fetch('/api/sendTelegramMessage', {
+      method: 'POST',
+      body: {
+        name: form.name,
+        email: form.email
+      }
+    });
+
+    console.log('result', result)
+  } catch (error) {
+    console.error('Error sending message to Telegram:', error);
+  }
+}
+
+async function saveToMailchimp() {
+  try {
+    const result = await $fetch('/api/saveToMailchimp', {
+      method: 'POST',
+      body: {
+        audience: 'newsletter',
+        data: {
+          name: form.name,
+          email: form.email,
+          title: 'Sign up to receive access to additional 16 CRO case studies and all future updates'
+        }
+      }
+    });
+
+    console.log('result', result)
+  } catch (error) {
+    console.error('Error saving data to Google Sheets:', error);
+  }
 }
 
 async function saveToExcel() {

@@ -30,8 +30,6 @@ const props = defineProps({
   }
 });
 
-// console.log('res', res)
-
 const { closeModal } = useModal();
 
 const logos = [
@@ -79,12 +77,14 @@ function goToNextStep() {
   if (step.value === 2) {
     if (!isAgree.value) {
       error.agree = true;
+      // @ts-ignore
       useNuxtApp().$toast.error('Please agree to the terms');
       return;
     }
 
-    saveToExcel();
     sendEmail();
+    saveToMailchimp();
+    saveToExcel();
 
     const gtm = useGtm()
 
@@ -96,6 +96,26 @@ function goToNextStep() {
     window.open('https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=' + form.name + '&email=' + form.email, '_blank');
 
     isSubmitted.value = true;
+  }
+}
+
+async function saveToMailchimp() {
+  try {
+    const result = await $fetch('/api/saveToMailchimp', {
+      method: 'POST',
+      body: {
+        audience: 'lead',
+        data: {
+          name: form.name,
+          email: form.email,
+          title: props.info.title
+        }
+      }
+    });
+
+    console.log('result', result)
+  } catch (error) {
+    console.error('Error saving data to Google Sheets:', error);
   }
 }
 
