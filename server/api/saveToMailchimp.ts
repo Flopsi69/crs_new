@@ -34,10 +34,14 @@ async function saveToMailChimp(
       body: JSON.stringify(data)
     })
 
-    return response
+    return {
+      status: 200,
+      message: 'Form data saved successfully!',
+      response
+    }
   } catch (error) {
     return {
-      success: false,
+      status: 500,
       message: 'Failed to save contact to MailChimp',
       error
     }

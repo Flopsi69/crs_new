@@ -1,4 +1,14 @@
 <script lang="ts" setup>
+interface Body {
+  audience: 'lead'
+  data: {
+    name: string
+    email: string
+    title?: string
+  }
+}
+
+// @ts-ignore
 const props = defineProps({
   name: {
     type: String,
@@ -30,7 +40,8 @@ const props = defineProps({
   }
 });
 
-const { closeModal } = useModal();
+// @ts-ignore
+defineEmits(['closeModal']);
 
 const logos = [
   'microsoft.svg', 'comodo.svg', 'samcart.svg', 'macPaw.svg', 'reckitt.svg'
@@ -49,7 +60,6 @@ const form = reactive({
     id: props.id || ''
   }
 });
-
 const error = reactive({
   name: '',
   url: '',
@@ -57,9 +67,16 @@ const error = reactive({
   agree: false
 });
 
+const toast = useToast()
+const gtm = useGtm()
+const mailchimp = useMailchimp()
+const excel = useExcel()
+const mailer = useMailer()
+
 const step = ref(1);
 const isAgree = ref(true);
 const isSubmitted = ref(false);
+const isLoading = ref(false)
 
 function goToNextStep() {
   error.name = validateInput(form.name, 'name');
@@ -73,92 +90,58 @@ function goToNextStep() {
     return;
   }
 
-
   if (step.value === 2) {
     if (!isAgree.value) {
       error.agree = true;
-      // @ts-ignore
-      useNuxtApp().$toast.error('Please agree to the terms');
+      toast.error('Please agree to the terms');
       return;
     }
 
-    sendEmail();
-    saveToMailchimp();
-    saveToExcel();
+    saveLead();
+  }
+}
 
-    const gtm = useGtm()
+async function saveLead() {
+  const toastLoading = toast.loading('Submitting your data...');
+    isLoading.value = true;
 
     gtm?.trackEvent({
       event: 'gtm_hubspot',
       data:  { ...toRaw(form) }
     })
 
+    const body: Body = {
+      audience: 'lead',
+      data: { ...form, title: props.info.title }
+    }
+
+    mailchimp.save(body)
+    mailer.send(form)
+    await excel.save(body)
+
+    isLoading.value = false;
+
+    if (excel.error.value) {
+      toast.update(toastLoading, {
+        type: 'error',
+        render: 'Error submitting data',
+        autoClose: true,
+        isLoading: false
+      });
+
+      return;
+    }
+
+    toast.update(toastLoading, {
+      type: 'success',
+      render: 'Data submitted successfully',
+      autoClose: true,
+      isLoading: false
+    });
+
     window.open('https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=' + form.name + '&email=' + form.email, '_blank');
 
     isSubmitted.value = true;
-  }
-}
-
-async function saveToMailchimp() {
-  try {
-    const result = await $fetch('/api/saveToMailchimp', {
-      method: 'POST',
-      body: {
-        audience: 'lead',
-        data: {
-          name: form.name,
-          email: form.email,
-          title: props.info.title
-        }
-      }
-    });
-
-    console.log('result', result)
-  } catch (error) {
-    console.error('Error saving data to Google Sheets:', error);
-  }
-}
-
-async function sendEmail() {
-  try {
-    const mail = useMail()
-    const text = `
-      **New lead from the website:**
-
-      Name: ${form.name || '-'}
-      Company: ${form.url || '-'}
-      Email: ${form.email || '-'}
-      Monthly Revenue: ${form.monthly_revenue || '-'}
-      Monthly Visitors: ${form.monthly_visitors || '-'}
-      Project Goal: ${form.project_goal || '-'}
-      ========================
-      Metadata:
-        -- Form Title: ${form.metadata.form_title || '-'}
-        -- Page: ${form.metadata.page || '-'}
-        -- ID: ${form.metadata.id || '-'}
-    `;
-    // JSON.stringify(form, null, 2)
-    await mail.send({
-      from: 'Conversionrate.store <analytics@conversionrate.store>',
-      subject: 'Lead from the website',
-      text
-    })
-  } catch (error) {
-    console.error('Error sending mail:', error);
-  }
-}
-
-async function saveToExcel() {
-  try {
-    const result = await $fetch('/api/saveToGoogleSheet', {
-      method: 'POST',
-      body: { type: 'lead', data: { ...form, title: props.info.title } }
-    });
-
-    console.log('result', result)
-  } catch (error) {
-    console.error('Error saving data to Google Sheets:', error);
-  }
 }
 </script>
 
@@ -240,7 +223,7 @@ async function saveToExcel() {
 
         <button
           class="modal__close button button_flat"
-          @click="closeModal"
+          @click="$emit('closeModal')"
         >
           <Icon
             name="solar:close-circle-linear"
@@ -367,7 +350,7 @@ async function saveToExcel() {
         </div>
 
         <button
-          :disabled="!form.name || !form.url || !form.email"
+          :disabled="!form.name || !form.url || !form.email || isLoading"
           class="form__submit button button_yellow subtitle-3"
           :data-step="step"
           @click="goToNextStep"
@@ -391,7 +374,7 @@ async function saveToExcel() {
 
       <button
         class="success__close modal__close button button_flat"
-        @click="closeModal"
+        @click="$emit('closeModal')"
       >
         <Icon
           name="solar:close-circle-linear"
@@ -414,7 +397,7 @@ async function saveToExcel() {
 
         <button
           class="success__button button button_yellow subtitle-3"
-          @click="closeModal"
+          @click="$emit('closeModal')"
         >
           Return to Homepage
         </button>
@@ -434,7 +417,7 @@ async function saveToExcel() {
   display: flex;
   overflow-y: auto;
   backdrop-filter: blur(5px);
-  background: rgba(0,0,0,.1);
+  background: rgba(0,0,0,.4);
   max-height: 100%;
   width: 100%;
   @media(min-width: 1680px) {

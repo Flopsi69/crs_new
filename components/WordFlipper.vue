@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+// @ts-ignore
 const props = defineProps({
   words: {
     type: Array,
