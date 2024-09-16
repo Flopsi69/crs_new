@@ -6,7 +6,7 @@ export default (value: string, type: string) => {
   }
 
   if (type === 'email') {
-    if (value.length < 6) return 'Name must be at least 6 characters long'
+    // if (value.length < 6) return 'Email must be at least 6 characters long'
 
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) === false)
       return 'Email is invalid'

@@ -16,9 +16,9 @@ export default defineEventHandler(async (event) => {
     }
   }
 
-  const { type, data } = await readBody(event)
+  const { audience, data } = await readBody(event)
 
-  if (!type || !data) {
+  if (!audience || !data) {
     return {
       status: 400,
       message: 'Invalid request body'
@@ -29,13 +29,14 @@ export default defineEventHandler(async (event) => {
     credentials: config.googleCredentials,
     scopes: ['https://www.googleapis.com/auth/spreadsheets']
   })
+
   const sheets = google.sheets({ version: 'v4', auth })
 
   const spreadsheetId = config.spreadsheetId
 
   let sheetName = 'crsNew2024'
 
-  if (type === 'newsletter') {
+  if (audience === 'newsletter') {
     sheetName = 'newsletter'
   }
 
@@ -55,7 +56,7 @@ export default defineEventHandler(async (event) => {
 
   let values = null
 
-  if (type === 'newsletter') {
+  if (audience === 'newsletter') {
     values = [date, email || '-', name || '-', title || '-']
   } else {
     values = [

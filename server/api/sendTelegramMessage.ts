@@ -29,11 +29,15 @@ async function sendTelegramMessage(text: string) {
     })
 
     // Return the API response
-    return response
+    return {
+      status: 200,
+      message: 'Message sent successfully!',
+      response
+    }
   } catch (error) {
     // Handle errors
     return {
-      success: false,
+      status: 500,
       message: 'Failed to send message to Telegram',
       error
     }
@@ -57,7 +61,7 @@ export default defineEventHandler(async (event) => {
     }
   }
 
-  sendTelegramMessage(
+  return sendTelegramMessage(
     `New newsletter subscriber:\n\nEmail: ${email}\nName: ${name}`
   )
 })

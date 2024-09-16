@@ -1,4 +1,13 @@
 <script lang="ts" setup>
+interface Body {
+  audience: 'newsletter'
+  data: {
+    name: string
+    email: string
+    title?: string
+  }
+}
+
 const title = ref('Sign up to receive access to additional 16\xA0CRO case studies and all future updates');
 const subtitle = ref('Stay ahead of the game');
 const isSubmitted = ref(false);
@@ -14,9 +23,13 @@ const error = reactive({
   email: '',
 });
 
-const isLoading = ref(false)
-
 const gtm = useGtm()
+const isLoading = ref(false)
+const mailchimp = useMailchimp()
+const excel = useExcel()
+const telegramBot = useTelegram()
+const toast = useToast()
+
 
 function initSave() {
   error.name = validateInput(form.name, 'name');
@@ -34,7 +47,7 @@ function initSave() {
   isLoading.value = true;
 
   // @ts-ignore
-  useNuxtApp().$toast.promise(save, {
+  toast.promise(save, {
     pending: 'Submitting your data...',
     success: 'Data submitted successfully',
     error: 'Error submitting data',
@@ -42,70 +55,31 @@ function initSave() {
 }
 
 async function save() {
-  saveToMailchimp();
-  sendTelegramMessage();
-  await saveToExcel();
-}
-
-async function sendTelegramMessage() {
-  try {
-    const result = await $fetch('/api/sendTelegramMessage', {
-      method: 'POST',
-      body: {
-        name: form.name,
-        email: form.email
-      }
-    });
-
-    console.log('result', result)
-  } catch (error) {
-    console.error('Error sending message to Telegram:', error);
+  const body: Body = {
+    audience: 'newsletter',
+    data: { ...form, title: 'Sign up to receive access to additional 16 CRO case studies and all future updates' }
   }
-}
 
-async function saveToMailchimp() {
-  try {
-    const result = await $fetch('/api/saveToMailchimp', {
-      method: 'POST',
-      body: {
-        audience: 'newsletter',
-        data: {
-          name: form.name,
-          email: form.email,
-          title: 'Sign up to receive access to additional 16 CRO case studies and all future updates'
-        }
-      }
-    });
+  telegramBot.send({
+    name: form.name,
+    email: form.email
+  })
+  excel.save(body)
+  await mailchimp.save(body)
 
-    console.log('result', result)
-  } catch (error) {
-    console.error('Error saving data to Google Sheets:', error);
-  }
-}
 
-async function saveToExcel() {
-  try {
-    const result = await $fetch('/api/saveToGoogleSheet', {
-      method: 'POST',
-      body: { type: 'newsletter', data: { ...form, title: 'Sign up to receive access to additional 16 CRO case studies and all future updates' } }
-    });
-
-    if (result.status === 200) {
-      form.name = '';
-      form.email = '';
-
-      isSubmitted.value = true;
-      title.value = 'You\'ll now receive all case studies straight to your inbox';
-      subtitle.value = 'Successfully!';
-    }
-
-    return result
-  } catch (error) {
-    // @ts-ignore
-    throw new Error("Error saving data to Google Sheets", error);
-  } finally {
+  if (mailchimp.error.value) {
     isLoading.value = false;
+
+    throw new Error(mailchimp.error.value?.message)
   }
+
+  form.name = '';
+  form.email = '';
+  isSubmitted.value = true;
+  isLoading.value = false;
+  title.value = 'You\'ll now receive all case studies straight to your inbox';
+  subtitle.value = 'Successfully!';
 }
 </script>
 
