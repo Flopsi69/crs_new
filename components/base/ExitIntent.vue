@@ -335,6 +335,17 @@ async function saveLead() {
         v-if="step === 1"
         class="intro"
       >
+        <button
+          class="modal__close button button_flat"
+          @click="$emit('closeModal')"
+        >
+          <Icon
+            name="solar:close-circle-linear"
+            size="36"
+            mode="css"
+            class="color-purple"
+          ></Icon>
+        </button>
         <div class="intro__caption subtitle-3 bg--gradient text-center">
           25 A/B test results with <span class="color-yellow">9-86%</span> total
           conversion rate <br />
