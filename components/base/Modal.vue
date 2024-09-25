@@ -223,7 +223,7 @@ async function saveLead() {
 
         <button
           class="modal__close button button_flat"
-          @click="$emit('closeModal')"
+          @click="$emit('closeModal', true)"
         >
           <Icon
             name="solar:close-circle-linear"
@@ -374,7 +374,7 @@ async function saveLead() {
 
       <button
         class="success__close modal__close button button_flat"
-        @click="$emit('closeModal')"
+        @click="$emit('closeModal', true)"
       >
         <Icon
           name="solar:close-circle-linear"
@@ -627,6 +627,8 @@ async function saveLead() {
   padding-left: 30px;
   @media(max-width: $sm) {
     margin-top: 0;
+    font-size: 12px;
+    line-height: 18px;
   }
   &:before {
     content: '';
