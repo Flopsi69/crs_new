@@ -7,8 +7,16 @@ let actionCounter = 0;
 let actionInterval: any;
 let scrollTimeout: any;
 
+function closeModalHandler(isCheckExitIntent = false) {
+  closeModal();
+
+  if (isCheckExitIntent) {
+    showExitIntent();
+  }
+}
+
 function showExitIntent() {
-  if (sessionStorage.getItem('exitIntentShown')) return;
+  if (sessionStorage.getItem('exitIntentShown') || isExitIntentOpen.value) return;
 
   clearInterval(actionInterval);
   sessionStorage.setItem('exitIntentShown', 'true');
@@ -64,14 +72,14 @@ onMounted(() => {
 
   setTimeout(() => {
     lastScrollY = window.scrollY;
-    document.addEventListener('mouseleave', handleMouseLeave);
+    document.addEventListener('mouseout', handleMouseLeave);
     window.addEventListener('scroll', handleScroll);
     document.addEventListener('click', resetActionCounter);
   }, 3000);
 });
 
 onUnmounted(() => {
-  document.removeEventListener('mouseleave', handleMouseLeave);
+  document.removeEventListener('mouseout', handleMouseLeave);
   window.removeEventListener('scroll', handleScroll);
   document.removeEventListener('click', resetActionCounter);
 });
@@ -88,7 +96,7 @@ onUnmounted(() => {
         <transition name="overlay-fade">
           <BaseModal
             v-bind="modalData"
-            @close-modal="closeModal"
+            @close-modal="closeModalHandler"
             v-if="isOpen"
           />
         </transition>

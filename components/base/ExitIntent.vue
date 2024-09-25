@@ -38,6 +38,7 @@ const error = reactive({
   agree: false
 });
 
+const { closeModal } = useModal();
 const toast = useToast()
 const gtm = useGtm()
 const mailchimp = useMailchimp()
@@ -245,7 +246,7 @@ async function saveLead() {
 
         <button
           class="success__button button button_yellow subtitle-3"
-          @click="$emit('closeModal')"
+          @click="closeModal(); $emit('closeModal')"
         >
           Return to Homepage
         </button>
@@ -587,6 +588,8 @@ async function saveLead() {
   &__btn {
     min-height: 60px;
     margin-top: 24px;
+    max-width: 385px;
+    width: 100%;
     @media(max-width: $sm) {
       margin-top: auto;
       padding-left: 10px;
@@ -619,6 +622,7 @@ async function saveLead() {
   width: 100%;
   background: url('img/bg-exitIntent.jpg') center no-repeat;
   background-size: cover;
+  background-position: right;
   @media(max-width: 1250px) {
     max-width: 50%;
     br {
@@ -709,6 +713,8 @@ async function saveLead() {
   padding-left: 30px;
   @media(max-width: $sm) {
     margin-top: 16px;
+    font-size: 12px;
+    line-height: 18px;
   }
   &:before {
     content: '';
