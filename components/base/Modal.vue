@@ -278,6 +278,7 @@ async function saveLead() {
               small
               label="Business email"
               required
+              type="email"
               placeholder="Business email"
               icon="fa6-solid:envelope"
               :error="error.email"
