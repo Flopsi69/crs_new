@@ -308,7 +308,7 @@ async function saveLead() {
               label="How did you hear about us?"
               placeholder="How did you hear about us?"
               icon="fa6-solid:people-group"
-              :items="['Somebody reccomended us', 'Organic search', 'Google Ads', 'Other']"
+              :items="['Somebody recommended us', 'Organic search', 'Google Ads', 'Other']"
               id="hear_about_us"
             />
 
@@ -374,7 +374,7 @@ async function saveLead() {
 
       <button
         class="success__close modal__close button button_flat"
-        @click="$emit('closeModal', true)"
+        @click="$emit('closeModal')"
       >
         <Icon
           name="solar:close-circle-linear"
