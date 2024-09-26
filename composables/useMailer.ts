@@ -18,25 +18,25 @@ function getTemplate(lead: Lead) {
   let template = `
   === NEW LEAD ===
 
-    - Name: ${lead.name || '-'}
-    - Company: ${lead.url || '-'}
-    - Email: ${lead.email || '-'}
+  \t- Name: ${lead.name || '-'}
+  \t- Company: ${lead.url || '-'}
+  \t- Email: ${lead.email || '-'}
   `
 
   if (lead.annual_revenue) {
-    template += `  - Annual Revenue: ${lead.annual_revenue}`
+    template += `\n\t- Annual Revenue: ${lead.annual_revenue}`
   }
   if (lead.hear_about_us) {
-    template += `  - How did you hear about us: ${lead.hear_about_us}`
+    template += `\n\t- How did you hear about us: ${lead.hear_about_us}`
   }
   if (lead.project_goal) {
-    template += `  - Project Goal: ${lead.project_goal}`
+    template += `\n\t- Project Goal: ${lead.project_goal}`
   }
 
-  template += `
-    |-- Form Title: ${lead.metadata?.form_title || '-'}
-    |-- Page: ${lead.metadata?.page || '-'}
-    |-- ID: ${lead.metadata?.id || '-'}
+  template += `\n
+  \t|-- Form Title: ${lead.metadata?.form_title || '-'}
+  \t|-- Page: ${lead.metadata?.page || '-'}
+  \t|-- ID: ${lead.metadata?.id || '-'}
   `
 
   return template
