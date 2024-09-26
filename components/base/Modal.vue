@@ -51,8 +51,8 @@ const form = reactive({
   name: props.name || '',
   url: props.url || '',
   email: props.email || '',
-  monthly_revenue: '',
-  monthly_visitors: '',
+  annual_revenue: '',
+  hear_about_us: '',
   project_goal: '',
   metadata: {
     page: location.href,
@@ -293,23 +293,23 @@ async function saveLead() {
           >
             <BaseInput
               v-if="!info.isGoal"
-              v-model="form.monthly_revenue"
+              v-model="form.annual_revenue"
               small
-              label="Monthly Revenue"
-              placeholder="Monthly Revenue"
+              label="Annual Revenue"
+              placeholder="Annual Revenue"
               icon="fa6-solid:coins"
               :items="['less than $250,000', '$250,000 - $1 million', '$1 million - $10 million', 'more than $10 million', 'I prefer not to say']"
-              id="monthly_revenue"
+              id="annual_revenue"
             />
 
             <BaseInput
-              v-model="form.monthly_visitors"
+              v-model="form.hear_about_us"
               small
-              label="Number of Monthly Visitors"
-              placeholder="Number of Monthly Visitors"
+              label="How did you hear about us?"
+              placeholder="How did you hear about us?"
               icon="fa6-solid:people-group"
-              :items="['less than 50,000', '50,000 - 200,000', '200,000 - 1 million', 'more than 1 million', 'I prefer not to say']"
-              id="monthly_visitors"
+              :items="['Somebody reccomended us', 'Organic search', 'Google Ads', 'Other']"
+              id="hear_about_us"
             />
 
             <BaseInput

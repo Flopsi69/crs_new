@@ -4,8 +4,8 @@ interface Lead {
   email: string
   name?: string
   url?: string
-  monthly_revenue?: string
-  monthly_visitors?: string
+  annual_revenue?: string
+  hear_about_us?: string
   project_goal?: string
   metadata?: {
     form_title?: string
@@ -23,11 +23,11 @@ function getTemplate(lead: Lead) {
     - Email: ${lead.email || '-'}
   `
 
-  if (lead.monthly_revenue) {
-    template += `  - Monthly Revenue: ${lead.monthly_revenue}`
+  if (lead.annual_revenue) {
+    template += `  - Annual Revenue: ${lead.annual_revenue}`
   }
-  if (lead.monthly_visitors) {
-    template += `  - Monthly Visitors: ${lead.monthly_visitors}`
+  if (lead.hear_about_us) {
+    template += `  - How did you hear about us: ${lead.hear_about_us}`
   }
   if (lead.project_goal) {
     template += `  - Project Goal: ${lead.project_goal}`
