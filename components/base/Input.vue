@@ -98,6 +98,7 @@ onClickOutside(target, () => {
         type="text"
         class="input"
         v-bind="$attrs"
+        :autocomplete="items?.length ? 'off' : 'on'"
         :placeholder="placeholder"
         :readonly="!!items?.length"
         @click="toggleDropdown"
