@@ -48,8 +48,8 @@ export default defineEventHandler(async (event) => {
     name,
     url,
     email,
-    monthly_revenue,
-    monthly_visitors,
+    annual_revenue,
+    hear_about_us,
     project_goal,
     title
   } = data
@@ -64,8 +64,8 @@ export default defineEventHandler(async (event) => {
       email || '-',
       name || '-',
       url || '-',
-      monthly_revenue || '-',
-      monthly_visitors || '-',
+      annual_revenue || '-',
+      hear_about_us || '-',
       project_goal || '-',
       title || '-'
     ]

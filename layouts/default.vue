@@ -39,7 +39,7 @@ function handleScroll() {
   const currentScrollY = window.scrollY;
   const scrollSpeed = currentScrollY - lastScrollY;
 
-  if (scrollSpeed > 150 && !sessionStorage.getItem('exitIntentShown')) {
+  if (Math.abs(scrollSpeed) > 150 && !sessionStorage.getItem('exitIntentShown')) {
     showExitIntent();
   }
 
