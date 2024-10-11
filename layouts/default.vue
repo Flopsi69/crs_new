@@ -16,7 +16,7 @@ function closeModalHandler(isCheckExitIntent = false) {
 }
 
 function showExitIntent() {
-  if (sessionStorage.getItem('exitIntentShown') || isExitIntentOpen.value) return;
+  if (sessionStorage.getItem('exitIntentShown') || isExitIntentOpen.value || isOpen.value) return;
 
   clearInterval(actionInterval);
   sessionStorage.setItem('exitIntentShown', 'true');
