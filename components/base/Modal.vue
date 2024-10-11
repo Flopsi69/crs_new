@@ -323,7 +323,7 @@ async function saveLead() {
               id="project_goal"
             />
 
-            <div
+            <!-- <div
               v-if="info?.note"
               class="note text flex"
             >
@@ -333,7 +333,7 @@ async function saveLead() {
                 size="14"
               />
               {{ info.note }}
-            </div>
+            </div> -->
 
             <div
               class="agree text flex"
