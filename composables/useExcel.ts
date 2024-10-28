@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 
 interface Body {
-  audience: 'lead' | 'newsletter'
+  audience: 'lead' | 'newsletter' | 'prelead'
   data: {
     name: string
     email: string
