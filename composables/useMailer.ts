@@ -14,9 +14,9 @@ interface Lead {
   }
 }
 
-function getTemplate(lead: Lead) {
+function getTemplate(lead: Lead, isPrelid: boolean) {
   let template = `
-  === NEW LEAD ===
+  === NEW LEAD ${isPrelid ? '(first step)' : ''} ===
 
   \t- Name: ${lead.name || '-'}
   \t- Company: ${lead.url || '-'}
@@ -49,7 +49,7 @@ export function useMailer() {
   const error = ref<Error | null>(null)
   const loading = ref<boolean>(false)
 
-  const send = async (lead: any) => {
+  const send = async (lead: any, isPrelid = false) => {
     loading.value = true
     data.value = null
     error.value = null
@@ -58,10 +58,11 @@ export function useMailer() {
       // await new Promise((resolve) => setTimeout(resolve, 1000))
       // throw new Error('Not implemented yet')
       // getTemplate(lead)
+      const subject = isPrelid ? 'New Lead (first step)' : 'New Lead'
       data.value = await mail.send({
         from: 'Conversionrate.store <analytics@conversionrate.store>',
-        subject: 'Lead from the website',
-        text: getTemplate(lead)
+        subject,
+        text: getTemplate(lead, isPrelid)
       })
 
       return data.value

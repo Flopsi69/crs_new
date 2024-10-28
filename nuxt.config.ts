@@ -40,7 +40,7 @@ export default defineNuxtConfig({
 
   mail: {
     message: {
-      to: 'flopsi69@gmail.com,al@conversionrate.store,g@conversionrate.store,i@conversionrate.store'
+      to: 'al@conversionrate.store,g@conversionrate.store,i@conversionrate.store'
     },
     smtp: {
       service: 'gmail',

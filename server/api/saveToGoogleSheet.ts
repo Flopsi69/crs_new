@@ -38,6 +38,8 @@ export default defineEventHandler(async (event) => {
 
   if (audience === 'newsletter') {
     sheetName = 'newsletter'
+  } else if (audience === 'prelead') {
+    sheetName = 'crsNew2024_prelead'
   }
 
   const range = sheetName + '!A1:F1'
@@ -58,6 +60,8 @@ export default defineEventHandler(async (event) => {
 
   if (audience === 'newsletter') {
     values = [date, email || '-', name || '-', title || '-']
+  } else if (audience === 'prelead') {
+    values = [date, email || '-', name || '-', url || '-', title || '-']
   } else {
     values = [
       date,

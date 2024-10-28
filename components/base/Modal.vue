@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 interface Body {
-  audience: 'lead'
+  audience: 'lead' | 'prelead'
   data: {
     name: string
     email: string
@@ -86,6 +86,8 @@ function goToNextStep() {
   if (step.value === 1) {
     if (error.name || error.url || error.email) return
 
+    savePrelid();
+
     step.value = 2;
     return;
   }
@@ -99,6 +101,21 @@ function goToNextStep() {
 
     saveLead();
   }
+}
+
+async function savePrelid() {
+  gtm?.trackEvent({
+    event: 'gtm_hubspot',
+    data:  { ...toRaw(form) }
+  })
+
+  const body: Body = {
+    audience: 'prelead',
+    data: { ...form, title: props.info.title }
+  }
+
+  mailer.send(form, true)
+  await excel.save(body)
 }
 
 async function saveLead() {
