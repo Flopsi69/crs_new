@@ -373,7 +373,7 @@ async function saveLead() {
           :data-step="step"
           @click="goToNextStep"
         >
-          {{ step === 1 ?  'Next step &nbsp; 1/2' : info?.cta }}
+          {{ step === 1 ?  'Continue' : info?.cta }}
         </button>
       </div>
     </div>
