@@ -122,17 +122,6 @@ const isMobile = computed(() => width.value < 768)
     margin-top: 24px;
     gap: 20px;
   }
-  &_desk {
-    @media(max-width: $sm) {
-      display: none;
-    }
-  }
-  &_mob {
-    display: none;
-    @media(max-width: $sm) {
-      display: flex;
-    }
-  }
 }
 
 .button {

@@ -1,17 +1,29 @@
-type ModalDataType = {
+type Author = {
+  id: string
+  name: string
+  position: string
+  photo: string
+}
+
+type ModalData = {
+  target?: string
   url?: string
   name?: string
   email?: string
   id?: string
   info?: Object
-  // add other properties as needed
+  src?: string
+  title?: string
+  author?: Author
 }
 
 const isOpen = ref<boolean>(false)
-const modalData = ref<ModalDataType | null>(null)
+const modalTarget = ref<string>('funnel')
+const modalData = ref<ModalData | null>(null)
 
-function openModal(data: object | null = null): void {
+function openModal(data: ModalData | null = null): void {
   modalData.value = data
+  modalTarget.value = data?.target ? data.target : 'funnel'
   isOpen.value = true
 }
 
@@ -26,6 +38,7 @@ watch(isOpen, (newValue: boolean) => {
 
 export function useModal() {
   return {
+    modalTarget,
     isOpen,
     modalData,
     openModal,

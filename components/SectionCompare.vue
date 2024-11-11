@@ -237,7 +237,7 @@
 .row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  @media(max-width: 1200px) {
+  @media(max-width: $lg) {
     grid-template-columns: max(220px) repeat(3, 1fr);
   }
   @media(max-width: $md) {
