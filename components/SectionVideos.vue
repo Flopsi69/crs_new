@@ -18,21 +18,21 @@ const authors = [
 
 const videos = [
   {
-    preview: '/videos/preview-2.gif',
+    preview: '/images/video-preview-2.gif',
     src: 'https://drive.google.com/file/d/1dUnoEi_-mIXkVB6n8F6izU5fZr4xOoDA/preview',
     title: 'Riga Comm 2024',
     author: authors[0],
     id: 'homepage_video_0'
   },
   {
-    preview: '/videos/preview-1.gif',
+    preview: '/images/video-preview-1.gif',
     src: 'https://drive.google.com/file/d/1BNQdn7it6YEzOZ14Lzh0xnABLwz7bVjb/preview',
     title: 'eCommerce 2019',
     author: authors[1],
     id: 'homepage_video_1'
   },
   {
-    preview: '/videos/preview-2.gif',
+    preview: '/images/video-preview-2.gif',
     src: 'https://drive.google.com/file/d/1olltbr6KQlX3wal8Oa0N5p4yDLYzrHSE/preview',
     title: 'eCommerce 2019',
     author: authors[0],
