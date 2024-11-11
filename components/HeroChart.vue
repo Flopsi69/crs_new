@@ -102,7 +102,7 @@
     height: 310px;
     padding-top: 32px;
     margin-top: 30px;
-    @media(max-width: 1200px) {
+    @media(max-width: $lg) {
       height: 400px;
     }
     @media(max-width: $md) {

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { isOpen, modalData, closeModal } = useModal();
+const { isOpen } = useModal();
 // const { isOpen: isExitIntentOpen, closeModal: closeExitIntent } = useExitIntent();
 
 // let lastScrollY = 0;
@@ -93,13 +93,13 @@ const { isOpen, modalData, closeModal } = useModal();
 
     <ClientOnly>
       <Teleport to="body">
-        <transition name="overlay-fade">
+        <!-- <transition name="overlay-fade">
           <BaseModal
             v-bind="modalData"
             @close-modal="closeModal"
             v-if="isOpen"
           />
-        </transition>
+        </transition> -->
 
         <!-- <transition name="overlay-fade">
           <BaseExitIntent
@@ -107,6 +107,10 @@ const { isOpen, modalData, closeModal } = useModal();
             @close-modal="closeExitIntent"
           />
         </transition> -->
+
+        <transition name="overlay-fade">
+          <ModalWapper v-if="isOpen" />
+        </transition>
       </Teleport>
     </ClientOnly>
   </div>

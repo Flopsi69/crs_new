@@ -14,6 +14,7 @@ useHead({
     <SectionClientsLogo />
     <!-- TODO Marquee -->
     <SectionLeader />
+    <SectionVideos />
 
     <BaseSection>
       <CtaGuaranted />
