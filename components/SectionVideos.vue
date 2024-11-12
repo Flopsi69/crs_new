@@ -18,7 +18,7 @@ const authors = [
 
 const videos = [
   {
-    preview: '/images/video-preview-2.gif',
+    preview: '/images/video-preview-0.gif',
     src: 'https://drive.google.com/file/d/1dUnoEi_-mIXkVB6n8F6izU5fZr4xOoDA/preview',
     title: 'Riga Comm 2024',
     author: authors[0],
