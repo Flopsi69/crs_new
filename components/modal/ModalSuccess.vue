@@ -45,6 +45,9 @@ const { closeModal } = useModal();
 <style lang="scss" scoped>
 .success {
   background: $bg--purple-dark;
+  @media(min-width: 1680px) {
+    min-height: 75%;
+  }
   &:before, &:after {
     content: '';
     position: absolute;

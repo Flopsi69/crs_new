@@ -451,6 +451,7 @@ async function saveLead() {
   &__inner {
     position: relative;
     background: #fff;
+    overflow: hidden;
     display: flex;
     // max-width: 380px;
     width: 100%;
