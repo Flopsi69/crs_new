@@ -15,6 +15,7 @@ type ModalData = {
   src?: string
   title?: string
   author?: Author
+  meeting?: string
 }
 
 const isOpen = ref<boolean>(false)

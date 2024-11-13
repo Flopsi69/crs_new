@@ -87,7 +87,11 @@ async function saveLead() {
     isLoading: false
   });
 
-  window.open('https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=' + form.name + '&email=' + form.email, '_blank');
+  if (modalData.value?.meeting) {
+    window.open(
+      modalData.value?.meeting.replace('<name>', form.name).replace('<email>', form.email)
+    );
+  }
 
   modalTarget.value = 'success';
 }
@@ -387,7 +391,9 @@ async function saveLead() {
 }
 
 .note {
-  overflow: visible;
+  &.plate {
+    overflow: visible;
+  }
   position: relative;
   padding: 16px;
   @media(max-width: $sm) {
