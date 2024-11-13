@@ -22,7 +22,7 @@ defineProps({
   <BasePlate
     class="case"
     solidBorder
-    background="white"
+    background="purple-light"
   >
     <div class="case__logo flex align-center">
       <img
