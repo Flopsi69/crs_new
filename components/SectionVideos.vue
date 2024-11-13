@@ -22,21 +22,24 @@ const videos = [
     src: 'https://drive.google.com/file/d/1dUnoEi_-mIXkVB6n8F6izU5fZr4xOoDA/preview',
     title: 'Riga Comm 2024',
     author: authors[0],
-    id: 'homepage_video_0'
+    id: 'homepage_video_0',
+    meeting: 'https://calendly.com/ihor-sokol/discovery-call-with-ihor?name=<name>&email=<email>'
   },
   {
     preview: '/images/video-preview-1.gif',
     src: 'https://drive.google.com/file/d/1BNQdn7it6YEzOZ14Lzh0xnABLwz7bVjb/preview',
     title: 'eCommerce 2019',
     author: authors[1],
-    id: 'homepage_video_1'
+    id: 'homepage_video_1',
+    meeting: 'https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=<name>&email=<email>'
   },
   {
     preview: '/images/video-preview-2.gif',
     src: 'https://drive.google.com/file/d/1olltbr6KQlX3wal8Oa0N5p4yDLYzrHSE/preview',
     title: 'eCommerce 2019',
     author: authors[0],
-    id: 'homepage_video_2'
+    id: 'homepage_video_2',
+    meeting: 'https://calendly.com/ihor-sokol/discovery-call-with-ihor?name=<name>&email=<email>'
   }
 ]
 
