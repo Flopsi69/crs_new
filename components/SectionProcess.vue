@@ -31,7 +31,7 @@ import { processSteps as steps } from '~/configs';
               <h4 class="step__plate-title subtitle-1">Purpose</h4>
             </div>
 
-            <div class="step__plate-body text">
+            <div class="step__plate-body text color-secondary">
               {{ step.purpose }}
             </div>
           </BasePlate>
@@ -45,7 +45,7 @@ import { processSteps as steps } from '~/configs';
               <h4 class="step__plate-title subtitle-1">Methodology</h4>
             </div>
 
-            <div class="step__plate-body text list-brand">
+            <div class="step__plate-body text color-secondary list-brand">
               <div
                 class="list-brand__item"
                 v-for="(method, index) in step.methodology"

@@ -26,13 +26,13 @@ defineProps({
 
       <div class="feedback__author-mob">
         <div class="feedback__author-name subtitle-3">{{ feedback.name }}</div>
-        <div class="feedback__author-position text text-sm">
+        <div class="feedback__author-position text text-sm color-secondary">
           {{ feedback.position }}
         </div>
       </div>
 
       <BaseTextExpand
-        class="text lh-15"
+        class="text lh-15 color-secondary"
         :text="feedback.text"
       >
       </BaseTextExpand>
@@ -41,7 +41,7 @@ defineProps({
     <div class="feedback__footer flex-between">
       <div class="feedback__author">
         <div class="feedback__author-name subtitle-3">{{ feedback.name }}</div>
-        <div class="feedback__author-position text text-sm">
+        <div class="feedback__author-position text text-sm color-secondary">
           {{ feedback.position }}
         </div>
       </div>

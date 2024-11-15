@@ -525,6 +525,7 @@ async function saveLead() {
   font-size: 14px;
   padding: 8px 12px;
   gap: 8px;
+  color: $font-secondary;
   &__icon {
     flex-shrink: 0;
     margin-top: 3px;

@@ -26,7 +26,7 @@ export default [
     result: {
       value: 8.3,
       caption: 'ARPU UPLIFT',
-      url: 'https://conversionrate.store/saas-growth/'
+      url: 'https://conversionrate.store/saas-registration-flow-optimization/'
     }
   },
   {
@@ -41,7 +41,7 @@ export default [
     result: {
       value: 13,
       caption: 'CVR UPLIFT',
-      url: 'https://conversionrate.store/cart-abandonment-solution-exit-popup/'
+      url: 'https://conversionrate.store/ecommerce-popup-increase-conversion-rate/'
     }
   },
   {
@@ -56,7 +56,7 @@ export default [
     result: {
       value: 10.63,
       caption: 'CVR UPLIFT',
-      url: 'https://conversionrate.store/improve-lead-generation-autofill-input/'
+      url: 'https://conversionrate.store/increase-lead-generation-conversion-rate-ip-address-autofill/'
     }
   },
   {
@@ -71,8 +71,7 @@ export default [
     result: {
       value: 28.3,
       caption: 'ARPU UPLIFT',
-      url: 'https://conversionrate.store/shopify-personalized-landing-pages-uplift-arpu/',
-      url2: 'https://conversionrate.store/subscribe-and-save-arpu-boost-ecommerce/'
+      url: 'https://conversionrate.store/boost-ecommerce-sales-personilized-content/'
     }
   },
   {
@@ -87,7 +86,7 @@ export default [
     result: {
       value: 11.2,
       caption: 'ARPU UPLIFT',
-      url: 'https://conversionrate.store/home-page-conversion-optimization/'
+      url: 'https://conversionrate.store/home-page-conversions-rate-optimization/'
     }
   },
   {
@@ -102,7 +101,7 @@ export default [
     result: {
       value: 80.7,
       caption: 'CVR UPLIFT',
-      url: 'https://conversionrate.store/funnel-progression-information-consumption-increasing-car/'
+      url: 'https://conversionrate.store/app-conversion-rate-boost/'
     }
   },
   {
@@ -117,7 +116,7 @@ export default [
     result: {
       value: 55.7,
       caption: 'CVR UPLIFT',
-      url: 'https://conversionrate.store/book-a-call-cvr-increase/'
+      url: 'https://conversionrate.store/increasing-conversion-with-calendly-book-a-call/'
     }
   },
   {
@@ -131,8 +130,7 @@ export default [
     result: {
       value: 9,
       caption: 'ARPU UPLIFT',
-      url: 'https://conversionrate.store/shopify-cross-sell/',
-      url2: 'https://conversionrate.store/how-to-increase-conversion-rate-shopify/'
+      url: 'https://conversionrate.store/boost-shopify-sales-cross-sell/'
     }
   },
   {
@@ -147,7 +145,7 @@ export default [
     result: {
       value: 22.7,
       caption: 'CVR UPLIFT',
-      url: 'https://conversionrate.store/awareness-to-purchase-cvr/'
+      url: 'https://conversionrate.store/increase-ecommerce-conversion/'
     }
   },
   {
@@ -162,7 +160,7 @@ export default [
     result: {
       value: 27,
       caption: 'AOV UPLIFT',
-      url: 'https://conversionrate.store/increase-ecommerce-store-aov-apru/'
+      url: ''
     }
   }
 ]
