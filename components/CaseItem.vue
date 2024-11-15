@@ -36,7 +36,7 @@ defineProps({
       v-if="caseStudy.about"
     >
       <div class="case__block-title subtitle-3">Product:</div>
-      <div class="case__block-caption text">
+      <div class="case__block-caption text color-secondary">
         <span
           class="color-purple fw-bold"
           v-if="caseStudy.product"
@@ -51,7 +51,7 @@ defineProps({
       v-if="caseStudy.experiment"
     >
       <div class="case__block-title subtitle-3">Experiment:</div>
-      <div class="case__block-caption text">
+      <div class="case__block-caption text color-secondary">
         {{ caseStudy.experiment }}
       </div>
     </div>
@@ -76,6 +76,7 @@ defineProps({
         </div>
 
         <NuxtLink
+          v-if="caseStudy.result.url"
           external
           target="_blank"
           class="result__link link flex-center"

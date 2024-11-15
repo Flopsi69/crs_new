@@ -48,8 +48,12 @@ useHead({
 .main {
   display: grid;
   gap: 90px;
+  margin-bottom: 90px;
   @media(max-width: $md) {
     gap: 60px;
+  }
+  @media(max-width: $sm) {
+    margin-bottom: 42px;
   }
 }
 </style>

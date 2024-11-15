@@ -101,6 +101,10 @@
   &--white {
     background-color: #fff;
   }
+  &--violet {
+    background-color: $violet;
+    color: #fff;
+  }
   &--gradient {
     background: $gradient-dark;
     color: #fff;

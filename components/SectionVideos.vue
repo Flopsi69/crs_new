@@ -108,7 +108,7 @@ function openVideo(video: any) {
               </div>
               <div class="author__info">
                 <div class="author__name">{{ video.author.name }}</div>
-                <div class="author__position text text-sm">
+                <div class="author__position text text-sm color-secondary">
                   {{ video.author.position }}
                 </div>
               </div>
@@ -197,7 +197,7 @@ function openVideo(video: any) {
             </div>
             <div class="author__info">
               <div class="author__name">{{ video.author.name }}</div>
-              <div class="author__position text text-sm">
+              <div class="author__position text text-sm color-secondary">
                 {{ video.author.position }}
               </div>
             </div>

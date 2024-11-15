@@ -28,7 +28,7 @@ onMounted(() => {
       9 essential competencies in your dedicated CRO team
     </h2>
 
-    <div class="caption text">
+    <div class="caption text color-secondary">
       For each project, we assemble a team with 9 essential competencies
       necessary for a successful CRO/UXO project
     </div>
@@ -68,7 +68,7 @@ onMounted(() => {
           </h3>
           <div
             :key="title"
-            class="card__caption text"
+            class="card__caption text color-secondary"
             v-if="isReady && (isActive || width > 768)"
           >
             {{ caption }}

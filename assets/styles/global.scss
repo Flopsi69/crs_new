@@ -21,6 +21,9 @@ body {
   max-width: 1240px;
   padding: 0 20px;
   margin: 0 auto;
+  &_narrow {
+    max-width: 1160px;
+  }
 }
 
 .button {
@@ -34,6 +37,9 @@ body {
   cursor: pointer;
   min-height: 50px;
   line-height: 1;
+  svg {
+    fill: currentColor;
+  }
   &_yellow {
     background-color: $yellow;
     @media (hover: hover) {
@@ -124,7 +130,6 @@ body {
 
 .text {
   font-size: 16px;
-  color: $font-secondary;
   font-weight: 400;
   &-sm {
     font-size: 14px;

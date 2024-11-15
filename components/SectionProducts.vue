@@ -199,6 +199,9 @@ const infoEstimate = {
 }
 
 .table {
+  &:deep(.text) {
+    color: $font-secondary;
+  }
   @media(max-width: $md) {
     min-width: 800px;
   }

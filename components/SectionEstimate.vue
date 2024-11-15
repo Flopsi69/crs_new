@@ -242,7 +242,7 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
           </button>
 
           <div class="identify">
-            <div class="identify__caption text">
+            <div class="identify__caption text color-secondary">
               Not sure what your current KPIs are?
             </div>
             <div

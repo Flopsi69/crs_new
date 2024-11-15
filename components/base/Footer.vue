@@ -61,12 +61,10 @@ import { serviceLinks, menu} from '~/configs';
 
 <style lang="scss" scoped>
 .footer {
-  margin-top: 90px;
   padding: 60px 0 20px;
   background: $font-primary;
   color: #fff;
   @media(max-width: $sm) {
-    margin-top: 42px;
     padding: 42px 0;
   }
   &__top {

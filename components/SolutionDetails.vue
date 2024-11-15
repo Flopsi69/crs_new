@@ -25,9 +25,9 @@ onMounted(() => {
 function getRelatedCase() {
   relatedCase.value = cases.find((c) => c.id === props.item.case);
 
-  if (relatedCase.value?.result?.url2) {
-    relatedCase.value.result.url = relatedCase.value.result.url2;
-  }
+  // if (relatedCase.value?.result?.url2) {
+  //   relatedCase.value.result.url = relatedCase.value.result.url2;
+  // }
 }
 </script>
 
@@ -230,6 +230,9 @@ function getRelatedCase() {
 
   &__steps {
     margin-top: 32px;
+    &:deep(.text) {
+      color: $font-secondary;
+    }
     &-title {
       margin-bottom: 16px;
     }
