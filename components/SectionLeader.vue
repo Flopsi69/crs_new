@@ -42,7 +42,7 @@
           data-aos-duration="700"
         >
           <img
-            src="img/leader-clutchBadge3.png"
+            src="img/leader-badge-european.svg"
             alt=""
           />
         </div>
