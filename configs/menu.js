@@ -5,7 +5,7 @@ export default [
   },
   {
     title: 'CRO Case Studies',
-    url: 'https://conversionrate.store/cro-case-studies/'
+    url: '/case-studies/'
   },
   {
     title: 'Performance-based CRO',

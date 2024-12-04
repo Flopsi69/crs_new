@@ -15,8 +15,7 @@
       single experiment
     </div>
 
-    <!-- TODO components -->
-    <CaseList />
+    <CaseList class="cases__list" />
 
     <CtaRecieveAccess class="cta" />
   </BaseSection>
@@ -26,9 +25,13 @@
 .cases {
   padding: 60px 0;
   &__caption {
+    margin-bottom: 24px;
     @media(max-width: $sm) {
       font-size: 16px;
     }
+  }
+  &__list {
+    margin-top: 24px;
   }
 }
 

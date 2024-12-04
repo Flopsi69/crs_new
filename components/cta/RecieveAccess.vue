@@ -8,14 +8,31 @@ interface Body {
   }
 }
 
-const title = ref('Sign up to receive access to additional 16\xA0CRO case studies and all future updates');
-const subtitle = ref('Stay ahead of the game');
+const props = defineProps({
+  text: {
+    type: Object,
+    default: () => ({
+      title: 'Sign up to receive access to additional 16\xA0CRO case studies and all future updates',
+      subtitle: 'Stay ahead of the game',
+      button: 'Receive all case studies'
+    }),
+  },
+  formId: {
+    type: String,
+    default: 'homepage_newsletter_0',
+  },
+  flat: {
+    type: Boolean,
+    default: false
+  },
+});
+
 const isSubmitted = ref(false);
 
 const form = reactive({
   name: '',
   email: '',
-  id: 'homepage_newsletter_0',
+  id: props.formId
 });
 
 const error = reactive({
@@ -57,7 +74,7 @@ function initSave() {
 async function save() {
   const body: Body = {
     audience: 'newsletter',
-    data: { ...form, title: 'Sign up to receive access to additional 16 CRO case studies and all future updates' }
+    data: { ...form, title: props.text.title.replace(/\xA0/g, ' ') }
   }
 
   telegramBot.send({
@@ -78,13 +95,13 @@ async function save() {
   form.email = '';
   isSubmitted.value = true;
   isLoading.value = false;
-  title.value = 'You\'ll now receive all case studies straight to your inbox';
-  subtitle.value = 'Successfully!';
 }
 </script>
 
 <template>
   <BasePlate
+    class="cta"
+    :class="{'cta_flat': flat}"
     background="purple-dark"
     chart
     v-auto-animate
@@ -93,9 +110,16 @@ async function save() {
       class="info"
       :class="{'info_submitted': isSubmitted}"
     >
-      <h3 class="info__caption section-caption subtitle-2">{{ subtitle }}</h3>
+      <h3 class="info__caption section-caption subtitle-2">
+        {{ isSubmitted ? 'Successfully!' : text.subtitle }}
+      </h3>
 
-      <h2 class="info__title section-title title-2">{{ title }}</h2>
+      <h2
+        class="info__title section-title"
+        :class="[flat ? 'title-3' : 'title-2']"
+      >
+        {{ isSubmitted ? 'You\'ll now receive all case studies straight to your inbox' : text.title }}
+      </h2>
     </div>
 
     <div
@@ -131,15 +155,21 @@ async function save() {
         class="form__button button button_yellow"
         :disabled="isLoading"
       >
-        Receive all case studies
+        {{ text.button }}
       </button>
     </div>
   </BasePlate>
 </template>
 
 <style lang="scss" scoped>
-.plate {
+.cta {
   padding: 60px;
+  &_flat {
+    padding: 30px;
+    &:after {
+      display: none;
+    }
+  }
   @media(max-width: $sm) {
     padding: 32px 20px;
   }
@@ -180,6 +210,13 @@ async function save() {
   z-index: 1;
   opacity: .99;
   max-width: 1024px;
+  .cta_flat & {
+    margin-top: 30px;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
   @media(max-width: $md) {
     flex-flow: column;
     margin-top: 24px;
@@ -192,6 +229,9 @@ async function save() {
     height: 60px;
     font-size: 18px;
     padding: 17px 35px 15px;
+    .cta_flat & {
+      grid-column: span 2;
+    }
     @media(max-width: $sm) {
       padding-left: 15px;
       padding-right: 15px;

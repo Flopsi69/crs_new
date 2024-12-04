@@ -628,6 +628,13 @@
   dependencies:
     "@iconify/types" "^2.0.0"
 
+"@img-comparison-slider/vue@^8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@img-comparison-slider/vue/-/vue-8.0.0.tgz#6d7f036f7ad77e564e915a65d830f9eaea9be23a"
+  integrity sha512-1gir2JlS8ZQLK2lzk4gIp6fuNvOR8UFXaPiHnBrF6fEwIXdMiI5veobi479FV6Tekj8CIhK+pLUPs+NvcOHd5g==
+  dependencies:
+    img-comparison-slider "~8.0.0"
+
 "@internationalized/date@^3.5.4":
   version "3.5.4"
   resolved "https://registry.yarnpkg.com/@internationalized/date/-/date-3.5.4.tgz#49ba11634fd4350b7a9308e297032267b4063c44"
@@ -4745,6 +4752,11 @@ image-meta@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/image-meta/-/image-meta-0.2.0.tgz#ea28d05d52f5ad35f75b14f46278a44d626f48bc"
   integrity sha512-ZBGjl0ZMEMeOC3Ns0wUF/5UdUmr3qQhBSCniT0LxOgGGIRHiNFOkMtIHB7EOznRU47V2AxPgiVP+s+0/UCU0Hg==
+
+img-comparison-slider@~8.0.0:
+  version "8.0.6"
+  resolved "https://registry.yarnpkg.com/img-comparison-slider/-/img-comparison-slider-8.0.6.tgz#a94385e49ee630903f8a6a4f9959658078668c87"
+  integrity sha512-ej4de7mWyjcXZvDgHq8K2a/dG8Vv+qYTdUjZa3cVILf316rLtDrHyGbh9fPvixmAFgbs30zTLfmaRDa7abjtzw==
 
 immutable@^4.0.0:
   version "4.3.6"

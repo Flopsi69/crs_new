@@ -1,17 +1,32 @@
 <script lang="ts" setup>
 import { cases } from '~/configs';
 
+const props = defineProps({
+  cols: {
+    type: Number,
+    default: 1
+  },
+  expand: {
+    type: Boolean,
+    default: true
+  }
+});
+
 const isShowMore = ref(false);
 
 const caseFiltered = cases.filter((c) => !c.isHidden);
 
 const casesToShow = computed(() => {
-  return  isShowMore.value ? caseFiltered : caseFiltered.slice(0, 3);
+  return  isShowMore.value || !props.expand ? caseFiltered : caseFiltered.slice(0, 3);
 });
 </script>
 
 <template>
-  <div class="list">
+  <div
+    class="list"
+    :class="`cols-${cols}`"
+    v-bind="$attrs"
+  >
     <CaseItem
       v-for="(caseStudy, index) in casesToShow"
       :key="index"
@@ -22,7 +37,7 @@ const casesToShow = computed(() => {
   </div>
 
   <div
-    v-if="!isShowMore"
+    v-if="!isShowMore && expand"
     class="control flex-center"
   >
     <button
@@ -39,12 +54,17 @@ const casesToShow = computed(() => {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  margin-top: 24px;
   @media(max-width: $md) {
     grid-template-columns: 1fr;
   }
   @media(max-width: $sm) {
     gap: 16px;
+  }
+  &.cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+    @media(max-width: $md) {
+      grid-template-columns: 1fr;
+    }
   }
 }
 

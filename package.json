@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
+    "@img-comparison-slider/vue": "^8.0.0",
     "@nuxt/fonts": "^0.7.0",
     "@vee-validate/nuxt": "^4.13.1",
     "@vueuse/nuxt": "^10.10.0",

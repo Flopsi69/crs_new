@@ -2,7 +2,7 @@ export default (value: string, type: string) => {
   if (value === '') return 'This field is required'
 
   if (type === 'name') {
-    if (value.length < 4) return 'Name must be at least 4 characters long'
+    if (value.length < 3) return 'Name must be at least 3 characters long'
   }
 
   if (type === 'email') {
