@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { cases } from '~/configs';
+
 const newsletterText = {
   title: 'Sign up for our newsletter to get early updates',
   subtitle: 'Stay ahead of the game',
@@ -25,6 +27,7 @@ const newsletterText = {
             class="cases__list"
             :cols="2"
             :expand="false"
+            :items="cases"
           />
 
           <CtaRecieveAccess

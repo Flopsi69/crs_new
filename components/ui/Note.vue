@@ -25,6 +25,7 @@ const props = defineProps({
     default: 'big',
   }
 });
+
 const iconColor = computed(() => {
   if (props.dark || props.light) return '#e3aa10';
 

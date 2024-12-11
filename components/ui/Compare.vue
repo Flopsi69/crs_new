@@ -40,9 +40,6 @@ defineProps({
 .compare {
   position: relative;
   line-height: 0;
-  &:deep(#second) {
-    background: red;
-  }
   &__labels {
     display: flex;
     justify-content: space-between;

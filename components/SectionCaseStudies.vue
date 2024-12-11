@@ -1,4 +1,6 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { cases } from '~/configs';
+</script>
 
 <template>
   <BaseSection
@@ -15,7 +17,10 @@
       single experiment
     </div>
 
-    <CaseList class="cases__list" />
+    <CaseList
+      class="cases__list"
+      :items="cases"
+    />
 
     <CtaRecieveAccess class="cta" />
   </BaseSection>
