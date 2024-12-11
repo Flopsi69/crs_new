@@ -151,7 +151,7 @@ async function saveLead() {
     isLoading: false
   });
 
-  window.open('https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=' + form.name + '&email=' + form.email, '_blank');
+  window.open('https://meetings.hubspot.com/ihor-sokolov?firstName=' + form.name + '&email=' + form.email, '_blank');
 
   step.value = 3;
 }
