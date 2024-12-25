@@ -4,6 +4,7 @@
   <BaseSection
     background="purple-light"
     class="cases"
+    id="case-studies"
   >
     <h2 class="section-title title-2 cases__title">
       CRO case studies from

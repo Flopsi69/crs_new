@@ -30,7 +30,10 @@ const infoEstimate = {
 </script>
 
 <template>
-  <BaseSection class="products">
+  <BaseSection
+    class="products"
+    id="our-cro-products"
+  >
     <h2 class="section-title title-2">Our CRO/UXO Products</h2>
 
     <div class="table-wrap">

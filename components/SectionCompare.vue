@@ -1,7 +1,10 @@
 <script lang="ts" setup></script>
 
 <template>
-  <BaseSection class="compare">
+  <BaseSection
+    class="compare"
+    id="crs-vs-other-cro-agencies"
+  >
     <h2 class="section-title title-2">
       <span class="color-purple">Conversion Rate Store</span> vs other CRO
       agencies vs in-house team

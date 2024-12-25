@@ -23,7 +23,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <BaseSection class="competencies">
+  <BaseSection
+    class="competencies"
+    id="9-essential-competencies"
+  >
     <h2 class="section-title title-2">
       9 essential competencies in your dedicated CRO team
     </h2>
