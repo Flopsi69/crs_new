@@ -108,6 +108,8 @@ onMounted(() => {
 })
 
 async function savePrelid() {
+  document.querySelector('#crs_survey')?.remove();
+
   gtm?.trackEvent({
     event: 'gtm_hubspot',
     data:  { ...toRaw(form) }
