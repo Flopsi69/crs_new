@@ -101,6 +101,12 @@ function goToNextStep() {
   }
 }
 
+onMounted(() => {
+  gtm?.trackEvent({
+    event: 'popup_funnel_open'
+  })
+})
+
 async function savePrelid() {
   gtm?.trackEvent({
     event: 'gtm_hubspot',
