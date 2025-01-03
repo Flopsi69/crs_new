@@ -102,9 +102,11 @@ function goToNextStep() {
 }
 
 onMounted(() => {
-  gtm?.trackEvent({
-    event: 'popup_funnel_open'
-  })
+  setTimeout(() => {
+    gtm?.trackEvent({
+      event: 'popup_funnel_open'
+    })
+  }, 7000);
 })
 
 async function savePrelid() {
