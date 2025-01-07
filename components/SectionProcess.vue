@@ -3,7 +3,10 @@ import { processSteps as steps } from '~/configs';
 </script>
 
 <template>
-  <BaseSection class="process">
+  <BaseSection
+    class="process"
+    id="our-scientific-cro_uxo-process"
+  >
     <h2 class="section-title title-2">Our scientific CRO/UXO process</h2>
 
     <!-- TODO make components -->

@@ -101,7 +101,17 @@ function goToNextStep() {
   }
 }
 
+onMounted(() => {
+  setTimeout(() => {
+    gtm?.trackEvent({
+      event: 'popup_funnel_open'
+    })
+  }, 7000);
+})
+
 async function savePrelid() {
+  document.querySelector('#crs_survey')?.remove();
+
   gtm?.trackEvent({
     event: 'gtm_hubspot',
     data:  { ...toRaw(form) }
@@ -155,7 +165,7 @@ async function saveLead() {
     isLoading: false
   });
 
-  window.open('https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=' + form.name + '&email=' + form.email, '_blank');
+  window.open('https://meetings.hubspot.com/ihor-sokolov?firstName=' + form.name + '&email=' + form.email, '_blank');
 
   modalTarget.value = 'success';
 }

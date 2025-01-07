@@ -36,6 +36,14 @@ const mailer = useMailer()
 
 const isLoading = ref(false)
 
+onMounted(() => {
+  setTimeout(() => {
+    gtm?.trackEvent({
+      event: 'popup_video_open'
+    })
+  }, 7000);
+})
+
 function validateInputs() {
   error.name = validateInput(form.name, 'name');
   error.url = validateInput(form.url, 'url');

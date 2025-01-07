@@ -29,7 +29,10 @@ watch(activeSolution, (value) => {
 </script>
 
 <template>
-  <BaseSection class="solutions">
+  <BaseSection
+    class="solutions"
+    id="solutions"
+  >
     <BasePlate
       v-if="!activeSolution"
       class="solutions__all"
