@@ -1,5 +1,27 @@
 <script lang="ts" setup>
+interface CaseStudyOld {
+  cases: {
+    isHidden: boolean;
+    id: string;
+    logo: string;
+    product: string;
+    about: string;
+    experiment: string;
+    result: {
+      value: number;
+      caption: string;
+      url: string;
+    };
+  }
+}
+
+import type { CaseStudy } from '~/types';
 import { cases } from '~/configs';
+import api from '@/services/api.js';
+
+const casesApi: CaseStudy[] = await api.getCases();
+
+console.log('resApiClient', casesApi);
 
 const newsletterText = {
   title: 'Sign up for our newsletter to get early updates',
@@ -23,6 +45,16 @@ const newsletterText = {
 
       <div class="cases__inner">
         <div class="cases__content">
+          <pre>{{ casesApi }}</pre>
+          <CaseList
+            class="cases__list"
+            :cols="2"
+            :expand="false"
+            :items="casesApi"
+          />
+          <br />
+          <hr />
+          <br />
           <CaseList
             class="cases__list"
             :cols="2"

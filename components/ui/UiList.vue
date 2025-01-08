@@ -25,6 +25,10 @@ defineProps({
     type: Array as PropType<Item[]>,
     required: true,
     default: () => []
+  },
+  id: {
+    type: String,
+    default: '',
   }
 });
 </script>
@@ -60,7 +64,9 @@ defineProps({
         >
           {{ item.title }}
         </div>
-        <div class="box__item-description">{{ item.description }}</div>
+        <div class="box__item-description">
+          {{ item.description }}
+        </div>
       </li>
     </ul>
   </div>

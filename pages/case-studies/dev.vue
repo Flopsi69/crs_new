@@ -1,23 +1,101 @@
 <script lang="ts" setup>
 import api from '@/services/api.js';
-import UiComponentBuilder from '~/components/ui/UiComponentBuilder.vue';
 
 const route = useRoute();
 const { id } = route.params;
 
-if (!id || Array.isArray(id)) {
-  await navigateTo('/case-studies');
-}
+const notes = reactive([
+  {
+    dark: false,
+    light: false,
+    title: 'For the average store?',
+    description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
+    icon: 'alert', // alert | quote
+    iconSize: 'big', // big | small
+  },
+  {
+    dark: true,
+    light: false,
+    title: 'For the average store?',
+    description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
+    icon: 'quote', // alert | quote
+    iconSize: 'big', // big | small
+  },
+  {
+    dark: false,
+    light: true,
+    title: 'For the average store?',
+    description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
+    icon: 'alert', // alert | quote
+    iconSize: 'big', // big | small
+  },
+  {
+    dark: false,
+    light: false,
+    description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
+    icon: 'quote', // alert | quote
+    iconSize: 'big', // big | small
+  },
+  {
+    dark: false,
+    light: false,
+    title: 'For the average store?',
+    description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
+    icon: 'alert', // alert | quote
+    iconSize: 'small', // big | small
+  },
+  {
+    dark: true,
+    light: false,
+    description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
+    icon: 'quote', // alert | quote
+    iconSize: 'small', // big | small
+  }
+]);
 
-const caseStudy = await api.getCase(id);
-
-if (!caseStudy?.value.id) {
-  await navigateTo('/case-studies');
-}
-
-const content = computed(() => {
-  return caseStudy.value.content?.content || [];
+const metric = reactive({
+  description: 'Using dropdown boxes to control user awareness & engagement — creating personalized customer journeys that increase ARPU & CVR.',
+  metrics: [
+    {
+      label: 'Label',
+      value: '+11.11%'
+    },
+    {
+      label: 'Label',
+      value: '+11.11%'
+    }
+  ]
 });
+
+const metricFlat = reactive({
+  metrics: [
+    {
+      label: 'average revenue per user',
+      value: '+11.11%'
+    },
+    {
+      label: 'average revenue per user',
+      value: '+11.11%'
+    }
+  ]
+});
+
+const increase = reactive({
+  label: 'in average revenue per user (ARPU)',
+  value: '172.34',
+});
+
+const list = reactive([
+    {
+      title: 'Item 1',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.'
+    },
+    {
+      title: 'Item 2',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.'
+    }
+  ]
+);
 
 const breadcrumbs = reactive([
   {
@@ -29,7 +107,7 @@ const breadcrumbs = reactive([
     href: '/case-studies'
   },
   {
-    text: String(id) || 'case-study',
+    text: 'case-study',
     href: ''
   }
 ]);
@@ -116,7 +194,120 @@ const banner = ref(true)
 
           <div class="post">
             <section class="post__section">
-              <UiComponentBuilder :content="content" />
+              <h2 class="post__title title-3">
+                <span>Text and image example</span>
+              </h2>
+
+              <h3 class="post__subtitle subtitle-2">Subtitle example</h3>
+
+              <p>
+                Lorem ipsum dolor sit amet
+                <strong
+                  >consectetur adipisicing elit. Minus incidunt ducimus
+                  explicabo</strong
+                >, molestias quas, amet dignissimos accusamus assumenda
+                repudiandae quaerat dolor quo facere pariatur dolorem possimus
+                non magnam, quasi quam!
+              </p>
+
+              <p>
+                Lorem ipsum dolor sit amet
+                <strong
+                  >consectetur adipisicing elit. Minus incidunt ducimus
+                  explicabo</strong
+                >, molestias quas, amet dignissimos accusamus assumenda
+                repudiandae quaerat dolor quo facere pariatur dolorem possimus
+                non magnam, quasi quam!
+              </p>
+
+              <UiImage src="/images/temp-banner.jpg"></UiImage>
+            </section>
+
+            <section class="post__section">
+              <h2 class="post__title title-3">
+                <span>Components example</span>
+              </h2>
+
+              <hr />
+              <h3 class="post__subtitle subtitle-2">Metrics</h3>
+              <hr />
+
+              <UiMetric v-bind="metricFlat"></UiMetric>
+              <UiMetric
+                light
+                v-bind="metricFlat"
+              ></UiMetric>
+              <UiMetric v-bind="metric"></UiMetric>
+              <UiMetric
+                dark
+                v-bind="metric"
+              ></UiMetric>
+              <UiMetric
+                light
+                v-bind="metric"
+              ></UiMetric>
+
+              <hr />
+              <h3 class="post__subtitle subtitle-2">Compare images:</h3>
+              <hr />
+
+              <!-- <UiCompare2 /> -->
+              <UiCompare />
+              <UiCompare inset />
+
+              <hr />
+              <h3 class="post__subtitle subtitle-2">Info block:</h3>
+              <hr />
+
+              <UiNote
+                v-for="(note, index) in notes"
+                :key="index"
+                v-bind="note"
+              ></UiNote>
+
+              <hr />
+              <h3 class="post__subtitle subtitle-2">List example:</h3>
+              <hr />
+
+              <UiList
+                title="Unordered List"
+                :items="list"
+                numeric
+              ></UiList>
+
+              <UiList
+                dark
+                :items="list"
+                numeric
+              ></UiList>
+
+              <UiList
+                light
+                :items="list"
+                numeric
+              ></UiList>
+
+              <UiList
+                title="Ordered List"
+                :items="list"
+              ></UiList>
+
+              <UiList
+                dark
+                :items="list"
+              ></UiList>
+
+              <UiList
+                light
+                :items="list"
+              ></UiList>
+
+              <UiList :items="list"></UiList>
+
+              <hr />
+              <h3 class="post__subtitle subtitle-2">Increase block example:</h3>
+              <hr />
+              <UiIncrease v-bind="increase"></UiIncrease>
             </section>
 
             <div class="results">
@@ -128,12 +319,20 @@ const banner = ref(true)
                 <h3 class="post__subtitle subtitle-2">
                   Metric block for example
                 </h3>
+
+                <UiMetric
+                  dark
+                  v-bind="metric"
+                ></UiMetric>
               </section>
 
               <section class="post__section">
                 <h2 class="post__title title-3">
                   <span>Increase example and new section</span>
                 </h2>
+
+                <UiIncrease v-bind="increase"></UiIncrease>
+                <UiIncrease v-bind="increase"></UiIncrease>
 
                 <h3 class="post__subtitle subtitle-2">
                   Additional text example
@@ -149,9 +348,10 @@ const banner = ref(true)
                   provident eaque, iste iure architecto corporis exercitationem
                   minus. Fugiat quam dolore pariatur placeat architecto nam
                   error in, quas tempora beatae est eius quisquam praesentium
-                  culpa at rerum similique aut. Libero, alias voluptate autem
-                  rem dolor atque soluta et sint earum facere, cum ex, beatae
-                  sunt voluptatibus consequatur accusamus deleniti perspiciatis!
+                  culpa at rerum similique amet unde accusamus molestiae aut.
+                  Libero, alias voluptate autem rem dolor atque soluta et sint
+                  earum facere, cum ex, beatae sunt voluptatibus consequatur
+                  accusamus deleniti perspiciatis!
                 </p>
               </section>
             </div>

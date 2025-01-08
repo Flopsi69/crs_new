@@ -7,6 +7,7 @@ const props = defineProps<{
 </script>
 
 <template>
+  <!-- :data-id="caseStudy.id" -->
   <BasePlate
     class="case"
     solidBorder
@@ -63,12 +64,12 @@ const props = defineProps<{
           />
         </div>
 
+        <!-- caseStudy.url -->
         <NuxtLink
-          v-if="caseStudy.result?.url"
+          v-if="caseStudy.id"
           external
-          target="_blank"
           class="result__link link flex-center"
-          :to="caseStudy.result.url"
+          :to="`/case-studies/${caseStudy.id}`"
         >
           <span>View case study</span>
         </NuxtLink>

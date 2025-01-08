@@ -21,6 +21,10 @@ defineProps({
     type: Array as PropType<Metric[]>,
     default: () => []
   },
+  id: {
+    type: String,
+    default: '',
+  }
 });
 </script>
 

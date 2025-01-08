@@ -18,11 +18,15 @@ const props = defineProps({
   },
   icon: {
     type: String,
-    default: ''
+    default: '' // alert | quote
   },
   iconSize: {
     type: String,
     default: 'big',
+  },
+  id: {
+    type: String,
+    default: '',
   }
 });
 

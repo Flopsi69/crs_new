@@ -9,6 +9,11 @@ export default defineNuxtConfig({
     inlineSSRStyles: false
   },
 
+  // routeRules: {
+  // '/case-studies/:id': { prerender: true },
+  // '/': { prerender: true }
+  // },
+
   app: {
     head: {
       charset: 'utf-8',

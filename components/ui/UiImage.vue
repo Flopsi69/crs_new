@@ -7,14 +7,19 @@ defineProps({
   alt: {
     type: String,
     default: ''
+  },
+  id: {
+    type: String,
+    default: ''
   }
 });
 </script>
 
 <template>
   <img
+    v-if="src"
     class="image"
-    src="img/temp-banner.jpg"
+    :src="src"
     :alt="alt"
   />
 </template>

@@ -2,9 +2,29 @@
 import { ImgComparisonSlider } from '@img-comparison-slider/vue';
 
 defineProps({
+  alt1: {
+    type: String,
+    default: '',
+  },
+  alt2: {
+    type: String,
+    default: '',
+  },
+  img1: {
+    type: String,
+    default: 'https://img-comparison-slider.sneas.io/demo/images/before.webp'
+  },
+  img2: {
+    type: String,
+    default: 'https://img-comparison-slider.sneas.io/demo/images/after.webp'
+  },
   inset: {
     type: Boolean,
     default: false,
+  },
+  id: {
+    type: String,
+    default: 'compare',
   },
 });
 </script>
@@ -24,12 +44,14 @@ defineProps({
         <img
           slot="first"
           style="width: 100%"
-          src="https://img-comparison-slider.sneas.io/demo/images/before.webp"
+          :src="img1"
+          :alt="alt1"
         />
         <img
           slot="second"
           style="width: 100%"
-          src="https://img-comparison-slider.sneas.io/demo/images/after.webp"
+          :src="img2"
+          :alt="alt2"
         />
       </ImgComparisonSlider>
     </ClientOnly>
