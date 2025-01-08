@@ -34,7 +34,7 @@ const toggleBurger = () => {
         :class="{active: isBurgerActive}"
       >
         <NuxtLink
-          v-for="menuItem in menu"
+          v-for="menuItem in menu.filter(i => i.isActive)"
           :key="menuItem.title"
           :to="menuItem.url"
           class="nav__link"
