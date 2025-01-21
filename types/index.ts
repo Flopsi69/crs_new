@@ -1,3 +1,10 @@
+interface PreviewListing {
+  product: string
+  experiment: string
+  resultName: string
+  resultValue: string
+}
+
 export interface CaseStudy {
   id: number
   url: string
@@ -6,7 +13,7 @@ export interface CaseStudy {
   metaDescription: string | null
   metaKeywords: string | null
   clientId: number
-  preview1: object
+  preview1: PreviewListing
   preview2: object
   status: 'ACTIVE' | 'INACTIVE'
   location: object

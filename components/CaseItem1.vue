@@ -4,10 +4,14 @@ import type { CaseStudy } from '~/types';
 const props = defineProps<{
   caseStudy: CaseStudy
 }>();
+
+const preview = computed(() => props.caseStudy.preview1);
 </script>
 
 <template>
   <!-- :data-id="caseStudy.id" -->
+  <!-- {{ caseStudy }} -->
+  <!-- {{ preview }} -->
   <BasePlate
     class="case"
     solidBorder
@@ -22,26 +26,22 @@ const props = defineProps<{
 
     <div
       class="case__block"
-      v-if="caseStudy.client.baseInfo"
+      v-if="preview.product"
     >
       <div class="case__block-title subtitle-3">Product:</div>
-      <div class="case__block-caption text color-secondary">
-        <span
-          class="color-purple fw-bold"
-          v-if="caseStudy.title"
-          >{{ caseStudy.title }}</span
-        >
-        {{ caseStudy.client.baseInfo }}
-      </div>
+      <div
+        class="case__block-caption text color-secondary"
+        v-html="preview.product"
+      ></div>
     </div>
 
     <div
       class="case__block"
-      v-if="caseStudy.experiment"
+      v-if="preview.experiment"
     >
       <div class="case__block-title subtitle-3">Experiment:</div>
       <div class="case__block-caption text color-secondary">
-        {{ caseStudy.experiment }}
+        {{ preview.experiment }}
       </div>
     </div>
 
@@ -50,10 +50,12 @@ const props = defineProps<{
         <div class="case__block-title subtitle-3">Result:</div>
 
         <div class="result__value color-purple">
-          <!-- {{ caseStudy.result.value }}% -->
+          {{ preview.resultValue }}
         </div>
 
-        <!-- <div class="result__caption">{{ caseStudy.result.caption }}</div> -->
+        <div class="result__caption">
+          {{ preview.resultName }}
+        </div>
       </div>
 
       <div class="result__right result__col text-right">
@@ -64,14 +66,14 @@ const props = defineProps<{
           />
         </div>
 
-        <!-- caseStudy.url -->
         <NuxtLink
-          v-if="caseStudy.id"
+          v-if="caseStudy.url"
           external
           class="result__link link flex-center"
-          :to="`/case-studies/${caseStudy.id}`"
+          :to="`/case-studies/${caseStudy.url}`"
         >
-          <span>View case study</span>
+          View case study
+          <!-- <span></span> -->
         </NuxtLink>
       </div>
     </div>
@@ -95,6 +97,10 @@ const props = defineProps<{
 
   &__block-caption {
     margin-top: 4px;
+    ::v-deep(i) {
+      font-weight: bold;
+      color: $purple;
+    }
   }
 }
 
@@ -113,6 +119,7 @@ const props = defineProps<{
     color: $font-secondary;
     font-size: 18px;
     line-height: 30px;
+    text-transform: uppercase;
   }
 
   &__link {

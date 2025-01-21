@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 import api from '@/services/api.js';
-import UiComponentBuilder from '~/components/ui/UiComponentBuilder.vue';
 
 const route = useRoute();
 const { id } = route.params;
+
+console.log('id', id);
 
 if (!id || Array.isArray(id)) {
   await navigateTo('/case-studies');
@@ -11,12 +12,14 @@ if (!id || Array.isArray(id)) {
 
 const caseStudy = await api.getCase(id);
 
-if (!caseStudy?.value.id) {
+console.log('caseStudy', caseStudy.value);
+
+if (!caseStudy.value?.id) {
   await navigateTo('/case-studies');
 }
 
 const content = computed(() => {
-  return caseStudy.value.content?.content || [];
+  return caseStudy.value?.content?.content || [];
 });
 
 const breadcrumbs = reactive([
@@ -45,6 +48,7 @@ const banner = ref(true)
     <Breadcrumbs :items="breadcrumbs" />
 
     <div class="container container_narrow">
+      {{ caseStudy }}
       <button
         class="temp button button_yellow"
         :class="banner ? 'button_yellow' : 'button_purple'"
@@ -57,11 +61,10 @@ const banner = ref(true)
         v-if="banner"
         class="case__head"
       >
-        <h1 class="case__title case__title_top title-1">
-          Increase
-          <strong class="color-purple">Conversion Rates by 172%</strong> <br />
-          for Online Yoga Subscription Plans
-        </h1>
+        <h1
+          class="case__title case__title_top title-1"
+          v-html="caseStudy.title"
+        />
 
         <UiImage
           class="case__image"
@@ -109,10 +112,8 @@ const banner = ref(true)
           <h1
             v-if="!banner"
             class="case__title title-1"
-          >
-            <strong>H1 Main title on Desktop</strong> Two text styles Lorem
-            ipsum dolor sit amet.
-          </h1>
+            v-html="caseStudy.title"
+          />
 
           <div class="post">
             <section class="post__section">
@@ -373,15 +374,6 @@ const banner = ref(true)
       background-color: #EDE8F6;
       height: 2px;
       border-radius: 2px;
-    }
-  }
-  &__subtitle {
-    margin-bottom: -12px;
-    hr + & {
-      margin-bottom: 0;
-    }
-    & + hr {
-      margin-top: -4px;
     }
   }
   &__section {

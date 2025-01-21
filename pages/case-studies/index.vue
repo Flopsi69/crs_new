@@ -1,4 +1,8 @@
 <script lang="ts" setup>
+import type { CaseStudy } from '~/types';
+import { cases } from '~/configs';
+import api from '@/services/api.js';
+
 interface CaseStudyOld {
   cases: {
     isHidden: boolean;
@@ -15,10 +19,6 @@ interface CaseStudyOld {
   }
 }
 
-import type { CaseStudy } from '~/types';
-import { cases } from '~/configs';
-import api from '@/services/api.js';
-
 const casesApi: CaseStudy[] = await api.getCases();
 
 console.log('resApiClient', casesApi);
@@ -33,6 +33,7 @@ const newsletterText = {
 <template>
   <main class="main cases">
     <div class="container">
+      {{ casesApi }}
       <div class="cases__head">
         <h1 class="cases__title title-2">
           CRO case studies from Conversionrate.store
@@ -45,7 +46,7 @@ const newsletterText = {
 
       <div class="cases__inner">
         <div class="cases__content">
-          <pre>{{ casesApi }}</pre>
+          <!-- <pre>{{ casesApi }}</pre> -->
           <CaseList
             class="cases__list"
             :cols="2"
@@ -53,6 +54,14 @@ const newsletterText = {
             :items="casesApi"
           />
           <br />
+          <br />
+          <hr />
+          <h2
+            class="text-center title-2"
+            style="padding: 10px;"
+          >
+            Hardcode version
+          </h2>
           <hr />
           <br />
           <CaseList

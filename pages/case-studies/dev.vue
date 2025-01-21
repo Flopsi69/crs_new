@@ -1,101 +1,58 @@
 <script lang="ts" setup>
-import api from '@/services/api.js';
-
-const route = useRoute();
-const { id } = route.params;
-
-const notes = reactive([
-  {
-    dark: false,
-    light: false,
-    title: 'For the average store?',
-    description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
-    icon: 'alert', // alert | quote
-    iconSize: 'big', // big | small
-  },
-  {
-    dark: true,
-    light: false,
-    title: 'For the average store?',
-    description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
-    icon: 'quote', // alert | quote
-    iconSize: 'big', // big | small
-  },
-  {
-    dark: false,
-    light: true,
-    title: 'For the average store?',
-    description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
-    icon: 'alert', // alert | quote
-    iconSize: 'big', // big | small
-  },
-  {
-    dark: false,
-    light: false,
-    description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
-    icon: 'quote', // alert | quote
-    iconSize: 'big', // big | small
-  },
-  {
-    dark: false,
-    light: false,
-    title: 'For the average store?',
-    description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
-    icon: 'alert', // alert | quote
-    iconSize: 'small', // big | small
-  },
-  {
-    dark: true,
-    light: false,
-    description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
-    icon: 'quote', // alert | quote
-    iconSize: 'small', // big | small
-  }
-]);
+const list = reactive({
+  dark: false,
+  light: false,
+  numeric: true,
+  title: 'List example',
+  items: [
+    {
+      title: 'Item 1',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.'
+    },
+    {
+      title: 'Next without title',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.'
+    },
+    {
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.'
+    }
+  ]
+});
 
 const metric = reactive({
+  dark: false,
+  light: false,
   description: 'Using dropdown boxes to control user awareness & engagement — creating personalized customer journeys that increase ARPU & CVR.',
   metrics: [
     {
-      label: 'Label',
+      label: 'Label 1',
       value: '+11.11%'
     },
     {
-      label: 'Label',
+      label: 'Label 2',
       value: '+11.11%'
     }
   ]
 });
 
-const metricFlat = reactive({
-  metrics: [
-    {
-      label: 'average revenue per user',
-      value: '+11.11%'
-    },
-    {
-      label: 'average revenue per user',
-      value: '+11.11%'
-    }
-  ]
+const note = reactive({
+  dark: false,
+  light: false,
+  title: 'For the average store?',
+  description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
+  icon: 'alert', // alert | quote
+  iconSize: 'big', // big | small
 });
+
+const compare = ref({
+  inset: false
+})
 
 const increase = reactive({
   label: 'in average revenue per user (ARPU)',
   value: '172.34',
 });
 
-const list = reactive([
-    {
-      title: 'Item 1',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.'
-    },
-    {
-      title: 'Item 2',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.'
-    }
-  ]
-);
 
 const breadcrumbs = reactive([
   {
@@ -112,7 +69,7 @@ const breadcrumbs = reactive([
   }
 ]);
 
-const banner = ref(true)
+const banner = ref(false)
 </script>
 
 <template>
@@ -147,8 +104,9 @@ const banner = ref(true)
         ></UiImage>
       </div>
 
+      <!-- Base header -->
       <div class="case__inner">
-        <div class="case__content">
+        <div class="case__content post__section">
           <BasePlate
             class="case__banner banner"
             solid-border
@@ -191,11 +149,351 @@ const banner = ref(true)
             <strong>H1 Main title on Desktop</strong> Two text styles Lorem
             ipsum dolor sit amet.
           </h1>
+        </div>
 
-          <div class="post">
+        <BasePlate
+          class="case__aside aside"
+          background="purple-dark"
+        >
+          <h3 class="aside__title subtitle-1">
+            Estimate uplift from a performance-based CRO project for your
+            business
+          </h3>
+          <div class="aside__description text">
+            We will also provide you with 3 CRO hypotheses for your business for
+            free if you&nbsp;qualify
+          </div>
+          <button class="aside__button button button_yellow subtitle-3">
+            Estimate your uplift
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="13"
+              height="11"
+              viewBox="0 0 13 11"
+              fill="#2B2B2B"
+            >
+              <g clip-path="url(#clip0_521_1825)">
+                <path
+                  d="M12.2855 6.00633L7.59856 10.5891C7.31259 10.8687 6.84882 10.8687 6.56286 10.5891C6.27684 10.3095 6.27684 9.85611 6.56286 9.57644L9.99961 6.21605H1.23233C0.827909 6.21605 0.5 5.89543 0.5 5.49999C0.5 5.10461 0.827909 4.78393 1.23233 4.78393H9.99961L6.56298 1.42355C6.27696 1.14388 6.27696 0.69053 6.56298 0.410866C6.70593 0.271148 6.89341 0.201146 7.08082 0.201146C7.26824 0.201146 7.45566 0.271148 7.59867 0.410866L12.2855 4.99365C12.5715 5.27332 12.5715 5.72667 12.2855 6.00633Z"
+                />
+              </g>
+            </svg>
+          </button>
+        </BasePlate>
+      </div>
+
+      <!-- Text, image title -->
+      <div class="case__inner post">
+        <div class="case__content post__section">
+          <section class="post__section">
+            <h2 class="post__title title-3 text-center">
+              <span>Title, Subtitle, Text, Image (examples)</span>
+            </h2>
+
+            <h3 class="post__subtitle subtitle-2">Subtitle example</h3>
+
+            <p>
+              Lorem ipsum dolor sit amet
+              <strong
+                >consectetur adipisicing elit. Minus incidunt ducimus
+                explicabo</strong
+              >, molestias quas, amet dignissimos accusamus assumenda
+              repudiandae quaerat dolor quo facere pariatur dolorem possimus non
+              magnam, quasi quam!
+            </p>
+
+            <p>
+              Lorem ipsum dolor sit amet
+              <strong
+                >consectetur adipisicing elit. Minus incidunt ducimus
+                explicabo</strong
+              >, molestias quas, amet dignissimos accusamus assumenda
+              repudiandae quaerat dolor quo facere pariatur dolorem possimus non
+              magnam, quasi quam!
+            </p>
+
+            <h3 class="post__subtitle subtitle-2">Image example</h3>
+
+            <UiImage src="/images/temp-banner.jpg" />
+          </section>
+        </div>
+      </div>
+
+      <!-- Ui List -->
+      <div class="case__inner">
+        <div class="case__content post__section">
+          <h2 class="post__title title-3 text-center">
+            <span>Ui List</span>
+          </h2>
+          <UiList v-bind="list"></UiList>
+        </div>
+
+        <BasePlate
+          background="white"
+          solid-border
+          class="case__aside aside aside_component"
+        >
+          <h3 class="aside__title subtitle-1 component__title">
+            <span class="color-purple">UI List</span> settings
+          </h3>
+
+          <div class="component__block">
+            <BaseCheckbox
+              v-model="list.dark"
+              label="isDark"
+              @click="!list.dark ? list.light = false : ''"
+            />
+
+            <BaseCheckbox
+              v-model="list.light"
+              label="isLight"
+              @click="!list.light ? list.dark = false : ''"
+            />
+          </div>
+          <div class="component__block">
+            <BaseCheckbox
+              v-model="list.numeric"
+              label="isNumeric"
+            />
+          </div>
+          <div class="component__block">
+            <BaseInput
+              v-model="list.title"
+              placeholder="text"
+              label="List title:"
+              small
+            />
+          </div>
+        </BasePlate>
+      </div>
+
+      <!-- Ui Note -->
+      <div class="case__inner">
+        <div class="case__content post__section">
+          <h2 class="post__title title-3 text-center">
+            <span>Ui Note</span>
+          </h2>
+
+          <UiNote v-bind="note"></UiNote>
+        </div>
+
+        <BasePlate
+          background="white"
+          solid-border
+          class="case__aside aside aside_component"
+        >
+          <h3 class="aside__title subtitle-1 component__title">
+            <span class="color-purple">UI Note</span> settings
+          </h3>
+
+          <div class="component__block">
+            <BaseCheckbox
+              v-model="note.dark"
+              label="isDark"
+              @click="!note.dark ? note.light = false : ''"
+            />
+
+            <BaseCheckbox
+              v-model="note.light"
+              label="isLight"
+              @click="!note.light ? note.dark = false : ''"
+            />
+          </div>
+          <div class="component__block">
+            <BaseCheckbox
+              v-model="note.icon"
+              value="alert"
+              label="Alert icon"
+            />
+
+            <BaseCheckbox
+              v-model="note.icon"
+              value="quote"
+              label="Quote icon"
+            />
+          </div>
+          <div
+            class="component__block"
+            v-if="note.icon"
+          >
+            <BaseCheckbox
+              v-model="note.iconSize"
+              value="big"
+              label="Big icon"
+              default-value="big"
+            />
+
+            <BaseCheckbox
+              v-model="note.iconSize"
+              value="small"
+              label="Small icon"
+              default-value="small"
+            />
+          </div>
+          <div class="component__block">
+            <BaseInput
+              v-model="note.title"
+              placeholder="text"
+              label="Note title:"
+              small
+            />
+          </div>
+        </BasePlate>
+      </div>
+
+      <!-- Ui Metric -->
+      <div class="case__inner">
+        <div class="case__content post__section">
+          <h2 class="post__title title-3 text-center">
+            <span>Ui Metrics</span>
+          </h2>
+
+          <UiMetric v-bind="metric" />
+        </div>
+
+        <BasePlate
+          background="white"
+          solid-border
+          class="case__aside aside aside_component"
+        >
+          <h3 class="aside__title subtitle-1 component__title">
+            <span class="color-purple">UI Metrics</span> settings
+          </h3>
+
+          <div class="component__block">
+            <BaseCheckbox
+              v-model="metric.dark"
+              label="isDark"
+              @click="!metric.dark ? metric.light = false : ''"
+            />
+
+            <BaseCheckbox
+              v-model="metric.light"
+              label="isLight"
+              @click="!metric.light ? metric.dark = false : ''"
+            />
+          </div>
+
+          <div class="component__block">
+            <BaseCheckbox
+              v-model="metric.description"
+              label="Is active description"
+              @click="metric.description"
+              value="Using dropdown boxes to control user awareness & engagement — creating personalized customer journeys that increase ARPU & CVR."
+            />
+          </div>
+          <!-- <div class="component__block">
+            <BaseInput
+              v-model="metric.description"
+              placeholder="text"
+              label="Metrics description"
+              small
+            />
+          </div> -->
+          <div class="component__block">
+            <BaseInput
+              v-model="metric.metrics[0].label"
+              placeholder="label"
+              label="Metric 1"
+              small
+            />
+            <hr />
+            <BaseInput
+              v-model="metric.metrics[0].value"
+              placeholder="value"
+              small
+            />
+          </div>
+          <div class="component__block">
+            <BaseInput
+              v-model="metric.metrics[1].label"
+              placeholder="label"
+              label="Metric 2"
+              small
+            />
+            <hr />
+            <BaseInput
+              v-model="metric.metrics[1].value"
+              placeholder="value"
+              small
+            />
+          </div>
+        </BasePlate>
+      </div>
+
+      <!-- Ui Compare Image -->
+      <div class="case__inner">
+        <div class="case__content post__section">
+          <h2 class="post__title title-3 text-center">
+            <span>Ui Compare Images</span>
+          </h2>
+
+          <UiCompare v-bind="compare" />
+        </div>
+
+        <BasePlate
+          background="white"
+          solid-border
+          class="case__aside aside aside_component"
+        >
+          <h3 class="aside__title subtitle-1 component__title">
+            <span class="color-purple">UI Compare</span> settings
+          </h3>
+
+          <div class="component__block">
+            <BaseCheckbox
+              v-model="compare.inset"
+              label="Toggler inset labels"
+            />
+          </div>
+        </BasePlate>
+      </div>
+
+      <!-- Ui Increase -->
+      <div class="case__inner">
+        <div class="case__content post__section">
+          <h2 class="post__title title-3 text-center">
+            <span>Ui Increase</span>
+          </h2>
+
+          <UiIncrease v-bind="increase" />
+        </div>
+
+        <BasePlate
+          background="white"
+          solid-border
+          class="case__aside aside aside_component"
+        >
+          <h3 class="aside__title subtitle-1 component__title">
+            <span class="color-purple">UI Increase</span> settings
+          </h3>
+
+          <div class="component__block">
+            <BaseInput
+              v-model="increase.label"
+              placeholder="Label"
+              label="Label:"
+              small
+            />
+          </div>
+          <div class="component__block">
+            <BaseInput
+              v-model="increase.value"
+              placeholder="Value"
+              label="Value"
+              small
+            />
+          </div>
+        </BasePlate>
+      </div>
+
+      <!-- Source -->
+      <div class="case__inner results-wrap">
+        <div class="case__content post__section">
+          <div class="results post">
             <section class="post__section">
               <h2 class="post__title title-3">
-                <span>Text and image example</span>
+                <span style="padding-left: 0;">Results example</span>
               </h2>
 
               <h3 class="post__subtitle subtitle-2">Subtitle example</h3>
@@ -220,141 +518,18 @@ const banner = ref(true)
                 non magnam, quasi quam!
               </p>
 
-              <UiImage src="/images/temp-banner.jpg"></UiImage>
+              <h3 class="post__subtitle subtitle-2">Image example</h3>
+
+              <UiImage src="/images/temp-banner.jpg" />
             </section>
 
             <section class="post__section">
-              <h2 class="post__title title-3">
-                <span>Components example</span>
-              </h2>
-
-              <hr />
-              <h3 class="post__subtitle subtitle-2">Metrics</h3>
-              <hr />
-
-              <UiMetric v-bind="metricFlat"></UiMetric>
-              <UiMetric
-                light
-                v-bind="metricFlat"
-              ></UiMetric>
-              <UiMetric v-bind="metric"></UiMetric>
-              <UiMetric
-                dark
-                v-bind="metric"
-              ></UiMetric>
-              <UiMetric
-                light
-                v-bind="metric"
-              ></UiMetric>
-
-              <hr />
-              <h3 class="post__subtitle subtitle-2">Compare images:</h3>
-              <hr />
-
-              <!-- <UiCompare2 /> -->
-              <UiCompare />
-              <UiCompare inset />
-
-              <hr />
-              <h3 class="post__subtitle subtitle-2">Info block:</h3>
-              <hr />
-
-              <UiNote
-                v-for="(note, index) in notes"
-                :key="index"
-                v-bind="note"
-              ></UiNote>
-
-              <hr />
-              <h3 class="post__subtitle subtitle-2">List example:</h3>
-              <hr />
-
-              <UiList
-                title="Unordered List"
-                :items="list"
-                numeric
-              ></UiList>
-
-              <UiList
-                dark
-                :items="list"
-                numeric
-              ></UiList>
-
-              <UiList
-                light
-                :items="list"
-                numeric
-              ></UiList>
-
-              <UiList
-                title="Ordered List"
-                :items="list"
-              ></UiList>
-
-              <UiList
-                dark
-                :items="list"
-              ></UiList>
-
-              <UiList
-                light
-                :items="list"
-              ></UiList>
-
-              <UiList :items="list"></UiList>
-
-              <hr />
-              <h3 class="post__subtitle subtitle-2">Increase block example:</h3>
-              <hr />
-              <UiIncrease v-bind="increase"></UiIncrease>
+              <UiList v-bind="list"></UiList>
+              <UiNote v-bind="note"></UiNote>
+              <UiMetric v-bind="metric" />
+              <UiCompare v-bind="compare" />
+              <UiIncrease v-bind="increase" />
             </section>
-
-            <div class="results">
-              <section class="post__section">
-                <h2 class="post__title title-3">
-                  <span>Results example</span>
-                </h2>
-
-                <h3 class="post__subtitle subtitle-2">
-                  Metric block for example
-                </h3>
-
-                <UiMetric
-                  dark
-                  v-bind="metric"
-                ></UiMetric>
-              </section>
-
-              <section class="post__section">
-                <h2 class="post__title title-3">
-                  <span>Increase example and new section</span>
-                </h2>
-
-                <UiIncrease v-bind="increase"></UiIncrease>
-                <UiIncrease v-bind="increase"></UiIncrease>
-
-                <h3 class="post__subtitle subtitle-2">
-                  Additional text example
-                </h3>
-
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Blanditiis nobis suscipit asperiores, mollitia vitae
-                  perferendis ea, nostrum ratione voluptatibus repellat esse
-                  impedit ut. Repellendus, velit! Quo, dolorem vitae ducimus
-                  eius magni cum cumque, dolore vero minima ea enim voluptates
-                  amet impedit nisi quidem similique praesentium voluptate
-                  provident eaque, iste iure architecto corporis exercitationem
-                  minus. Fugiat quam dolore pariatur placeat architecto nam
-                  error in, quas tempora beatae est eius quisquam praesentium
-                  culpa at rerum similique amet unde accusamus molestiae aut.
-                  Libero, alias voluptate autem rem dolor atque soluta et sint
-                  earum facere, cum ex, beatae sunt voluptatibus consequatur
-                  accusamus deleniti perspiciatis!
-                </p>
-              </section>
-            </div>
           </div>
         </div>
 
@@ -453,6 +628,30 @@ const banner = ref(true)
   min-height: 30px;
 }
 
+.component {
+  &__title {
+    margin-bottom: 20px;
+    border-bottom: 1px solid $border;
+    padding-bottom: 10px;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    span {
+      font-weight: 700;
+    }
+  }
+  &__block {
+    & + & {
+      padding-top: 12px;
+      margin-top: 10px;
+      border-top: 1px solid #EDE8F6;
+    }
+    hr {
+      margin: 5px auto;
+      width: 50%;
+    }
+  }
+}
+
 .case {
   overflow: clip;
   &__head {
@@ -468,6 +667,20 @@ const banner = ref(true)
     margin-top: 6px;
     @media(max-width: $lg) {
       gap: 25px;
+    }
+    @media(max-width: $md) {
+      flex-flow: column;
+    }
+    & + &:not(.results-wrap) {
+      margin-top: 45px;
+      border: 2px dashed $border;
+      padding: 40px;
+      border-radius: 15px;
+      @media(max-width: $md) {
+        padding: 0;
+        border: none;
+        border-radius: 0;
+      }
     }
   }
   &__content {
@@ -556,10 +769,16 @@ const banner = ref(true)
     position: relative;
     font-size: 28px;
     line-height: 1.3;
+    @media(max-width: $md) {
+      text-align: left;
+    }
     span {
       position: relative;
       background-color: white;
-      padding-right: 8px;
+      padding: 0 8px;
+      @media(max-width: $md) {
+        padding-left: 0;
+      }
       .results & {
         background-color: $bg--purple-light;
       }
@@ -615,6 +834,7 @@ hr {
   width: 100%;
   position: sticky;
   padding: 28px;
+  margin-top: 25px;
   top: 20px;
   margin-bottom: 20px;
   color: #fff;
@@ -627,6 +847,13 @@ hr {
   }
   @media(max-width: $sm) {
     display: none;
+  }
+  &_component {
+    color: $font-secondary;
+    @media(max-width: $sm) {
+      display: block;
+      max-width: 100%;
+    }
   }
   &__title {
     line-height: 1.3;
@@ -658,6 +885,10 @@ hr {
   padding: 60px 0;
   display: grid;
   gap: 60px;
+  margin-top: 0;
+  &-wrap {
+    margin-top: 90px;
+  }
   @media(max-width: $sm) {
     padding: 40px 0;
   }

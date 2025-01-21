@@ -67,6 +67,7 @@ defineProps({
     }
 
     svg {
+      flex-shrink: 0;
       margin-left: auto;
       @media(max-width: $sm) {
         width: 30px;
