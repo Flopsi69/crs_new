@@ -4,7 +4,10 @@ useHead({
   meta: [{
     name: 'description',
     content: 'CRO agency with guaranteed growth results. Trusted to run A/B tests on 127+ million users for clients like Microsoft, Unicorns, YC startups'
-  }]
+  }],
+  link: [
+    { rel: 'canonical', href: 'https://conversionrate.store/' }
+  ]
 })
 </script>
 
