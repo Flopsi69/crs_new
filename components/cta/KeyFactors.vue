@@ -22,9 +22,9 @@ const info = {
     chart
   >
     <div class="info">
-      <h3 class="info__caption section-caption subtitle-2">
+      <div class="info__caption section-caption subtitle-2">
         Performance-based pricing
-      </h3>
+      </div>
 
       <h2 class="info__title section-title title-2">
         Key Factors that Determine the Price of a&nbsp;CRO Project:

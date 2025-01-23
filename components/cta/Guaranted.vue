@@ -21,9 +21,9 @@ const info = {
     background="purple-dark"
   >
     <div class="info">
-      <h3 class="info__caption section-caption subtitle-2">
+      <div class="info__caption section-caption subtitle-2">
         Guaranteed results
-      </h3>
+      </div>
 
       <h2 class="info__title section-title title-2">
         A performance-based arrangement means that we commit to an agreed-upon

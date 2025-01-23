@@ -39,9 +39,9 @@ watch(activeSolution, (value) => {
       data-aos="zoom-in"
       mob-full
     >
-      <h3 class="solutions__caption section-caption subtitle-2">
+      <div class="solutions__caption section-caption subtitle-2">
         Find the solution to your eCommerce business challenges
-      </h3>
+      </div>
 
       <h2 class="solutions__title section-title title-2">
         Discover the causes and solutions to the challenges your eCommerce

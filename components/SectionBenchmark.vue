@@ -56,9 +56,9 @@ watch(isShowDetails, async (value) => {
       mob-full
       class="benchmarks__head"
     >
-      <h3 class="benchmarks__head-caption section-caption subtitle-2">
+      <div class="benchmarks__head-caption section-caption subtitle-2">
         Instantly compare key e-commerce metrics with your peers
-      </h3>
+      </div>
       <h2 class="benchmarks__head-title title section-title title-2">
         Benchmark Your E&#8209;commerce Performance
       </h2>
