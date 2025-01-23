@@ -35,7 +35,7 @@ defineProps({
         <div class="card__label bg--gradient-light">{{ client.label }}</div>
       </div>
 
-      <h3 class="text card__description color-secondary">
+      <div class="text card__description color-secondary">
         <span
           v-if="client.mark"
           class="color-purple fw-bold"
@@ -43,7 +43,7 @@ defineProps({
           {{ client.mark }}
         </span>
         {{ client.description}}
-      </h3>
+      </div>
     </div>
 
     <div class="card__body">
@@ -52,7 +52,7 @@ defineProps({
         v-for="(metric, index) in client.metrics"
         :key="index"
       >
-        <h4 class="card__subtitle subtitle-2">{{ metric.label }}</h4>
+        <div class="card__subtitle subtitle-2">{{ metric.label }}</div>
         <div class="card__text text color-secondary">{{ metric.caption }}</div>
       </div>
     </div>

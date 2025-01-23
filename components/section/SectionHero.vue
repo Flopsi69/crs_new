@@ -34,11 +34,11 @@ function handleOpenModal() {
   >
     <div class="row flex-center">
       <div class="info">
-        <h2 class="info__subtitle bg--purple subtitle-2">
+        <h1 class="info__subtitle bg--purple subtitle-2">
           Performance-based Conversion&nbsp;Rate&nbsp;Optimization agency
-        </h2>
+        </h1>
 
-        <h1 class="info__title title-1">
+        <div class="info__title title-1">
           We increase your
           <word-flipper
             class="color-yellow info__flipper"
@@ -49,7 +49,7 @@ function handleOpenModal() {
           revenue metrics
           <br />
           You pay only for the actual uplift
-        </h1>
+        </div>
 
         <HeroChart class="info__chart-mob" />
 

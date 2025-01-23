@@ -31,7 +31,7 @@ import { processSteps as steps } from '~/configs';
           >
             <div class="step__plate-head flex align-center">
               <img src="img/purpose.svg" />
-              <h4 class="step__plate-title subtitle-1">Purpose</h4>
+              <div class="step__plate-title subtitle-1">Purpose</div>
             </div>
 
             <div class="step__plate-body text color-secondary">
@@ -45,7 +45,7 @@ import { processSteps as steps } from '~/configs';
           >
             <div class="step__plate-head flex align-center">
               <img src="img/methodology.svg" />
-              <h4 class="step__plate-title subtitle-1">Methodology</h4>
+              <div class="step__plate-title subtitle-1">Methodology</div>
             </div>
 
             <div class="step__plate-body text color-secondary list-brand">
