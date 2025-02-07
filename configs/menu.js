@@ -24,10 +24,10 @@ export default [
     url: 'https://conversionrate.store/cro-audit/',
     isActive: false
   },
-  // {
-  //   title: 'Careers',
-  //   url: 'https://conversionrate.store/career/'
-  // },
+  {
+    title: 'Careers',
+    url: 'https://conversionrate.store/career/'
+  },
   {
     title: 'Contact us',
     url: 'https://conversionrate.store/contact-us/',
