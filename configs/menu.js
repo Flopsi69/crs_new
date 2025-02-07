@@ -26,7 +26,8 @@ export default [
   },
   {
     title: 'Careers',
-    url: 'https://conversionrate.store/career/'
+    url: 'https://conversionrate.store/career/',
+    isActive: true
   },
   {
     title: 'Contact us',
