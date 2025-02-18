@@ -48,7 +48,7 @@ const banner = ref(true)
     <Breadcrumbs :items="breadcrumbs" />
 
     <div class="container container_narrow">
-      {{ caseStudy }}
+      <!-- {{ caseStudy }} -->
       <button
         class="temp button button_yellow"
         :class="banner ? 'button_yellow' : 'button_purple'"

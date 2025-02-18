@@ -33,7 +33,7 @@ const newsletterText = {
 <template>
   <main class="main cases">
     <div class="container">
-      {{ casesApi }}
+      <!-- {{ casesApi }} -->
       <div class="cases__head">
         <h1 class="cases__title title-2">
           CRO case studies from Conversionrate.store
