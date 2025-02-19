@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 useHead({
-  title: 'Performance-based CRO agency - Conversionrate.store',
+  title: 'Performance-Based CRO Agency: Pay Only for Actual Results',
   meta: [{
     name: 'description',
     content: 'CRO agency with guaranteed growth results. Trusted to run A/B tests on 127+ million users for clients like Microsoft, Unicorns, YC startups'
