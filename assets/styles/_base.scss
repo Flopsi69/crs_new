@@ -1,0 +1,171 @@
+body {
+  font-weight: 700;
+  color: $font-primary;
+  font-family: 'Circe', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  // font-family: 'Circe', sans-serif;
+  // font-family: circe;
+}
+
+.section-title + .section-caption,
+.section-caption + .section-title {
+  margin-top: 12px;
+}
+
+.container {
+  max-width: 1240px;
+  padding: 0 20px;
+  margin: 0 auto;
+  &_narrow {
+    max-width: 1160px;
+  }
+}
+
+.button {
+  border-radius: 100px;
+  padding: 17px 50px 15px;
+  color: #2b2b2b;
+  border: none;
+  outline: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: 0.3s;
+  cursor: pointer;
+  min-height: 50px;
+  line-height: 1;
+  svg {
+    fill: currentColor;
+  }
+  &_yellow {
+    background-color: $yellow;
+    @media (hover: hover) {
+      &:hover {
+        background-color: $font-primary;
+        color: #fff;
+      }
+    }
+  }
+  &_purple {
+    background-color: $purple;
+    color: #fff;
+    @media (hover: hover) {
+      &:hover {
+        background-color: $font-primary;
+        color: #fff;
+      }
+    }
+  }
+  &_trans-yellow {
+    border: 2px solid $yellow;
+    background-color: transparent;
+    color: currentColor;
+    @media (hover: hover) {
+      &:hover {
+        background-color: $yellow;
+        color: $font-primary;
+      }
+    }
+  }
+  &_trans-purple {
+    border: 2px solid $purple;
+    background-color: transparent;
+    color: $purple;
+    @media (hover: hover) {
+      &:hover {
+        background-color: $purple;
+        color: #fff;
+      }
+    }
+  }
+  &_flat {
+    padding: 0;
+    border: none;
+    min-height: 0;
+    background: none;
+    text-transform: none;
+  }
+  &.disabled,
+  &[disabled] {
+    background-color: $font-light;
+    border-color: $font-light;
+    color: #fff;
+    cursor: auto;
+  }
+}
+
+.title {
+  &-1 {
+    font-size: 42px;
+    line-height: 52px;
+  }
+  &-2 {
+    font-size: 36px;
+    line-height: 46px;
+    @media (max-width: $sm) {
+      font-size: 28px;
+      line-height: 1.3;
+    }
+  }
+  &-3 {
+    font-size: 30px;
+    line-height: 38px;
+  }
+}
+
+.subtitle {
+  &-1 {
+    font-size: 24px;
+  }
+  &-2 {
+    font-size: 20px;
+  }
+  &-3 {
+    font-size: 18px;
+  }
+}
+
+.text {
+  font-size: 16px;
+  font-weight: 400;
+  &-sm {
+    font-size: 14px;
+  }
+}
+
+.link {
+  color: $purple;
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.9;
+      text-decoration: none;
+    }
+  }
+}
+
+.list-brand {
+  display: grid;
+  gap: 8px;
+  &__item {
+    position: relative;
+    padding-left: 14px;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 4px;
+      height: 4px;
+      background-color: $purple;
+      border-radius: 100px;
+    }
+    .list-brand_yellow &:before {
+      background-color: $yellow;
+    }
+  }
+}

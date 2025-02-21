@@ -40,6 +40,7 @@ export default defineNuxtConfig({
     '@zadigetvoltaire/nuxt-gtm',
     'nuxt-mail'
   ],
+
   // '@vee-validate/nuxt',
   // 'radix-vue',
 
@@ -103,5 +104,7 @@ export default defineNuxtConfig({
       user: process.env.EMAIL_USER,
       password: process.env.EMAIL_PASSWORD
     }
-  }
+  },
+
+  compatibilityDate: '2025-02-20'
 })

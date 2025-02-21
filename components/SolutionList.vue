@@ -74,6 +74,8 @@ onMounted(() => {
 .control {
   margin-top: 24px;
   @media(max-width: $sm) {
+    text-align: center;
+
     &_offset {
       position: relative;
       z-index: 1;
@@ -81,7 +83,6 @@ onMounted(() => {
       background: linear-gradient(0deg, #FFF 59%, rgba(255, 255, 255, 0.00) 100%);
       margin: -70px -20px -34px;
     }
-    text-align: center;
   }
 
 }
