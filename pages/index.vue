@@ -22,7 +22,7 @@ useHead({
 
     <!-- TODO solutions open -->
     <SectionSolutions />
-    <SectionClientResults />
+    <SectionClientsResults />
     <SectionCompare />
 
     <BaseSection>
@@ -41,6 +41,7 @@ useHead({
     <SectionProcess />
     <SectionProducts />
     <SectionFeedbacks />
+    <SectionFAQ />
   </main>
 </template>
 
@@ -53,7 +54,7 @@ useHead({
     gap: 60px;
   }
   @media(max-width: $sm) {
-    margin-bottom: 42px;
+    margin-bottom: 0;
   }
 }
 </style>
