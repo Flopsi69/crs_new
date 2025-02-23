@@ -127,78 +127,88 @@ const activeFaq = ref<number | null>(0);
     class="faq"
     id="faq"
   >
-    <h2 class="section-title title-2 text-center">FAQ</h2>
-
     <BasePlate
-      class="faq__list"
-      v-if="faqs.length"
+      background="purple-light"
+      class="faq__inner"
     >
-      <BasePlate
-        solid-border
-        v-for="(faq, index) of faqs"
-        :key="index"
-        class="faq__item"
-        :class="{active: activeFaq === index}"
-        @click="activeFaq = activeFaq === index ? null : index"
-        background="white"
-        v-auto-animate
+      <h2 class="section-title title-2 text-center">FAQ</h2>
+
+      <div
+        class="faq__list"
+        v-if="faqs.length"
       >
-        <h3 class="faq__item-title subtitle-3">
-          {{ faq.question }}
-        </h3>
-        <div
-          v-show="activeFaq === index"
-          class="faq__item-content text color-secondary"
+        <BasePlate
+          solid-border
+          v-for="(faq, index) of faqs"
           :key="index"
+          class="faq__item"
+          :class="{active: activeFaq === index}"
+          @click="activeFaq = activeFaq === index ? null : index"
+          background="white"
+          v-auto-animate
         >
-          <template v-if="Array.isArray(faq.answer)">
-            <template
-              v-for="(item, subIndex) in faq.answer"
-              :key="subIndex"
-            >
-              <p v-if="typeof item === 'string'">{{ item }}</p>
-              <ul
-                class="list-brand"
-                v-else-if="Array.isArray(item)"
+          <h3 class="faq__item-title subtitle-3">
+            {{ faq.question }}
+          </h3>
+          <div
+            v-if="activeFaq === index"
+            class="faq__item-content text color-secondary"
+            :key="index"
+          >
+            <template v-if="Array.isArray(faq.answer)">
+              <template
+                v-for="(item, subIndex) in faq.answer"
+                :key="subIndex"
               >
-                <li
-                  class="list-brand__item"
-                  v-for="(listItem, listIndex) in item"
-                  :key="listIndex"
+                <p v-if="typeof item === 'string'">{{ item }}</p>
+                <ul
+                  class="list-brand"
+                  v-else-if="Array.isArray(item)"
                 >
-                  {{ listItem }}
-                </li>
-              </ul>
+                  <li
+                    class="list-brand__item"
+                    v-for="(listItem, listIndex) in item"
+                    :key="listIndex"
+                  >
+                    {{ listItem }}
+                  </li>
+                </ul>
+              </template>
             </template>
-          </template>
-          <p v-else>
-            {{ faq.answer }}
-          </p>
-        </div>
-      </BasePlate>
+            <p v-else>
+              {{ faq.answer }}
+            </p>
+          </div>
+        </BasePlate>
+      </div>
     </BasePlate>
   </BaseSection>
 </template>
 
 <style lang="scss" scoped>
 .faq {
-  @media (max-width: $sm) {
-    background-color: $bg--purple-light;
+  @media(max-width: $sm) {
     padding: 40px 0;
+    background: $bg--purple-light;
   }
-  &__list {
-    padding: 30px;
-    max-width: 800px;
-    margin: 40px auto 0;
+  &__inner {
+    padding: 60px 30px;
     @media(max-width: $sm) {
-      margin-top: 24px;
       padding: 0;
       border-radius: 0;
     }
   }
 
+  &__list {
+    margin: 40px auto 0;
+    max-width: 720px;
+    @media(max-width: $sm) {
+      margin-top: 30px;
+    }
+  }
+
   &__item {
-    padding: 15px 24px;
+    padding: 16px 32px;
     cursor: pointer;
     @media(max-width: $sm) {
       border-radius: 12px;
@@ -215,35 +225,36 @@ const activeFaq = ref<number | null>(0);
         padding-right: 25px;
         font-size: 16px;
       }
-      &:after, &:before {
+      &:before {
         content: '';
+        background: url('@/assets/icons/chevron-down.svg') no-repeat center;
+        background-size: contain;
         position: absolute;
         right: 0px;
         top: 50%;
         transform: translateY(-50%);
-        width: 20px;
-        height: 3px;
-        background: $purple;
+        width: 16px;
+        height: 9px;
         transition: .3s;
         @media (max-width: $sm) {
-          right: 15px;
-          width: 15px;
-          height: 2px;
           right: 0;
         }
-      }
-      &:after {
-        transform: translateY(-50%) rotate(90deg);
         .active & {
           transform: translateY(-50%) rotate(180deg);
         }
       }
+      // &:after {
+      //   transform: translateY(-50%) rotate(90deg);
+      //   .active & {
+      //     transform: translateY(-50%) rotate(180deg);
+      //   }
+      // }
     }
 
     &-content {
-      margin-top: 15px;
-      padding-top: 15px;
-      border-top: 1px solid $border;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed $border;
       &:deep(p + p) {
         margin-top: 12px;
       }
