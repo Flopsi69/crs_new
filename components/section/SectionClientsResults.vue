@@ -39,7 +39,10 @@ const isMobile = computed(() => width.value < 768)
               />
             </button>
 
-            <div class="pagination flex-center">
+            <div
+              class="pagination flex-center"
+              v-if="carousel.data.maxSlide.value > 0"
+            >
               <div
                 v-for="i of carousel.data.maxSlide.value + 1"
                 :key="i"

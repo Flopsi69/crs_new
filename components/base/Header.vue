@@ -38,7 +38,7 @@ const toggleBurger = () => {
           :key="menuItem.title"
           :to="menuItem.url"
           class="nav__link"
-          external
+          :external="menuItem.url.includes('http')"
         >
           {{ menuItem.title }}
         </NuxtLink>
@@ -134,6 +134,10 @@ const toggleBurger = () => {
 
   &__link {
     transition: color .5s;
+    &.router-link-exact-active {
+      color: $yellow;
+      pointer-events: none;
+    }
     @media(hover: hover) {
       &:hover {
         color: $yellow;

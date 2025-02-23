@@ -54,10 +54,7 @@ function openVideo(video: any) {
 </script>
 
 <template>
-  <BaseSection
-    v-if="videos.length"
-    class="videos"
-  >
+  <BaseSection class="videos">
     <h2 class="section-title title-2">
       Watch our founders share actionable CRO tactics straight from the stage
     </h2>
@@ -137,7 +134,10 @@ function openVideo(video: any) {
         />
       </button>
 
-      <div class="pagination flex-center">
+      <div
+        class="pagination flex-center"
+        v-if="carousel.data.maxSlide.value > 0"
+      >
         <div
           v-for="i of carousel.data.maxSlide.value + 1"
           :key="i"

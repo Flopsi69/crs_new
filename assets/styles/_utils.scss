@@ -69,6 +69,9 @@
   &-white {
     color: #fff;
   }
+  &-violet {
+    color: $violet;
+  }
 }
 
 .bg {
@@ -104,6 +107,9 @@
   &--violet {
     background-color: $violet;
     color: #fff;
+  }
+  &--yellow {
+    background-color: $yellow;
   }
   &--gradient {
     background: $gradient-dark;

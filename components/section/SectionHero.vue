@@ -22,7 +22,7 @@ function handleOpenModal() {
   error.value = validateInput(url.value, 'url')
 
   if (!error.value) {
-    openModal({ url, info, id: 'homepage_hero_0' });
+    openModal({ url: url.value, info, id: 'homepage_hero_0' });
   }
 }
 </script>

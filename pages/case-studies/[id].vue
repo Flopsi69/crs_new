@@ -1,59 +1,26 @@
 <script lang="ts" setup>
-const notes = reactive([
-  {
-    dark: true,
-    light: false,
-    background: 'light',
-    items: ['item 1', 'item 2', 'item 3']
-  },
-  {
-    dark: false,
-    light: false,
-    title: 'For the average store?',
-    description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
-    icon: 'quote', // alert | quote
-    iconSize: 'big', // big | small
-    items: ['item 1', 'item 2', 'item 3']
-  },
-  {
-    dark: true,
-    light: false,
-    title: 'For the average store?',
-    description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
-    icon: 'quote', // alert | quote
-    iconSize: 'big', // big | small
-  },
-  {
-    dark: false,
-    light: true,
-    title: 'For the average store?',
-    description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
-    icon: 'quote', // alert | quote
-    iconSize: 'big', // big | small
-  },
-  {
-    dark: false,
-    light: false,
-    description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
-    icon: 'quote', // alert | quote
-    iconSize: 'big', // big | small
-  },
-  {
-    dark: false,
-    light: false,
-    title: 'For the average store?',
-    description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
-    icon: 'alert', // alert | quote
-    iconSize: 'big', // big | small
-  },
-  {
-    dark: true,
-    light: false,
-    description: '52 out of 100 shoppers will browse, fill their cart, and act like they’re about to checkout, only to turn around at the last minute and waltz out of your virtual store – never to return again. But imagine the revenue increase you could generate if you were to keep even a few of those customers from leaving…',
-    icon: 'quote', // alert | quote
-    iconSize: 'small', // big | small
-  }
-]);
+import api from '@/services/api.js';
+
+const route = useRoute();
+const { id } = route.params;
+
+console.log('id', id);
+
+if (!id || Array.isArray(id)) {
+  await navigateTo('/case-studies');
+}
+
+const caseStudy = await api.getCase(id);
+
+console.log('caseStudy', caseStudy.value);
+
+if (!caseStudy.value?.id) {
+  await navigateTo('/case-studies');
+}
+
+const content = computed(() => {
+  return caseStudy.value?.content?.content || [];
+});
 
 const breadcrumbs = reactive([
   {
@@ -65,27 +32,72 @@ const breadcrumbs = reactive([
     href: '/case-studies'
   },
   {
-    text: 'Case Study',
+    text: String(id) || 'case-study',
     href: ''
   }
 ]);
+
+const banner = ref(true)
 </script>
 
 <template>
-  <main class="case">
+  <main
+    class="case"
+    :class="{'case_banner': banner }"
+  >
     <Breadcrumbs :items="breadcrumbs" />
 
     <div class="container container_narrow">
+      <!-- {{ caseStudy }} -->
+      <button
+        class="temp button button_yellow"
+        :class="banner ? 'button_yellow' : 'button_purple'"
+        @click.prevent="banner = !banner"
+      >
+        Toggle template
+      </button>
+
+      <div
+        v-if="banner"
+        class="case__head"
+      >
+        <h1
+          class="case__title case__title_top title-1"
+          v-html="caseStudy.title"
+        />
+
+        <UiImage
+          class="case__image"
+          src="/images/temp-banner.jpg"
+        ></UiImage>
+      </div>
+
       <div class="case__inner">
         <div class="case__content">
-          <div class="case__banner banner">
-            <div class="banner__logo"></div>
-            <div class="banner__metrics">
-              <div class="banner__metric"></div>
-              <div class="banner__metric"></div>
-              <div class="banner__metric"></div>
+          <BasePlate
+            class="case__banner banner"
+            solid-border
+          >
+            <div class="banner__logo">
+              <img src="/images/logo/comodo.svg" />
             </div>
-          </div>
+            <div class="banner__metrics flex-center">
+              <div class="banner__metric">
+                <div class="banner__metric-value">+172.72%</div>
+                <div class="banner__metric-label">CVR</div>
+              </div>
+
+              <div class="banner__metric">
+                <div class="banner__metric-value">+325.79%</div>
+                <div class="banner__metric-label">ARPU</div>
+              </div>
+
+              <div class="banner__metric">
+                <div class="banner__metric-value">+56.13%</div>
+                <div class="banner__metric-label">ARPPU</div>
+              </div>
+            </div>
+          </BasePlate>
 
           <div class="case__reading reading text color-secondary">
             <img
@@ -97,77 +109,53 @@ const breadcrumbs = reactive([
             </span>
           </div>
 
-          <h1 class="case__title title-1">
-            <strong>H1 Main title on Desktop</strong> Two text styles Lorem
-            ipsum dolor sit amet.
-          </h1>
+          <h1
+            v-if="!banner"
+            class="case__title title-1"
+            v-html="caseStudy.title"
+          />
 
           <div class="post">
             <section class="post__section">
-              <h2 class="post__title title-3">
-                <span>H2 Heading Desktop</span>
-              </h2>
-
-              <p>
-                Even when you factor in retargeting and cart abandonment emails,
-                close to
-                <strong>
-                  52 out of 100 shoppers will leave their cart behind and never
-                </strong>
-                return to your store. In real terms, if you could slice that
-                number down to 40 out of 100 shoppers, you’d increase your total
-                revenue by over 20%. How can this be achieved? By anticipating
-                cart abandonment and utilizing UX and Copy Changes that are
-                designed to refocus customer attention so that you can keep them
-                immersed in the checkout experience until they complete their
-                order.
-              </p>
+              <UiComponentBuilder :content="content" />
             </section>
 
-            <section class="post__section">
-              <h2 class="post__title title-3">
-                <span>H2 Heading Desktop</span>
-              </h2>
+            <div class="results">
+              <section class="post__section">
+                <h2 class="post__title title-3">
+                  <span>Results example</span>
+                </h2>
 
-              <h3 class="post__subtitle subtitle-2">
-                <span>H3 title</span>
-              </h3>
+                <h3 class="post__subtitle subtitle-2">
+                  Metric block for example
+                </h3>
+              </section>
 
-              <p>
-                Even when you factor in retargeting and cart abandonment emails,
-                close to
-                <strong>
-                  52 out of 100 shoppers will leave their cart behind and never
-                </strong>
-                return to your store. In real terms, if you could slice that
-                number down to 40 out of 100 shoppers, you’d increase your total
-                revenue by over 20%. How can this be achieved? By anticipating
-                cart abandonment and utilizing UX and Copy Changes that are
-                designed to refocus customer attention so that you can keep them
-                immersed in the checkout experience until they complete their
-                order.
-              </p>
-            </section>
+              <section class="post__section">
+                <h2 class="post__title title-3">
+                  <span>Increase example and new section</span>
+                </h2>
 
-            <section class="post__section">
-              <CaseNote
-                v-for="(note, index) in notes"
-                :key="index"
-                v-bind="note"
-              ></CaseNote>
-            </section>
-          </div>
+                <h3 class="post__subtitle subtitle-2">
+                  Additional text example
+                </h3>
 
-          <div class="block case__results results">
-            <h2 class="block__title">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum
-              quibusdam magnam deserunt similique animi dolorem dolores
-              repudiandae? Maxime facere fugiat quaerat labore quia
-              exercitationem, culpa quod iste earum quam. Dicta, maiores soluta!
-              Repellendus quae accusantium autem reiciendis natus omnis vitae
-              repellat cupiditate dolores facere. Expedita assumenda at totam
-              harum aut!
-            </h2>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Blanditiis nobis suscipit asperiores, mollitia vitae
+                  perferendis ea, nostrum ratione voluptatibus repellat esse
+                  impedit ut. Repellendus, velit! Quo, dolorem vitae ducimus
+                  eius magni cum cumque, dolore vero minima ea enim voluptates
+                  amet impedit nisi quidem similique praesentium voluptate
+                  provident eaque, iste iure architecto corporis exercitationem
+                  minus. Fugiat quam dolore pariatur placeat architecto nam
+                  error in, quas tempora beatae est eius quisquam praesentium
+                  culpa at rerum similique aut. Libero, alias voluptate autem
+                  rem dolor atque soluta et sint earum facere, cum ex, beatae
+                  sunt voluptatibus consequatur accusamus deleniti perspiciatis!
+                </p>
+              </section>
+            </div>
           </div>
         </div>
 
@@ -254,41 +242,128 @@ const breadcrumbs = reactive([
 </template>
 
 <style lang="scss" scoped>
+.temp {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 1000;
+  border-radius: 25px;
+  width: 120px;
+  padding: 0;
+  font-size: 10px;
+  min-height: 30px;
+}
+
 .case {
   overflow: clip;
+  &__head {
+    margin: 42px 0;
+  }
+  &__image {
+    margin-top: 24px;
+  }
   &__inner {
     display: flex;
     align-items: flex-start;
-    gap: 100px;
+    gap: 50px;
     margin-top: 6px;
+    @media(max-width: $lg) {
+      gap: 25px;
+    }
   }
   &__content {
-    max-width: 640px;
+    flex-grow: 1;
     width: 100%;
+    min-width: 0;
   }
-  &__title {
+  &__title:not(.case__title_top) {
     font-weight: 400;
     margin-top: 24px;
+  }
+  &__title {
+    @media(max-width: $md) {
+      font-size: 30px;
+      line-height: 38px;
+    }
+  }
+  &__reading {
+    margin-top: 12px;
+  }
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  padding: 28px;
+  border-radius: 20px;
+  border: 2px solid #ede8f6;
+  gap: 20px;
+  &__logo {
+    line-height: 0;
+    img {
+      max-width: 180px;
+      max-height: 60px;
+    }
+  }
+  &__metrics {
+    position: relative;
+    top: -5px;
+    display: flex;
+    gap: 32px;
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: auto;
+  }
+  &__metric {
+    text-align: center;
+    background: url('img/metric-grow-arrow.svg') top center no-repeat;
+    background-size: contain;
+    padding-top: 29px;
+    min-width: 117px;
+    &-value {
+      font-size: 28px;
+      line-height: 1;
+      color: $violet;
+    }
+    &-label {
+      margin-top: 8px;
+      font-size: 13px;
+      line-height: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
   }
 }
 
 .post {
   display: grid;
   gap: 60px;
-  margin-top: 24px;
+  margin-top: 60px;
+  @media(max-width: $md) {
+    margin-top: 40px;
+    gap: 40px;
+  }
   &:deep(p) {
+    font-size: 18px;
     font-weight: 400;
     color: $font-secondary;
+    & + p {
+      margin-top: -12px;
+      @media(max-width: $md) {
+        margin-top: -8px;
+      }
+    }
   }
   &__title {
     position: relative;
-    margin-bottom: 24px;
     font-size: 28px;
     line-height: 1.3;
     span {
       position: relative;
       background-color: white;
       padding-right: 8px;
+      .results & {
+        background-color: $bg--purple-light;
+      }
     }
     &:before {
       content: '';
@@ -301,9 +376,19 @@ const breadcrumbs = reactive([
       border-radius: 2px;
     }
   }
-  &__subtitle {
-    margin-bottom: 12px;
+  &__section {
+    display: grid;
+    gap: 24px;
+    @media(max-width: $md) {
+      gap: 20px;
+    }
   }
+}
+
+// Temporary style
+hr {
+  border: none;
+  border-top: 1px solid #EDE8F6;
 }
 
 .reading {
@@ -325,8 +410,21 @@ const breadcrumbs = reactive([
   top: 20px;
   margin-bottom: 20px;
   color: #fff;
+  @media(max-width: $lg) {
+    max-width: 280px;
+    padding: 20px;
+  }
+  @media(max-width: $md) {
+    max-width: 240px;
+  }
+  @media(max-width: $sm) {
+    display: none;
+  }
   &__title {
     line-height: 1.3;
+    @media(max-width: $lg) {
+      font-size: 20px;
+    }
   }
   &__description {
     margin-top: 12px;
@@ -337,14 +435,24 @@ const breadcrumbs = reactive([
     margin-top: 20px;
     text-transform: none;
     justify-content: center;
+    align-items: center;
     width: 100%;
+    @media(max-width: $md) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
   }
 }
 
 .results {
   position: relative;
   background-color: $bg--purple-light;
-  padding: 60px;
+  padding: 60px 0;
+  display: grid;
+  gap: 60px;
+  @media(max-width: $sm) {
+    padding: 40px 0;
+  }
   &:before, &:after {
     content: '';
     position: absolute;
@@ -360,10 +468,20 @@ const breadcrumbs = reactive([
 }
 
 .navigation {
+  position: relative;
   padding: 60px 0;
   display: flex;
   justify-content: center;
   gap: 115px;
+  @media(max-width: $md) {
+    padding: 40px 0;
+    gap: 50px;
+  }
+  @media(max-width: $sm) {
+    gap: 12px;
+    flex-flow: column;
+    padding-right: 75px;
+  }
   &__arrow {
     text-transform: none;
     padding: 15px 12px 13px;
@@ -372,6 +490,9 @@ const breadcrumbs = reactive([
     gap: 10px;
     max-width: 235px;
     width: 100%;
+    @media(max-width: $sm) {
+      max-width: 100%;
+    }
   }
   &__up {
     width: 50px;
@@ -379,6 +500,11 @@ const breadcrumbs = reactive([
     border-radius: 60px;
     padding: 0;
     margin-left: auto;
+    @media(max-width: $sm) {
+      position: absolute;
+      right: 0;
+      top: 40px;
+    }
   }
 }
 </style>

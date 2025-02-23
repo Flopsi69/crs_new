@@ -9,6 +9,11 @@ export default defineNuxtConfig({
     inlineSSRStyles: false
   },
 
+  // routeRules: {
+  // '/case-studies/:id': { prerender: true },
+  // '/': { prerender: true }
+  // },
+
   app: {
     head: {
       charset: 'utf-8',
@@ -35,6 +40,7 @@ export default defineNuxtConfig({
     '@zadigetvoltaire/nuxt-gtm',
     'nuxt-mail'
   ],
+
   // '@vee-validate/nuxt',
   // 'radix-vue',
 
@@ -98,5 +104,7 @@ export default defineNuxtConfig({
       user: process.env.EMAIL_USER,
       password: process.env.EMAIL_PASSWORD
     }
-  }
+  },
+
+  compatibilityDate: '2025-02-20'
 })
