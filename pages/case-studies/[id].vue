@@ -32,12 +32,10 @@ const breadcrumbs = reactive([
     href: '/case-studies'
   },
   {
-    text: String(id) || 'case-study',
+    text: caseStudy.value?.breadcrumb || 'Case Study',
     href: ''
   }
 ]);
-
-const banner = ref(true)
 </script>
 
 <template>
@@ -69,8 +67,11 @@ const banner = ref(true)
             class="case__banner banner"
             solid-border
           >
-            <div class="banner__logo">
-              <img src="/images/logo/comodo.svg" />
+            <div
+              class="banner__logo"
+              v-if="caseStudy?.client?.logo"
+            >
+              <img :src="caseStudy.client.logo" />
             </div>
             <div class="banner__metrics flex-center">
               <div class="banner__metric">

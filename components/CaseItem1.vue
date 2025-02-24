@@ -19,7 +19,7 @@ const preview = computed(() => props.caseStudy.preview1);
   >
     <div class="case__logo flex align-center">
       <img
-        :src="`${caseStudy.client.logo}`"
+        :src="caseStudy.client.logo"
         alt=""
       />
     </div>
