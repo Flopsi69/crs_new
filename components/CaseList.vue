@@ -21,7 +21,7 @@ const props = defineProps({
 
 const isShowMore = ref(false);
 
-const caseFiltered: CaseStudy[] = props.items.filter((item) => item.status !== 'ACTIVE');
+const caseFiltered: CaseStudy[] = props.items.filter((item) => (item.status && item.status !== 'ACTIVE') || !item.isHidden );
 
 const casesToShow = computed(() => {
   return  isShowMore.value || !props.expand ? caseFiltered : caseFiltered.slice(0, 3);
