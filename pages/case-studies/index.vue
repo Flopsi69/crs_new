@@ -21,8 +21,6 @@ interface CaseStudyOld {
 
 const casesApi: CaseStudy[] = await api.getCases();
 
-console.log('resApiClient', casesApi);
-
 const newsletterText = {
   title: 'Sign up for our newsletter to get early updates',
   subtitle: 'Stay ahead of the game',

@@ -4,22 +4,22 @@ import api from '@/services/api.js';
 const route = useRoute();
 const { id } = route.params;
 
-console.log('id', id);
-
 if (!id || Array.isArray(id)) {
   await navigateTo('/case-studies');
 }
 
 const caseStudy = await api.getCase(id);
 
-console.log('caseStudy', caseStudy.value);
-
 if (!caseStudy.value?.id) {
   await navigateTo('/case-studies');
 }
 
-const content = computed(() => {
+const mainContent = computed(() => {
   return caseStudy.value?.content?.content || [];
+});
+
+const resultContent = computed(() => {
+  return caseStudy.value?.content?.result || [];
 });
 
 const breadcrumbs = reactive([
@@ -43,22 +43,13 @@ const banner = ref(true)
 <template>
   <main
     class="case"
-    :class="{'case_banner': banner }"
+    :class="{'case_banner': caseStudy.banner }"
   >
     <Breadcrumbs :items="breadcrumbs" />
 
     <div class="container container_narrow">
-      <!-- {{ caseStudy }} -->
-      <button
-        class="temp button button_yellow"
-        :class="banner ? 'button_yellow' : 'button_purple'"
-        @click.prevent="banner = !banner"
-      >
-        Toggle template
-      </button>
-
       <div
-        v-if="banner"
+        v-if="caseStudy.banner"
         class="case__head"
       >
         <h1
@@ -68,7 +59,7 @@ const banner = ref(true)
 
         <UiImage
           class="case__image"
-          src="/images/temp-banner.jpg"
+          :src="caseStudy.bannerImage"
         ></UiImage>
       </div>
 
@@ -99,61 +90,36 @@ const banner = ref(true)
             </div>
           </BasePlate>
 
-          <div class="case__reading reading text color-secondary">
+          <div
+            class="case__reading reading text color-secondary"
+            v-if="caseStudy.readTime"
+          >
             <img
               class="reading__icon"
               src="@/assets/icons/clock.svg"
             />
             <span class="reading__value">
-              Reading time: <strong>8 min</strong>
+              Reading time: <strong>{{ caseStudy.readTime }} min</strong>
             </span>
           </div>
 
           <h1
-            v-if="!banner"
+            v-if="!caseStudy.banner"
             class="case__title title-1"
             v-html="caseStudy.title"
           />
 
           <div class="post">
             <section class="post__section">
-              <UiComponentBuilder :content="content" />
+              <UiComponentBuilder :content="mainContent" />
             </section>
 
-            <div class="results">
+            <div
+              class="results"
+              v-if="resultContent?.length"
+            >
               <section class="post__section">
-                <h2 class="post__title title-3">
-                  <span>Results example</span>
-                </h2>
-
-                <h3 class="post__subtitle subtitle-2">
-                  Metric block for example
-                </h3>
-              </section>
-
-              <section class="post__section">
-                <h2 class="post__title title-3">
-                  <span>Increase example and new section</span>
-                </h2>
-
-                <h3 class="post__subtitle subtitle-2">
-                  Additional text example
-                </h3>
-
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Blanditiis nobis suscipit asperiores, mollitia vitae
-                  perferendis ea, nostrum ratione voluptatibus repellat esse
-                  impedit ut. Repellendus, velit! Quo, dolorem vitae ducimus
-                  eius magni cum cumque, dolore vero minima ea enim voluptates
-                  amet impedit nisi quidem similique praesentium voluptate
-                  provident eaque, iste iure architecto corporis exercitationem
-                  minus. Fugiat quam dolore pariatur placeat architecto nam
-                  error in, quas tempora beatae est eius quisquam praesentium
-                  culpa at rerum similique aut. Libero, alias voluptate autem
-                  rem dolor atque soluta et sint earum facere, cum ex, beatae
-                  sunt voluptatibus consequatur accusamus deleniti perspiciatis!
-                </p>
+                <UiComponentBuilder :content="resultContent" />
               </section>
             </div>
           </div>
@@ -353,28 +319,11 @@ const banner = ref(true)
       }
     }
   }
-  &__title {
-    position: relative;
-    font-size: 28px;
-    line-height: 1.3;
-    span {
-      position: relative;
-      background-color: white;
-      padding-right: 8px;
-      .results & {
-        background-color: $bg--purple-light;
-      }
-    }
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 10px;
-      background-color: #EDE8F6;
-      height: 2px;
-      border-radius: 2px;
-    }
+  &:deep(.post__title span) {
+    background-color: white;
+  }
+  &:deep(.results .post__title span) {
+    background-color: $bg--purple-light;
   }
   &__section {
     display: grid;
@@ -383,12 +332,6 @@ const banner = ref(true)
       gap: 20px;
     }
   }
-}
-
-// Temporary style
-hr {
-  border: none;
-  border-top: 1px solid #EDE8F6;
 }
 
 .reading {
