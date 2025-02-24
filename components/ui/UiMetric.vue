@@ -4,7 +4,7 @@ type Metric = {
   value: string;
 };
 
-defineProps({
+const props = defineProps({
   description: {
     type: String,
     default: '',
@@ -26,6 +26,37 @@ defineProps({
     default: '',
   }
 });
+
+
+
+const metricBackground = computed(() => {
+  if (props.light) {
+    return 'purple'
+  } else if (props.dark && !props.description) {
+    return 'violet'
+  }
+
+  return 'purple-light';
+})
+
+const metricColorValue =  computed(() => {
+  if (props.light) {
+    return 'color-white'
+  } else if (props.dark && !props.description) {
+    return 'color-white'
+  }
+
+  return 'color-violet'
+});
+
+
+const metricColorLabel =  computed(() => {
+  if (props.light || props.dark && !props.description) {
+    return 'color-white'
+  }
+
+  return 'color-primary'
+});
 </script>
 
 <template>
@@ -33,7 +64,7 @@ defineProps({
     class="box"
     :class="{
       'bg--violet': dark && description,
-      'bg--purple-light': light,
+      'bg--purple-light': light && description,
       'box_flat': !description
     }"
   >
@@ -53,17 +84,17 @@ defineProps({
         v-for="(metric, index) in metrics"
         :key="index"
         class="metric text-center"
-        :background="light ? 'purple' : 'purple-light'"
+        :background="metricBackground"
       >
         <div
           class="metric__value"
-          :class="[light ? 'color-white' : 'color-violet']"
+          :class="metricColorValue"
         >
           {{ metric.value }}
         </div>
         <div
           class="metric__label "
-          :class="[light ? 'color-white' : 'color-primary']"
+          :class="metricColorLabel"
         >
           {{ metric.label }}
         </div>
