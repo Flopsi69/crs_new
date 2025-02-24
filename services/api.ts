@@ -11,9 +11,17 @@ const apiClient = $fetch.create({
 })
 
 // GET Request
-const getCases = async (options: Record<string, any> = {}): Promise<any> => {
+const getCases = async (
+  queries?: string,
+  options: Record<string, any> = {}
+): Promise<any> => {
+  let url = '/case-studies'
+  if (queries) {
+    url += `?select=${queries}`
+  }
+
   try {
-    const response = await useFetch('/case-studies', {
+    const response = await useFetch(url, {
       baseURL,
       method: 'GET',
       ...options
