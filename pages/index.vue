@@ -1,4 +1,21 @@
 <script lang="ts" setup>
+import { faqs } from '~/configs';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": Array.isArray(faq.answer)
+        ? faq.answer.map(a => Array.isArray(a) ? a.join(" ") : a).join(" ")
+        : faq.answer
+    }
+  }))
+};
+
 useHead({
   title: 'Performance-Based CRO Agency: Pay Only for Actual Results',
   meta: [{
@@ -7,6 +24,12 @@ useHead({
   }],
   link: [
     { rel: 'canonical', href: 'https://conversionrate.store/' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify(faqSchema)
+    }
   ]
 })
 </script>
