@@ -1,17 +1,22 @@
 <script lang="ts" setup>
 import { faqs } from '~/configs';
 
+const sanitizeText = (text: string | (string | string[])[]): string => {
+  if (Array.isArray(text)) {
+    return text.map(sanitizeText).join(" "); // Recursively sanitize nested arrays
+  }
+  return text.replace(/<\/?[^>]+(>|$)/g, ""); // Remove HTML tags
+};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": faqs.map(faq => ({
     "@type": "Question",
-    "name": faq.question,
+    "name": sanitizeText(faq.question),
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": Array.isArray(faq.answer)
-        ? faq.answer.map(a => Array.isArray(a) ? a.join(" ") : a).join(" ")
-        : faq.answer
+      "text": sanitizeText(faq.answer)
     }
   }))
 };
