@@ -21,22 +21,28 @@ const faqSchema = {
   }))
 };
 
-useHead({
+useSeoMeta({
   title: 'Performance-Based CRO Agency: Pay Only for Actual Results',
-  meta: [{
-    name: 'description',
-    content: 'CRO agency with guaranteed growth results. Trusted to run A/B tests on 127+ million users for clients like Microsoft, Unicorns, YC startups'
-  }],
+  description: 'CRO agency with guaranteed growth results. Trusted to run A/B tests on 127+ million users for clients like Microsoft, Unicorns, YC startups',
+  ogTitle: 'Performance-Based CRO Agency: Pay Only for Actual Results',
+  ogDescription: 'CRO agency with guaranteed growth results. Trusted to run A/B tests on 127+ million users for clients like Microsoft, Unicorns, YC startups',
+  ogUrl: 'https://conversionrate.store/',
+  ogType: 'website',
+  ogImage: 'https://conversionrate.store/images/big-logo.png', // Replace with actual OG image
+  twitterCard: 'summary_large_image'
+});
+
+useHead({
   link: [
     { rel: 'canonical', href: 'https://conversionrate.store/' }
   ],
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify(faqSchema)
+      children: JSON.stringify(faqSchema || {})
     }
   ]
-})
+});
 </script>
 
 <template>
