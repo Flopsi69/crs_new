@@ -34,14 +34,22 @@ useSeoMeta({
 
 useHead({
   link: [
-    { rel: 'canonical', href: 'https://conversionrate.store/' }
+    { rel: 'canonical', href: 'https://conversionrate.store/' },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      href: '/favicon.png'
+    }
   ],
   script: [
     {
       type: 'application/ld+json',
       children: JSON.stringify(faqSchema || {})
     }
-  ]
+  ],
+  htmlAttrs: {
+    lang: 'en'
+  },
 });
 </script>
 
