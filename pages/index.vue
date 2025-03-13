@@ -1,14 +1,56 @@
 <script lang="ts" setup>
-useHead({
+import { faqs } from '~/configs';
+
+const sanitizeText = (text: string | (string | string[])[]): string => {
+  if (Array.isArray(text)) {
+    return text.map(sanitizeText).join(" "); // Recursively sanitize nested arrays
+  }
+  return text.replace(/<\/?[^>]+(>|$)/g, ""); // Remove HTML tags
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": sanitizeText(faq.question),
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": sanitizeText(faq.answer)
+    }
+  }))
+};
+
+useSeoMeta({
   title: 'Performance-Based CRO Agency: Pay Only for Actual Results',
-  meta: [{
-    name: 'description',
-    content: 'CRO agency with guaranteed growth results. Trusted to run A/B tests on 127+ million users for clients like Microsoft, Unicorns, YC startups'
-  }],
+  description: 'CRO agency with guaranteed growth results. Trusted to run A/B tests on 127+ million users for clients like Microsoft, Unicorns, YC startups',
+  ogTitle: 'Performance-Based CRO Agency: Pay Only for Actual Results',
+  ogDescription: 'CRO agency with guaranteed growth results. Trusted to run A/B tests on 127+ million users for clients like Microsoft, Unicorns, YC startups',
+  ogUrl: 'https://conversionrate.store/',
+  ogType: 'website',
+  ogImage: 'https://conversionrate.store/images/big-logo.png', // Replace with actual OG image
+  twitterCard: 'summary_large_image'
+});
+
+useHead({
   link: [
-    { rel: 'canonical', href: 'https://conversionrate.store/' }
-  ]
-})
+    { rel: 'canonical', href: 'https://conversionrate.store/' },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      href: '/favicon.png'
+    }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify(faqSchema || {})
+    }
+  ],
+  htmlAttrs: {
+    lang: 'en'
+  },
+});
 </script>
 
 <template>

@@ -7,6 +7,7 @@ import solutions from './solutions'
 import benchmarks from './benchmarks'
 import serviceLinks from './serviceLinks'
 import processSteps from './processSteps'
+import faqs from './faqs'
 
 export {
   menu,
@@ -17,5 +18,6 @@ export {
   solutions,
   benchmarks,
   serviceLinks,
-  processSteps
+  processSteps,
+  faqs
 }
