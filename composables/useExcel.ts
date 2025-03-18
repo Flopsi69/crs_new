@@ -29,7 +29,7 @@ export function useExcel() {
         body
       })
 
-      console.log('Succefully saved data to Google Sheets:', data.value)
+      // console.log('Succefully saved data to Google Sheets:', data.value)
 
       return data.value
     } catch (err: any) {

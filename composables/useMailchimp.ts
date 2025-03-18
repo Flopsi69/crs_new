@@ -29,7 +29,7 @@ export function useMailchimp() {
         body
       })
 
-      console.log('Succefully saved data to Mailchimp:', data.value)
+      // console.log('Succefully saved data to Mailchimp:', data.value)
 
       return data.value
     } catch (err: any) {

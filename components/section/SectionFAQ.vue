@@ -1,6 +1,35 @@
 <script lang="ts" setup>
 import { faqs } from '~/configs';
 
+const sanitizeText = (text: string | (string | string[])[]): string => {
+  if (Array.isArray(text)) {
+    return text.map(sanitizeText).join(" "); // Recursively sanitize nested arrays
+  }
+  return text.replace(/<\/?[^>]+(>|$)/g, ""); // Remove HTML tags
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": sanitizeText(faq.question),
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": sanitizeText(faq.answer)
+    }
+  }))
+};
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify(faqSchema),
+    },
+  ],
+});
+
 const activeFaq = ref<number | null>(0);
 </script>
 
