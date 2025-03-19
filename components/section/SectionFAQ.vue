@@ -2,33 +2,31 @@
 import { faqs } from '~/configs';
 
 const sanitizeText = (text: string | (string | string[])[]): string => {
-  if (Array.isArray(text)) {
-    return text.map(sanitizeText).join(" "); // Recursively sanitize nested arrays
+  if (!Array.isArray(text)) {
+    return `<p>${text}</p>`;
   }
-  return text.replace(/<\/?[^>]+(>|$)/g, ""); // Remove HTML tags
-};
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": faqs.map(faq => ({
-    "@type": "Question",
-    "name": sanitizeText(faq.question),
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": sanitizeText(faq.answer)
+  return text.map((item) => {
+    if (typeof item === 'string') {
+      return `<p>${item}</p>`;
     }
-  }))
+
+    return `<ul>${item.map((listItem) => `<li>${listItem}</li>`).join('')}</ul>`;
+  }).join('');
+
 };
 
-useHead({
-  script: [
-    {
-      type: 'application/ld+json',
-      children: JSON.stringify(faqSchema),
-    },
-  ],
-});
+useSchemaOrg([
+  defineWebPage({
+    '@type': 'FAQPage',
+  }),
+  ...faqs.map(faq =>
+    defineQuestion({
+      name: faq.question,
+      acceptedAnswer: sanitizeText(faq.answer)
+    })
+  )
+])
 
 const activeFaq = ref<number | null>(0);
 </script>

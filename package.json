@@ -14,14 +14,15 @@
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
     "@img-comparison-slider/vue": "^8.0.0",
-    "@nuxt/fonts": "0.10.3",
+    "@nuxt/fonts": "0.11.0",
     "@vee-validate/nuxt": "4.15.0",
-    "@vueuse/nuxt": "12.7.0",
+    "@vueuse/nuxt": "13.0.0",
     "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "googleapis": "144.0.0",
-    "nuxt": "3.15.4",
+    "nuxt": "3.16.0",
     "nuxt-aos": "1.2.5",
     "nuxt-mail": "5.1.1",
+    "nuxt-schema-org": "5.0.4",
     "radix-vue": "^1.8.3",
     "vue": "3.5.13",
     "vue-router": "4.5.0",
@@ -31,9 +32,9 @@
   },
   "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447",
   "devDependencies": {
-    "@nuxt/image": "1.9.0",
+    "@nuxt/image": "1.10.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
-    "eslint": "9.20.1",
+    "eslint": "9.22.0",
     "nuxt-icon": "^0.6.10",
     "sass": "1.85.0"
   }
