@@ -4,10 +4,10 @@ import { fileURLToPath } from 'url'
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
-  experimental: {
-    // @ts-ignore
-    inlineSSRStyles: false
-  },
+  // experimental: {
+  //   // @ts-ignore
+  //   inlineSSRStyles: false
+  // },
 
   // routeRules: {
   // '/case-studies/:id': { prerender: true },
@@ -38,7 +38,8 @@ export default defineNuxtConfig({
     'nuxt-icon',
     'nuxt-aos',
     '@zadigetvoltaire/nuxt-gtm',
-    'nuxt-mail'
+    'nuxt-mail',
+    'nuxt-schema-org'
   ],
 
   // '@vee-validate/nuxt',
