@@ -56,7 +56,7 @@ function handleOpenModal() {
         <div class="info__form-wrap form-wrap border-decor_top">
           <div class="subtitle-2">
             Get an uplift estimate for your business from our Conversion Rate
-            Optimisation service
+            Optimization service
           </div>
           <div class="form flex">
             <BaseInput
