@@ -12,7 +12,7 @@ interface Lead {
   }
 }
 
-function getTemplate(lead: Lead, isPrelid: boolean): string {
+function getTemplate(lead: Lead, isPrelid: boolean, isHTML = false): string {
   const isAdditional =
     lead.annual_revenue || lead.hear_about_us || lead.project_goal
 
@@ -43,10 +43,26 @@ function getTemplate(lead: Lead, isPrelid: boolean): string {
     <div>\t|-- ID: ${lead.metadata?.id || '-'}</div>
   `
 
-  return template
+  return isHTML ? template : template.replace(/<[^>]*/g, '')
 }
 
+const config = useRuntimeConfig()
+
 export default defineEventHandler(async (event) => {
+  if (event.method !== 'POST') {
+    return {
+      status: 405,
+      message: 'Only POST requests are allowed'
+    }
+  }
+
+  if (!config.resend?.apiKey) {
+    return {
+      status: 500,
+      message: 'Resend API key is missing'
+    }
+  }
+
   const { emails } = useResend()
 
   const { lead, isPrelid }: { lead: Lead; isPrelid: boolean } = await readBody(
@@ -61,7 +77,8 @@ export default defineEventHandler(async (event) => {
       'i@conversionrate.store'
     ],
     subject: isPrelid ? 'New Lead (first step)' : 'New Lead',
-    html: getTemplate(lead, isPrelid)
+    html: getTemplate(lead, isPrelid, true),
+    text: getTemplate(lead, isPrelid)
   }
 
   const result = await emails.send(mailInfo)
