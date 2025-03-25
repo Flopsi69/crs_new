@@ -19,9 +19,8 @@
     "@vueuse/nuxt": "13.0.0",
     "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "googleapis": "144.0.0",
-    "nuxt": "3.16.0",
+    "nuxt": "3.16.1",
     "nuxt-aos": "1.2.5",
-    "nuxt-mail": "5.1.1",
     "nuxt-schema-org": "5.0.4",
     "radix-vue": "^1.8.3",
     "vue": "3.5.13",
@@ -34,8 +33,10 @@
   "devDependencies": {
     "@nuxt/image": "1.10.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@types/node": "^22.13.13",
     "eslint": "9.22.0",
     "nuxt-icon": "^0.6.10",
+    "nuxt-resend": "^0.0.2",
     "sass": "1.85.0"
   }
 }

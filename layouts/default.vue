@@ -109,7 +109,7 @@ const { isOpen } = useModal();
         </transition> -->
 
         <transition name="overlay-fade">
-          <ModalWapper v-if="isOpen" />
+          <ModalWrapper v-if="isOpen" />
         </transition>
       </Teleport>
     </ClientOnly>
