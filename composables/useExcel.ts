@@ -22,8 +22,6 @@ export function useExcel() {
     error.value = null
 
     try {
-      // await new Promise((resolve) => setTimeout(resolve, 1000))
-      // throw new Error('Not implemented yet')
       data.value = await $fetch(url, {
         method: 'POST',
         body

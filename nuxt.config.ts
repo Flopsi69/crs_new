@@ -84,6 +84,9 @@ export default defineNuxtConfig({
       private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
       client_email: process.env.GOOGLE_CLIENT_EMAIL,
       client_id: '116906147343419850380'
+    },
+    resend: {
+      apiKey: process.env.RESEND_API_KEY
     }
   },
 
