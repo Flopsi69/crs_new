@@ -20,7 +20,7 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0',
       link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
       htmlAttrs: { lang: 'en' },
-      title: 'Conversion Rate Store',
+      title: 'Performance-Based CRO Agency: Pay Only for Actual Results',
       meta: [
         {
           name: 'google-site-verification',
