@@ -1,24 +1,17 @@
 <script lang="ts" setup>
-defineProps({
-  caseStudy: {
-    type: Object,
-    required: true,
-    default: () => ({
-      logo: String,
-      about: String,
-      product: String,
-      experiment: String,
-      result: Object,
-      isHidden: {
-        type: Boolean,
-        default: false
-      }
-    }),
-  },
-})
+import type { CaseStudy } from '~/types';
+
+const props = defineProps<{
+  caseStudy: CaseStudy
+}>();
+
+const preview = computed(() => props.caseStudy.preview1);
 </script>
 
 <template>
+  <!-- :data-id="caseStudy.id" -->
+  <!-- {{ caseStudy }} -->
+  <!-- {{ preview }} -->
   <BasePlate
     class="case"
     solidBorder
@@ -26,33 +19,29 @@ defineProps({
   >
     <div class="case__logo flex align-center">
       <img
-        :src="`/images/logo/${caseStudy.logo}`"
+        :src="`${caseStudy.client?.logo}`"
         alt=""
       />
     </div>
 
     <div
       class="case__block"
-      v-if="caseStudy.about"
+      v-if="preview.product"
     >
       <div class="case__block-title subtitle-3">Product:</div>
-      <div class="case__block-caption text color-secondary">
-        <span
-          class="color-purple fw-bold"
-          v-if="caseStudy.product"
-          >{{ caseStudy.product }}</span
-        >
-        {{ caseStudy.about }}
-      </div>
+      <div
+        class="case__block-caption text color-secondary"
+        v-html="preview.product"
+      ></div>
     </div>
 
     <div
       class="case__block"
-      v-if="caseStudy.experiment"
+      v-if="preview.experiment"
     >
       <div class="case__block-title subtitle-3">Experiment:</div>
       <div class="case__block-caption text color-secondary">
-        {{ caseStudy.experiment }}
+        {{ preview.experiment }}
       </div>
     </div>
 
@@ -61,10 +50,12 @@ defineProps({
         <div class="case__block-title subtitle-3">Result:</div>
 
         <div class="result__value color-purple">
-          {{ caseStudy.result.value }}%
+          {{ preview.resultValue }}
         </div>
 
-        <div class="result__caption">{{ caseStudy.result.caption }}</div>
+        <div class="result__caption">
+          {{ preview.resultName }}
+        </div>
       </div>
 
       <div class="result__right result__col text-right">
@@ -76,13 +67,13 @@ defineProps({
         </div>
 
         <NuxtLink
-          v-if="caseStudy.result.url"
+          v-if="caseStudy.url"
           external
-          target="_blank"
           class="result__link link flex-center"
-          :to="caseStudy.result.url"
+          :to="`/case-studies/${caseStudy.url}`"
         >
-          <span>View case study</span>
+          View case study
+          <!-- <span></span> -->
         </NuxtLink>
       </div>
     </div>
@@ -95,39 +86,50 @@ defineProps({
   flex-flow: column;
   padding: 30px;
   gap: 20px;
+
   @media(max-width: $sm) {
     padding: 30px 20px;
   }
+
   &__logo {
     height: 70px;
   }
+
   &__block-caption {
     margin-top: 4px;
+    ::v-deep(i) {
+      font-weight: bold;
+      color: $purple;
+    }
   }
 }
 
 .result {
   margin-top: auto;
   gap: 15px;
+
   &__value {
     font-size: 32px;
     line-height: 1;
     margin-top: 12px;
   }
+
   &__caption {
     margin-top: 8px;
     color: $font-secondary;
     font-size: 18px;
     line-height: 30px;
+    text-transform: uppercase;
   }
+
   &__link {
     margin-top: 5px;
   }
+
   &__right {
     padding-bottom: 5px;
   }
 }
-
 
 .button {
   height: 60px;

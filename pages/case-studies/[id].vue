@@ -14,7 +14,7 @@ if (!caseStudy.value?.id) {
   await navigateTo('/case-studies');
 }
 
-const handlerList: Ref<[]> = await api.getCases('url');
+const handlerList: Ref<[]> = await api.getCases('url,status');
 const handlerListArray = handlerList.value.map((item: any) => item.url)
 const currentIndex = ref(handlerListArray.indexOf(id));
 const nextId = computed(() => {
@@ -102,6 +102,7 @@ const scrollToTop = () => {
           <BasePlate
             class="case__banner banner"
             solid-border
+            v-if="caseStudy?.client?.logo"
           >
             <div
               class="banner__logo"
@@ -319,6 +320,9 @@ const scrollToTop = () => {
   border-radius: 20px;
   border: 2px solid #ede8f6;
   gap: 20px;
+  @media(max-width: $sm) {
+    flex-flow: column;
+  }
   &__logo {
     line-height: 0;
     img {
@@ -333,6 +337,10 @@ const scrollToTop = () => {
     gap: 32px;
     grid-template-columns: repeat(3, 1fr);
     margin-left: auto;
+    @media(max-width: $sm) {
+      margin: auto;
+      top: 0;
+    }
   }
   &__metric {
     text-align: center;
@@ -362,6 +370,9 @@ const scrollToTop = () => {
   @media(max-width: $md) {
     margin-top: 40px;
     gap: 40px;
+  }
+  &:deep(b) {
+    font-weight: bold;
   }
   &:deep(p) {
     font-size: 18px;

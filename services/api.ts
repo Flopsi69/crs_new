@@ -27,7 +27,7 @@ const getCases = async (
       ...options
     })
 
-    console.log('resApi', response.data.value)
+    // console.log('resApi getCases', response.data.value)
 
     return response.data
   } catch (error) {
@@ -50,7 +50,7 @@ const getCase = async (
       ...options
     })
 
-    console.log('resApi', response.data.value)
+    // console.log('resApi', response.data.value)
 
     return response.data
   } catch (error) {

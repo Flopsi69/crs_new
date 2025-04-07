@@ -1,25 +1,8 @@
 <script lang="ts" setup>
 import type { CaseStudy } from '~/types';
-import { cases } from '~/configs';
 import api from '@/services/api.js';
 
-interface CaseStudyOld {
-  cases: {
-    isHidden: boolean;
-    id: string;
-    logo: string;
-    product: string;
-    about: string;
-    experiment: string;
-    result: {
-      value: number;
-      caption: string;
-      url: string;
-    };
-  }
-}
-
-const casesApi: CaseStudy[] = await api.getCases();
+const cases: CaseStudy[] = await api.getCases();
 
 const newsletterText = {
   title: 'Sign up for our newsletter to get early updates',
@@ -31,7 +14,7 @@ const newsletterText = {
 <template>
   <main class="main cases">
     <div class="container">
-      <!-- {{ casesApi }} -->
+      <!-- {{ cases }} -->
       <div class="cases__head">
         <h1 class="cases__title title-2">
           CRO case studies from Conversionrate.store
@@ -44,24 +27,7 @@ const newsletterText = {
 
       <div class="cases__inner">
         <div class="cases__content">
-          <!-- <pre>{{ casesApi }}</pre> -->
-          <CaseList
-            class="cases__list"
-            :cols="2"
-            :expand="false"
-            :items="casesApi"
-          />
-          <br />
-          <br />
-          <hr />
-          <h2
-            class="text-center title-2"
-            style="padding: 10px;"
-          >
-            Hardcode version
-          </h2>
-          <hr />
-          <br />
+          <!-- <pre>{{ cases }}</pre> -->
           <CaseList
             class="cases__list"
             :cols="2"
@@ -89,7 +55,10 @@ const newsletterText = {
             We will also provide you with 3 CRO hypotheses for your business for
             free if you&nbsp;qualify
           </div>
-          <button class="aside__button button button_yellow subtitle-3">
+          <NuxtLink
+            to="/#estimate"
+            class="aside__button button button_yellow subtitle-3"
+          >
             Estimate your uplift
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +73,7 @@ const newsletterText = {
                 />
               </g>
             </svg>
-          </button>
+          </NuxtLink>
         </BasePlate>
       </div>
     </div>
@@ -123,6 +92,10 @@ const newsletterText = {
     gap: 20px;
     margin-top: 6px;
     margin-top: 40px;
+    @media(max-width: $md) {
+      flex-flow: column;
+      gap: 30px;
+    }
   }
   &__content {
     flex-grow: 1;
@@ -131,6 +104,9 @@ const newsletterText = {
     margin-top: 60px;
     &:deep(.info_submitted) {
       max-width: 560px;
+    }
+    @media(max-width: $md) {
+      margin-top: 30px;
     }
   }
 }
@@ -143,6 +119,10 @@ const newsletterText = {
   top: 20px;
   margin-bottom: 20px;
   color: #fff;
+  @media (max-width: $md) {
+    position: static;
+    max-width: 100%;
+  }
   &__title {
     line-height: 1.3;
   }
@@ -151,6 +131,7 @@ const newsletterText = {
   }
   &__button {
     display: flex;
+    align-items: center;
     gap: 10px;
     margin-top: 20px;
     text-transform: none;
