@@ -39,8 +39,18 @@ export default defineNuxtConfig({
     'nuxt-aos',
     '@zadigetvoltaire/nuxt-gtm',
     'nuxt-resend',
-    'nuxt-schema-org'
+    'nuxt-schema-org',
+    '@nuxtjs/i18n'
   ],
+
+  i18n: {
+    locales: [
+      { code: 'en', name: 'English', language: 'en-US', file: 'en.json' },
+      { code: 'fr', name: 'France', language: 'fr-FR', file: 'fr.json' }
+    ],
+    defaultLocale: 'en',
+    debug: false
+  },
 
   gtm: {
     id: 'GTM-MR6SLVZ6',
