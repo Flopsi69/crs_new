@@ -122,6 +122,7 @@ const newsletterText = {
   @media (max-width: $md) {
     position: static;
     max-width: 100%;
+    margin-bottom: 0;
   }
   &__title {
     line-height: 1.3;
