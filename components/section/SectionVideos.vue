@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 const { openModal } = useModal();
+const { t } = useI18n();
 
 const authors = [
   {
@@ -20,7 +21,7 @@ const videos = [
   {
     preview: '/images/video-preview-0.gif',
     src: 'https://drive.google.com/file/d/1dUnoEi_-mIXkVB6n8F6izU5fZr4xOoDA/preview',
-    title: 'Riga Comm 2024',
+    title: t('sectionVideos.videos.0.title'),
     author: authors[0],
     id: 'homepage_video_0',
     meeting: 'https://calendly.com/ihor-sokol/discovery-call-with-ihor?name=<name>&email=<email>'
@@ -28,7 +29,7 @@ const videos = [
   {
     preview: '/images/video-preview-1.gif',
     src: 'https://drive.google.com/file/d/1BNQdn7it6YEzOZ14Lzh0xnABLwz7bVjb/preview',
-    title: 'eCommerce 2019',
+    title: t('sectionVideos.videos.1.title'),
     author: authors[1],
     id: 'homepage_video_1',
     meeting: 'https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=<name>&email=<email>'
@@ -36,7 +37,7 @@ const videos = [
   {
     preview: '/images/video-preview-2.gif',
     src: 'https://drive.google.com/file/d/1olltbr6KQlX3wal8Oa0N5p4yDLYzrHSE/preview',
-    title: 'eCommerce 2019',
+    title: t('sectionVideos.videos.2.title'),
     author: authors[0],
     id: 'homepage_video_2',
     meeting: 'https://calendly.com/ihor-sokol/discovery-call-with-ihor?name=<name>&email=<email>'
@@ -56,7 +57,7 @@ function openVideo(video: any) {
 <template>
   <BaseSection class="videos">
     <h2 class="section-title title-2">
-      Watch our founders share actionable CRO tactics straight from the stage
+      {{ t('sectionVideos.title') }}
     </h2>
 
     <Carousel

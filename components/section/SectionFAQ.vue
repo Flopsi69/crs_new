@@ -1,5 +1,14 @@
 <script lang="ts" setup>
-import { faqs } from '~/configs';
+const { t, locale } = useI18n();
+
+let faqs = [];
+
+try {
+  const module = await import(`~/i18n/locales/${locale.value}/faqs.json`);
+  faqs = module.default;
+} catch (error) {
+  console.log(`Failed to load table faq for locale ${locale.value}`);
+}
 
 const sanitizeText = (text: string | (string | string[])[]): string => {
   if (!Array.isArray(text)) {
@@ -35,25 +44,28 @@ const activeFaq = ref<number | null>(0);
   <BaseSection
     class="faq"
     id="faq"
+    v-if="faqs.length"
   >
     <BasePlate
       background="purple-light"
       class="faq__inner"
     >
-      <h2 class="section-title title-2 text-center">FAQ</h2>
+      <h2 class="section-title title-2 text-center">
+        {{ $t('sectionFAQ.title') }}
+      </h2>
 
       <div
         class="faq__list"
         v-if="faqs.length"
       >
         <BasePlate
-          solid-border
           v-for="(faq, index) of faqs"
           :key="index"
           class="faq__item"
           :class="{active: activeFaq === index}"
           @click="activeFaq = activeFaq === index ? null : index"
           background="white"
+          solid-border
           v-auto-animate
         >
           <h3 class="faq__item-title subtitle-3">

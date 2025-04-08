@@ -1,5 +1,15 @@
 <script lang="ts" setup>
-import { cases } from '~/configs';
+// import { cases } from '~/configs';
+const { t, locale } = useI18n();
+
+let cases = [];
+
+try {
+  const module = await import(`~/i18n/locales/${locale.value}/cases.json`);
+  cases = module.default;
+} catch (error) {
+  console.log(`Failed to load cases for locale ${locale.value}`);
+}
 </script>
 
 <template>
@@ -7,15 +17,15 @@ import { cases } from '~/configs';
     background="purple-light"
     class="cases"
     id="case-studies"
+    v-if="cases.length"
   >
     <h2 class="section-title title-2 cases__title">
-      CRO case studies from
+      {{ $t('sectionCasesStudies.title') }}
       <span class="color-purple">Conversionrate.store</span>
     </h2>
 
     <div class="section-caption subtitle-2 cases__caption">
-      Selected A/B test results with 8-55% total conversion rate growth from a
-      single experiment
+      {{ $t('sectionCasesStudies.subtitle') }}
     </div>
 
     <CaseList

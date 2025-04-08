@@ -7,10 +7,11 @@
       class="flex-between"
     >
       <div class="title-3">
-        Recognized as a Global Leader in
-        <span class="color-purple">Conversion Rate Optimization</span> (CRO)
-        and&nbsp;<span class="color-purple">User Experience Optimization</span>
-        (UXO)
+        {{ $t('sectionLeader.prefix') }}
+        <span class="color-purple">{{ $t('sectionLeader.cro') }}</span>
+        ({{ $t('sectionLeader.croAbbr') }}) {{ $t('sectionLeader.and')
+        }}<span class="color-purple">{{ $t('sectionLeader.uxo') }}</span>
+        ({{ $t('sectionLeader.uxoAbbr') }})
       </div>
 
       <div

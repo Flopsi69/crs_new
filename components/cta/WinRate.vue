@@ -7,14 +7,15 @@
   >
     <div class="plate__inner">
       <h2 class="plate__title section-title title-2">
-        Our A/B test <span class="color-yellow">win rate is 52%</span>, meaning
-        our alternative variations beat the control in every other test we
-        launch
+        {{ $t('cta.winRate.titlePrefix') }}
+        <span class="color-yellow">
+          {{ $t('cta.winRate.marked') }}
+        </span>
+        {{ $t('cta.winRate.titleSuffix') }}
       </h2>
 
       <div class="plate__caption">
-        This high effectiveness is driven by a rigorous scientific process of
-        deriving and validating CRO hypotheses
+        {{ $t('cta.winRate.caption') }}
       </div>
     </div>
   </BasePlate>

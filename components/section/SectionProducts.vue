@@ -1,31 +1,40 @@
 <script lang="ts" setup>
 const { openModal } = useModal();
+const { t, locale } = useI18n();
+
+let rows = [];
+
+try {
+  const module = await import(`~/i18n/locales/${locale.value}/productsTable.json`);
+  rows = module.default;
+} catch (error) {
+  console.log(`Failed to load table products for locale ${locale.value}`);
+}
 
 const infoBook = {
-  title: 'Book a call to learn more about our CRO/UXO Services',
-  subtitle: 'On the call, you will receive:',
+  title: t('sectionProducts.linkFunnelInfo.title'),
+  subtitle: t('sectionProducts.linkFunnelInfo.subtitle'),
   list: [
-    'An overview of our CRO/UXO services and how they can benefit your business',
-    'A detailed explanation of the product that best fits your needs',
-    'Answers to any questions you may have about our processes and expected results',
-    'A customized plan outlining the next steps to achieve your business goals'
+    t('sectionProducts.linkFunnelInfo.list[0]'),
+    t('sectionProducts.linkFunnelInfo.list[1]'),
+    t('sectionProducts.linkFunnelInfo.list[2]')
   ],
-  formTitle: 'Schedule Your Consultation',
-  cta: 'Book a call',
-  note: 'If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift'
+  formTitle: t('sectionProducts.linkFunnelInfo.formTitle'),
+  cta: t('sectionProducts.linkFunnelInfo.cta'),
+  note: t('sectionProducts.linkFunnelInfo.note')
 }
 
 const infoEstimate = {
-  title: 'Estimate the Potential Uplift of Your Key Revenue Metric',
-  subtitle: 'On the call, you will receive:',
+  title: t('sectionProducts.buttonFunnelInfo.title'),
+  subtitle: t('sectionProducts.buttonFunnelInfo.subtitle'),
   list: [
-    'An estimated uplift of your key revenue metric that we can commit to',
-    'An overview of the most significant CRO/UXO opportunities we see for your site',
-    'A quote for a CRO/UXO project tailored to your business'
+    t('sectionProducts.buttonFunnelInfo.list[0]'),
+    t('sectionProducts.buttonFunnelInfo.list[1]'),
+    t('sectionProducts.buttonFunnelInfo.list[2]')
   ],
-  formTitle: 'Schedule Your Results Discussion',
-  cta: 'Book a call to get an estimate',
-  note: 'If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift'
+  formTitle: t('sectionProducts.buttonFunnelInfo.formTitle'),
+  cta: t('sectionProducts.buttonFunnelInfo.cta'),
+  note: t('sectionProducts.buttonFunnelInfo.note')
 }
 </script>
 
@@ -34,7 +43,9 @@ const infoEstimate = {
     class="products"
     id="our-cro-products"
   >
-    <h2 class="section-title title-2">Our CRO/UXO Products</h2>
+    <h2 class="section-title title-2">
+      {{ t('sectionProducts.title') }}
+    </h2>
 
     <div class="table-wrap">
       <div class="table">
@@ -48,9 +59,11 @@ const infoEstimate = {
                   size="14"
                   class="color-yellow"
                 />
-                Most popular
+                {{ t('sectionProducts.mostPopular') }}
               </div>
-              <div class="subtitle-2">CRO/UXO retainer</div>
+              <div class="subtitle-2">
+                {{ t('sectionProducts.header1') }}
+              </div>
             </div>
 
             <div class="col bg--purple-dark">
@@ -60,99 +73,43 @@ const infoEstimate = {
                   size="14"
                   class="color-yellow"
                 />
-                Best value for LEs
+                {{ t('sectionProducts.bestValue') }}
               </div>
-              <div class="subtitle-2">Performance-based CRO/UXO</div>
+              <div class="subtitle-2">
+                {{ t('sectionProducts.header2') }}
+              </div>
             </div>
 
             <div class="col bg--purple-dark">
-              <div class="subtitle-2">CRO/UXO Audit</div>
+              <div class="subtitle-2">
+                {{ t('sectionProducts.header3') }}
+              </div>
             </div>
           </div>
         </div>
         <div class="table__body">
-          <div class="row">
-            <div class="col subtitle-2">Who is it for?</div>
-            <div class="col text">SMEs</div>
-            <div class="col text">LEs with revenue >$3 million/month</div>
-            <div class="col text">One-time project for SMEs</div>
+          <div
+            v-for="(row, index) in rows"
+            :key="index"
+            class="row"
+          >
+            <div class="col subtitle-2">{{ row.col1 }}</div>
+            <div class="col text">{{ row.col2 }}</div>
+            <div class="col text">{{ row.col3 }}</div>
+            <div class="col text">{{ row.col4 }}</div>
           </div>
 
-          <div class="row">
-            <div class="col subtitle-2">Result guarantee</div>
-            <div class="col text">
-              A commitment to delivering guaranteed results over time
-            </div>
-            <div class="col text">
-              Client pays only for the actual uplift in key predefined revenue
-              metric
-            </div>
-            <div class="col text">No result guarantee</div>
-          </div>
-
-          <div class="row">
-            <div class="col subtitle-2 fw-700">Price of service</div>
-            <div class="col text">Moderate fixed monthly fee</div>
-            <div class="col text">
-              Fee for every percentage point uplift in key revenue metric
-            </div>
-            <div class="col text">Fixed one-time fee</div>
-          </div>
-
-          <div class="row">
-            <div class="col subtitle-2 fw-700">Expected results</div>
-            <div class="col text">
-              Our average result is 4.5% monthly uplift of key performance
-              metric
-            </div>
-            <div class="col text">
-              3.5% monthly uplift in key performance metrics
-            </div>
-            <div class="col text">
-              We do not validate our CRO recommendations
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col subtitle-2 fw-700">
-              Number of A/B tests per&nbsp;month
-            </div>
-            <div class="col text">On average 1 A/B test/month</div>
-            <div class="col text">On average 1.5 A/B tests/month</div>
-            <div class="col text">No A/B tests</div>
-          </div>
-
-          <!-- TODO add links -->
           <div class="row">
             <div class="col subtitle-2 fw-700"></div>
             <div
-              id="products_1-cta"
+              v-for="n in 3"
+              :id="`products_${n}-cta`"
               class="col subtitle-3 link"
-              @click="openModal({ info: infoBook, id: 'homepage_products_1' })"
+              @click="openModal({ info: infoBook, id: `homepage_products_${n}` })"
             >
-              <span>Book a call to learn more</span>
-              <Icon
-                name="line-md:chevron-small-right"
-                size="24"
-              />
-            </div>
-            <div
-              id="products_2-cta"
-              class="col subtitle-3 link"
-              @click="openModal({ info: infoBook, id: 'homepage_products_2' })"
-            >
-              <span>Book a call to learn more</span>
-              <Icon
-                name="line-md:chevron-small-right"
-                size="24"
-              />
-            </div>
-            <div
-              id="products_3-cta"
-              class="col subtitle-3 link"
-              @click="openModal({ info: infoBook, id: 'homepage_products_3' })"
-            >
-              <span> Book a call to learn more</span>
+              <span>
+                {{ t('sectionProducts.bookACall') }}
+              </span>
               <Icon
                 name="line-md:chevron-small-right"
                 size="24"
@@ -163,17 +120,18 @@ const infoEstimate = {
       </div>
     </div>
 
-    <!-- TODO button event -->
     <div class="control flex-center">
       <button
         id="products_main-cta"
         class="control__button button button_yellow"
         @click="openModal({ info: infoEstimate, id: 'homepage_products_4' })"
       >
-        <span class="control__button-mob">Get results estimates</span>
-        <span class="control__button-desk"
-          >Get an estimate of the expected result</span
-        >
+        <span class="control__button-mob">
+          {{ t('sectionProducts.buttonMobile') }}
+        </span>
+        <span class="control__button-desk">
+          {{ t('sectionProducts.buttonDesktop') }}
+        </span>
       </button>
     </div>
   </BaseSection>

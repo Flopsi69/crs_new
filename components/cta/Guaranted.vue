@@ -1,18 +1,20 @@
 <script lang="ts" setup>
 const { openModal } = useModal();
 
+const { t } = useI18n();
+
 const info = {
-  title: 'Estimate Your ROI from a CRO/UXO Project for Your Business',
-  subtitle: 'On the call, you will receive:',
+  title: t('cta.guaranteed.funnelInfo.title'),
+  subtitle: t('cta.guaranteed.funnelInfo.subtitle'),
   list: [
-    'A projected ROI from a CRO/UXO project for your site/product',
-    'An estimated uplift of your key revenue metric that we can commit to',
-    'An overview of the most significant CRO/UXO opportunities we see for your site',
+    t('cta.guaranteed.funnelInfo.list.item1'),
+    t('cta.guaranteed.funnelInfo.list.item2'),
+    t('cta.guaranteed.funnelInfo.list.item3'),
   ],
-  formTitle: 'Schedule Your Results Discussion',
-  cta: 'Book a call to estimate ROI',
-  note: 'If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift'
-}
+  formTitle: t('cta.guaranteed.funnelInfo.formTitle'),
+  cta: t('cta.guaranteed.funnelInfo.cta'),
+  note: t('cta.guaranteed.funnelInfo.note')
+};
 </script>
 
 <template>
@@ -22,14 +24,13 @@ const info = {
   >
     <div class="info">
       <div class="info__caption section-caption subtitle-2">
-        Guaranteed results
+        {{ t('cta.guaranteed.subtitle') }}
       </div>
 
       <h2 class="info__title section-title title-2">
-        A performance-based arrangement means that we commit to an agreed-upon
-        revenue metrics uplift, ensuring a
-        <span class="color-yellow"> positive ROI</span>
-        from your CRO project with&nbsp;us
+        {{ t('cta.guaranteed.title.prefix') }}
+        <span class="color-yellow">{{ t('cta.guaranteed.title.roi') }}</span>
+        {{ t('cta.guaranteed.title.suffix') }}
       </h2>
 
       <button
@@ -37,7 +38,7 @@ const info = {
         class="button button_yellow"
         @click="openModal({ info, id: 'homepage_guaranted_0' })"
       >
-        Estimate your CRO project ROI
+        {{ t('cta.guaranteed.cta') }}
       </button>
     </div>
   </BasePlate>

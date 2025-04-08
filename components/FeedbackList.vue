@@ -1,5 +1,15 @@
 <script lang="ts" setup>
-import { feedbacks } from '~/configs';
+// import { feedbacks } from '~/configs';
+const { t, locale } = useI18n();
+
+let feedbacks = [];
+
+try {
+  const module = await import(`~/i18n/locales/${locale.value}/feedbacks.json`);
+  feedbacks = module.default;
+} catch (error) {
+  console.log(`Failed to load feedbacks for locale ${locale.value}`);
+}
 
 const isShowMore = ref(false)
 const initShow = ref(4)
@@ -16,7 +26,10 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="list-wrap">
+  <div
+    class="list-wrap"
+    v-if="feedbacks.length"
+  >
     <div class="list">
       <FeedbackItem
         v-for="(feedback, index) in feedbacksToShow"
@@ -34,7 +47,7 @@ onMounted(() => {
         class="button button_trans-yellow"
         @click="isShowMore = !isShowMore"
       >
-        Show more
+        {{ $t('sectionFeedbacks.buttonShowMore') }}
       </button>
     </div>
   </div>

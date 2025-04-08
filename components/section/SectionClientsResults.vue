@@ -18,7 +18,9 @@ const isMobile = computed(() => width.value < 768)
 <template>
   <BaseSection class="results">
     <div class="head flex-between">
-      <h2 class="section-title title-2">Top clients and results</h2>
+      <h2 class="section-title title-2">
+        {{ $t('sectionClientResults.title') }}
+      </h2>
 
       <ClientOnly>
         <Teleport

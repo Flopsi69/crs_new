@@ -1,17 +1,19 @@
 <script lang="ts" setup>
 const { openModal } = useModal();
 
+const { t } = useI18n();
+
 const info = {
-  title: 'Get expert help in calculating your KPIs and benchmarking your performance',
-  subtitle: 'On the call, we will:',
-  list: [
-    'Listen to your specific business needs and challenges',
-    'Create a plan to accurately calculate your key performance indicators (KPIs)',
-    'Give an overview of the most significant CRO/UXO opportunities we see for your site',
-  ],
-  formTitle: 'Schedule Your Consultation',
-  cta: 'Get Help in KPI Calculation',
-  note: 'If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift'
+  title: t(`sectionEstimate.funnelInfo.title`),
+    subtitle: t(`sectionEstimate.funnelInfo.subtitle`),
+    list: [
+      t(`sectionEstimate.funnelInfo.list[0]`),
+      t(`sectionEstimate.funnelInfo.list[1]`),
+      t(`sectionEstimate.funnelInfo.list[2]`)
+    ],
+    formTitle: t(`sectionEstimate.funnelInfo.formTitle`),
+    cta: t(`sectionEstimate.funnelInfo.cta`),
+    note: t(`sectionEstimate.funnelInfo.note`)
 }
 
 const activeTab = ref<'cvr' | 'arpu'>('cvr');
@@ -33,25 +35,25 @@ const form = reactive<any>({
 
 const config = reactive({
   cvr: {
-    slideCaption: 'Expected conversion rate increase (%)',
+    slideCaption: t('sectionEstimate.cvr.slideCaption'),
     colLeft: {
-      title: 'Understand the direct impact of CRO  on your bottom line',
-      captions: ['New conversion rate after CRO project', 'Additional monthly profit as a result of CRO improvement ($)']
+      title: t('sectionEstimate.cvr.colLeft.title'),
+      captions: [t('sectionEstimate.cvr.colLeft.captions[0]'), t('sectionEstimate.cvr.colLeft.captions[1]')]
     },
     colRight: {
-      title: 'Estimate your ROI from collaboration with ConversionRate.Store',
-      captions: ['Break even point (months)', 'Additional profit in 12 months (assuming cost of CRO service is&nbsp;$20k)']
+      title: t('sectionEstimate.cvr.colRight.title'),
+      captions: [t('sectionEstimate.cvr.colRight.captions[0]'), t('sectionEstimate.cvr.colRight.captions[1]')]
     }
   },
   arpu: {
-    slideCaption: 'Sought after ARPU increase (%)',
+    slideCaption: t('sectionEstimate.arpu.slideCaption'),
     colLeft: {
-      title: 'Understand the direct impact of CRO on your bottom line',
-      captions: ['New average revenue per user after CRO project', 'Additional monthly profit as a result of CRO improvement ($)']
+      title: t('sectionEstimate.arpu.colLeft.title'),
+      captions: [t('sectionEstimate.arpu.colLeft.captions[0]'), t('sectionEstimate.arpu.colLeft.captions[1]')]
     },
     colRight: {
-      title: 'Estimate your ROI from collaboration with ConversionRate.Store',
-      captions: ['Break even point (months)', 'Additional profit in 12 months (assuming cost of CRO service is&nbsp;$20k)']
+      title: t('sectionEstimate.arpu.colRight.title'),
+      captions: [t('sectionEstimate.arpu.colRight.captions[0]'), t('sectionEstimate.arpu.colRight.captions[1]')]
     }
   },
 });
@@ -161,14 +163,11 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
       mob-full
       class="estimate__head"
     >
-      <!-- {{ form }} <br /><br />
-      {{ calculaton }} -->
       <h3 class="estimate__head-caption section-caption subtitle-2">
-        Use our calculator to see how CRO improvements can impact your bottom
-        line
+        {{ t('sectionEstimate.caption') }}
       </h3>
       <h2 class="estimate__head-title section-title title-2">
-        Estimate your profit gains and ROI from the CRO project
+        {{ t('sectionEstimate.title') }}
       </h2>
     </BasePlate>
 
@@ -183,50 +182,50 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
         mob-full
       >
         <h4 class="choose__title subtitle-2 border-decor_bottom">
-          Provide your current metrics
+          {{ t('sectionEstimate.chooseTitle') }}
         </h4>
 
         <div class="form">
           <BaseInput
             v-model="form.users"
-            label="How many users visit your site each month?"
+            :label="t('sectionEstimate.form.usersLabel')"
             required
-            placeholder="Number of monthly users"
+            :placeholder="t('sectionEstimate.form.usersPlaceholder')"
             @input="validateInputEstimate('users', $event)"
-            :error="form.users[0] === '0' ? 'The value must be greater than 0' : ''"
+            :error="form.users[0] === '0' ? t('sectionEstimate.form.graterThenZero') : ''"
             v-bind="{ type: 'number' }"
             id="calc_users"
           />
 
           <BaseInput
             v-model="form.conversionRate"
-            label="What percentage of visitors make a purchase or convert?"
+            :label="t('sectionEstimate.form.conversionPlaceholder')"
             required
-            placeholder="Conversion Rate (CR),%:"
+            :placeholder="t('sectionEstimate.form.conversionPlaceholder')"
             @input="validateInputEstimate('conversionRate', $event)"
-            :error="form.conversionRate[0] === '0' ? 'The value must be greater than 0' : ''"
+            :error="form.conversionRate[0] === '0' ? t('sectionEstimate.form.graterThenZero') : ''"
             id="calc_conversion_rate"
             v-bind="{ type: 'number' }"
           />
 
           <BaseInput
             v-model="form.averageOrderValue"
-            label="What is the average spend per transaction?"
+            :label="t('sectionEstimate.form.averageLabel')"
             required
-            placeholder="Average order value (AoV), $"
+            :placeholder="t('sectionEstimate.form.averagePlaceholder')"
             @input="validateInputEstimate('averageOrderValue', $event)"
-            :error="form.averageOrderValue[0] === '0' ? 'The value must be greater than 0' : ''"
+            :error="form.averageOrderValue[0] === '0' ? t('sectionEstimate.form.graterThenZero') : ''"
             id="calc_aov"
             v-bind="{ type: 'number' }"
           />
 
           <BaseInput
             v-model="form.profitMargin"
-            label="What is your current profit margin?"
+            :label="t('sectionEstimate.form.profitLabel')"
             required
-            placeholder="Profit margin, %"
+            :placeholder="t('sectionEstimate.form.profitPlaceholder')"
             @input="validateInputEstimate('profitMargin', $event)"
-            :error="form.profitMargin[0] === '0' ? 'The value must be greater than 0' : ''"
+            :error="form.profitMargin[0] === '0' ? t('sectionEstimate.form.graterThenZero') : ''"
             id="calc_profit_margin"
             v-bind="{ type: 'number' }"
           />
@@ -238,18 +237,18 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
             @click.prevent="calculate"
             :disabled="isErrorButton"
           >
-            Calculate
+            {{ t('sectionEstimate.calculate') }}
           </button>
 
           <div class="identify">
             <div class="identify__caption text color-secondary">
-              Not sure what your current KPIs are?
+              {{ t('sectionEstimate.notSure') }}
             </div>
             <div
               class="identify__link link flex align-center subtitle-3"
               @click="openModal({ info: info, id: 'homepage_calc_2' })"
             >
-              Contact us and we will help to identify them
+              {{ t('sectionEstimate.contactUs') }}
               <Icon
                 name="line-md:chevron-small-right"
                 size="24"
@@ -270,11 +269,11 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
           back
           @click="isShowDetails = false"
         >
-          Back
+          {{ t('sectionEstimate.back') }}
         </BasePill>
 
         <h3 class="details__title subtitle-2 border-decor_bottom">
-          Adjust expected increase in KPIs using sliders
+          {{ t('sectionEstimate.adjustSlider') }}
         </h3>
 
         <div class="toggler">
@@ -283,16 +282,24 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
             :class="{active: activeTab === 'cvr'}"
             @click="activeTab = 'cvr'"
           >
-            <span class="toggler__item-desk">Conversion Rate</span>
-            <span class="toggler__item-mob">CVR</span>
+            <span class="toggler__item-desk">
+              {{ t('sectionEstimate.cvr.desktop') }}
+            </span>
+            <span class="toggler__item-mob">
+              {{ t('sectionEstimate.cvr.mob') }}
+            </span>
           </div>
           <div
             class="toggler__item"
             :class="{ active: activeTab === 'arpu'}"
             @click="activeTab = 'arpu'"
           >
-            <span class="toggler__item-desk">Average Revenue Per User</span>
-            <span class="toggler__item-mob">ARPU</span>
+            <span class="toggler__item-desk">
+              {{ t('sectionEstimate.arpu.desktop') }}
+            </span>
+            <span class="toggler__item-mob">
+              {{ t('sectionEstimate.arpu.mob') }}
+            </span>
           </div>
         </div>
 
@@ -418,7 +425,7 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
           </div>
 
           <CtaHelp
-            type="calc"
+            type="estimate"
             class="calculation__cta"
           />
         </div>

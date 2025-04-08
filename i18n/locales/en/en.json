@@ -1,0 +1,418 @@
+{
+  "seo": {
+    "title": "Performance-Based CRO Agency: Pay Only for Actual Results",
+    "description": "CRO agency with guaranteed growth results. Trusted to run A/B tests on 127+ million users for clients like Microsoft, Unicorns, YC startups",
+    "ogTitle": "Performance-Based CRO Agency: Pay Only for Actual Results",
+    "ogDescription": "CRO agency with guaranteed growth results. Trusted to run A/B tests on 127+ million users for clients like Microsoft, Unicorns, YC startups"
+  },
+  "general": {
+    "crs": "Conversion Rate Store",
+    "name": "Name",
+    "businessEmail": "Business email",
+    "async": {
+      "pending": "Submitting your data...",
+      "success": "Data submitted successfully",
+      "error": "Error submitting data"
+    }
+  },
+  "welcome": "Welcome to our site!",
+  "sectionHero": {
+    "title": "Performance-based Conversion\u00A0Rate\u00A0Optimization agency",
+    "subtitle": {
+      "prefix": "We increase your",
+      "suffix": "revenue metrics\n You pay only for the actual uplift"
+    },
+    "funnelInfo": {
+      "title": "Estimate the Potential Uplift of Your Key Revenue Metric",
+      "subtitle": "On the call, you will receive:",
+      "list": {
+        "item1": "An estimated uplift of your key revenue metric that we can commit to",
+        "item2": "An overview of the most significant CRO/UXO opportunities we see for your site",
+        "item3": "A quote for a CRO/UXO project tailored to your business"
+      },
+      "formTitle": "Schedule Your Results Discussion",
+      "note": "If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift",
+      "cta": "Book a call to get an estimate"
+    },
+    "form": {
+      "title": "Get an uplift estimate for your business from our Conversion Rate Optimization service",
+      "placeholder": "Type your site's URL",
+      "cta": "Get an estimate"
+    },
+    "words": {
+      "eCommerce": "eCommerce",
+      "SaaS": "SaaS",
+      "App": "App",
+      "LeadGen": "LeadGen"
+    },
+    "chart": {
+      "title": "Our Clients' Average Revenue ",
+      "titleNowrap": "Uplift in the first 4 months",
+      "footer": "*Based on performance data from our CRO projects\u00A0for\u00A0clients",
+      "columns": {
+        "research": {
+          "name": "Research",
+          "percent": "+3%",
+          "caption": "Month 1"
+        },
+        "hypotheses": {
+          "name": "Hypotheses",
+          "percent": "+7%",
+          "caption": "Month 2"
+        },
+        "validation": {
+          "name": "Validation",
+          "percent": "+12%",
+          "caption": "Month 3"
+        },
+        "scaling": {
+          "name": "Scaling",
+          "percent": "+16%",
+          "caption": "Month 4"
+        }
+      }
+    }
+  },
+  "clientsLogoTitle": "Our clients",
+  "sectionLeader": {
+    "prefix": "Recognized as a Global Leader in",
+    "cro": "Conversion Rate Optimization",
+    "uxo": "User Experience Optimization",
+    "croAbbr": "CRO",
+    "uxoAbbr": "UXO",
+    "and": "and\u00A0"
+  },
+  "sectionVideos": {
+    "title": "Watch our founders share actionable CRO tactics straight from the stage",
+    "videos": {
+      "0": {
+        "title": "Riga Comm 2024"
+      },
+      "1": {
+        "title": "eCommerce 2019"
+      },
+      "2": {
+        "title": "eCommerce 2019"
+      }
+    }
+  },
+  "sectionSolutions": {
+    "caption": "Find the solution to your eCommerce business challenges",
+    "title": "Discover the causes and solutions to the challenges your eCommerce business is facing",
+    "subtitle": "Choose problem",
+    "solution": {
+      "view": "View Solutions"
+    }
+  },
+  "sectionClientResults": {
+    "title": "Top clients and results"
+  },
+  "sectionCompare": {
+    "title": "vs other CRO agencies vs in-house team",
+    "rows": {
+      "head": {
+        "title": "Comparison",
+        "crs": "Conversion Rate Store",
+        "other": "Other CRO agency",
+        "inHouse": "In-house CRO/product team"
+      },
+      "guarantee": {
+        "title": "Guarantee of project success",
+        "crs": "We are the only CRO agency we know of that commits to an agreed-upon revenue metrics uplift. Our guarantees are based on our track record of results for clients",
+        "other": "Most other agencies lack the capacity to deliver guaranteed results and effectively manage the uncertainties of CRO projects",
+        "inHouse": "In-house teams typically are not required to demonstrate monthly uplifts in key revenue metrics for continued investment. We, on the other hand, are required to perform on a monthly basis"
+      },
+      "roi": {
+        "title": "ROI from CRO project",
+        "crs": "We guarantee an agreed-upon result, making it easy for our clients to calculate the ROI of a CRO project with us",
+        "other": "Other CRO agencies typically do not commit to specific results, making ROI uncertain",
+        "inHouse": "In-house teams often yield lower ROI due to KPI bias, full staffing costs, and lack of competence in CRO"
+      },
+      "cost": {
+        "title": "Cost of project",
+        "crs": "Our prices are typically 20-30% lower than those of top US and UK based agencies, thanks to our cost-efficient remote team structure in Europe",
+        "other": "Other leading CRO agencies in the US and Europe typically charge 30-40% more for their services without guaranteeing results",
+        "inHouse": "In-house CRO teams bear the full cost of employing professionals with the skills required for continuous revenue metrics improvement. Typically, this cost is four times higher than hiring a CRO agency"
+      },
+      "team": {
+        "title": "Access to comprehensive CRO/UXO team",
+        "crs": "Enjoy full access to our expansive multidisciplinary team of over 50 professionals, skilled in 9 essential CRO and UXO competencies, each with years of specialised experience",
+        "other": "A comprehensive CRO team includes 9 roles such as data analyst, UX researcher, CRO strategist, and A/B test developer. Most agencies don't have all these roles covered, relying on the client to fill the gaps",
+        "inHouse": "In-house teams are typically constrained by internal resources and existing expertise, limiting their capability to deliver continuous growth and often hitting a glass ceiling"
+      },
+      "additionalTools": {
+        "title": "Additional cost of tools and technology",
+        "crs": "You get full access to our proprietary developed tools essential for a successful CRO project, including tools for A/B testing, user surveys, user testing, QA, and more",
+        "other": "Most agencies pass the cost of the additional tools required for a CRO project to clients, requiring them to subscribe to these tools",
+        "inHouse": "Significant upfront investment in tools, with the need for regular updates and maintenance"
+      }
+    }
+  },
+  "sectionCasesStudies": {
+    "title": "CRO case studies from",
+    "subtitle": "Selected A/B test results with 8-55% total conversion rate growth from a single experiment"
+  },
+  "sectionBenchmark": {
+    "caption": "Instantly compare key e-commerce metrics with your peers",
+    "title": "Benchmark Your E-commerce Performance",
+    "choose": {
+      "subtitle": "Select your industry",
+      "button": "View benchmarks"
+    },
+    "details": {
+      "back": "Back",
+      "title": "{title} funnel benchmarks"
+    },
+    "tooltips": {
+      "tooltip1": "% of purchases completed by visitors over the past six months",
+      "tooltip2": "% of items added to cart after product page views by visitors over the past six months",
+      "tooltip3": "% of items left in carts and not purchased by visitors over the past six months",
+      "tooltip4": "The number of unique purchases per visitor over the past six months",
+      "tooltip5": "Average number of products bought per order by visitors over the past six months",
+      "tooltip6": "Average number of transactions made per visitor over the past six months",
+      "default": "WTF"
+    }
+  },
+  "sectionEstimate": {
+    "caption": "Use our calculator to see how CRO improvements can impact your bottom line",
+    "title": "Estimate your profit gains and ROI from the CRO project",
+    "chooseTitle": "Provide your current metrics",
+    "form": {
+      "usersLabel": "How many users visit your site each month?",
+      "usersPlaceholder": "Number of monthly users",
+      "conversionLabel": "What percentage of visitors make a purchase or convert?",
+      "conversionPlaceholder": "Conversion Rate (CR),%:",
+      "averageLabel": "What is the average spend per transaction?",
+      "averagePlaceholder": "Average order value (AoV), $",
+      "profitLabel": "What is your current profit margin?",
+      "profitPlaceholder": "Profit margin, %",
+      "graterThenZero": "The value must be greater than 0"
+    },
+    "calculate": "Calculate",
+    "notSure": "Not sure what your current KPIs are?",
+    "contactUs": "Contact us and we will help to identify them",
+    "adjustSlider": "Adjust expected increase in KPIs using sliders",
+    "back": "Back",
+    "cvr": {
+      "desktop": "Conversion Rate",
+      "mobile": "CVR",
+      "slideCaption": "Expected conversion rate increase (%)",
+      "colLeft": {
+        "title": "Understand the direct impact of CRO  on your bottom line",
+        "captions": [
+          "New conversion rate after CRO project",
+          "Additional monthly profit as a result of CRO improvement ($)"
+        ]
+      },
+      "colRight": {
+        "title": "Estimate your ROI from collaboration with ConversionRate.Store",
+        "captions": [
+          "Break even point (months)",
+          "Additional profit in 12 months (assuming cost of CRO service is&nbsp;$20k)"
+        ]
+      }
+    },
+    "arpu": {
+      "desktop": "Average Revenue Per User",
+      "mobile": "ARPU",
+      "slideCaption": "Sought after ARPU increase (%)",
+      "colLeft": {
+        "title": "Understand the direct impact of CRO on your bottom line",
+        "captions": [
+          "New average revenue per user after CRO project",
+          "Additional monthly profit as a result of CRO improvement ($)"
+        ]
+      },
+      "colRight": {
+        "title": "Estimate your ROI from collaboration with ConversionRate.Store",
+        "captions": [
+          "Break even point (months)",
+          "Additional profit in 12 months (assuming cost of CRO service is&nbsp;$20k)"
+        ]
+      }
+    },
+    "funnelInfo": {
+      "title": "Get expert help in calculating your KPIs and benchmarking your performance",
+      "subtitle": "On the call, we will:",
+      "list": [
+        "Listen to your specific business needs and challenges",
+        "Create a plan to accurately calculate your key performance indicators (KPIs)",
+        "Give an overview of the most significant CRO/UXO opportunities we see for your site"
+      ],
+      "formTitle": "Schedule Your Consultation",
+      "cta": "Get Help in KPI Calculation",
+      "note": "If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift"
+    }
+  },
+  "sectionCompetencies": {
+    "title": "9 essential competencies in your dedicated CRO team",
+    "caption": " For each project, we assemble a team with 9 essential competencies necessary for a successful CRO/UXO project"
+  },
+  "sectionProcess": {
+    "title": "Our scientific CRO/UXO process",
+    "step": "Step {number}",
+    "purpose": "Purpose",
+    "methodology": "Methodology"
+  },
+  "sectionProducts": {
+    "title": "Our CRO/UXO Products",
+    "buttonMobile": "Get results estimates",
+    "buttonDesktop": "Get an estimate of the expected result",
+    "mostPopular": "Most popular",
+    "bestValue": "Best value for LEs",
+    "header1": "CRO/UXO retainer",
+    "header2": "Performance-based CRO/UXO",
+    "header3": "CRO/UXO Audit",
+    "bookACall": "Book a call to learn more",
+    "buttonFunnelInfo": {
+      "title": "Estimate the Potential Uplift of Your Key Revenue Metric",
+      "subtitle": "On the call, you will receive:",
+      "list": [
+        "An estimated uplift of your key revenue metric that we can commit to",
+        "An overview of the most significant CRO/UXO opportunities we see for your site",
+        "A quote for a CRO/UXO project tailored to your business"
+      ],
+      "formTitle": "Schedule Your Results Discussion",
+      "cta": "Book a call to get an estimate",
+      "note": "If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift"
+    },
+    "linkFunnelInfo": {
+      "title": "Book a call to learn more about our CRO/UXO Services",
+      "subtitle": "On the call, you will receive:",
+      "list": [
+        "An overview of our CRO/UXO services and how they can benefit your business",
+        "A detailed explanation of the product that best fits your needs",
+        "Answers to any questions you may have about our processes and expected results",
+        "A customized plan outlining the next steps to achieve your business goals"
+      ],
+      "formTitle": "Schedule Your Consultation",
+      "cta": "Book a call",
+      "note": "If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift"
+    }
+  },
+  "sectionFeedbacks": {
+    "title": "What do our clients say about\u00A0us?",
+    "buttonShowMore": "Show more"
+  },
+  "sectionFAQ": {
+    "title": "FAQ"
+  },
+  "cta": {
+    "guaranteed": {
+      "subtitle": "Guaranteed results",
+      "title": {
+        "prefix": "A performance-based arrangement means that we commit to an agreed-upon revenue metrics uplift, ensuring a",
+        "roi": "positive ROI",
+        "suffix": "from your CRO project with\u00A0us"
+      },
+      "funnelInfo": {
+        "title": "Estimate Your ROI from a CRO/UXO Project for Your Business",
+        "subtitle": "On the call, you will receive:",
+        "list": {
+          "item1": "A projected ROI from a CRO/UXO project for your site/product",
+          "item2": "An estimated uplift of your key revenue metric that we can commit to",
+          "item3": "An overview of the most significant CRO/UXO opportunities we see for your site"
+        },
+        "formTitle": "Schedule Your Results Discussion",
+        "note": "If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift",
+        "cta": "Book a call to estimate ROI"
+      },
+      "cta": "Estimate your CRO project ROI"
+    },
+    "keyFactors": {
+      "subtitle": "Performance-based pricing",
+      "title": "Key Factors that Determine the Price of a\u00A0CRO Project:",
+      "list": {
+        "item1": "Current funnel performance",
+        "item2": "Desired magnitude of uplift in key macro metrics",
+        "item3": "Resources and level of expertise required on our side to achieve the goal"
+      },
+      "cta": "Get Your Custom Quote",
+      "funnelInfo": {
+        "title": "Key factors that determine the price of the project",
+        "subtitle": "",
+        "list": {
+          "item1": "Number of funnel stages to optimise",
+          "item2": "Level to which the funnel is already optimised",
+          "item3": "Key performance metric improvement required to reach the project’s goal"
+        },
+        "formTitle": "Schedule Your Quote Discussion",
+        "note": "If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift",
+        "cta": "Get a quote for CRO project"
+      }
+    },
+    "recieveAccess": {
+      "title": "Sign up to receive access to additional 16\u00A0CRO case studies and all future updates",
+      "subtitle": "Stay ahead of the game",
+      "button": "Receive all case studies",
+      "submitted": "You'll now receive all case studies straight to your inbox",
+      "successfully": "Successfully!"
+    },
+    "help": {
+      "benchmark": {
+        "title": "Are you below the benchmarks in any metric? We will help you analyse and improve conversions with our free product review",
+        "firstButton": "Book a consultation",
+        "secondButton": "Get help in KPi calculation",
+        "firstFunnelInfo": {
+          "title": "Book a call to discover the top CRO/UXO opportunities for your business and receive an estimate of the expected uplift in your revenue metricst",
+          "subtitle": "On the call, you will receive:",
+          "list": [
+            "A projected ROI from a CRO/UXO project for your site/product",
+            "An estimated uplift of your key revenue metric that we can commit to",
+            "An overview of the most significant CRO/UXO opportunities we see for your site"
+          ],
+          "formTitle": "Schedule Your Results Discussion",
+          "cta": "Book a call to estimate ROI",
+          "note": "If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift"
+        },
+        "secondFunnelInfo": {
+          "title": "Get expert help in calculating your KPIs and benchmarking your performance",
+          "subtitle": "On the call, we will:",
+          "list": [
+            "Listen to your specific business needs and challenges",
+            "Create a plan to accurately calculate your key performance indicators (KPIs)",
+            "Give an overview of the most significant CRO/UXO opportunities we see for your site"
+          ],
+          "formTitle": "Schedule Your Consultation",
+          "cta": "Get Help in KPI Calculation",
+          "note": "If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift"
+        }
+      },
+      "estimate": {
+        "title": "Discover how we can drive these results for your business.\n Book a call with a CRO strategist now",
+        "firstButton": "Book a Call",
+        "secondButton": "Get help in roi calculation",
+        "firstFunnelInfo": {
+          "title": "Estimate Your ROI from a CRO/UXO Project for Your Business",
+          "subtitle": "On the call, you will receive:",
+          "list": [
+            "A projected ROI from a CRO/UXO project for your site/product",
+            "An estimated uplift of your key revenue metric that we can commit to",
+            "An overview of the most significant CRO/UXO opportunities we see for your site"
+          ],
+          "formTitle": "Schedule Your Results Discussion",
+          "cta": "Book a call to estimate ROI",
+          "note": "If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift"
+        },
+        "secondFunnelInfo": {
+          "title": "Schedule a call to estimate your ROI with expert assistance",
+          "subtitle": "On the call, we will:",
+          "list": [
+            "Assistance in calculating your key performance indicators (KPIs)",
+            "A preliminary ROI estimation based on your KPIs",
+            "An overview of the most significant CRO/UXO opportunities we see for your site"
+          ],
+          "formTitle": "Schedule Your Consultation",
+          "cta": "Get Help in ROI Calculation",
+          "note": "If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift"
+        }
+      }
+    },
+    "winRate": {
+      "titlePrefix": "Our A/B test",
+      "titleSuffix": ", meaning our alternative variations beat the control in every other test we launch",
+      "marked": "win rate is 52%",
+      "caption": "This high effectiveness is driven by a rigorous scientific process of deriving and validating CRO hypotheses"
+    }
+  }
+}

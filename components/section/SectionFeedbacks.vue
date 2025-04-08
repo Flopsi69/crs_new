@@ -3,7 +3,7 @@
 <template>
   <BaseSection class="feedbacks">
     <h2 class="section-title title-2">
-      What do our clients say about&nbsp;us?
+      {{ $t('sectionFeedbacks.title') }}
     </h2>
 
     <FeedbackList />

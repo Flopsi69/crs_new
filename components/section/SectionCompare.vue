@@ -6,8 +6,8 @@
     id="crs-vs-other-cro-agencies"
   >
     <h2 class="section-title title-2">
-      <span class="color-purple">Conversion Rate Store</span> vs other CRO
-      agencies vs in-house team
+      <span class="color-purple">{{ $t('general.crs') }}</span>
+      {{ $t('sectionCompare.title') }}
     </h2>
 
     <div class="table-wrap">
@@ -17,126 +17,107 @@
             <div class="col"></div>
 
             <div class="col subtitle-2 bg--gradient flex align-center">
-              Conversion Rate Store
+              {{ $t('sectionCompare.rows.head.crs') }}
             </div>
 
             <div class="col subtitle-2 bg--purple-light flex align-center">
-              Other CRO agency
+              {{ $t('sectionCompare.rows.head.other') }}
             </div>
 
             <div class="col subtitle-2 bg--purple-light flex align-center">
-              In-house CRO/product team
+              {{ $t('sectionCompare.rows.head.inHouse') }}
             </div>
           </div>
         </div>
 
         <div class="table__body">
           <div class="row">
-            <div class="col subtitle-2">Guarantee of project success</div>
-
-            <div class="col text">
-              We are the only CRO agency we know of that commits to an
-              agreed-upon revenue metrics uplift. Our guarantees are based on
-              our track record of results for clients
+            <div class="col subtitle-2">
+              {{ $t('sectionCompare.rows.guarantee.title') }}
             </div>
 
             <div class="col text">
-              Most other agencies lack the capacity to deliver guaranteed
-              results and effectively manage the uncertainties of CRO projects
+              {{ $t('sectionCompare.rows.guarantee.crs') }}
             </div>
 
             <div class="col text">
-              In-house teams typically are not required to demonstrate monthly
-              uplifts in key revenue metrics for continued investment. We, on
-              the other hand, are required to perform on a monthly basis
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col subtitle-2">ROI from CRO project</div>
-
-            <div class="col text">
-              We guarantee an agreed-upon result, making it easy for our clients
-              to calculate the ROI of a CRO project with us
+              {{ $t('sectionCompare.rows.guarantee.other') }}
             </div>
 
             <div class="col text">
-              Other CRO agencies typically do not commit to specific results,
-              making ROI uncertain
-            </div>
-
-            <div class="col text">
-              In-house teams often yield lower ROI due to KPI bias, full
-              staffing costs, and lack of competence in CRO
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col subtitle-2">Cost of project</div>
-
-            <div class="col text">
-              Our prices are typically 20-30% lower than those of top US and UK
-              based agencies, thanks to our cost-efficient remote team structure
-              in Europe
-            </div>
-
-            <div class="col text">
-              Other leading CRO agencies in the US and Europe typically charge
-              30-40% more for their services without guaranteeing results
-            </div>
-
-            <div class="col text">
-              In-house CRO teams bear the full cost of employing professionals
-              with the skills required for continuous revenue metrics
-              improvement. Typically, this cost is four times higher than hiring
-              a CRO agency
+              {{ $t('sectionCompare.rows.guarantee.inHouse') }}
             </div>
           </div>
 
           <div class="row">
             <div class="col subtitle-2">
-              Access to comprehensive CRO/UXO team
+              {{ $t('sectionCompare.rows.roi.title') }}
             </div>
 
             <div class="col text">
-              Enjoy full access to our expansive multidisciplinary team of over
-              50 professionals, skilled in 9 essential CRO and UXO competencies,
-              each with years of specialised experience
+              {{ $t('sectionCompare.rows.roi.crs') }}
             </div>
 
             <div class="col text">
-              A comprehensive CRO team includes 9 roles such as data analyst, UX
-              researcher, CRO strategist, and A/B test developer. Most agencies
-              don't have all these roles covered, relying on the client to fill
-              the gaps
+              {{ $t('sectionCompare.rows.roi.other') }}
             </div>
 
             <div class="col text">
-              In-house teams are typically constrained by internal resources and
-              existing expertise, limiting their capability to deliver
-              continuous growth and often hitting a glass ceiling
+              {{ $t('sectionCompare.rows.roi.inHouse') }}
             </div>
           </div>
 
           <div class="row">
             <div class="col subtitle-2">
-              Additional cost of tools and technology
+              {{ $t('sectionCompare.rows.cost.title') }}
             </div>
 
             <div class="col text">
-              You get full access to our proprietary developed tools essential
-              for a successful CRO project, including tools for A/B testing,
-              user surveys, user testing, QA, and more
+              {{ $t('sectionCompare.rows.cost.crs') }}
             </div>
 
             <div class="col text">
-              Most agencies pass the cost of the additional tools required for a
-              CRO project to clients, requiring them to subscribe to these tools
+              {{ $t('sectionCompare.rows.cost.other') }}
             </div>
 
             <div class="col text">
-              Significant upfront investment in tools, with the need for regular
-              updates and maintenance
+              {{ $t('sectionCompare.rows.cost.inHouse') }}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col subtitle-2">
+              {{ $t('sectionCompare.rows.team.title') }}
+            </div>
+
+            <div class="col text">
+              {{ $t('sectionCompare.rows.team.crs') }}
+            </div>
+
+            <div class="col text">
+              {{ $t('sectionCompare.rows.team.other') }}
+            </div>
+
+            <div class="col text">
+              {{ $t('sectionCompare.rows.team.inHouse') }}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col subtitle-2">
+              {{ $t('sectionCompare.rows.additionalTools.title') }}
+            </div>
+
+            <div class="col text">
+              {{ $t('sectionCompare.rows.additionalTools.crs') }}
+            </div>
+
+            <div class="col text">
+              {{ $t('sectionCompare.rows.additionalTools.other') }}
+            </div>
+
+            <div class="col text">
+              {{ $t('sectionCompare.rows.additionalTools.inHouse') }}
             </div>
           </div>
         </div>

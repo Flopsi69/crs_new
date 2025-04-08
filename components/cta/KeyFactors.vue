@@ -1,17 +1,18 @@
 <script lang="ts" setup>
 const { openModal } = useModal();
+const { t } = useI18n();
 
 const info = {
-  title: 'Key factors that determine the price of the project',
-  subtitle: null,
+  title: t('cta.keyFactors.funnelInfo.title'),
+  subtitle: t('cta.keyFactors.funnelInfo.subtitle'),
   list: [
-    'Number of funnel stages to optimise',
-    'Level to which the funnel is already optimised',
-    'Key performance metric improvement required to reach the project’s goal',
+    t('cta.keyFactors.funnelInfo.list.item1'),
+    t('cta.keyFactors.funnelInfo.list.item2'),
+    t('cta.keyFactors.funnelInfo.list.item3'),
   ],
-  formTitle: 'Schedule Your Quote Discussion',
-  cta: 'Get a quote for CRO project',
-  note: 'If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift',
+  formTitle: t('cta.keyFactors.funnelInfo.formTitle'),
+  cta: t('cta.keyFactors.funnelInfo.cta'),
+  note: t('cta.keyFactors.funnelInfo.note'),
   isGoal: true
 }
 </script>
@@ -23,23 +24,17 @@ const info = {
   >
     <div class="info">
       <div class="info__caption section-caption subtitle-2">
-        Performance-based pricing
+        {{ t('cta.keyFactors.subtitle') }}
       </div>
 
       <h2 class="info__title section-title title-2">
-        Key Factors that Determine the Price of a&nbsp;CRO Project:
+        {{ t('cta.keyFactors.title') }}
       </h2>
 
-      <!-- TODO component -->
       <div class="info__list list-brand">
-        <div class="list-brand__item">Current funnel performance</div>
-        <div class="list-brand__item">
-          Desired magnitude of uplift in key macro metrics
-        </div>
-        <div class="list-brand__item">
-          Resources and level of expertise required on our side to achieve the
-          goal
-        </div>
+        <div class="list-brand__item">{{ t('cta.keyFactors.list.item1') }}</div>
+        <div class="list-brand__item">{{ t('cta.keyFactors.list.item2') }}</div>
+        <div class="list-brand__item">{{ t('cta.keyFactors.list.item3') }}</div>
       </div>
 
       <button
@@ -47,7 +42,7 @@ const info = {
         class="button button_yellow"
         @click="openModal({ info, id: 'homepage_custom-quote_0' })"
       >
-        Get Your Custom Quote
+        {{ t('cta.keyFactors.cta') }}
       </button>
     </div>
   </BasePlate>

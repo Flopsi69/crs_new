@@ -1,5 +1,16 @@
 <script lang="ts" setup>
-import { processSteps as steps } from '~/configs';
+// import { processSteps as steps } from '~/configs';
+
+const { locale } = useI18n();
+
+let steps = [];
+
+try {
+  const module = await import(`~/i18n/locales/${locale.value}/processSteps.json`);
+  steps = module.steps;
+} catch (error) {
+  console.log(`Failed to load steps for locale ${locale.value}`);
+}
 </script>
 
 <template>
@@ -7,7 +18,9 @@ import { processSteps as steps } from '~/configs';
     class="process"
     id="our-scientific-cro_uxo-process"
   >
-    <h2 class="section-title title-2">Our scientific CRO/UXO process</h2>
+    <h2 class="section-title title-2">
+      {{$t('sectionProcess.title')}}
+    </h2>
 
     <!-- TODO make components -->
     <BasePlate class="steps">
@@ -18,7 +31,9 @@ import { processSteps as steps } from '~/configs';
         :data-aos="index % 2 ? 'fade-up-left' : 'fade-up-right'"
       >
         <div class="step__head flex align-start">
-          <div class="step__num bg--purple">Step {{ index + 1 }}</div>
+          <div class="step__num bg--purple">
+            {{ $t('sectionProcess.step', {number: index + 1}) }}
+          </div>
           <h3 class="step__title subtitle-1">
             <span class="bg--purple-light">{{ step.title }}</span>
           </h3>
@@ -31,7 +46,9 @@ import { processSteps as steps } from '~/configs';
           >
             <div class="step__plate-head flex align-center">
               <img src="img/purpose.svg" />
-              <div class="step__plate-title subtitle-1">Purpose</div>
+              <div class="step__plate-title subtitle-1">
+                {{$t('sectionProcess.purpose')}}
+              </div>
             </div>
 
             <div class="step__plate-body text color-secondary">
@@ -45,7 +62,9 @@ import { processSteps as steps } from '~/configs';
           >
             <div class="step__plate-head flex align-center">
               <img src="img/methodology.svg" />
-              <div class="step__plate-title subtitle-1">Methodology</div>
+              <div class="step__plate-title subtitle-1">
+                {{ $t('sectionProcess.methodology') }}
+              </div>
             </div>
 
             <div class="step__plate-body text color-secondary list-brand">

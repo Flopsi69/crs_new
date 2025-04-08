@@ -1,9 +1,18 @@
 <script lang="ts" setup>
-import { competencies as cards } from '~/configs';
+const { locale } = useI18n();
 
-const competencies = reactive(cards)
+
+let competencies = [];
+try {
+  const module = await import(`~/i18n/locales/${locale.value}/competencies.json`);
+  competencies = reactive(module.competencies);
+} catch (error) {
+  console.log(`Failed to load competencies for locale ${locale.value}`);
+}
+
 const { width } = useWindowSize();
 const isReady = ref(false);
+
 
 const setActive = (index: number) => {
   if (width.value > 768) return;
@@ -28,12 +37,11 @@ onMounted(() => {
     id="9-essential-competencies"
   >
     <h2 class="section-title title-2">
-      9 essential competencies in your dedicated CRO team
+      {{ $t('sectionCompetencies.title') }}
     </h2>
 
     <div class="caption text color-secondary">
-      For each project, we assemble a team with 9 essential competencies
-      necessary for a successful CRO/UXO project
+      {{ $t('sectionCompetencies.caption') }}
     </div>
 
     <!-- TODO Components -->
