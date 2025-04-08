@@ -1,19 +1,21 @@
 <script lang="ts" setup>
 import { solutions } from '~/configs';
 
-const items = reactive(solutions[0].problems)
+const { t } = useI18n();
+
+const items = reactive(solutions[0].problems);
 
 const activeSolution = ref(null)
 
 const scrollToElement = useSmoothScroll();
 
 function setActiveSolution(item: any) {
-  activeSolution.value = item
+  activeSolution.value = item;
 }
 
 const otherProblems = computed(() => {
-  return items.filter((item) => item !== activeSolution.value)
-})
+  return items.filter((item) => item !== activeSolution.value);
+});
 
 watch(activeSolution, (value) => {
   nextTick(() => {
@@ -40,15 +42,16 @@ watch(activeSolution, (value) => {
       mob-full
     >
       <div class="solutions__caption section-caption subtitle-2">
-        Find the solution to your eCommerce business challenges
+        {{ t('sectionSolutions.caption') }}
       </div>
 
       <h2 class="solutions__title section-title title-2">
-        Discover the causes and solutions to the challenges your eCommerce
-        business is facing
+        {{ t('sectionSolutions.title') }}
       </h2>
 
-      <div class="solutions__subtitle title subtitle-1">Choose problem</div>
+      <div class="solutions__subtitle title subtitle-1">
+        {{ t('sectionSolutions.subtitle') }}
+      </div>
 
       <SolutionList
         class="solutions__list"

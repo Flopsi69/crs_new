@@ -1,25 +1,27 @@
 <script lang="ts" setup>
 const { openModal } = useModal();
 
+const { t } = useI18n();
+
 const url = ref('');
 const error = ref();
 const info = {
-  title: 'Estimate the Potential Uplift of Your Key Revenue Metric',
-  subtitle: 'On the call, you will receive:',
+  title: t('sectionHero.funnelInfo.title'),
+  subtitle: t('sectionHero.funnelInfo.subtitle'),
   list: [
-    'An estimated uplift of your key revenue metric that we can commit to',
-    'An overview of the most significant CRO/UXO opportunities we see for your site',
-    'A quote for a CRO/UXO project tailored to your business',
+    t('sectionHero.funnelInfo.list.item1'),
+    t('sectionHero.funnelInfo.list.item2'),
+    t('sectionHero.funnelInfo.list.item3'),
   ],
-  formTitle: 'Schedule Your Results Discussion',
-  cta: 'Book a call to get an estimate',
-  note: 'If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift'
-}
+  formTitle: t('sectionHero.funnelInfo.formTitle'),
+  cta: t('sectionHero.funnelInfo.cta'),
+  note: t('sectionHero.funnelInfo.note')
+};
 
-const words = ['eCommerce', 'SaaS', 'App', 'LeadGen'];
+const words = [t('sectionHero.words.eCommerce'), t('sectionHero.words.SaaS'), t('sectionHero.words.App'), t('sectionHero.words.LeadGen')];
 
 function handleOpenModal() {
-  error.value = validateInput(url.value, 'url')
+  error.value = validateInput(url.value, 'url');
 
   if (!error.value) {
     openModal({ url: url.value, info, id: 'homepage_hero_0' });
@@ -34,36 +36,33 @@ function handleOpenModal() {
   >
     <div class="row flex-center">
       <div class="info">
-        <h1 class="info__subtitle bg--purple subtitle-2">
-          Performance-based Conversion&nbsp;Rate&nbsp;Optimization agency
+        <h1 class="info__title bg--purple subtitle-2">
+          {{ $t('sectionHero.title') }}
         </h1>
 
-        <div class="info__title title-1">
-          We increase your
+        <div class="info__subtitle title-1">
+          {{ $t('sectionHero.subtitle.prefix') }}
           <word-flipper
             class="color-yellow info__flipper"
             :words="words"
             :delay="3000"
           />
           <br />
-          revenue metrics
-          <br />
-          You pay only for the actual uplift
+          {{ $t('sectionHero.subtitle.suffix') }}
         </div>
 
         <HeroChart class="info__chart-mob" />
 
         <div class="info__form-wrap form-wrap border-decor_top">
           <div class="subtitle-2">
-            Get an uplift estimate for your business from our Conversion Rate
-            Optimization service
+            {{ $t('sectionHero.form.title') }}
           </div>
           <div class="form flex">
             <BaseInput
               v-model="url"
               class="form__input"
               required
-              placeholder="Type your site's URL"
+              :placeholder="$t('sectionHero.form.placeholder')"
               icon="fa6-solid:link"
               :error="error"
               @click="error = ''"
@@ -75,37 +74,13 @@ function handleOpenModal() {
               @click="handleOpenModal"
               class="button button_yellow form__button"
             >
-              Get an estimate
+              {{ $t('sectionHero.form.cta') }}
             </button>
           </div>
         </div>
       </div>
 
       <HeroChart class="info__chart-desk" />
-
-      <!-- <ClientOnly>
-        <Teleport
-          to=".info__title"
-          :disabled="width > 768"
-        >
-          <div class="chart text-center">
-            <div class="chart__title subtitle-3">
-              Our Clients' Average Revenue Uplift in the first 4 months
-            </div>
-
-            <div class="chart__image">
-              <img
-                src="img/heroChart.svg"
-                alt="Chart"
-              />
-            </div>
-
-            <div class="chart__footer">
-              *Based on performance data from our CRO projects for clients
-            </div>
-          </div>
-        </Teleport>
-      </ClientOnly> -->
     </div>
   </BaseSection>
 </template>
@@ -166,7 +141,7 @@ function handleOpenModal() {
 }
 
 .info {
-  &__subtitle {
+  &__title {
     display: inline-block;
     padding: 16px 16px 14px;
     border-radius: 20px;
@@ -175,9 +150,10 @@ function handleOpenModal() {
       padding: 12px 12px 10px;
     }
   }
-  &__title {
+  &__subtitle {
     margin-top: 24px;
     max-width: 625px;
+    white-space: pre-line;
     &-word {
       white-space: nowrap;
     }

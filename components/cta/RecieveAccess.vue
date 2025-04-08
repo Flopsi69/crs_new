@@ -8,13 +8,15 @@ interface Body {
   }
 }
 
+const { t } = useI18n();
+
 const props = defineProps({
   text: {
     type: Object,
     default: () => ({
-      title: 'Sign up to receive access to additional 16\xA0CRO case studies and all future updates',
-      subtitle: 'Stay ahead of the game',
-      button: 'Receive all case studies'
+      title: "",
+      subtitle: "",
+      button: "",
     }),
   },
   formId: {
@@ -26,6 +28,12 @@ const props = defineProps({
     default: false
   },
 });
+
+const info = reactive({
+  title: props.text.title || t('cta.recieveAccess.title'),
+  subtitle: props.text.subtitle || t('cta.recieveAccess.subtitle'),
+  button: props.text.button || t('cta.recieveAccess.button')
+})
 
 const isSubmitted = ref(false);
 
@@ -65,16 +73,16 @@ function initSave() {
 
   // @ts-ignore
   toast.promise(save, {
-    pending: 'Submitting your data...',
-    success: 'Data submitted successfully',
-    error: 'Error submitting data',
+    pending: t('general.async.pending'),
+    success: t('general.async.success'),
+    error: t('general.async.error')
   });
 }
 
 async function save() {
   const body: Body = {
     audience: 'newsletter',
-    data: { ...form, title: props.text.title.replace(/\xA0/g, ' ') }
+    data: { ...form, title: info.title.replace(/\xA0/g, ' ') }
   }
 
   telegramBot.send({
@@ -111,14 +119,14 @@ async function save() {
       :class="{'info_submitted': isSubmitted}"
     >
       <h3 class="info__caption section-caption subtitle-2">
-        {{ isSubmitted ? 'Successfully!' : text.subtitle }}
+        {{ isSubmitted ? $t('cta.recieveAccess.successfully') : info.subtitle }}
       </h3>
 
       <h2
         class="info__title section-title"
         :class="[flat ? 'title-3' : 'title-2']"
       >
-        {{ isSubmitted ? 'You\'ll now receive all case studies straight to your inbox' : text.title }}
+        {{ isSubmitted ? $t('cta.recieveAccess.submitted') : info.title }}
       </h2>
     </div>
 
@@ -130,7 +138,7 @@ async function save() {
         v-model="form.name"
         class="form__input"
         required
-        placeholder="Name"
+        :placeholder="t('general.name')"
         icon="fa6-solid:user"
         :error="error.name"
         @click="error.name = ''"
@@ -141,7 +149,7 @@ async function save() {
         v-model="form.email"
         class="form__input"
         required
-        placeholder="Business email"
+        :placeholder="t('general.businessEmail')"
         icon="fa6-solid:envelope"
         :error="error.email"
         @click="error.email = ''"
@@ -155,7 +163,7 @@ async function save() {
         class="form__button button button_yellow"
         :disabled="isLoading"
       >
-        {{ text.button }}
+        {{ info.button }}
       </button>
     </div>
   </BasePlate>

@@ -2,7 +2,9 @@
 
 <template>
   <BaseSection class="clients-logo">
-    <h2 class="section-title title-2 text-center">Our clients</h2>
+    <h2 class="section-title title-2 text-center">
+      {{ $t('clientsLogoTitle') }}
+    </h2>
 
     <div class="banner">
       <img

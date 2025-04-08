@@ -1,0 +1,32 @@
+[
+  {
+    "col1": "Who is it for?",
+    "col2": "SMEs",
+    "col3": "LEs with revenue >$3 million",
+    "col4": "One-time project for SMEs"
+  },
+  {
+    "col1": "Result guarantee",
+    "col2": "A commitment to delivering guaranteed results over time",
+    "col3": "Client pays only for the actual uplift in key predefined revenue metric",
+    "col4": "No result guarantee"
+  },
+  {
+    "col1": "Price of service",
+    "col2": "Moderate fixed monthly fee",
+    "col3": "Fee for every percentage point uplift in key revenue metric",
+    "col4": "Fixed one-time fee"
+  },
+  {
+    "col1": "Expected results",
+    "col2": "Our average result is 4.5% monthly uplift of key performance metric",
+    "col3": "3.5% monthly uplift in key performance metrics",
+    "col4": "We do not validate our CRO recommendations"
+  },
+  {
+    "col1": "Number of A/B tests per month",
+    "col2": "On average 1 A/B test/month",
+    "col3": "On average 1.5 A/B tests/month",
+    "col4": "No A/B tests"
+  }
+]

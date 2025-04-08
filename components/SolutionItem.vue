@@ -15,7 +15,7 @@ defineProps({
       class="item__open link"
       @click="$emit('setActiveSolution', item)"
     >
-      <span>View Solutions</span>
+      <span>{{ $t('sectionSolutions.solution.view') }}</span>
       <Icon
         name="line-md:chevron-small-right"
         size="24"

@@ -3,8 +3,8 @@
 <template>
   <div class="chart text-center">
     <div class="chart__title subtitle-3">
-      Our Clients' Average Revenue
-      <span class="nowrap">Uplift in the first 4 months</span>
+      {{ $t('sectionHero.chart.title') }}
+      <span class="nowrap">{{ $t('sectionHero.chart.titleNowrap') }}</span>
     </div>
 
     <div class="chart__graph">
@@ -17,9 +17,15 @@
         data-aos-anchor-placement="top-bottom"
         data-aos-offset="-100"
       >
-        <div class="chart__col-name">Research</div>
-        <div class="chart__col-procent">+3%</div>
-        <div class="chart__col-caption">Month 1</div>
+        <div class="chart__col-name">
+          {{ $t('sectionHero.chart.columns.research.name') }}
+        </div>
+        <div class="chart__col-procent">
+          {{ $t('sectionHero.chart.columns.research.percent') }}
+        </div>
+        <div class="chart__col-caption">
+          {{ $t('sectionHero.chart.columns.research.caption') }}
+        </div>
       </div>
       <div
         class="chart__col"
@@ -31,9 +37,15 @@
         data-aos-anchor-placement="top-bottom"
         data-aos-offset="-50"
       >
-        <div class="chart__col-name">Hypotheses</div>
-        <div class="chart__col-procent">+7%</div>
-        <div class="chart__col-caption">Month 2</div>
+        <div class="chart__col-name">
+          {{ $t('sectionHero.chart.columns.hypotheses.name') }}
+        </div>
+        <div class="chart__col-procent">
+          {{ $t('sectionHero.chart.columns.hypotheses.percent') }}
+        </div>
+        <div class="chart__col-caption">
+          {{ $t('sectionHero.chart.columns.hypotheses.caption') }}
+        </div>
       </div>
       <div
         class="chart__col"
@@ -45,9 +57,15 @@
         data-aos-anchor-placement="top-bottom"
         data-aos-offset="-25"
       >
-        <div class="chart__col-name">Validation</div>
-        <div class="chart__col-procent">+12%</div>
-        <div class="chart__col-caption">Month 3</div>
+        <div class="chart__col-name">
+          {{ $t('sectionHero.chart.columns.validation.name') }}
+        </div>
+        <div class="chart__col-procent">
+          {{ $t('sectionHero.chart.columns.validation.percent') }}
+        </div>
+        <div class="chart__col-caption">
+          {{ $t('sectionHero.chart.columns.validation.caption') }}
+        </div>
       </div>
 
       <div
@@ -59,14 +77,20 @@
         data-aos-once="true"
         data-aos-anchor-placement="top-bottom"
       >
-        <div class="chart__col-name color-yellow">Scaling</div>
-        <div class="chart__col-procent">+16%</div>
-        <div class="chart__col-caption">Month 4</div>
+        <div class="chart__col-name color-yellow">
+          {{ $t('sectionHero.chart.columns.scaling.name') }}
+        </div>
+        <div class="chart__col-procent">
+          {{ $t('sectionHero.chart.columns.scaling.percent') }}
+        </div>
+        <div class="chart__col-caption">
+          {{ $t('sectionHero.chart.columns.scaling.caption') }}
+        </div>
       </div>
     </div>
 
     <div class="chart__footer">
-      *Based on performance data from our CRO projects&nbsp;for&nbsp;clients
+      {{ $t('sectionHero.chart.footer') }}
     </div>
   </div>
 </template>

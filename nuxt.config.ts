@@ -4,6 +4,10 @@ import { fileURLToPath } from 'url'
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
+  features: {
+    // inlineStyles: false // or a function to determine inlining
+  },
+
   // experimental: {
   //   // @ts-ignore
   //   inlineSSRStyles: false
@@ -45,7 +49,7 @@ export default defineNuxtConfig({
 
   i18n: {
     locales: [
-      { code: 'en', name: 'English', language: 'en-US', file: 'en.json' },
+      { code: 'en', name: 'English', language: 'en-US', file: 'en/en.json' },
       { code: 'fr', name: 'France', language: 'fr-FR', file: 'fr.json' }
     ],
     defaultLocale: 'en',
