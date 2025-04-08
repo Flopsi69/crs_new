@@ -4,22 +4,51 @@ import api from '@/services/api.js';
 const route = useRoute();
 const { id } = route.params;
 
-console.log('id', id);
-
 if (!id || Array.isArray(id)) {
   await navigateTo('/case-studies');
 }
 
 const caseStudy = await api.getCase(id);
 
-console.log('caseStudy', caseStudy.value);
-
 if (!caseStudy.value?.id) {
   await navigateTo('/case-studies');
 }
 
-const content = computed(() => {
+const handlerList: Ref<[]> = await api.getCases('url,status');
+const handlerListArray = handlerList.value.map((item: any) => item.url)
+const currentIndex = ref(handlerListArray.indexOf(id));
+const nextId = computed(() => {
+  if (!handlerListArray.length) return null;
+
+  const nextIndex =
+    currentIndex.value < handlerListArray.length - 1
+      ? currentIndex.value + 1
+      : 0;
+
+  return handlerListArray[nextIndex];
+});
+
+const prevId = computed(() => {
+  if (!handlerListArray.length) return null;
+
+  const prevIndex =
+    currentIndex.value > 0
+      ? currentIndex.value - 1
+      : handlerListArray.length - 1;
+
+  return handlerListArray[prevIndex];
+});
+
+const mainContent = computed(() => {
   return caseStudy.value?.content?.content || [];
+});
+
+const resultContent = computed(() => {
+  return caseStudy.value?.content?.result || [];
+});
+
+const previewMetrics = computed(() => {
+  return caseStudy.value?.preview2?.goals || [];
 });
 
 const breadcrumbs = reactive([
@@ -32,33 +61,29 @@ const breadcrumbs = reactive([
     href: '/case-studies'
   },
   {
-    text: String(id) || 'case-study',
+    text: caseStudy.value?.breadcrumb || 'Case Study',
     href: ''
   }
 ]);
 
-const banner = ref(true)
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+};
 </script>
 
 <template>
   <main
     class="case"
-    :class="{'case_banner': banner }"
+    :class="{'case_banner': caseStudy.banner }"
   >
     <Breadcrumbs :items="breadcrumbs" />
 
     <div class="container container_narrow">
-      <!-- {{ caseStudy }} -->
-      <button
-        class="temp button button_yellow"
-        :class="banner ? 'button_yellow' : 'button_purple'"
-        @click.prevent="banner = !banner"
-      >
-        Toggle template
-      </button>
-
       <div
-        v-if="banner"
+        v-if="caseStudy.banner"
         class="case__head"
       >
         <h1
@@ -68,7 +93,7 @@ const banner = ref(true)
 
         <UiImage
           class="case__image"
-          src="/images/temp-banner.jpg"
+          :src="caseStudy.bannerImage"
         ></UiImage>
       </div>
 
@@ -77,83 +102,63 @@ const banner = ref(true)
           <BasePlate
             class="case__banner banner"
             solid-border
+            v-if="caseStudy?.client?.logo"
           >
-            <div class="banner__logo">
-              <img src="/images/logo/comodo.svg" />
+            <div
+              class="banner__logo"
+              v-if="caseStudy?.client?.logo"
+            >
+              <img :src="caseStudy.client.logo" />
             </div>
-            <div class="banner__metrics flex-center">
-              <div class="banner__metric">
-                <div class="banner__metric-value">+172.72%</div>
-                <div class="banner__metric-label">CVR</div>
-              </div>
-
-              <div class="banner__metric">
-                <div class="banner__metric-value">+325.79%</div>
-                <div class="banner__metric-label">ARPU</div>
-              </div>
-
-              <div class="banner__metric">
-                <div class="banner__metric-value">+56.13%</div>
-                <div class="banner__metric-label">ARPPU</div>
+            <div
+              v-if="previewMetrics?.length"
+              class="banner__metrics flex-center"
+            >
+              <div
+                class="banner__metric"
+                v-for="(metric, key) in previewMetrics"
+                :key="metric.id"
+              >
+                <div class="banner__metric-value">
+                  {{ metric.value }}
+                </div>
+                <div class="banner__metric-label">
+                  {{ metric.name }}
+                </div>
               </div>
             </div>
           </BasePlate>
 
-          <div class="case__reading reading text color-secondary">
+          <div
+            class="case__reading reading text color-secondary"
+            v-if="caseStudy.readTime"
+          >
             <img
               class="reading__icon"
               src="@/assets/icons/clock.svg"
             />
             <span class="reading__value">
-              Reading time: <strong>8 min</strong>
+              Reading time: <strong>{{ caseStudy.readTime }} min</strong>
             </span>
           </div>
 
           <h1
-            v-if="!banner"
+            v-if="!caseStudy.banner"
             class="case__title title-1"
             v-html="caseStudy.title"
           />
 
           <div class="post">
             <section class="post__section">
-              <UiComponentBuilder :content="content" />
+              <UiComponentBuilder :content="mainContent" />
             </section>
 
-            <div class="results">
+            <div
+              class="results"
+              v-if="resultContent?.length"
+            >
               <section class="post__section">
-                <h2 class="post__title title-3">
-                  <span>Results example</span>
-                </h2>
-
-                <h3 class="post__subtitle subtitle-2">
-                  Metric block for example
-                </h3>
-              </section>
-
-              <section class="post__section">
-                <h2 class="post__title title-3">
-                  <span>Increase example and new section</span>
-                </h2>
-
-                <h3 class="post__subtitle subtitle-2">
-                  Additional text example
-                </h3>
-
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Blanditiis nobis suscipit asperiores, mollitia vitae
-                  perferendis ea, nostrum ratione voluptatibus repellat esse
-                  impedit ut. Repellendus, velit! Quo, dolorem vitae ducimus
-                  eius magni cum cumque, dolore vero minima ea enim voluptates
-                  amet impedit nisi quidem similique praesentium voluptate
-                  provident eaque, iste iure architecto corporis exercitationem
-                  minus. Fugiat quam dolore pariatur placeat architecto nam
-                  error in, quas tempora beatae est eius quisquam praesentium
-                  culpa at rerum similique aut. Libero, alias voluptate autem
-                  rem dolor atque soluta et sint earum facere, cum ex, beatae
-                  sunt voluptatibus consequatur accusamus deleniti perspiciatis!
-                </p>
+                <UiComponentBuilder :content="resultContent" />
               </section>
             </div>
           </div>
@@ -191,37 +196,54 @@ const banner = ref(true)
       </div>
 
       <div class="navigation">
-        <button class="navigation__arrow button button_trans-purple subtitle-3">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="9"
-            height="16"
-            viewBox="0 0 9 16"
-            fill="#5954A0"
+        <template v-if="handlerListArray.length">
+          <NuxtLink
+            v-if="prevId"
+            :to="{
+              name: 'case-studies-id',
+              params: { id: prevId }
+            }"
+            class="navigation__arrow button button_trans-purple subtitle-3"
           >
-            <path
-              d="M6.03204e-07 8.01784C6.17238e-07 7.69677 0.105572 7.41137 0.316716 7.19732L7.07331 0.347826C7.4956 -0.115942 8.2346 -0.115942 8.65689 0.347826C9.11437 0.77592 9.11437 1.52508 8.65689 1.95318L2.70968 8.01784L8.65689 14.0468C9.11437 14.4749 9.11437 15.2241 8.65689 15.6522C8.2346 16.1159 7.4956 16.1159 7.07331 15.6522L0.316716 8.80267C0.105572 8.58863 5.90728e-07 8.30323 6.03204e-07 8.01784Z"
-            />
-          </svg>
-          Previous case study
-        </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="9"
+              height="16"
+              viewBox="0 0 9 16"
+              fill="#5954A0"
+            >
+              <path
+                d="M6.03204e-07 8.01784C6.17238e-07 7.69677 0.105572 7.41137 0.316716 7.19732L7.07331 0.347826C7.4956 -0.115942 8.2346 -0.115942 8.65689 0.347826C9.11437 0.77592 9.11437 1.52508 8.65689 1.95318L2.70968 8.01784L8.65689 14.0468C9.11437 14.4749 9.11437 15.2241 8.65689 15.6522C8.2346 16.1159 7.4956 16.1159 7.07331 15.6522L0.316716 8.80267C0.105572 8.58863 5.90728e-07 8.30323 6.03204e-07 8.01784Z"
+              />
+            </svg>
+            Previous case study
+          </NuxtLink>
 
-        <button class="navigation__arrow button button_trans-purple subtitle-3">
-          Next case study
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="10"
-            height="16"
-            viewBox="0 0 10 16"
-            fill="#5954A0"
+          <NuxtLink
+            v-if="nextId"
+            :to="{
+              name: 'case-studies-id',
+              params: { id: nextId }
+            }"
+            class="navigation__arrow button button_trans-purple subtitle-3"
           >
-            <path
-              d="M9.5 7.98216C9.5 8.30323 9.39443 8.58863 9.18328 8.80268L2.42669 15.6522C2.0044 16.1159 1.2654 16.1159 0.843108 15.6522C0.385631 15.2241 0.385631 14.4749 0.843108 14.0468L6.79032 7.98216L0.843109 1.95318C0.385631 1.52508 0.385631 0.77592 0.843109 0.347827C1.2654 -0.115942 2.0044 -0.115942 2.42669 0.347827L9.18328 7.19732C9.39443 7.41137 9.5 7.69677 9.5 7.98216Z"
-            />
-          </svg>
-        </button>
+            Next case study
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="10"
+              height="16"
+              viewBox="0 0 10 16"
+              fill="#5954A0"
+            >
+              <path
+                d="M9.5 7.98216C9.5 8.30323 9.39443 8.58863 9.18328 8.80268L2.42669 15.6522C2.0044 16.1159 1.2654 16.1159 0.843108 15.6522C0.385631 15.2241 0.385631 14.4749 0.843108 14.0468L6.79032 7.98216L0.843109 1.95318C0.385631 1.52508 0.385631 0.77592 0.843109 0.347827C1.2654 -0.115942 2.0044 -0.115942 2.42669 0.347827L9.18328 7.19732C9.39443 7.41137 9.5 7.69677 9.5 7.98216Z"
+              />
+            </svg>
+          </NuxtLink>
+        </template>
 
         <button
+          @click="scrollToTop"
           class="navigation__up button button_trans-purple subtitle-3 flex-center"
         >
           <svg
@@ -298,6 +320,9 @@ const banner = ref(true)
   border-radius: 20px;
   border: 2px solid #ede8f6;
   gap: 20px;
+  @media(max-width: $sm) {
+    flex-flow: column;
+  }
   &__logo {
     line-height: 0;
     img {
@@ -312,6 +337,10 @@ const banner = ref(true)
     gap: 32px;
     grid-template-columns: repeat(3, 1fr);
     margin-left: auto;
+    @media(max-width: $sm) {
+      margin: auto;
+      top: 0;
+    }
   }
   &__metric {
     text-align: center;
@@ -342,6 +371,9 @@ const banner = ref(true)
     margin-top: 40px;
     gap: 40px;
   }
+  &:deep(b) {
+    font-weight: bold;
+  }
   &:deep(p) {
     font-size: 18px;
     font-weight: 400;
@@ -353,28 +385,11 @@ const banner = ref(true)
       }
     }
   }
-  &__title {
-    position: relative;
-    font-size: 28px;
-    line-height: 1.3;
-    span {
-      position: relative;
-      background-color: white;
-      padding-right: 8px;
-      .results & {
-        background-color: $bg--purple-light;
-      }
-    }
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 10px;
-      background-color: #EDE8F6;
-      height: 2px;
-      border-radius: 2px;
-    }
+  &:deep(.post__title span) {
+    background-color: white;
+  }
+  &:deep(.results .post__title span) {
+    background-color: $bg--purple-light;
   }
   &__section {
     display: grid;
@@ -383,12 +398,6 @@ const banner = ref(true)
       gap: 20px;
     }
   }
-}
-
-// Temporary style
-hr {
-  border: none;
-  border-top: 1px solid #EDE8F6;
 }
 
 .reading {

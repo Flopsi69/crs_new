@@ -21,7 +21,7 @@ const props = defineProps({
 
 const isShowMore = ref(false);
 
-const caseFiltered: CaseStudy[] = props.items.filter((item) => (item.status && item.status !== 'ACTIVE') || !item.isHidden );
+const caseFiltered: CaseStudy[] = props.items.filter((item) => (item.status && item.status !== 'INACTIVE') || (!item.status && !item.isHidden) );
 
 const casesToShow = computed(() => {
   return  isShowMore.value || !props.expand ? caseFiltered : caseFiltered.slice(0, 3);
@@ -34,8 +34,11 @@ const casesToShow = computed(() => {
     :class="`cols-${cols}`"
     v-bind="$attrs"
   >
-    <template v-if="items[0].status">
-      <CaseItem1
+    <template v-if="!caseFiltered.length">
+      <div class="empty text color-secondary">No case studies found</div>
+    </template>
+    <template v-else-if="caseFiltered[0].status">
+      <CaseItem
         v-for="(caseStudy, index) in casesToShow"
         :key="index"
         :caseStudy="caseStudy"
@@ -44,7 +47,7 @@ const casesToShow = computed(() => {
       />
     </template>
     <template v-else>
-      <CaseItem
+      <CaseItemOld
         v-for="(caseStudy, index) in casesToShow"
         :key="index"
         :caseStudy="caseStudy"

@@ -18,7 +18,7 @@ const props = defineProps({
 <template>
   <template v-if="content">
     <h2
-      v-if="level === 1"
+      v-if="level === 2"
       class="post__title title-3"
     >
       <span>{{ content }}</span>
@@ -41,7 +41,6 @@ const props = defineProps({
     line-height: 1.3;
     span {
       position: relative;
-      background-color: white;
       padding-right: 8px;
     }
     &:before {

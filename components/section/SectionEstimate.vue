@@ -158,7 +158,10 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
 </script>
 
 <template>
-  <BaseSection class="estimate">
+  <BaseSection
+    class="estimate"
+    id="estimate"
+  >
     <BasePlate
       mob-full
       class="estimate__head"

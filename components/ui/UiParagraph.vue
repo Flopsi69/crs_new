@@ -12,5 +12,8 @@ defineProps({
 </script>
 
 <template>
-  <p v-if="content">{{ content }}</p>
+  <p
+    v-if="content"
+    v-html="content"
+  ></p>
 </template>

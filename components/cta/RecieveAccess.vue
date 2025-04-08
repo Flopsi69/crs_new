@@ -218,17 +218,20 @@ async function save() {
   z-index: 1;
   opacity: .99;
   max-width: 1024px;
+  @media(max-width: $md) {
+    flex-flow: column;
+    margin-top: 24px;
+    gap: 20px;
+  }
   .cta_flat & {
     margin-top: 30px;
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-  }
-  @media(max-width: $md) {
-    flex-flow: column;
-    margin-top: 24px;
-    gap: 20px;
+    @media(max-width: $md) {
+      grid-template-columns: 1fr;
+    }
   }
   &__input {
     height: 60px;
@@ -237,12 +240,15 @@ async function save() {
     height: 60px;
     font-size: 18px;
     padding: 17px 35px 15px;
-    .cta_flat & {
-      grid-column: span 2;
-    }
     @media(max-width: $sm) {
       padding-left: 15px;
       padding-right: 15px;
+    }
+    .cta_flat & {
+      grid-column: span 2;
+      @media(max-width: $md) {
+        grid-column: span 1;
+      }
     }
   }
 }

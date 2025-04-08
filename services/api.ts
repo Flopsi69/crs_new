@@ -11,15 +11,23 @@ const apiClient = $fetch.create({
 })
 
 // GET Request
-const getCases = async (options: Record<string, any> = {}): Promise<any> => {
+const getCases = async (
+  queries?: string,
+  options: Record<string, any> = {}
+): Promise<any> => {
+  let url = '/case-studies'
+  if (queries) {
+    url += `?select=${queries}`
+  }
+
   try {
-    const response = await useFetch('/case-studies', {
+    const response = await useFetch(url, {
       baseURL,
       method: 'GET',
       ...options
     })
 
-    console.log('resApi', response.data.value)
+    // console.log('resApi getCases', response.data.value)
 
     return response.data
   } catch (error) {
@@ -42,7 +50,7 @@ const getCase = async (
       ...options
     })
 
-    console.log('resApi', response.data.value)
+    // console.log('resApi', response.data.value)
 
     return response.data
   } catch (error) {
