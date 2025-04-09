@@ -1,19 +1,21 @@
 <script lang="ts" setup>
 const { openModal } = useModal();
 
+const { t } = useI18n();
+
 const url = ref('');
 const error = ref();
 const info = {
-  title: 'Book a call to discover the top CRO/UXO opportunities for your business and receive an estimate of the expected uplift in your revenue metrics',
-  subtitle: 'On the call, you will receive:',
+  title: t('cta.freeReview.funnelInfo.title'),
+  subtitle: t('cta.freeReview.funnelInfo.subtitle'),
   list: [
-    'A projected ROI from a CRO/UXO project for your site/product',
-    'An estimated uplift of your key revenue metric that we can commit to',
-    'An overview of the most significant CRO/UXO opportunities we see for your site',
+    t('cta.freeReview.funnelInfo.list[0]'),
+    t('cta.freeReview.funnelInfo.list[1]'),
+    t('cta.freeReview.funnelInfo.list[2]'),
   ],
-  formTitle: 'Schedule Your Results Discussion',
-  cta: 'Book a call to estimate ROI',
-  note: 'If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift'
+  formTitle: t('cta.freeReview.funnelInfo.formTitle'),
+  cta: t('cta.freeReview.funnelInfo.cta'),
+  note: t('cta.freeReview.funnelInfo.note')
 }
 
 function handleOpenModal() {
@@ -32,9 +34,8 @@ function handleOpenModal() {
     background="purple-dark"
   >
     <div class="cta__inner">
-      <h3 class="cta__titel subtitle-2">
-        Discover CRO and UXO opportunities for your product with our
-        complimentary UX review
+      <h3 class="cta__title subtitle-2">
+        {{ t('cta.freeReview.title') }}
       </h3>
 
       <div class="form flex">
@@ -42,7 +43,7 @@ function handleOpenModal() {
           v-model="url"
           class="form__input"
           required
-          placeholder="Type your site's URL"
+          :placeholder="t('cta.freeReview.placeholderUrl')"
           icon="fa6-solid:link"
           :error="error"
           @click="error = ''"
@@ -55,7 +56,7 @@ function handleOpenModal() {
           @click="handleOpenModal"
           id="free_review_cta"
         >
-          Get my free review
+          {{ t('cta.freeReview.button') }}
         </button>
       </div>
     </div>
@@ -70,7 +71,7 @@ function handleOpenModal() {
     position: relative;
     z-index: 1;
   }
-  &__titel {
+  &__title {
     @media(max-width: $sm) {
       font-size: 18px;
       line-height: 28px;

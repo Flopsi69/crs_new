@@ -16,6 +16,7 @@
           <div class="row">
             <div class="col"></div>
 
+            <!-- TODO: create config and loop -->
             <div class="col subtitle-2 bg--gradient flex align-center">
               {{ $t('sectionCompare.rows.head.crs') }}
             </div>

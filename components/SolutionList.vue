@@ -59,7 +59,7 @@ onMounted(() => {
         class="button"
         :class="[`button_trans-${mobItems > 1 && !isShowAll ? 'yellow' : 'purple'}`]"
       >
-        {{ mobItems > 1 ? 'Show more' : 'View all' }}
+        {{ mobItems > 1 ? $t('sectionSolutions.showMore'): $t('sectionSolutions.viewAll') }}
       </button>
     </div>
   </div>

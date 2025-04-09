@@ -1,8 +1,8 @@
 import menu from './menu'
 // import competencies from './competencies'
-// import cases from './cases'
+import cases from './cases'
 // import feedbacks from './feedbacks'
-import clientResults from './clientResults'
+// import clientResults from './clientResults'
 import solutions from './solutions'
 // import benchmarks from './benchmarks'
 import serviceLinks from './serviceLinks'
@@ -12,9 +12,9 @@ import serviceLinks from './serviceLinks'
 export {
   menu,
   // competencies,
-  // cases,
+  cases,
   // feedbacks,
-  clientResults,
+  // clientResults,
   solutions,
   // benchmarks,
   serviceLinks

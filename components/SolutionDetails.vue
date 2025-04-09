@@ -1,5 +1,16 @@
 <script lang="ts" setup>
-import { cases } from '~/configs';
+// import { cases } from '~/configs';
+
+const { t, locale } = useI18n();
+
+let cases = [];
+
+try {
+  const module = await import(`~/i18n/locales/${locale.value}/cases.json`);
+  cases = module.default;
+} catch (error) {
+  console.log(`Failed to load cases for locale ${locale.value}`);
+}
 
 const props = defineProps({
   items: {
@@ -43,14 +54,16 @@ function getRelatedCase() {
           class="subtitle-3"
           @click="$emit('setActiveSolution', null)"
         >
-          Back to problems
+          {{ t('sectionSolutions.solution.back') }}
         </BasePill>
 
         <div
           v-if="item.problem"
           class="solution__problem bg--gradient-light_smooth"
         >
-          <div class="solution__problem-title color-secondary">Problem</div>
+          <div class="solution__problem-title color-secondary">
+            {{ t('sectionSolutions.solution.problem') }}
+          </div>
           <div class="solution__problem-value subtitle-3">
             {{ item.problem }}
           </div>
@@ -60,7 +73,9 @@ function getRelatedCase() {
           v-if="item.causes?.length"
           class="solution__cause"
         >
-          <h3 class="subtitle-1 solution__cause-title">Causes (most common)</h3>
+          <h3 class="subtitle-1 solution__cause-title">
+            {{ t("sectionSolutions.solution.causes") }}
+          </h3>
 
           <div class="solution__cause-list">
             <div
@@ -80,7 +95,9 @@ function getRelatedCase() {
           v-if="item.solutions?.length"
           class="solution__steps"
         >
-          <h3 class="subtitle-1 solution__steps-title">Solutions</h3>
+          <h3 class="subtitle-1 solution__steps-title">
+            {{ t("sectionSolutions.solution.solutions") }}
+          </h3>
 
           <div
             v-for="(solution, index) in item.solutions"
@@ -107,10 +124,10 @@ function getRelatedCase() {
           v-if="relatedCase"
         >
           <h3 class="subtitle-1 solution__case-title">
-            View our relevant case study
+            {{ t('sectionSolutions.solution.relavent') }}
           </h3>
 
-          <CaseItem
+          <CaseItemOld
             class="solution__case"
             :caseStudy="relatedCase"
           />
@@ -125,10 +142,10 @@ function getRelatedCase() {
         v-if="relatedCase"
       >
         <h3 class="subtitle-1 solution__case-title">
-          View our relevant case study
+          {{ t('sectionSolutions.solution.relavent') }}
         </h3>
 
-        <CaseItem
+        <CaseItemOld
           class="solution__case"
           :caseStudy="relatedCase"
         />
@@ -136,7 +153,9 @@ function getRelatedCase() {
     </div>
 
     <div class="other">
-      <h3 class="subtitle-1">Other problems</h3>
+      <h3 class="subtitle-1">
+        {{ t('sectionSolutions.solution.otherProblem') }}
+      </h3>
 
       <SolutionList
         class="other__list"

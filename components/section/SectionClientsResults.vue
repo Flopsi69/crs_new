@@ -1,5 +1,16 @@
 <script lang="ts" setup>
-import { clientResults as clients } from '~/configs'
+// import { clientResults as clients } from '~/configs'
+
+const { t, locale } = useI18n();
+
+let clients = [];
+
+try {
+  const module = await import(`~/i18n/locales/${locale.value}/clientsResults.json`);
+  clients = module.default;
+} catch (error) {
+  console.log(`Failed to load client results for locale ${locale.value}`);
+}
 
 const carousel = ref()
 
@@ -16,7 +27,10 @@ const isMobile = computed(() => width.value < 768)
 </script>
 
 <template>
-  <BaseSection class="results">
+  <BaseSection
+    class="results"
+    v-if="clients.length"
+  >
     <div class="head flex-between">
       <h2 class="section-title title-2">
         {{ $t('sectionClientResults.title') }}
