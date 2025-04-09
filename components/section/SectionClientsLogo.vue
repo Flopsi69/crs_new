@@ -3,7 +3,7 @@
 <template>
   <BaseSection class="clients-logo">
     <h2 class="section-title title-2 text-center">
-      {{ $t('clientsLogoTitle') }}
+      {{ $t('sectionClientsLogo.title') }}
     </h2>
 
     <div class="banner">

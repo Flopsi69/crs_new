@@ -65,7 +65,7 @@ const casesToShow = computed(() => {
       class="button button_trans-yellow"
       @click="isShowMore = !isShowMore"
     >
-      View all
+      {{ $t('sectionCaseStudies.viewAll') }}
     </button>
   </div>
 </template>

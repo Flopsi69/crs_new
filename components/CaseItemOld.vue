@@ -35,7 +35,9 @@ defineProps({
       class="case__block"
       v-if="caseStudy.about"
     >
-      <div class="case__block-title subtitle-3">Product:</div>
+      <div class="case__block-title subtitle-3">
+        {{ $t('sectionCaseStudies.product') }}
+      </div>
       <div class="case__block-caption text color-secondary">
         <span
           class="color-purple fw-bold"
@@ -50,7 +52,9 @@ defineProps({
       class="case__block"
       v-if="caseStudy.experiment"
     >
-      <div class="case__block-title subtitle-3">Experiment:</div>
+      <div class="case__block-title subtitle-3">
+        {{ $t('sectionCaseStudies.experiment') }}
+      </div>
       <div class="case__block-caption text color-secondary">
         {{ caseStudy.experiment }}
       </div>
@@ -58,13 +62,17 @@ defineProps({
 
     <div class="result case__block flex justify-between align-end">
       <div class="result__left result__col">
-        <div class="case__block-title subtitle-3">Result:</div>
+        <div class="case__block-title subtitle-3">
+          {{ $t('sectionCaseStudies.result') }}
+        </div>
 
         <div class="result__value color-purple">
           {{ caseStudy.result.value }}%
         </div>
 
-        <div class="result__caption">{{ caseStudy.result.caption }}</div>
+        <div class="result__caption">
+          {{ caseStudy.result.caption }}
+        </div>
       </div>
 
       <div class="result__right result__col text-right">
@@ -82,7 +90,9 @@ defineProps({
           class="result__link link flex-center"
           :to="caseStudy.result.url"
         >
-          <span>View case study</span>
+          <span>
+            {{ $t('sectionCaseStudies.viewCaseStudy') }}
+          </span>
         </NuxtLink>
       </div>
     </div>

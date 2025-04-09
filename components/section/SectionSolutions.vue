@@ -1,9 +1,18 @@
 <script lang="ts" setup>
-import { solutions } from '~/configs';
+// import { solutions } from '~/configs';
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
-const items = reactive(solutions[0].problems);
+let solutions = [];
+
+try {
+  const module = await import(`~/i18n/locales/${locale.value}/solutions.js`);
+  solutions = module.default;
+} catch (error) {
+  console.log(`Failed to load solutions for locale ${locale.value}`);
+}
+
+const items = reactive(solutions);
 
 const activeSolution = ref(null)
 

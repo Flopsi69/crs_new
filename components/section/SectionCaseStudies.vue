@@ -20,12 +20,12 @@ try {
     v-if="cases.length"
   >
     <h2 class="section-title title-2 cases__title">
-      {{ $t('sectionCasesStudies.title') }}
+      {{ $t('sectionCaseStudies.title') }}
       <span class="color-purple">Conversionrate.store</span>
     </h2>
 
     <div class="section-caption subtitle-2 cases__caption">
-      {{ $t('sectionCasesStudies.subtitle') }}
+      {{ $t('sectionCaseStudies.subtitle') }}
     </div>
 
     <CaseList

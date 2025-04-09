@@ -25,7 +25,6 @@ useHead({
 
     <!-- TODO solutions open && i18n -->
     <SectionSolutions />
-    <!-- TODO i18n -->
     <SectionClientsResults />
     <SectionCompare />
 
@@ -33,7 +32,6 @@ useHead({
       <CtaKeyFactors />
     </BaseSection>
 
-    <!-- TODO i18n -->
     <SectionCaseStudies />
     <SectionBenchmark />
     <SectionEstimate />

@@ -58,7 +58,9 @@ defineProps({
     </div>
 
     <div class="card__footer bg--gradient-light">
-      <div class="card__subtitle subtitle-2">Results:</div>
+      <div class="card__subtitle subtitle-2">
+        {{ $t('sectionClientResults.results') }}
+      </div>
 
       <div
         class="card__footer-line flex align-center"

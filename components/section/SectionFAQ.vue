@@ -7,7 +7,7 @@ try {
   const module = await import(`~/i18n/locales/${locale.value}/faqs.json`);
   faqs = module.default;
 } catch (error) {
-  console.log(`Failed to load table faq for locale ${locale.value}`);
+  console.log(`Failed to load faq for locale ${locale.value}`);
 }
 
 const sanitizeText = (text: string | (string | string[])[]): string => {
