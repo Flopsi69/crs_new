@@ -9,6 +9,7 @@ interface Body {
 }
 
 const { t } = useI18n();
+const { validateInput } = useValidateInput()
 
 const props = defineProps({
   text: {

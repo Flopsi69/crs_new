@@ -1,0 +1,236 @@
+{
+  "benchmarks": [
+    {
+      "title": "Moda, accesorios y prendas de vestir",
+      "metrics": [
+        {
+          "title": "Tasa de conversión (CVR)",
+          "value": "3.64%"
+        },
+        {
+          "title": "Tasa de adición al carro",
+          "value": "7.61%"
+        },
+        {
+          "title": "Tasa de abandono del carro",
+          "value": "76.25%"
+        },
+        {
+          "title": "Valor medio de pedido (VMP)",
+          "value": "$175.53"
+        },
+        {
+          "title": "Unidades por transacción",
+          "value": "2.64"
+        },
+        {
+          "title": "Transacciones medias por usuario",
+          "value": "0.10"
+        }
+      ]
+    },
+    {
+      "title": "Venta minorista multimarca",
+      "metrics": [
+        {
+          "title": "Tasa de conversión (CVR)",
+          "value": "5.13%"
+        },
+        {
+          "title": "Tasa de adición al carro",
+          "value": "9.43%"
+        },
+        {
+          "title": "Tasa de abandono del carro",
+          "value": "68.37%"
+        },
+        {
+          "title": "Valor medio de pedido (VMP)",
+          "value": "$90.03"
+        },
+        {
+          "title": "Unidades por transacción",
+          "value": "4.43"
+        },
+        {
+          "title": "Transacciones medias por usuario",
+          "value": "0.25"
+        }
+      ]
+    },
+    {
+      "title": "Alimentación y bebidas",
+      "metrics": [
+        {
+          "title": "Tasa de conversión (CVR)",
+          "value": "6.52%"
+        },
+        {
+          "title": "Tasa de adición al carro",
+          "value": "11.59%"
+        },
+        {
+          "title": "Tasa de abandono del carro",
+          "value": "63.44%"
+        },
+        {
+          "title": "Valor medio de pedido (VMP)",
+          "value": "$108.21"
+        },
+        {
+          "title": "Unidades por transacción",
+          "value": "7.34"
+        },
+        {
+          "title": "Transacciones medias por usuario",
+          "value": "0.26"
+        }
+      ]
+    },
+    {
+      "title": "Hogar y mobiliario",
+      "metrics": [
+        {
+          "title": "Tasa de conversión (CVR)",
+          "value": "0.96%"
+        },
+        {
+          "title": "Tasa de adición al carro",
+          "value": "3.32%"
+        },
+        {
+          "title": "Tasa de abandono del carro",
+          "value": "81.50%"
+        },
+        {
+          "title": "Valor medio de pedido (VMP)",
+          "value": "$370.56"
+        },
+        {
+          "title": "Unidades por transacción",
+          "value": "5.21"
+        },
+        {
+          "title": "Transacciones medias por usuario",
+          "value": "0.13"
+        }
+      ]
+    },
+    {
+      "title": "Belleza y cuidado personal",
+      "metrics": [
+        {
+          "title": "Tasa de conversión (CVR)",
+          "value": "5.10%"
+        },
+        {
+          "title": "Tasa de adición al carro",
+          "value": "8.83%"
+        },
+        {
+          "title": "Tasa de abandono del carro",
+          "value": "74.18%"
+        },
+        {
+          "title": "Valor medio de pedido (VMP)",
+          "value": "$75.10"
+        },
+        {
+          "title": "Unidades por transacción",
+          "value": "9.23"
+        },
+        {
+          "title": "Transacciones medias por usuario",
+          "value": "0.45"
+        }
+      ]
+    },
+    {
+      "title": "Bienes de consumo",
+      "metrics": [
+        {
+          "title": "Tasa de conversión (CVR)",
+          "value": "4.49%"
+        },
+        {
+          "title": "Tasa de adición al carro",
+          "value": "6.44%"
+        },
+        {
+          "title": "Tasa de abandono del carro",
+          "value": "62.51%"
+        },
+        {
+          "title": "Valor medio de pedido (VMP)",
+          "value": "$196.79"
+        },
+        {
+          "title": "Unidades por transacción",
+          "value": "8.98"
+        },
+        {
+          "title": "Transacciones medias por usuario",
+          "value": "0.20"
+        }
+      ]
+    },
+    {
+      "title": "Lujo y joyería",
+      "metrics": [
+        {
+          "title": "Tasa de conversión (CVR)",
+          "value": "1.37%"
+        },
+        {
+          "title": "Tasa de adición al carro",
+          "value": "3.69%"
+        },
+        {
+          "title": "Tasa de abandono del carro",
+          "value": "80.65%"
+        },
+        {
+          "title": "Valor medio de pedido (VMP)",
+          "value": "$395.60"
+        },
+        {
+          "title": "Unidades por transacción",
+          "value": "3.57"
+        },
+        {
+          "title": "Transacciones medias por usuario",
+          "value": "0.04"
+        }
+      ]
+    },
+    {
+      "title": "Cuidado de mascotas y servicios veterinarios",
+      "metrics": [
+        {
+          "title": "Tasa de conversión (CVR)",
+          "value": "3.57%"
+        },
+        {
+          "title": "Tasa de adición al carro",
+          "value": "6.02%"
+        },
+        {
+          "title": "Tasa de abandono del carro",
+          "value": "57.81%"
+        },
+        {
+          "title": "Valor medio de pedido (VMP)",
+          "value": "$74.03"
+        },
+        {
+          "title": "Unidades por transacción",
+          "value": "5.08"
+        },
+        {
+          "title": "Transacciones medias por usuario",
+          "value": "0.17"
+        }
+      ]
+    }
+  ]
+}

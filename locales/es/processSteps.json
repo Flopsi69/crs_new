@@ -1,0 +1,69 @@
+{
+  "steps": [
+    {
+      "title": "Configuración de ingeniería de datos para el seguimiento del recorrido del cliente",
+      "purpose": "Este paso garantiza una arquitectura sólida y completa de recopilación y almacenamiento de datos para analizar el comportamiento, las percepciones y los sentimientos de los usuarios a medida que avanzan por el embudo.",
+      "methodology": [
+        "Mapeo de cada punto de contacto del usuario en el recorrido del cliente",
+        "Configuración de eventos para cada acción del usuario en el embudo",
+        "Realización del control de calidad del flujo de datos",
+        "Configuración de la base de datos BigQuery"
+      ]
+    },
+    {
+      "title": "Análisis del rendimiento del embudo y del comportamiento de los usuarios",
+      "purpose": "Este paso identifica las etapas del embudo de bajo rendimiento para centrar los esfuerzos de CRO y determina los patrones de comportamiento de los usuarios que se correlacionan con las métricas de ingresos altos y bajos.",
+      "methodology": [
+        "Análisis segmentado del embudo",
+        "Modelización de regresión",
+        "Análisis del flujo de usuarios",
+        "Análisis de formularios",
+        "Análisis comparativo del sector"
+      ]
+    },
+    {
+      "title": "Análisis del sentimiento y la percepción de los usuarios",
+      "purpose": "En este paso, identificamos y examinamos los impulsores, fricciones, preocupaciones, intenciones e incertidumbres del usuario en cada etapa del recorrido del cliente.",
+      "methodology": [
+        "Encuestas a usuarios",
+        "Pruebas de usabilidad",
+        "Entrevistas",
+        "Análisis de las opiniones de los usuarios"
+      ]
+    },
+    {
+      "title": "Crear hipótesis CRO/UXO basadas en datos",
+      "purpose": "Las hipótesis CRO/UXO sirven como remedios para los problemas de diseño y copia identificados a través del análisis de datos cuantitativos y la investigación UX. Este paso se basa en la creación de la UX/UI/copy para variaciones alternativas de las etapas del embudo de bajo rendimiento.",
+      "methodology": [
+        "Formulación de hipótesis basadas en las percepciones de la analítica cuantitativa y la investigación UX",
+        "Diseñar una UX/UI/copia óptimas para variaciones alternativas",
+        "Validación previa de la alternativa UX/UI/copia mediante pruebas de usuario"
+      ]
+    },
+    {
+      "title": "Validar las hipótesis mediante la experimentación",
+      "purpose": "En esta fase, evaluamos si la variación alternativa propuesta ha mejorado las principales métricas de ingresos del cliente. Esta fase implica desarrollar y probar experimentos, seguidos de un análisis posterior a la prueba para confirmar que las alteraciones en la variación contribuyeron directamente a los resultados observados.",
+      "methodology": [
+        "Codificación de un experimento (por ejemplo, una prueba A/B) para validar la hipótesis y la UX/UI/copia óptimas de la variación alternativa",
+        "Pruebe el experimento para garantizar una experiencia de usuario sin errores de la variación alternativa"
+      ]
+    },
+    {
+      "title": "Realice un análisis de los resultados tras la prueba",
+      "purpose": "Este paso es crucial, ya que garantiza que los resultados observados de la prueba A/B pueden atribuirse directamente a los cambios de UX/UI/copia introducidos en la variación alternativa. Nos ayuda a verificar que la hipótesis se validó con precisión y confirma que ningún factor externo influyó en los resultados del experimento.",
+      "methodology": [
+        "Análisis segmentado del embudo",
+        "Análisis de regresión",
+        "Análisis del compromiso visual/interactivo"
+      ]
+    },
+    {
+      "title": "Despliegue la variante ganadora como UX por defecto para todos los usuarios",
+      "purpose": "Despliegue la variante ganadora como UX por defecto para todos los usuarios.",
+      "methodology": [
+        "Implemente el código de la variante alternativa ganadora en el código fuente del sitio/producto",
+        "Pruebe la renderización del frontend, las integraciones del backend y la configuración de la ingeniería de datos para garantizar la calidad"
+      ]
+    }
+  ]
+}

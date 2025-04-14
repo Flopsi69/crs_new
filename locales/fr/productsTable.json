@@ -1,0 +1,32 @@
+[
+  {
+    "col1": "À qui s'adresse-t-il ?",
+    "col2": "PME",
+    "col3": "LEs avec des revenus >3 millions de dollars",
+    "col4": "Projet unique pour les PME"
+  },
+  {
+    "col1": "Garantie de résultat",
+    "col2": "Un engagement à fournir des résultats garantis dans le temps",
+    "col3": "Le client ne paie que pour l'augmentation réelle d'un indicateur clé de revenu prédéfini.",
+    "col4": "Pas de garantie de résultat"
+  },
+  {
+    "col1": "Prix du service",
+    "col2": "Frais mensuels fixes modérés",
+    "col3": "Rémunération pour chaque point de pourcentage d'augmentation du chiffre d'affaires clé",
+    "col4": "Redevance fixe unique"
+  },
+  {
+    "col1": "Résultats attendus",
+    "col2": "Notre résultat moyen est une augmentation mensuelle de 4,5 % des principaux indicateurs de performance.",
+    "col3": "Augmentation mensuelle de 3,5 % des indicateurs de performance clés",
+    "col4": "Nous ne validons pas les recommandations de notre CRO"
+  },
+  {
+    "col1": "Nombre de tests A/B par mois",
+    "col2": "En moyenne, 1 test A/B par mois",
+    "col3": "En moyenne 1,5 test A/B par mois",
+    "col4": "Pas de tests A/B"
+  }
+]

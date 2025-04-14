@@ -5,7 +5,7 @@ const { t, locale } = useI18n();
 let feedbacks = [];
 
 try {
-  const module = await import(`~/i18n/locales/${locale.value}/feedbacks.json`);
+  const module = await import(`~/locales/${locale.value}/feedbacks.json`);
   feedbacks = module.default;
 } catch (error) {
   console.log(`Failed to load feedbacks for locale ${locale.value}`);

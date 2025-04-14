@@ -6,7 +6,7 @@ const { t, locale } = useI18n();
 
 let benchmarks = [];
 try {
-  const module = await import(`~/i18n/locales/${locale.value}/benchmarks.json`);
+  const module = await import(`~/locales/${locale.value}/benchmarks.json`);
   benchmarks = module.benchmarks;
 } catch (error) {
   console.log(`Failed to load benchmarks for locale ${locale.value}`);
@@ -19,7 +19,7 @@ const scrollToElement = useSmoothScroll()
 
 const currentBenchmark = computed(() => activeIndex.value !== null ? benchmarks[activeIndex.value] : null);
 
-const getTooltipText = (index: string) => {
+const getTooltipText = (index: number) => {
   return t(`sectionBenchmark.tooltips.tooltip${index}`, 'uknown');
 };
 
@@ -168,11 +168,11 @@ watch(isShowDetails, async (value) => {
 .choose {
   &__button {
     margin-top: 40px;
-    max-width: 295px;
-    width: 100%;
+    min-width: 295px;
     @media(max-width: $sm) {
       margin-top: 20px;
       max-width: 100%;
+      min-width: auto;
       padding-left: 15px;
       padding-right: 15px;
     }

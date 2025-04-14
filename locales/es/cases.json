@@ -1,0 +1,145 @@
+[
+  {
+    "isHidden": false,
+    "id": "comodo",
+    "logo": "comodo.svg",
+    "product": "Comodo",
+    "about": "es un proveedor líder de servicios de ciberseguridad con una cuota del 44% del mercado de certificados SSL, y opera en el 13,9% de todos los dominios web del mundo.",
+    "experiment": "Rediseño radical de la página de aterrizaje de Comodo para abordar los puntos críticos de fricción del usuario identificados en nuestro análisis cualitativo de datos.",
+    "result": {
+      "value": 17.5,
+      "caption": "CVR UPLIFT",
+      "url": "https://conversionrate.store/b2b-saas-conversion-optimization/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "depositphotos",
+    "logo": "depositphotos.svg",
+    "product": "Depositphotos",
+    "about": "es un sitio web líder en fotografía de archivo, que ofrece a los usuarios planes a la carta y de suscripción.",
+    "experiment": "Rediseño del flujo de registro para aumentar la tasa de registro y el número de usuarios que procedían a la compra.",
+    "result": {
+      "value": 8.3,
+      "caption": "ARPU UPLIFT",
+      "url": "https://conversionrate.store/saas-registration-flow-optimization/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "gaiam",
+    "logo": "gaiam.png",
+    "product": "",
+    "about": "Marca líder de estilo de vida dedicada a poner el yoga, el fitness y el bienestar al alcance de todos",
+    "experiment": "Reduzca el abandono de la cesta de la compra utilizando una ventana emergente de salida de comportamiento",
+    "result": {
+      "value": 13,
+      "caption": "CVR UPLIFT",
+      "url": "https://conversionrate.store/ecommerce-popup-increase-conversion-rate/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "moneyGeek",
+    "logo": "moneyGeek.png",
+    "product": "MoneyGeek",
+    "about": "le ayuda a controlar sus finanzas con herramientas gratuitas, recomendaciones personalizadas, revisiones independientes y consejos de expertos.",
+    "experiment": "Rellenado automático de los campos de entrada de ubicación utilizando la dirección IP, para aumentar el ranking de búsqueda y la tasa de conversión de generación de leads.",
+    "result": {
+      "value": 10.63,
+      "caption": "CVR UPLIFT",
+      "url": "https://conversionrate.store/increase-lead-generation-conversion-rate-ip-address-autofill/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "natPat",
+    "logo": "natPat.png",
+    "product": "NATPAT",
+    "about": "se erige como un faro de innovación en el ámbito de la salud y el bienestar, ofreciendo una gama única de parches y pegatinas diseñados para mejorar su vida diaria.",
+    "experiment": "Maximice el ARPU y el CVR con páginas de destino personalizadas, utilizando bloques de contenido personalizados para navegar por la intención del usuario.",
+    "result": {
+      "value": 28.3,
+      "caption": "ARPU UPLIFT",
+      "url": "https://conversionrate.store/boost-ecommerce-sales-personilized-content/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "preply",
+    "logo": "preply.svg",
+    "product": "Preply",
+    "about": "es un mercado líder que ayuda a los estudiantes a encontrar profesores particulares para estudiar en línea, sobre todo para el aprendizaje de idiomas.",
+    "experiment": "Eliminación de elementos innecesarios que compiten por la atención de los usuarios en la página de inicio, para centrar la atención en dar el primer paso en el flujo de conversión",
+    "result": {
+      "value": 11.2,
+      "caption": "ARPU UPLIFT",
+      "url": "https://conversionrate.store/home-page-conversions-rate-optimization/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "swingu",
+    "logo": "swingu.png",
+    "product": "SwingU",
+    "about": "es una aplicación de golf líder que ofrece servicios de localización de distancias y puntuación digital a más de 6 millones de usuarios en todo el mundo.",
+    "experiment": "Acelerar la progresión del embudo manteniendo el consumo de información.",
+    "result": {
+      "value": 80.7,
+      "caption": "CVR UPLIFT",
+      "url": "https://conversionrate.store/app-conversion-rate-boost/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "grantMe",
+    "logo": "grantMe.png",
+    "product": "GrantMe",
+    "about": "es una plataforma canadiense de asesoramiento sobre educación en línea. El objetivo de la empresa es conseguir que los estudiantes ingresen en las universidades y reducir la deuda de los graduados.",
+    "experiment": "Superar las preocupaciones sobre la privacidad y la resistencia a \"Reservar una llamada\" con la interfaz de usuario de Calendly",
+    "result": {
+      "value": 55.7,
+      "caption": "CVR UPLIFT",
+      "url": "https://conversionrate.store/increasing-conversion-with-calendly-book-a-call/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "moonMagic",
+    "logo": "moonMagic.png",
+    "product": "Moonmagic",
+    "about": "es una joyería en línea de rápido crecimiento que vende anillos, collares, pendientes y otros productos de esta categoría.",
+    "experiment": "Introducción de un carrusel de ventas cruzadas en la cesta de la compra",
+    "result": {
+      "value": 9,
+      "caption": "ARPU UPLIFT",
+      "url": "https://conversionrate.store/boost-shopify-sales-cross-sell/"
+    }
+  },
+  {
+    "isHidden": true,
+    "id": "somnifix1",
+    "logo": "somnifix.png",
+    "product": "",
+    "about": "Líder en soluciones para el sueño, es conocido por sus tiras bucales que potencian la respiración nasal y mejoran la calidad del sueño, atendiendo a una creciente base de clientes",
+    "experiment": "Aumentar la tasa de conversión ascendiendo a los clientes a través de etapas de sensibilización",
+    "result": {
+      "value": 22.7,
+      "caption": "CVR UPLIFT",
+      "url": "https://conversionrate.store/increase-ecommerce-conversion/"
+    }
+  },
+  {
+    "isHidden": true,
+    "id": "somnifix2",
+    "logo": "somnifix.png",
+    "product": "",
+    "about": "Líder en soluciones para el sueño, es conocido por sus tiras bucales que potencian la respiración nasal y mejoran la calidad del sueño, atendiendo a una creciente base de clientes",
+    "experiment": "Aumente el AOV y el ARPU de la tienda de comercio electrónico redistribuyendo las ventas hacia productos más caros",
+    "result": {
+      "value": 27,
+      "caption": "AOV UPLIFT",
+      "url": ""
+    }
+  }
+]

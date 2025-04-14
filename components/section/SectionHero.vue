@@ -1,6 +1,6 @@
 <script lang="ts" setup>
+const { validateInput } = useValidateInput()
 const { openModal } = useModal();
-
 const { t } = useI18n();
 
 const url = ref('');

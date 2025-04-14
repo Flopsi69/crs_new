@@ -1,0 +1,32 @@
+[
+  {
+    "col1": "Für wen ist es?",
+    "col2": "KMU",
+    "col3": "LEs mit Einnahmen >$3 Millionen",
+    "col4": "Einmaliges Projekt für KMU"
+  },
+  {
+    "col1": "Ergebnis Garantie",
+    "col2": "Die Verpflichtung, langfristig garantierte Ergebnisse zu liefern",
+    "col3": "Der Kunde zahlt nur für die tatsächliche Steigerung der wichtigsten vordefinierten Umsatzkennzahl",
+    "col4": "Keine Ergebnisgarantie"
+  },
+  {
+    "col1": "Preis der Dienstleistung",
+    "col2": "Moderate monatliche Festgebühr",
+    "col3": "Gebühr für jeden Prozentpunkt, um den die wichtigste Umsatzkennzahl steigt",
+    "col4": "Feste, einmalige Gebühr"
+  },
+  {
+    "col1": "Erwartete Ergebnisse",
+    "col2": "Unser durchschnittliches Ergebnis ist ein monatlicher Anstieg der wichtigsten Leistungskennzahl um 4,5%.",
+    "col3": "3,5% monatlicher Anstieg der wichtigsten Leistungskennzahlen",
+    "col4": "Wir validieren unsere CRO-Empfehlungen nicht"
+  },
+  {
+    "col1": "Anzahl der A/B-Tests pro Monat",
+    "col2": "Im Durchschnitt 1 A/B-Test/Monat",
+    "col3": "Im Durchschnitt 1,5 A/B-Tests/Monat",
+    "col4": "Keine A/B-Tests"
+  }
+]

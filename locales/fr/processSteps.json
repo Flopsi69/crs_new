@@ -1,0 +1,69 @@
+{
+  "steps": [
+    {
+      "title": "Configuration de l'ingénierie des données pour le suivi du parcours client",
+      "purpose": "Cette étape garantit une architecture solide et complète de collecte et de stockage des données pour analyser le comportement, les perceptions et les sentiments des utilisateurs au fur et à mesure qu'ils avancent dans l'entonnoir.",
+      "methodology": [
+        "Cartographier chaque point de contact de l'utilisateur dans le parcours du client",
+        "Mise en place d'événements pour chaque action de l'utilisateur dans l'entonnoir",
+        "Effectuer l'assurance qualité de la diffusion des données en continu",
+        "Configuration de la base de données BigQuery"
+      ]
+    },
+    {
+      "title": "Analyse des performances de l'entonnoir et du comportement des utilisateurs",
+      "purpose": "Cette étape permet d'identifier les étapes de l'entonnoir les moins performantes afin de concentrer les efforts de CRO et de déterminer les modèles de comportement des utilisateurs qui sont en corrélation avec les indicateurs de revenus élevés et faibles.",
+      "methodology": [
+        "Analyse de l'entonnoir segmenté",
+        "Modélisation de la régression",
+        "Analyse du flux d'utilisateurs",
+        "Analyse des formulaires",
+        "Analyse comparative de l'industrie"
+      ]
+    },
+    {
+      "title": "Analyse des sentiments et des perceptions des utilisateurs",
+      "purpose": "Au cours de cette étape, nous identifions et examinons les moteurs, les frictions, les préoccupations, les intentions et les incertitudes des utilisateurs à chaque étape du parcours du client.",
+      "methodology": [
+        "Enquêtes auprès des utilisateurs",
+        "Tests d'utilisabilité",
+        "Interviews",
+        "Analyse des commentaires des utilisateurs"
+      ]
+    },
+    {
+      "title": "Créer des hypothèses CRO/UXO basées sur des données",
+      "purpose": "Les hypothèses CRO/UXO servent de remèdes aux problèmes de conception et de rédaction identifiés par l'analyse des données quantitatives et la recherche UX. Cette étape est basée sur la création de l'UX/UI/copie pour des variations alternatives des étapes de l'entonnoir les moins performantes.",
+      "methodology": [
+        "Formuler des hypothèses basées sur des informations provenant d'analyses quantitatives et de recherches UX.",
+        "Concevoir des UX/UI/copies optimales pour des variantes alternatives.",
+        "Pré-validation de l'alternative UX/UI/copie par des tests utilisateurs"
+      ]
+    },
+    {
+      "title": "Valider les hypothèses par l'expérimentation",
+      "purpose": "Au cours de cette phase, nous évaluons si la variante proposée a permis d'améliorer les principaux indicateurs de revenus du client. Cette étape implique de développer et de tester des expériences, suivies d'une analyse post-test pour confirmer que les modifications de la variation ont directement contribué aux résultats observés.",
+      "methodology": [
+        "Codage d'une expérience (p. ex. test A/B) pour valider l'hypothèse et l'UX/UI/copie optimale de la variante alternative.",
+        "Tester l'expérience pour s'assurer que l'expérience utilisateur de la variante alternative ne présente pas de bogues."
+      ]
+    },
+    {
+      "title": "Effectuer une analyse des résultats du post-test",
+      "purpose": "Cette étape est cruciale, car elle permet de s'assurer que les résultats observés lors des tests A/B peuvent être directement attribués aux changements UX/UI/copie introduits dans la variante alternative. Elle nous aide à vérifier que l'hypothèse a été validée avec précision et confirme qu'aucun facteur externe n'a influencé les résultats de l'expérience.",
+      "methodology": [
+        "Analyse de l'entonnoir segmenté",
+        "Analyse de régression",
+        "Analyse visuelle/interactive de l'engagement"
+      ]
+    },
+    {
+      "title": "Déployez la variante gagnante en tant qu'interface utilisateur par défaut pour tous les utilisateurs.",
+      "purpose": "Déployez la variante gagnante en tant qu'interface utilisateur par défaut pour tous les utilisateurs.",
+      "methodology": [
+        "Implémenter le code de la variante gagnante dans le code source du site/produit.",
+        "Tester le rendu du front-end, les intégrations du back-end et la configuration de l'ingénierie des données pour garantir l'assurance qualité."
+      ]
+    }
+  ]
+}

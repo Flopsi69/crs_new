@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-
 const { modalData, closeModal, modalTarget } = useModal();
 </script>
 
 <template>
   <div
     class="modal"
+    :class="{ modal_flat: ['language'].includes(modalTarget) }"
     @click.self="closeModal"
   >
     <ModalFunnel
@@ -14,6 +14,7 @@ const { modalData, closeModal, modalTarget } = useModal();
     />
     <ModalSuccess v-if="modalTarget === 'success'" />
     <ModalVideo v-if="modalTarget === 'video'" />
+    <ModalLanguage v-if="modalTarget === 'language'" />
   </div>
 </template>
 
@@ -31,6 +32,9 @@ const { modalData, closeModal, modalTarget } = useModal();
   background: rgba(0,0,0,.4);
   max-height: 100%;
   width: 100%;
+  &_flat {
+    padding: 20px;
+  }
   @media(min-width: 1680px) {
     padding: 20px;
   }

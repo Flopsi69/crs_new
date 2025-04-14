@@ -1,0 +1,529 @@
+{
+  "seo": {
+    "title": "Agence CRO basée sur la performance : Ne payez que pour les résultats réels",
+    "description": "Agence CRO avec des résultats de croissance garantis. Nous avons réalisé des tests A/B sur plus de 127 millions d'utilisateurs pour des clients tels que Microsoft, Unicorns et YC startups."
+  },
+  "validation": {
+    "required": "Ce champ est obligatoire",
+    "name": {
+      "minLength": "Le nom doit comporter au moins 3 caractères"
+    },
+    "email": {
+      "invalid": "L'adresse électronique n'est pas valide",
+      "missingAt": "Le courriel doit contenir un ",
+      "missingDot": "L'e-mail doit contenir un point"
+    },
+    "url": {
+      "minLength": "L'URL doit comporter au moins 6 caractères",
+      "missingDot": "L'URL doit contenir un point"
+    }
+  },
+  "input": {
+    "email": {
+      "label": "Courriel professionnel",
+      "placeholder": "Courriel professionnel"
+    },
+    "url": {
+      "label": "URL",
+      "placeholder": "L'URL de votre site web"
+    },
+    "name": {
+      "label": "Nom complet",
+      "placeholder": "Votre nom complet"
+    },
+    "companyUrl": {
+      "label": "URL de l'entreprise",
+      "placeholder": "URL de l'entreprise"
+    },
+    "annualRevenue": {
+      "label": "Recettes annuelles",
+      "placeholder": "Recettes annuelles"
+    },
+    "hearAboutUs": {
+      "label": "Comment avez-vous entendu parler de nous ?",
+      "placeholder": "Comment avez-vous entendu parler de nous ?"
+    },
+    "projectGoal": {
+      "label": "Objectif du projet CRO",
+      "placeholder": "Objectif du projet CRO"
+    }
+  },
+  "modal": {
+    "success": {
+      "title": "Merci de votre attention !",
+      "subtitle": "Nous avons bien reçu votre demande et vous contacterons dans les plus brefs délais.",
+      "returnToHomepage": "Retour à la page d'accueil"
+    },
+    "funnel": {
+      "back": "Retour",
+      "agree": "En soumettant ce formulaire, vous acceptez de recevoir les informations demandées, ainsi que des communications occasionnelles concernant les produits, les services et les événements de ConversionRate Store. Vous pouvez vous désinscrire à tout moment. Pour en savoir plus, consultez la politique de confidentialité. Vos données personnelles seront traitées conformément à notre politique de confidentialité.",
+      "continue": "Poursuivre",
+      "agreeError": "Veuillez accepter les conditions"
+    },
+    "video": {
+      "ctaButton": "Planifiez un appel GRATUIT",
+      "note": {
+        "title": "Merci d'avoir regardé !",
+        "subtitle": "Planifiez un appel gratuit avec moi pour une session de stratégie СRO"
+      }
+    },
+    "language": {
+      "title": "Sélectionnez la langue",
+      "label": "Trouver une langue",
+      "placeholder": "Trouver une langue"
+    }
+  },
+  "general": {
+    "name": "Nom",
+    "businessEmail": "Courriel professionnel",
+    "async": {
+      "pending": "Soumettre vos données...",
+      "success": "Données transmises avec succès",
+      "error": "Erreur dans la transmission des données"
+    },
+    "copyright": "Conversion Rate Store. Tous droits réservés. CONVERSIONRATE.STORE LIMITED Hong Kong, Glenealy street №1, Glenealy Tower, Unit 2A, 17/F"
+  },
+  "menu": {
+    "ecommerce": "Agence CRO Ecommerce",
+    "caseStudies": "Études de cas de CRO",
+    "performance": "CRO basé sur la performance",
+    "retainer": "Retenue de l'ORC",
+    "audit": "Audit du CRO",
+    "careers": "Carrières",
+    "contactUs": "Contactez nous",
+    "privacy": "Politique de confidentialité",
+    "sitemap": "Plan du site"
+  },
+  "welcome": "Bienvenue sur notre site !",
+  "sectionHero": {
+    "title": "Agence d'optimisation des taux de conversion basée sur la performance",
+    "subtitle": {
+      "prefix": "Nous augmentons votre",
+      "suffix": "indicateurs de revenus\n Vous ne payez que pour l'augmentation réelle."
+    },
+    "funnelInfo": {
+      "title": "Estimez l'augmentation potentielle de votre indicateur clé de revenu",
+      "subtitle": "Lors de l'appel, vous recevrez :",
+      "list": {
+        "item1": "Une estimation de l'augmentation de votre chiffre d'affaires clé sur laquelle nous pouvons nous engager.",
+        "item2": "Une vue d'ensemble des opportunités CRO/UXO les plus significatives que nous voyons pour votre site",
+        "item3": "Un devis pour un projet CRO/UXO adapté à votre entreprise"
+      },
+      "formTitle": "Planifiez votre discussion sur les résultats",
+      "note": "Si vous n'êtes pas sûr de vos indicateurs actuels, ne vous inquiétez pas, nous vous aiderons à les trouver et à estimer l'augmentation.",
+      "cta": "Appelez-nous pour obtenir un devis"
+    },
+    "form": {
+      "title": "Obtenez une estimation de l'augmentation de votre chiffre d'affaires grâce à notre service d'optimisation des taux de conversion.",
+      "placeholder": "Tapez l'URL de votre site",
+      "cta": "Obtenir un devis"
+    },
+    "words": {
+      "eCommerce": "eCommerce",
+      "SaaS": "SaaS",
+      "App": "Application",
+      "LeadGen": "LeadGen"
+    },
+    "chart": {
+      "title": "Revenu moyen de nos clients ",
+      "titleNowrap": "Amélioration au cours des 4 premiers mois",
+      "footer": "*Basé sur les données de performance de nos projets CRO pour les clients",
+      "columns": {
+        "research": {
+          "name": "Recherche",
+          "percent": "+3%",
+          "caption": "Mois 1"
+        },
+        "hypotheses": {
+          "name": "Hypothèses",
+          "percent": "+7%",
+          "caption": "Mois 2"
+        },
+        "validation": {
+          "name": "Validation",
+          "percent": "+12%",
+          "caption": "Mois 3"
+        },
+        "scaling": {
+          "name": "Mise à l'échelle",
+          "percent": "+16%",
+          "caption": "Mois 4"
+        }
+      }
+    }
+  },
+  "sectionClientsLogo": {
+    "title": "Nos clients"
+  },
+  "sectionLeader": {
+    "prefix": "Reconnu comme un leader mondial en matière de",
+    "cro": "Optimisation du taux de conversion",
+    "uxo": "Optimisation de l'expérience utilisateur",
+    "croAbbr": "CRO",
+    "uxoAbbr": "UXO",
+    "and": "et"
+  },
+  "sectionVideos": {
+    "title": "Regardez nos fondateurs partager des tactiques de CRO directement depuis la scène.",
+    "videos": {
+      "0": {
+        "title": "Riga Comm 2024"
+      },
+      "1": {
+        "title": "Commerce électronique 2019"
+      },
+      "2": {
+        "title": "Commerce électronique 2019"
+      }
+    }
+  },
+  "sectionSolutions": {
+    "caption": "Trouvez la solution à vos problèmes de commerce électronique",
+    "title": "Découvrez les causes et les solutions aux défis auxquels votre entreprise de commerce électronique est confrontée.",
+    "subtitle": "Choisissez un problème",
+    "viewAll": "Voir tous",
+    "showMore": "Afficher plus",
+    "solution": {
+      "view": "Voir les solutions",
+      "back": "Retour aux problèmes",
+      "solutions": "Solutions",
+      "problem": "Problème",
+      "causes": "Causes (les plus fréquentes)",
+      "relavent": "Consultez notre étude de cas",
+      "otherProblem": "Autres problèmes"
+    }
+  },
+  "sectionClientResults": {
+    "title": "Principaux clients et résultats",
+    "results": "Résultats :"
+  },
+  "sectionCompare": {
+    "title": "vs autres agences CRO vs équipe interne",
+    "rows": {
+      "head": {
+        "title": "Comparaison",
+        "other": "Autre agence CRO",
+        "inHouse": "Équipe interne CRO/produit"
+      },
+      "guarantee": {
+        "title": "Garantie de réussite du projet",
+        "crs": "À notre connaissance, nous sommes la seule agence de recherche de clientèle qui s'engage à atteindre un niveau de revenus convenu. Nos garanties sont basées sur les résultats que nous avons obtenus pour nos clients.",
+        "other": "La plupart des autres agences n'ont pas la capacité de fournir des résultats garantis et de gérer efficacement les incertitudes des projets CRO",
+        "inHouse": "Les équipes internes ne sont généralement pas tenues de démontrer des augmentations mensuelles des indicateurs clés de revenus pour continuer à investir. Nous, en revanche, sommes tenus de réaliser des performances mensuelles"
+      },
+      "roi": {
+        "title": "ROI du projet CRO",
+        "crs": "Nous garantissons un résultat convenu, ce qui permet à nos clients de calculer facilement le retour sur investissement d'un projet CRO avec nous.",
+        "other": "Les autres agences de recherche de clientèle ne s'engagent généralement pas sur des résultats spécifiques, ce qui rend le retour sur investissement incertain.",
+        "inHouse": "Les équipes internes obtiennent souvent un retour sur investissement plus faible en raison des biais liés aux indicateurs de performance, des coûts de personnel et du manque de compétences en matière de recherche fondamentale."
+      },
+      "cost": {
+        "title": "Coût du projet",
+        "crs": "Nos prix sont généralement inférieurs de 20 à 30 % à ceux des meilleures agences basées aux États-Unis et au Royaume-Uni, grâce à la structure rentable de notre équipe à distance en Europe.",
+        "other": "D'autres grandes agences de recherche de clientèle aux États-Unis et en Europe facturent généralement leurs services 30 à 40 % plus cher sans garantir de résultats.",
+        "inHouse": "Les équipes internes de recherche de clientèle supportent l'intégralité des coûts liés à l'emploi de professionnels possédant les compétences nécessaires à l'amélioration continue des indicateurs de revenus. En règle générale, ce coût est quatre fois plus élevé que celui de l'embauche d'une agence de recherche de clientèle."
+      },
+      "team": {
+        "title": "Accès à une équipe complète de CRO/UXO",
+        "crs": "Bénéficiez d'un accès complet à notre vaste équipe multidisciplinaire de plus de 50 professionnels, spécialisés dans 9 compétences essentielles en matière d'ORC et de munitions non explosées, chacun possédant des années d'expérience spécialisée.",
+        "other": "Une équipe CRO complète comprend 9 rôles tels que l'analyste de données, le chercheur UX, le stratège CRO et le développeur de tests A/B. La plupart des agences ne couvrent pas tous ces rôles et comptent sur le client pour combler les lacunes.",
+        "inHouse": "Les équipes internes sont généralement limitées par les ressources internes et l'expertise existante, ce qui restreint leur capacité à assurer une croissance continue et les conduit souvent à se heurter à un plafond de verre."
+      },
+      "additionalTools": {
+        "title": "Coût supplémentaire des outils et de la technologie",
+        "crs": "Vous bénéficiez d'un accès complet à nos outils exclusifs, essentiels à la réussite d'un projet de CRO, y compris des outils pour les tests A/B, les enquêtes auprès des utilisateurs, les tests d'utilisation, l'assurance qualité, etc.",
+        "other": "La plupart des agences répercutent sur leurs clients le coût des outils supplémentaires nécessaires à la réalisation d'un projet de CRO, en les obligeant à s'abonner à ces outils",
+        "inHouse": "Investissement initial important dans les outils, avec nécessité de mises à jour et de maintenance régulières"
+      }
+    }
+  },
+  "sectionCaseStudies": {
+    "title": "Études de cas d'ORC",
+    "subtitle": "Résultats de tests A/B sélectionnés avec une croissance totale du taux de conversion de 8 à 55 % à partir d'une seule expérience",
+    "viewAll": "Voir tous",
+    "result": "Résultat :",
+    "viewCaseStudy": "Voir l'étude de cas",
+    "experiment": "Expérience",
+    "product": "Produit :"
+  },
+  "sectionBenchmark": {
+    "caption": "Comparez instantanément les indicateurs clés du commerce électronique avec ceux de vos pairs.",
+    "title": "Analyse comparative de vos performances en matière de commerce électronique",
+    "choose": {
+      "subtitle": "Sélectionnez votre secteur d'activité",
+      "button": "Voir les critères de référence"
+    },
+    "details": {
+      "back": "Retour",
+      "title": "{title} repères pour l'entonnoir"
+    },
+    "tooltips": {
+      "tooltip1": "% d'achats effectués par les visiteurs au cours des six derniers mois",
+      "tooltip2": "Pourcentage d'articles ajoutés au panier après la consultation des pages de produits par les visiteurs au cours des six derniers mois",
+      "tooltip3": "Pourcentage d'articles laissés dans les paniers et non achetés par les visiteurs au cours des six derniers mois",
+      "tooltip4": "Le nombre d'achats uniques par visiteur au cours des six derniers mois",
+      "tooltip5": "Nombre moyen de produits achetés par commande par les visiteurs au cours des six derniers mois",
+      "tooltip6": "Nombre moyen de transactions effectuées par visiteur au cours des six derniers mois",
+      "default": "WTF"
+    }
+  },
+  "sectionEstimate": {
+    "caption": "Utilisez notre calculateur pour voir comment les améliorations apportées à votre ORC peuvent influer sur vos résultats.",
+    "title": "Estimez vos gains et le retour sur investissement du projet CRO",
+    "chooseTitle": "Fournissez vos données actuelles",
+    "form": {
+      "usersLabel": "Combien d'utilisateurs visitent votre site chaque mois ?",
+      "usersPlaceholder": "Nombre d'utilisateurs mensuels",
+      "conversionLabel": "Quel est le pourcentage de visiteurs qui effectuent un achat ou se convertissent ?",
+      "conversionPlaceholder": "Taux de conversion (CR),% :",
+      "averageLabel": "Quel est le montant moyen dépensé par transaction ?",
+      "averagePlaceholder": "Valeur moyenne de la commande (VMC), en dollars",
+      "profitLabel": "Quelle est votre marge bénéficiaire actuelle ?",
+      "profitPlaceholder": "Marge bénéficiaire, en pourcentage",
+      "graterThenZero": "La valeur doit être supérieure à 0"
+    },
+    "calculate": "Calculer",
+    "notSure": "Vous ne savez pas quels sont vos indicateurs de performance clés actuels ?",
+    "contactUs": "Contactez-nous et nous vous aiderons à les identifier",
+    "adjustSlider": "Ajustez l'augmentation attendue des indicateurs de performance clés à l'aide de curseurs.",
+    "back": "Retour",
+    "cvr": {
+      "desktop": "Taux de conversion",
+      "mobile": "CVR",
+      "slideCaption": "Augmentation attendue du taux de conversion (%)",
+      "colLeft": {
+        "title": "Comprendre l'impact direct de l'ORC sur votre chiffre d'affaires",
+        "captions": [
+          "Nouveau taux de conversion après le projet CRO",
+          "Bénéfice mensuel supplémentaire résultant de l'amélioration de l'ORC ($)"
+        ]
+      },
+      "colRight": {
+        "title": "Estimez le retour sur investissement de votre collaboration avec ConversionRate.Store",
+        "captions": [
+          "Point d'équilibre (mois)",
+          "Bénéfice supplémentaire en 12 mois (en supposant que le coût du service de CRO est de&nbsp;$20k)"
+        ]
+      }
+    },
+    "arpu": {
+      "desktop": "Revenu moyen par utilisateur",
+      "mobile": "ARPU",
+      "slideCaption": "Augmentation de l'ARPU recherchée (%)",
+      "colLeft": {
+        "title": "Comprendre l'impact direct de l'ORC sur votre chiffre d'affaires",
+        "captions": [
+          "Nouveau revenu moyen par utilisateur après le projet CRO",
+          "Bénéfice mensuel supplémentaire résultant de l'amélioration de l'ORC ($)"
+        ]
+      },
+      "colRight": {
+        "title": "Estimez le retour sur investissement de votre collaboration avec ConversionRate.Store",
+        "captions": [
+          "Point d'équilibre (mois)",
+          "Bénéfice supplémentaire en 12 mois (en supposant que le coût du service de CRO est de&nbsp;$20k)"
+        ]
+      }
+    },
+    "funnelInfo": {
+      "title": "Bénéficiez de l'aide d'un expert pour calculer vos indicateurs clés de performance et comparer vos performances.",
+      "subtitle": "Au cours de l'appel, nous allons :",
+      "list": [
+        "Écouter les besoins et les défis spécifiques de votre entreprise",
+        "Créez un plan pour calculer avec précision vos indicateurs clés de performance (ICP).",
+        "Donner un aperçu des opportunités CRO/UXO les plus significatives que nous voyons pour votre site."
+      ],
+      "formTitle": "Planifiez votre consultation",
+      "cta": "Obtenez de l'aide pour le calcul des indicateurs de performance clés",
+      "note": "Si vous n'êtes pas sûr de vos indicateurs actuels, ne vous inquiétez pas, nous vous aiderons à les trouver et à estimer l'augmentation."
+    }
+  },
+  "sectionCompetencies": {
+    "title": "9 compétences essentielles pour votre équipe de chargés de clientèle",
+    "caption": " Pour chaque projet, nous constituons une équipe dotée des 9 compétences essentielles nécessaires à la réussite d'un projet CRO/UXO."
+  },
+  "sectionProcess": {
+    "title": "Notre processus scientifique CRO/UXO",
+    "step": "Étape {number}",
+    "purpose": "Objectif",
+    "methodology": "Méthodologie"
+  },
+  "sectionProducts": {
+    "title": "Nos produits CRO/UXO",
+    "buttonMobile": "Obtenir des estimations de résultats",
+    "buttonDesktop": "Obtenez une estimation du résultat attendu",
+    "mostPopular": "Les plus populaires",
+    "bestValue": "Meilleur rapport qualité-prix pour les LE",
+    "header1": "Dispositif de retenue CRO/UXO",
+    "header2": "CRO/UXO basés sur la performance",
+    "header3": "Audit CRO/UXO",
+    "bookACall": "Prenez rendez-vous pour en savoir plus",
+    "buttonFunnelInfo": {
+      "title": "Estimez l'augmentation potentielle de votre indicateur clé de revenu",
+      "subtitle": "Lors de l'appel, vous recevrez :",
+      "list": [
+        "Une estimation de l'augmentation de votre chiffre d'affaires clé sur laquelle nous pouvons nous engager.",
+        "Une vue d'ensemble des opportunités CRO/UXO les plus significatives que nous voyons pour votre site",
+        "Un devis pour un projet CRO/UXO adapté à votre entreprise"
+      ],
+      "formTitle": "Planifiez votre discussion sur les résultats",
+      "cta": "Appelez-nous pour obtenir un devis",
+      "note": "Si vous n'êtes pas sûr de vos indicateurs actuels, ne vous inquiétez pas, nous vous aiderons à les trouver et à estimer l'augmentation."
+    },
+    "linkFunnelInfo": {
+      "title": "Appelez-nous pour en savoir plus sur nos services CRO/UXO",
+      "subtitle": "Lors de l'appel, vous recevrez :",
+      "list": [
+        "Une vue d'ensemble de nos services CRO/UXO et de la manière dont ils peuvent bénéficier à votre entreprise.",
+        "Une explication détaillée du produit qui répond le mieux à vos besoins",
+        "Des réponses à toutes les questions que vous pouvez vous poser sur nos processus et les résultats escomptés",
+        "Un plan personnalisé décrivant les prochaines étapes pour atteindre vos objectifs commerciaux."
+      ],
+      "formTitle": "Planifiez votre consultation",
+      "cta": "Réservez un appel",
+      "note": "Si vous n'êtes pas sûr de vos indicateurs actuels, ne vous inquiétez pas, nous vous aiderons à les trouver et à estimer l'augmentation."
+    }
+  },
+  "sectionFeedbacks": {
+    "title": "Que disent nos clients de nous ?",
+    "buttonShowMore": "Afficher plus"
+  },
+  "sectionFAQ": {
+    "title": "FAQ"
+  },
+  "cta": {
+    "guaranteed": {
+      "subtitle": "Résultats garantis",
+      "title": {
+        "prefix": "Un accord basé sur la performance signifie que nous nous engageons à une augmentation convenue des paramètres de revenus, garantissant ainsi une augmentation de la valeur de l'entreprise.",
+        "roi": "retour sur investissement positif",
+        "suffix": "de votre projet CRO avec nous"
+      },
+      "funnelInfo": {
+        "title": "Estimez le retour sur investissement d'un projet CRO/UXO pour votre entreprise",
+        "subtitle": "Lors de l'appel, vous recevrez :",
+        "list": {
+          "item1": "Une projection du retour sur investissement d'un projet CRO/UXO pour votre site/produit",
+          "item2": "Une estimation de l'augmentation de votre chiffre d'affaires clé sur laquelle nous pouvons nous engager.",
+          "item3": "Une vue d'ensemble des opportunités CRO/UXO les plus significatives que nous voyons pour votre site"
+        },
+        "formTitle": "Planifiez votre discussion sur les résultats",
+        "note": "Si vous n'êtes pas sûr de vos indicateurs actuels, ne vous inquiétez pas, nous vous aiderons à les trouver et à estimer l'augmentation.",
+        "cta": "Réservez un appel pour estimer le retour sur investissement"
+      },
+      "cta": "Estimez le retour sur investissement de votre projet CRO"
+    },
+    "keyFactors": {
+      "subtitle": "Tarification basée sur les performances",
+      "title": "Facteurs clés qui déterminent le prix d'un projet d'ORC :",
+      "list": {
+        "item1": "Performance actuelle de l'entonnoir",
+        "item2": "Ampleur souhaitée de l'amélioration des principaux indicateurs macroéconomiques",
+        "item3": "Ressources et niveau d'expertise requis de notre côté pour atteindre l'objectif"
+      },
+      "cta": "Obtenez votre devis personnalisé",
+      "funnelInfo": {
+        "title": "Facteurs clés qui déterminent le prix du projet",
+        "subtitle": "",
+        "list": {
+          "item1": "Nombre d'étapes de l'entonnoir à optimiser",
+          "item2": "Niveau d'optimisation de l'entonnoir",
+          "item3": "Amélioration des indicateurs de performance clés nécessaire pour atteindre l'objectif du projet"
+        },
+        "formTitle": "Planifiez votre discussion sur le devis",
+        "note": "Si vous n'êtes pas sûr de vos indicateurs actuels, ne vous inquiétez pas, nous vous aiderons à les trouver et à estimer l'augmentation.",
+        "cta": "Obtenez un devis pour le projet CRO"
+      }
+    },
+    "recieveAccess": {
+      "title": "Inscrivez-vous pour recevoir l'accès à 16 études de cas de CRO supplémentaires et à toutes les mises à jour futures.",
+      "subtitle": "Gardez une longueur d'avance",
+      "button": "Recevez toutes les études de cas",
+      "submitted": "Vous recevrez désormais toutes les études de cas directement dans votre boîte aux lettres électronique.",
+      "successfully": "Avec succès !"
+    },
+    "help": {
+      "benchmark": {
+        "title": "Êtes-vous en deçà des critères de référence dans l'un ou l'autre des indicateurs ? Nous vous aiderons à analyser et à améliorer les conversions grâce à notre évaluation gratuite des produits.",
+        "firstButton": "Prenez rendez-vous pour une consultation",
+        "secondButton": "Obtenez de l'aide pour le calcul du KPi",
+        "firstFunnelInfo": {
+          "title": "Réservez un appel pour découvrir les meilleures opportunités de CRO/UXO pour votre entreprise et recevez une estimation de l'augmentation attendue de votre chiffre d'affaires.",
+          "subtitle": "Lors de l'appel, vous recevrez :",
+          "list": [
+            "Une projection du retour sur investissement d'un projet CRO/UXO pour votre site/produit",
+            "Une estimation de l'augmentation de votre chiffre d'affaires clé sur laquelle nous pouvons nous engager.",
+            "Une vue d'ensemble des opportunités CRO/UXO les plus significatives que nous voyons pour votre site"
+          ],
+          "formTitle": "Planifiez votre discussion sur les résultats",
+          "cta": "Réservez un appel pour estimer le retour sur investissement",
+          "note": "Si vous n'êtes pas sûr de vos indicateurs actuels, ne vous inquiétez pas, nous vous aiderons à les trouver et à estimer l'augmentation."
+        },
+        "secondFunnelInfo": {
+          "title": "Bénéficiez de l'aide d'un expert pour calculer vos indicateurs clés de performance et comparer vos performances.",
+          "subtitle": "Au cours de l'appel, nous allons :",
+          "list": [
+            "Écouter les besoins et les défis spécifiques de votre entreprise",
+            "Créez un plan pour calculer avec précision vos indicateurs clés de performance (ICP).",
+            "Donner un aperçu des opportunités CRO/UXO les plus significatives que nous voyons pour votre site."
+          ],
+          "formTitle": "Planifiez votre consultation",
+          "cta": "Obtenez de l'aide pour le calcul des indicateurs de performance clés",
+          "note": "Si vous n'êtes pas sûr de vos indicateurs actuels, ne vous inquiétez pas, nous vous aiderons à les trouver et à estimer l'augmentation."
+        }
+      },
+      "estimate": {
+        "title": "Découvrez comment nous pouvons obtenir ces résultats pour votre entreprise.\n Réservez un appel avec un stratège CRO maintenant",
+        "firstButton": "Réservez un appel",
+        "secondButton": "Obtenez de l'aide pour le calcul du ROI",
+        "firstFunnelInfo": {
+          "title": "Estimez le retour sur investissement d'un projet CRO/UXO pour votre entreprise",
+          "subtitle": "Lors de l'appel, vous recevrez :",
+          "list": [
+            "Une projection du retour sur investissement d'un projet CRO/UXO pour votre site/produit",
+            "Une estimation de l'augmentation de votre chiffre d'affaires clé sur laquelle nous pouvons nous engager.",
+            "Une vue d'ensemble des opportunités CRO/UXO les plus significatives que nous voyons pour votre site"
+          ],
+          "formTitle": "Planifiez votre discussion sur les résultats",
+          "cta": "Réservez un appel pour estimer le retour sur investissement",
+          "note": "Si vous n'êtes pas sûr de vos indicateurs actuels, ne vous inquiétez pas, nous vous aiderons à les trouver et à estimer l'augmentation."
+        },
+        "secondFunnelInfo": {
+          "title": "Planifiez un appel pour estimer votre retour sur investissement avec l'aide d'un expert.",
+          "subtitle": "Au cours de l'appel, nous allons :",
+          "list": [
+            "Aide au calcul de vos indicateurs clés de performance (ICP)",
+            "Une estimation préliminaire du retour sur investissement sur la base de vos indicateurs clés de performance.",
+            "Une vue d'ensemble des opportunités CRO/UXO les plus significatives que nous voyons pour votre site"
+          ],
+          "formTitle": "Planifiez votre consultation",
+          "cta": "Obtenez de l'aide pour le calcul du retour sur investissement",
+          "note": "Si vous n'êtes pas sûr de vos indicateurs actuels, ne vous inquiétez pas, nous vous aiderons à les trouver et à estimer l'augmentation."
+        }
+      }
+    },
+    "winRate": {
+      "titlePrefix": "Notre test A/B",
+      "titleSuffix": "Cela signifie que nos variations alternatives battent le contrôle dans tous les autres tests que nous avons lancés.",
+      "marked": "Le taux de réussite est de 52%.",
+      "caption": "Cette grande efficacité est le fruit d'un processus scientifique rigoureux d'élaboration et de validation des hypothèses de l'ORC."
+    },
+    "freeReview": {
+      "title": "Découvrez les opportunités de CRO et d'UXO pour votre produit grâce à notre étude UX gratuite.",
+      "placeholderUrl": "Tapez l'URL de votre site",
+      "button": "Obtenez une évaluation gratuite",
+      "funnelInfo": {
+        "title": "Réservez un appel pour découvrir les meilleures opportunités de CRO/UXO pour votre entreprise et recevez une estimation de l'augmentation attendue de votre chiffre d'affaires.",
+        "subtitle": "Lors de l'appel, vous recevrez :",
+        "list": [
+          "Une projection du retour sur investissement d'un projet CRO/UXO pour votre site/produit",
+          "Une estimation de l'augmentation de votre chiffre d'affaires clé sur laquelle nous pouvons nous engager.",
+          "Une vue d'ensemble des opportunités CRO/UXO les plus significatives que nous voyons pour votre site"
+        ],
+        "formTitle": "Planifiez votre discussion sur les résultats",
+        "cta": "Réservez un appel pour estimer le retour sur investissement",
+        "note": "Si vous n'êtes pas sûr de vos indicateurs actuels, ne vous inquiétez pas, nous vous aiderons à les trouver et à estimer l'augmentation."
+      }
+    }
+  }
+}

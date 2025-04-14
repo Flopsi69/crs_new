@@ -8,6 +8,8 @@ interface Body {
   }
 }
 
+const { validateInput } = useValidateInput()
+
 // @ts-ignore
 defineEmits(['closeModal'])
 

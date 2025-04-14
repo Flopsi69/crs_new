@@ -1,0 +1,529 @@
+{
+  "seo": {
+    "title": "Leistungsabhängige CRO-Agentur: Nur für tatsächliche Ergebnisse bezahlen",
+    "description": "CRO-Agentur mit garantierten Wachstumsergebnissen. Wir haben A/B-Tests mit mehr als 127 Millionen Nutzern für Kunden wie Microsoft, Unicorns und YC-Startups durchgeführt."
+  },
+  "validation": {
+    "required": "Dieses Feld ist erforderlich",
+    "name": {
+      "minLength": "Der Name muss mindestens 3 Zeichen lang sein"
+    },
+    "email": {
+      "invalid": "E-Mail ist ungültig",
+      "missingAt": "Die E-Mail muss eine ",
+      "missingDot": "E-Mail muss einen Punkt enthalten"
+    },
+    "url": {
+      "minLength": "Die URL muss mindestens 6 Zeichen lang sein",
+      "missingDot": "Die URL muss einen Punkt enthalten"
+    }
+  },
+  "input": {
+    "email": {
+      "label": "Geschäftliche E-Mail",
+      "placeholder": "Geschäftliche E-Mail"
+    },
+    "url": {
+      "label": "URL",
+      "placeholder": "Ihre Website-URL"
+    },
+    "name": {
+      "label": "Vollständiger Name",
+      "placeholder": "Ihr vollständiger Name"
+    },
+    "companyUrl": {
+      "label": "Unternehmen URL",
+      "placeholder": "Unternehmen URL"
+    },
+    "annualRevenue": {
+      "label": "Jährliche Einnahmen",
+      "placeholder": "Jährliche Einnahmen"
+    },
+    "hearAboutUs": {
+      "label": "Wie haben Sie von uns erfahren?",
+      "placeholder": "Wie haben Sie von uns erfahren?"
+    },
+    "projectGoal": {
+      "label": "Ziel des CRO-Projekts",
+      "placeholder": "Ziel des CRO-Projekts"
+    }
+  },
+  "modal": {
+    "success": {
+      "title": "Vielen Dank!",
+      "subtitle": "Wir haben Ihre Anfrage erhalten und werden uns in Kürze mit Ihnen in Verbindung setzen.",
+      "returnToHomepage": "Zurück zur Homepage"
+    },
+    "funnel": {
+      "back": "Zurück",
+      "agree": "Mit dem Absenden dieses Formulars erklären Sie sich damit einverstanden, die angeforderten Informationen sowie gelegentliche Mitteilungen über Produkte, Dienstleistungen und Veranstaltungen von ConversionRate Store zu erhalten. Sie können sich jederzeit wieder abmelden. Um mehr zu erfahren, besuchen Sie die Datenschutzerklärung. Ihre persönlichen Daten werden in Übereinstimmung mit unserer Datenschutzerklärung verarbeitet.",
+      "continue": "Weiter",
+      "agreeError": "Bitte akzeptieren Sie die Bedingungen"
+    },
+    "video": {
+      "ctaButton": "Vereinbaren Sie einen KOSTENLOSEN Anruf",
+      "note": {
+        "title": "Danke fürs Zuschauen!",
+        "subtitle": "Vereinbaren Sie einen kostenlosen СRO-Strategie-Termin mit mir"
+      }
+    },
+    "language": {
+      "title": "Sprache auswählen",
+      "label": "Sprache finden",
+      "placeholder": "Sprache finden"
+    }
+  },
+  "general": {
+    "name": "Name",
+    "businessEmail": "Geschäftliche E-Mail",
+    "async": {
+      "pending": "Die Übermittlung Ihrer Daten...",
+      "success": "Daten erfolgreich übermittelt",
+      "error": "Fehler beim Übermitteln von Daten"
+    },
+    "copyright": "© Conversion Rate Store. Alle Rechte vorbehalten. CONVERSIONRATE.STORE LIMITED Hongkong, Glenealy street №1, Glenealy Tower, Einheit 2A, 17/F"
+  },
+  "menu": {
+    "ecommerce": "Ecommerce CRO Agentur",
+    "caseStudies": "CRO-Fallstudien",
+    "performance": "Leistungsabhängiges CRO",
+    "retainer": "CRO-Halterung",
+    "audit": "CRO-Audit",
+    "careers": "Karriere",
+    "contactUs": "Kontaktieren Sie uns",
+    "privacy": "Datenschutzbestimmungen",
+    "sitemap": "SiteMap"
+  },
+  "welcome": "Willkommen auf unserer Website!",
+  "sectionHero": {
+    "title": "Agentur für leistungsabhängige Conversion Rate-Optimierung",
+    "subtitle": {
+      "prefix": "Wir erhöhen Ihr",
+      "suffix": "Umsatzmetriken\n Sie zahlen nur für den tatsächlichen Uplift"
+    },
+    "funnelInfo": {
+      "title": "Schätzen Sie die potenzielle Steigerung Ihrer wichtigsten Umsatzkennzahl",
+      "subtitle": "In diesem Gespräch erhalten Sie:",
+      "list": {
+        "item1": "Eine geschätzte Steigerung Ihrer wichtigsten Umsatzkennzahl, zu der wir uns verpflichten können",
+        "item2": "Ein Überblick über die wichtigsten CRO/UXO-Möglichkeiten, die wir für Ihre Website sehen",
+        "item3": "Ein Angebot für ein auf Ihr Unternehmen zugeschnittenes CRO/UXO-Projekt"
+      },
+      "formTitle": "Planen Sie Ihre Ergebnisbesprechung",
+      "note": "Wenn Sie sich nicht sicher sind, wie Ihre aktuellen Kennzahlen lauten, keine Sorge, wir helfen Ihnen, sie zu finden und den Uplift zu schätzen.",
+      "cta": "Buchen Sie einen Anruf, um einen Kostenvoranschlag zu erhalten"
+    },
+    "form": {
+      "title": "Holen Sie sich eine Schätzung des Uplifts für Ihr Unternehmen durch unseren Conversion Rate Optimization Service",
+      "placeholder": "Geben Sie die URL Ihrer Website ein",
+      "cta": "Kostenvoranschlag einholen"
+    },
+    "words": {
+      "eCommerce": "eCommerce",
+      "SaaS": "SaaS",
+      "App": "App",
+      "LeadGen": "LeadGen"
+    },
+    "chart": {
+      "title": "Der durchschnittliche Umsatz unserer Kunden ",
+      "titleNowrap": "Aufschwung in den ersten 4 Monaten",
+      "footer": "*Basierend auf Leistungsdaten aus unseren CRO-Projekten für Kunden",
+      "columns": {
+        "research": {
+          "name": "Forschung",
+          "percent": "+3%",
+          "caption": "Monat 1"
+        },
+        "hypotheses": {
+          "name": "Hypothesen",
+          "percent": "+7%",
+          "caption": "Monat 2"
+        },
+        "validation": {
+          "name": "Validierung",
+          "percent": "+12%",
+          "caption": "Monat 3"
+        },
+        "scaling": {
+          "name": "Skalierung",
+          "percent": "+16%",
+          "caption": "Monat 4"
+        }
+      }
+    }
+  },
+  "sectionClientsLogo": {
+    "title": "Unsere Kunden"
+  },
+  "sectionLeader": {
+    "prefix": "Anerkannt als weltweit führender Anbieter von",
+    "cro": "Optimierung der Konversionsrate",
+    "uxo": "Optimierung der Benutzerfreundlichkeit",
+    "croAbbr": "CRO",
+    "uxoAbbr": "UXO",
+    "and": "und"
+  },
+  "sectionVideos": {
+    "title": "Sehen Sie, wie unsere Gründer umsetzbare CRO-Taktiken direkt von der Bühne aus teilen",
+    "videos": {
+      "0": {
+        "title": "Riga Comm 2024"
+      },
+      "1": {
+        "title": "eCommerce 2019"
+      },
+      "2": {
+        "title": "eCommerce 2019"
+      }
+    }
+  },
+  "sectionSolutions": {
+    "caption": "Finden Sie die Lösung für die Herausforderungen Ihres eCommerce-Geschäfts",
+    "title": "Entdecken Sie die Ursachen und Lösungen für die Herausforderungen, mit denen Ihr eCommerce-Geschäft konfrontiert ist",
+    "subtitle": "Problem wählen",
+    "viewAll": "Alle anzeigen",
+    "showMore": "Mehr zeigen",
+    "solution": {
+      "view": "Lösungen ansehen",
+      "back": "Zurück zu den Problemen",
+      "solutions": "Lösungen",
+      "problem": "Problem",
+      "causes": "Ursachen (häufigste)",
+      "relavent": "Sehen Sie sich unsere relevante Fallstudie an",
+      "otherProblem": "Andere Probleme"
+    }
+  },
+  "sectionClientResults": {
+    "title": "Top-Kunden und Ergebnisse",
+    "results": "Ergebnisse:"
+  },
+  "sectionCompare": {
+    "title": "vs. andere CRO-Agenturen vs. internes Team",
+    "rows": {
+      "head": {
+        "title": "Vergleich",
+        "other": "Andere CRO-Agentur",
+        "inHouse": "Internes CRO/Produktteam"
+      },
+      "guarantee": {
+        "title": "Erfolgsgarantie für das Projekt",
+        "crs": "Wir sind die einzige CRO-Agentur, von der wir wissen, dass sie sich zu einem vereinbarten Anstieg der Umsatzkennzahlen verpflichtet. Unsere Garantien beruhen auf unserer Erfolgsbilanz für unsere Kunden",
+        "other": "Den meisten anderen Agenturen fehlt es an der Fähigkeit, garantierte Ergebnisse zu liefern und die Unwägbarkeiten von CRO-Projekten effektiv zu bewältigen.",
+        "inHouse": "Interne Teams müssen in der Regel keine monatlichen Steigerungen bei den wichtigsten Umsatzkennzahlen nachweisen, um weiterhin investiert zu werden. Wir hingegen müssen jeden Monat eine Leistung erbringen"
+      },
+      "roi": {
+        "title": "ROI aus CRO-Projekt",
+        "crs": "Wir garantieren ein vereinbartes Ergebnis, so dass es für unsere Kunden einfach ist, den ROI eines CRO-Projekts mit uns zu berechnen.",
+        "other": "Andere CRO-Agenturen verpflichten sich in der Regel nicht zu bestimmten Ergebnissen, was den ROI unsicher macht.",
+        "inHouse": "Interne Teams erzielen oft einen geringeren ROI aufgrund von KPI-Verzerrungen, hohen Personalkosten und mangelnder Kompetenz im Bereich CRO"
+      },
+      "cost": {
+        "title": "Kosten des Projekts",
+        "crs": "Unsere Preise sind in der Regel 20-30% niedriger als die von Top-Agenturen in den USA und Großbritannien, dank unserer kosteneffizienten Remote-Teamstruktur in Europa.",
+        "other": "Andere führende CRO-Agenturen in den USA und Europa verlangen in der Regel 30-40% mehr für ihre Dienstleistungen, ohne Ergebnisse zu garantieren.",
+        "inHouse": "Interne CRO-Teams tragen die vollen Kosten für die Beschäftigung von Fachleuten mit den Fähigkeiten, die für eine kontinuierliche Verbesserung der Umsatzkennzahlen erforderlich sind. In der Regel sind diese Kosten viermal so hoch wie bei der Beauftragung einer CRO-Agentur"
+      },
+      "team": {
+        "title": "Zugang zu einem umfassenden CRO/UXO-Team",
+        "crs": "Genießen Sie den vollen Zugang zu unserem umfangreichen multidisziplinären Team von über 50 Fachleuten, die in 9 wesentlichen CRO- und UXO-Kompetenzen ausgebildet sind und jeweils über jahrelange Spezialerfahrung verfügen.",
+        "other": "Ein umfassendes CRO-Team umfasst 9 Rollen wie Datenanalysten, UX-Forscher, CRO-Strategen und A/B-Testentwickler. Die meisten Agenturen haben nicht alle diese Rollen abgedeckt und verlassen sich darauf, dass der Kunde die Lücken füllt.",
+        "inHouse": "Interne Teams sind in der Regel durch interne Ressourcen und vorhandenes Fachwissen eingeschränkt, so dass sie nicht in der Lage sind, kontinuierliches Wachstum zu erzielen, und häufig an eine gläserne Decke stoßen."
+      },
+      "additionalTools": {
+        "title": "Zusätzliche Kosten für Werkzeuge und Technologie",
+        "crs": "Sie erhalten vollen Zugriff auf unsere eigens entwickelten Tools, die für ein erfolgreiches CRO-Projekt unerlässlich sind, einschließlich Tools für A/B-Tests, Benutzerumfragen, Benutzertests, QA und mehr",
+        "other": "Die meisten Agenturen geben die Kosten für die zusätzlichen Tools, die für ein CRO-Projekt erforderlich sind, an die Kunden weiter und verlangen von ihnen, diese Tools zu abonnieren.",
+        "inHouse": "Erhebliche Vorabinvestitionen in Tools, die regelmäßig aktualisiert und gewartet werden müssen"
+      }
+    }
+  },
+  "sectionCaseStudies": {
+    "title": "CRO-Fallstudien von",
+    "subtitle": "Ausgewählte A/B-Testergebnisse mit einer Steigerung der Gesamtkonversionsrate von 8-55% aus einem einzigen Experiment",
+    "viewAll": "Alle anzeigen",
+    "result": "Ergebnis:",
+    "viewCaseStudy": "Fallstudie ansehen",
+    "experiment": "Experiment",
+    "product": "Produkt:"
+  },
+  "sectionBenchmark": {
+    "caption": "Vergleichen Sie die wichtigsten E-Commerce-Kennzahlen sofort mit denen Ihrer Mitbewerber",
+    "title": "Benchmarking Ihrer E-Commerce-Leistung",
+    "choose": {
+      "subtitle": "Wählen Sie Ihre Branche",
+      "button": "Benchmarks ansehen"
+    },
+    "details": {
+      "back": "Zurück",
+      "title": "{title} Trichter-Benchmarks"
+    },
+    "tooltips": {
+      "tooltip1": "% der von Besuchern in den letzten sechs Monaten getätigten Käufe",
+      "tooltip2": "% der Artikel, die von Besuchern in den letzten sechs Monaten in den Warenkorb gelegt wurden, nachdem die Produktseite aufgerufen wurde",
+      "tooltip3": "% der Artikel, die von Besuchern in den letzten sechs Monaten in den Einkaufswagen gelegt und nicht gekauft wurden",
+      "tooltip4": "Die Anzahl der einmaligen Käufe pro Besucher in den letzten sechs Monaten",
+      "tooltip5": "Durchschnittliche Anzahl der Produkte, die Besucher in den letzten sechs Monaten pro Bestellung gekauft haben",
+      "tooltip6": "Durchschnittliche Anzahl der Transaktionen pro Besucher in den letzten sechs Monaten",
+      "default": "WTF"
+    }
+  },
+  "sectionEstimate": {
+    "caption": "Nutzen Sie unseren Rechner, um zu sehen, wie sich CRO-Verbesserungen auf Ihren Gewinn auswirken können",
+    "title": "Schätzen Sie Ihren Gewinn und ROI aus dem CRO-Projekt",
+    "chooseTitle": "Stellen Sie Ihre aktuellen Metriken zur Verfügung",
+    "form": {
+      "usersLabel": "Wie viele Benutzer besuchen Ihre Website jeden Monat?",
+      "usersPlaceholder": "Anzahl der monatlichen Nutzer",
+      "conversionLabel": "Wie viel Prozent der Besucher tätigen einen Kauf oder konvertieren?",
+      "conversionPlaceholder": "Konversionsrate (CR),%:",
+      "averageLabel": "Wie hoch sind die durchschnittlichen Ausgaben pro Transaktion?",
+      "averagePlaceholder": "Durchschnittlicher Auftragswert (AoV), $",
+      "profitLabel": "Wie hoch ist Ihre aktuelle Gewinnspanne?",
+      "profitPlaceholder": "Gewinnspanne, %",
+      "graterThenZero": "Der Wert muss größer als 0 sein"
+    },
+    "calculate": "Berechnen Sie",
+    "notSure": "Sie sind sich nicht sicher, was Ihre aktuellen KPIs sind?",
+    "contactUs": "Kontaktieren Sie uns und wir helfen Ihnen, sie zu identifizieren",
+    "adjustSlider": "Passen Sie den erwarteten Anstieg der KPIs mit Schiebereglern an.",
+    "back": "Zurück",
+    "cvr": {
+      "desktop": "Umrechnungskurs",
+      "mobile": "CVR",
+      "slideCaption": "Erwartete Steigerung der Konversionsrate (%)",
+      "colLeft": {
+        "title": "Verstehen Sie die direkten Auswirkungen von CRO auf Ihr Geschäftsergebnis",
+        "captions": [
+          "Neue Konversionsrate nach dem CRO-Projekt",
+          "Zusätzlicher monatlicher Gewinn als Ergebnis der CRO-Verbesserung ($)"
+        ]
+      },
+      "colRight": {
+        "title": "Schätzen Sie Ihren ROI aus der Zusammenarbeit mit ConversionRate.Store",
+        "captions": [
+          "Break-even-Punkt (Monate)",
+          "Zusätzlicher Gewinn in 12 Monaten (unter der Annahme, dass die Kosten für den CRO-Service&nbsp;$20k betragen)"
+        ]
+      }
+    },
+    "arpu": {
+      "desktop": "Durchschnittlicher Umsatz pro Benutzer",
+      "mobile": "ARPU",
+      "slideCaption": "Angestrebte ARPU-Steigerung (%)",
+      "colLeft": {
+        "title": "Verstehen Sie die direkten Auswirkungen von CRO auf Ihr Geschäftsergebnis",
+        "captions": [
+          "Neuer durchschnittlicher Umsatz pro Nutzer nach dem CRO-Projekt",
+          "Zusätzlicher monatlicher Gewinn als Ergebnis der CRO-Verbesserung ($)"
+        ]
+      },
+      "colRight": {
+        "title": "Schätzen Sie Ihren ROI aus der Zusammenarbeit mit ConversionRate.Store",
+        "captions": [
+          "Break-even-Punkt (Monate)",
+          "Zusätzlicher Gewinn in 12 Monaten (unter der Annahme, dass die Kosten für den CRO-Service&nbsp;$20k betragen)"
+        ]
+      }
+    },
+    "funnelInfo": {
+      "title": "Holen Sie sich Expertenhilfe bei der Berechnung Ihrer KPIs und dem Benchmarking Ihrer Leistung",
+      "subtitle": "In diesem Gespräch werden wir:",
+      "list": [
+        "Hören Sie sich Ihre spezifischen Geschäftsanforderungen und Herausforderungen an",
+        "Erstellen Sie einen Plan zur genauen Berechnung Ihrer wichtigsten Leistungsindikatoren (KPIs)",
+        "Geben Sie einen Überblick über die wichtigsten CRO/UXO-Möglichkeiten, die wir für Ihre Website sehen"
+      ],
+      "formTitle": "Terminieren Sie Ihre Konsultation",
+      "cta": "Erhalten Sie Hilfe bei der KPI-Berechnung",
+      "note": "Wenn Sie sich nicht sicher sind, wie Ihre aktuellen Kennzahlen lauten, keine Sorge, wir helfen Ihnen, sie zu finden und den Uplift zu schätzen."
+    }
+  },
+  "sectionCompetencies": {
+    "title": "9 wichtige Kompetenzen für Ihr engagiertes CRO-Team",
+    "caption": " Für jedes Projekt stellen wir ein Team mit 9 wesentlichen Kompetenzen zusammen, die für ein erfolgreiches CRO/UXO-Projekt erforderlich sind"
+  },
+  "sectionProcess": {
+    "title": "Unser wissenschaftlicher CRO/UXO-Prozess",
+    "step": "Schritt {number}",
+    "purpose": "Zweck",
+    "methodology": "Methodik"
+  },
+  "sectionProducts": {
+    "title": "Unsere CRO/UXO-Produkte",
+    "buttonMobile": "Ergebnisschätzungen erhalten",
+    "buttonDesktop": "Erhalten Sie eine Schätzung des erwarteten Ergebnisses",
+    "mostPopular": "Am beliebtesten",
+    "bestValue": "Bester Wert für LEs",
+    "header1": "CRO/UXO-Halterung",
+    "header2": "Leistungsorientierte CRO/UXO",
+    "header3": "CRO/UXO-Audit",
+    "bookACall": "Buchen Sie einen Anruf und erfahren Sie mehr",
+    "buttonFunnelInfo": {
+      "title": "Schätzen Sie die potenzielle Steigerung Ihrer wichtigsten Umsatzkennzahl",
+      "subtitle": "In diesem Gespräch erhalten Sie:",
+      "list": [
+        "Eine geschätzte Steigerung Ihrer wichtigsten Umsatzkennzahl, zu der wir uns verpflichten können",
+        "Ein Überblick über die wichtigsten CRO/UXO-Möglichkeiten, die wir für Ihre Website sehen",
+        "Ein Angebot für ein auf Ihr Unternehmen zugeschnittenes CRO/UXO-Projekt"
+      ],
+      "formTitle": "Planen Sie Ihre Ergebnisbesprechung",
+      "cta": "Buchen Sie einen Anruf, um einen Kostenvoranschlag zu erhalten",
+      "note": "Wenn Sie sich nicht sicher sind, wie Ihre aktuellen Kennzahlen lauten, keine Sorge, wir helfen Ihnen, sie zu finden und den Uplift zu schätzen."
+    },
+    "linkFunnelInfo": {
+      "title": "Buchen Sie einen Anruf, um mehr über unsere CRO/UXO Services zu erfahren",
+      "subtitle": "In diesem Gespräch erhalten Sie:",
+      "list": [
+        "Ein Überblick über unsere CRO/UXO-Dienstleistungen und wie sie Ihrem Unternehmen nützen können",
+        "Eine ausführliche Erläuterung des Produkts, das Ihren Bedürfnissen am besten entspricht",
+        "Antworten auf Ihre Fragen zu unseren Prozessen und erwarteten Ergebnissen",
+        "Ein maßgeschneiderter Plan, der die nächsten Schritte zur Erreichung Ihrer Geschäftsziele skizziert"
+      ],
+      "formTitle": "Terminieren Sie Ihre Konsultation",
+      "cta": "Buchen Sie einen Anruf",
+      "note": "Wenn Sie sich nicht sicher sind, wie Ihre aktuellen Kennzahlen lauten, keine Sorge, wir helfen Ihnen, sie zu finden und den Uplift zu schätzen."
+    }
+  },
+  "sectionFeedbacks": {
+    "title": "Was sagen unsere Kunden über uns?",
+    "buttonShowMore": "Mehr zeigen"
+  },
+  "sectionFAQ": {
+    "title": "FAQ"
+  },
+  "cta": {
+    "guaranteed": {
+      "subtitle": "Garantierte Ergebnisse",
+      "title": {
+        "prefix": "Eine erfolgsabhängige Vereinbarung bedeutet, dass wir uns zu einem vereinbarten Anstieg der Umsatzkennzahlen verpflichten und so eine",
+        "roi": "positive Kapitalrendite",
+        "suffix": "aus Ihrem CRO-Projekt mit uns"
+      },
+      "funnelInfo": {
+        "title": "Schätzen Sie Ihren ROI aus einem CRO/UXO-Projekt für Ihr Unternehmen",
+        "subtitle": "In diesem Gespräch erhalten Sie:",
+        "list": {
+          "item1": "Ein prognostizierter ROI aus einem CRO/UXO-Projekt für Ihre Website/Produkt",
+          "item2": "Eine geschätzte Steigerung Ihrer wichtigsten Umsatzkennzahl, zu der wir uns verpflichten können",
+          "item3": "Ein Überblick über die wichtigsten CRO/UXO-Möglichkeiten, die wir für Ihre Website sehen"
+        },
+        "formTitle": "Planen Sie Ihre Ergebnisbesprechung",
+        "note": "Wenn Sie sich nicht sicher sind, wie Ihre aktuellen Kennzahlen lauten, keine Sorge, wir helfen Ihnen, sie zu finden und den Uplift zu schätzen.",
+        "cta": "Buchen Sie einen Anruf für eine ROI-Schätzung"
+      },
+      "cta": "Schätzen Sie den ROI Ihres CRO-Projekts"
+    },
+    "keyFactors": {
+      "subtitle": "Leistungsabhängige Preisgestaltung",
+      "title": "Schlüsselfaktoren, die den Preis eines CRO-Projekts bestimmen:",
+      "list": {
+        "item1": "Aktuelle Leistung des Trichters",
+        "item2": "Gewünschtes Ausmaß des Anstiegs der wichtigsten Makro-Kennzahlen",
+        "item3": "Erforderliche Ressourcen und Fachkenntnisse auf unserer Seite, um das Ziel zu erreichen"
+      },
+      "cta": "Erhalten Sie Ihr individuelles Angebot",
+      "funnelInfo": {
+        "title": "Wichtige Faktoren, die den Preis des Projekts bestimmen",
+        "subtitle": "",
+        "list": {
+          "item1": "Anzahl der zu optimierenden Trichterstufen",
+          "item2": "Wie weit der Trichter bereits optimiert ist",
+          "item3": "Verbesserung der wichtigsten Leistungskennzahlen, um das Projektziel zu erreichen"
+        },
+        "formTitle": "Termin für Ihre Angebotsbesprechung",
+        "note": "Wenn Sie sich nicht sicher sind, wie Ihre aktuellen Kennzahlen lauten, keine Sorge, wir helfen Ihnen, sie zu finden und den Uplift zu schätzen.",
+        "cta": "Angebot für CRO-Projekt einholen"
+      }
+    },
+    "recieveAccess": {
+      "title": "Melden Sie sich an, um Zugang zu weiteren 16 CRO-Fallstudien und allen zukünftigen Updates zu erhalten.",
+      "subtitle": "Dem Spiel immer einen Schritt voraus",
+      "button": "Erhalten Sie alle Fallstudien",
+      "submitted": "Sie erhalten jetzt alle Fallstudien direkt in Ihren Posteingang",
+      "successfully": "Mit Erfolg!"
+    },
+    "help": {
+      "benchmark": {
+        "title": "Liegen Sie in irgendeiner Kennzahl unter den Benchmarks? Wir helfen Ihnen bei der Analyse und Verbesserung der Konversionen mit unserer kostenlosen Produktprüfung",
+        "firstButton": "Buchen Sie eine Beratung",
+        "secondButton": "Erhalten Sie Hilfe bei der KPi-Berechnung",
+        "firstFunnelInfo": {
+          "title": "Buchen Sie einen Anruf, um die besten CRO/UXO-Möglichkeiten für Ihr Unternehmen zu entdecken und eine Schätzung der zu erwartenden Umsatzsteigerung zu erhalten.",
+          "subtitle": "In diesem Gespräch erhalten Sie:",
+          "list": [
+            "Ein prognostizierter ROI aus einem CRO/UXO-Projekt für Ihre Website/Produkt",
+            "Eine geschätzte Steigerung Ihrer wichtigsten Umsatzkennzahl, zu der wir uns verpflichten können",
+            "Ein Überblick über die wichtigsten CRO/UXO-Möglichkeiten, die wir für Ihre Website sehen"
+          ],
+          "formTitle": "Planen Sie Ihre Ergebnisbesprechung",
+          "cta": "Buchen Sie einen Anruf für eine ROI-Schätzung",
+          "note": "Wenn Sie sich nicht sicher sind, wie Ihre aktuellen Kennzahlen lauten, keine Sorge, wir helfen Ihnen, sie zu finden und den Uplift zu schätzen."
+        },
+        "secondFunnelInfo": {
+          "title": "Holen Sie sich Expertenhilfe bei der Berechnung Ihrer KPIs und dem Benchmarking Ihrer Leistung",
+          "subtitle": "In diesem Gespräch werden wir:",
+          "list": [
+            "Hören Sie sich Ihre spezifischen Geschäftsanforderungen und Herausforderungen an",
+            "Erstellen Sie einen Plan zur genauen Berechnung Ihrer wichtigsten Leistungsindikatoren (KPIs)",
+            "Geben Sie einen Überblick über die wichtigsten CRO/UXO-Möglichkeiten, die wir für Ihre Website sehen"
+          ],
+          "formTitle": "Terminieren Sie Ihre Konsultation",
+          "cta": "Erhalten Sie Hilfe bei der KPI-Berechnung",
+          "note": "Wenn Sie sich nicht sicher sind, wie Ihre aktuellen Kennzahlen lauten, keine Sorge, wir helfen Ihnen, sie zu finden und den Uplift zu schätzen."
+        }
+      },
+      "estimate": {
+        "title": "Entdecken Sie, wie wir diese Ergebnisse für Ihr Unternehmen erzielen können.\n Buchen Sie jetzt einen Anruf mit einem CRO-Strategen",
+        "firstButton": "Buchen Sie einen Anruf",
+        "secondButton": "Holen Sie sich Hilfe bei der Renditeberechnung",
+        "firstFunnelInfo": {
+          "title": "Schätzen Sie Ihren ROI aus einem CRO/UXO-Projekt für Ihr Unternehmen",
+          "subtitle": "In diesem Gespräch erhalten Sie:",
+          "list": [
+            "Ein prognostizierter ROI aus einem CRO/UXO-Projekt für Ihre Website/Produkt",
+            "Eine geschätzte Steigerung Ihrer wichtigsten Umsatzkennzahl, zu der wir uns verpflichten können",
+            "Ein Überblick über die wichtigsten CRO/UXO-Möglichkeiten, die wir für Ihre Website sehen"
+          ],
+          "formTitle": "Planen Sie Ihre Ergebnisbesprechung",
+          "cta": "Buchen Sie einen Anruf für eine ROI-Schätzung",
+          "note": "Wenn Sie sich nicht sicher sind, wie Ihre aktuellen Kennzahlen lauten, keine Sorge, wir helfen Ihnen, sie zu finden und den Uplift zu schätzen."
+        },
+        "secondFunnelInfo": {
+          "title": "Vereinbaren Sie einen Termin, um Ihren ROI mit fachkundiger Unterstützung abzuschätzen",
+          "subtitle": "In diesem Gespräch werden wir:",
+          "list": [
+            "Unterstützung bei der Berechnung Ihrer wichtigsten Leistungsindikatoren (KPIs)",
+            "Eine vorläufige ROI-Schätzung auf der Grundlage Ihrer KPIs",
+            "Ein Überblick über die wichtigsten CRO/UXO-Möglichkeiten, die wir für Ihre Website sehen"
+          ],
+          "formTitle": "Terminieren Sie Ihre Konsultation",
+          "cta": "Erhalten Sie Hilfe bei der ROI-Berechnung",
+          "note": "Wenn Sie sich nicht sicher sind, wie Ihre aktuellen Kennzahlen lauten, keine Sorge, wir helfen Ihnen, sie zu finden und den Uplift zu schätzen."
+        }
+      }
+    },
+    "winRate": {
+      "titlePrefix": "Unser A/B-Test",
+      "titleSuffix": "Das bedeutet, dass unsere alternativen Varianten in jedem anderen Test, den wir durchführen, die Kontrollvariante schlagen.",
+      "marked": "Die Gewinnrate beträgt 52%.",
+      "caption": "Diese hohe Effektivität wird durch einen strengen wissenschaftlichen Prozess der Ableitung und Validierung von CRO-Hypothesen erreicht"
+    },
+    "freeReview": {
+      "title": "Entdecken Sie CRO- und UXO-Möglichkeiten für Ihr Produkt mit unserem kostenlosen UX-Review",
+      "placeholderUrl": "Geben Sie die URL Ihrer Website ein",
+      "button": "Erhalten Sie eine kostenlose Bewertung",
+      "funnelInfo": {
+        "title": "Buchen Sie einen Anruf, um die besten CRO/UXO-Möglichkeiten für Ihr Unternehmen zu entdecken und eine Schätzung der zu erwartenden Umsatzsteigerung zu erhalten.",
+        "subtitle": "In diesem Gespräch erhalten Sie:",
+        "list": [
+          "Ein prognostizierter ROI aus einem CRO/UXO-Projekt für Ihre Website/Produkt",
+          "Eine geschätzte Steigerung Ihrer wichtigsten Umsatzkennzahl, zu der wir uns verpflichten können",
+          "Ein Überblick über die wichtigsten CRO/UXO-Möglichkeiten, die wir für Ihre Website sehen"
+        ],
+        "formTitle": "Planen Sie Ihre Ergebnisbesprechung",
+        "cta": "Buchen Sie einen Anruf für eine ROI-Schätzung",
+        "note": "Wenn Sie sich nicht sicher sind, wie Ihre aktuellen Kennzahlen lauten, keine Sorge, wir helfen Ihnen, sie zu finden und den Uplift zu schätzen."
+      }
+    }
+  }
+}

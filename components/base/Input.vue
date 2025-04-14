@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { onClickOutside } from '@vueuse/core'
 
+defineOptions({ inheritAttrs: false })
+
 const props = defineProps({
   required: {
     type: Boolean,
@@ -78,6 +80,7 @@ onClickOutside(target, () => {
         width="18"
         :height="small ? 14 : 18"
       />
+
       <template v-if="items?.length">
         <Icon
           v-if="!isOpen"
@@ -92,6 +95,7 @@ onClickOutside(target, () => {
           size="20"
         />
       </template>
+
       <input
         v-model="model"
         :id="id"
@@ -115,13 +119,13 @@ onClickOutside(target, () => {
     <div
       v-if="items?.length"
       class="input__dropdown dropdown"
-      :class="{active: isOpen}"
+      :class="{ active: isOpen }"
     >
       <div
         v-for="(item, index) of items"
         :key="index"
         class="dropdown__item"
-        :class="{'active': model === item}"
+        :class="{ 'active': model === item }"
         @click="model = item"
       >
         {{ item }}
@@ -134,11 +138,10 @@ onClickOutside(target, () => {
 .input {
   border-radius: 100px;
   border: 1px solid $border;
-  // font-size: 14px;
   background: #fff;
   width: 100%;
   min-height: 50px;
-  padding: 14px 24px 12px;
+  padding: 13px 24px 11px;
   transition: 0.3s;
   outline: none;
   height: 100%;

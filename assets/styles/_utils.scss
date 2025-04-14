@@ -1,3 +1,5 @@
+@use 'variables';
+
 .fw-bold {
   font-weight: 700;
 }
@@ -55,33 +57,33 @@
 
 .color {
   &-purple {
-    color: $purple;
+    color: variables.$purple;
   }
   &-yellow {
-    color: $yellow;
+    color: variables.$yellow;
   }
   &-primary {
-    color: $font-primary;
+    color: variables.$font-primary;
   }
   &-secondary {
-    color: $font-secondary;
+    color: variables.$font-secondary;
   }
   &-white {
     color: #fff;
   }
   &-violet {
-    color: $violet;
+    color: variables.$violet;
   }
 }
 
 .bg {
   &-purple {
-    background-color: $purple;
+    background-color: variables.$purple;
     &_light {
-      background-color: $bg--purple-light;
+      background-color: variables.$bg--purple-light;
     }
     &_dark {
-      background-color: $bg--purple-dark;
+      background-color: variables.$bg--purple-dark;
       color: #fff;
     }
   }
@@ -92,12 +94,12 @@
 
 .bg {
   &--purple {
-    background-color: $purple;
+    background-color: variables.$purple;
     &-light {
-      background-color: $bg--purple-light;
+      background-color: variables.$bg--purple-light;
     }
     &-dark {
-      background-color: $bg--purple-dark;
+      background-color: variables.$bg--purple-dark;
       color: #fff;
     }
   }
@@ -105,26 +107,26 @@
     background-color: #fff;
   }
   &--violet {
-    background-color: $violet;
+    background-color: variables.$violet;
     color: #fff;
   }
   &--yellow {
-    background-color: $yellow;
+    background-color: variables.$yellow;
   }
   &--gradient {
-    background: $gradient-dark;
+    background: variables.$gradient-dark;
     color: #fff;
     &-light {
-      background: $gradient-light;
+      background: variables.$gradient-light;
       &_smooth {
-        background: $gradient-light-smooth;
+        background: variables.$gradient-light-smooth;
       }
     }
   }
 }
 
 .border {
-  border: 1px solid $border;
+  border: 1px solid variables.$border;
 }
 
 .lh {

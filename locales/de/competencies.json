@@ -1,0 +1,40 @@
+{
+  "competencies": [
+    {
+      "title": "Projektleiter",
+      "caption": "Koordiniert den gesamten CRO-Prozess und sorgt für eine nahtlose Integration und Abstimmung aller Teamaktivitäten"
+    },
+    {
+      "title": "CRO-Stratege",
+      "caption": "Entwickelt einen strategischen Plan zur Erreichung der Ziele des CRO-Projekts und ist für die Erstellung datengestützter Hypothesen zur Validierung durch Experimente verantwortlich"
+    },
+    {
+      "title": "UX-Forscher",
+      "caption": "Führt Stimmungsanalysen mit Hilfe von Umfragen, Usability-Tests und Interviews durch, um die Triebkräfte, Bedenken, Reibungen und Absichten der Benutzer zu ermitteln. Diese UX-Forschung bildet die Grundlage für erfolgreiche CRO/UXO-Hypothesen"
+    },
+    {
+      "title": "Daten-Ingenieur",
+      "caption": "Schafft eine fortschrittliche Architektur zur Datenerfassung und -speicherung, um Datenanalysen zu ermöglichen und robuste, datengestützte Hypothesen zu erstellen"
+    },
+    {
+      "title": "Datenanalyst",
+      "caption": "Entwickelt quantitative Datenanalysemodelle, um die Trichterleistung zu analysieren und Muster im Nutzerverhalten zu erkennen. Diese Analyse ist entscheidend für die Festlegung des Schwerpunkts des CRO-Projekts."
+    },
+    {
+      "title": "Designer",
+      "caption": "Integriert CRO-gesteuerte Designprinzipien in die bestehende Designsprache und den Tonfall Ihrer Marke, um Schnittstellen zu gestalten, die Ihre Zielgruppe ansprechen und die Konversionsrate erhöhen."
+    },
+    {
+      "title": "Werbetexter",
+      "caption": "Erstellt Inhalte, die nicht nur zur Stimme Ihrer Marke passen, sondern auch CRO-Best-Practices anwenden, um das Engagement der Nutzer und die Konversionsraten deutlich zu verbessern"
+    },
+    {
+      "title": "Entwickler",
+      "caption": "Entwirft alternative UX-Varianten auf der Grundlage von CRO-Hypothesen, die durch Experimente zu validieren sind"
+    },
+    {
+      "title": "QA Spezialist",
+      "caption": "Garantiert, dass Ihre Website einwandfrei funktioniert und mit CRO-Strategien übereinstimmt, um ein perfektes Kundenerlebnis auf allen Plattformen zu gewährleisten"
+    }
+  ]
+}

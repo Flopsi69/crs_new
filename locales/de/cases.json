@@ -1,0 +1,145 @@
+[
+  {
+    "isHidden": false,
+    "id": "comodo",
+    "logo": "comodo.svg",
+    "product": "Comodo",
+    "about": "ist ein führender Anbieter von Cybersicherheitsdiensten mit einem Anteil von 44% am Markt für SSL-Zertifikate und ist auf 13,9% aller Webdomains weltweit aktiv.",
+    "experiment": "Radikale Neugestaltung der Landing Page von Comodo, um kritische Reibungspunkte zu beseitigen, die in unserer qualitativen Datenanalyse identifiziert wurden.",
+    "result": {
+      "value": 17.5,
+      "caption": "CVR UPLIFT",
+      "url": "https://conversionrate.store/b2b-saas-conversion-optimization/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "depositphotos",
+    "logo": "depositphotos.svg",
+    "product": "Depositphotos",
+    "about": "ist eine führende Stockfoto-Website, die Nutzern On-Demand- und Abonnement-Pläne anbietet.",
+    "experiment": "Neugestaltung des Registrierungsablaufs, um die Registrierungsrate und die Anzahl der Nutzer, die zur Kasse gehen und kaufen, zu erhöhen.",
+    "result": {
+      "value": 8.3,
+      "caption": "ARPU UPLIFT",
+      "url": "https://conversionrate.store/saas-registration-flow-optimization/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "gaiam",
+    "logo": "gaiam.png",
+    "product": "",
+    "about": "Führende Lifestyle-Marke, die Yoga, Fitness und Wellness für jedermann zugänglich macht",
+    "experiment": "Verringern Sie die Zahl der abgebrochenen Einkäufe durch ein Popup-Fenster zum Verlassen des Warenkorbs.",
+    "result": {
+      "value": 13,
+      "caption": "CVR UPLIFT",
+      "url": "https://conversionrate.store/ecommerce-popup-increase-conversion-rate/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "moneyGeek",
+    "logo": "moneyGeek.png",
+    "product": "MoneyGeek",
+    "about": "hilft Ihnen mit kostenlosen Tools, personalisierten Empfehlungen, unabhängigen Bewertungen und Expertentipps, Ihre Finanzen im Griff zu behalten.",
+    "experiment": "Automatisches Ausfüllen von Eingabefeldern für den Standort anhand der IP-Adresse, um das Suchranking und die Lead-Gen-Konversionsrate zu erhöhen.",
+    "result": {
+      "value": 10.63,
+      "caption": "CVR UPLIFT",
+      "url": "https://conversionrate.store/increase-lead-generation-conversion-rate-ip-address-autofill/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "natPat",
+    "logo": "natPat.png",
+    "product": "NATPAT",
+    "about": "ist ein Leuchtturm der Innovation im Bereich Gesundheit und Wellness und bietet eine einzigartige Auswahl an Pflastern und Aufklebern, die Ihr tägliches Leben verbessern.",
+    "experiment": "Maximieren Sie ARPU & CVR mit personalisierten Landing Pages, indem Sie angepasste Inhaltsblöcke verwenden, um die Absichten der Benutzer zu steuern.",
+    "result": {
+      "value": 28.3,
+      "caption": "ARPU UPLIFT",
+      "url": "https://conversionrate.store/boost-ecommerce-sales-personilized-content/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "vorbereiten",
+    "logo": "preply.svg",
+    "product": "Preply",
+    "about": "ist ein führender Marktplatz, der Studenten hilft, private Nachhilfelehrer zu finden, um online zu lernen, vor allem für das Erlernen von Sprachen.",
+    "experiment": "Entfernung unnötiger Elemente, die auf der Homepage um die Aufmerksamkeit der Benutzer konkurrieren, um die Aufmerksamkeit auf den ersten Schritt im Konversionsfluss zu lenken",
+    "result": {
+      "value": 11.2,
+      "caption": "ARPU UPLIFT",
+      "url": "https://conversionrate.store/home-page-conversions-rate-optimization/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "swingu",
+    "logo": "swingu.png",
+    "product": "SwingU",
+    "about": "ist eine führende Golf-App, die mehr als 6 Millionen Nutzern weltweit Entfernungsmessungen und digitale Scorekeeping-Dienste bietet.",
+    "experiment": "Beschleunigen Sie die Entwicklung des Trichters und halten Sie gleichzeitig den Informationsverbrauch aufrecht.",
+    "result": {
+      "value": 80.7,
+      "caption": "CVR UPLIFT",
+      "url": "https://conversionrate.store/app-conversion-rate-boost/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "grantMe",
+    "logo": "grantMe.png",
+    "product": "GrantMe",
+    "about": "ist eine kanadische Online-Bildungsberatungsplattform. Das Unternehmen hat sich zum Ziel gesetzt, Studenten an Universitäten zu vermitteln und die Schulden der Absolventen zu reduzieren.",
+    "experiment": "Überwinden Sie Datenschutzbedenken und den Widerstand gegen \"Anrufe buchen\" mit der Calendly-Benutzeroberfläche",
+    "result": {
+      "value": 55.7,
+      "caption": "CVR UPLIFT",
+      "url": "https://conversionrate.store/increasing-conversion-with-calendly-book-a-call/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "moonMagic",
+    "logo": "moonMagic.png",
+    "product": "Mondmagie",
+    "about": "ist ein schnell wachsender Online-Schmuckladen, der Ringe, Halsketten, Ohrringe und andere Produkte in dieser Kategorie verkauft.",
+    "experiment": "Einführung eines Cross-Sell-Karussells im Einkaufswagen",
+    "result": {
+      "value": 9,
+      "caption": "ARPU UPLIFT",
+      "url": "https://conversionrate.store/boost-shopify-sales-cross-sell/"
+    }
+  },
+  {
+    "isHidden": true,
+    "id": "somnifix1",
+    "logo": "somnifix.png",
+    "product": "",
+    "about": "Ein führender Anbieter von Schlaflösungen, der für seine Mundstreifen bekannt ist, die die Nasenatmung und die Schlafqualität verbessern und einen wachsenden Kundenstamm bedienen",
+    "experiment": "Steigerung der Konversionsrate, indem Sie die Kunden durch die verschiedenen Stufen der Aufmerksamkeit führen",
+    "result": {
+      "value": 22.7,
+      "caption": "CVR UPLIFT",
+      "url": "https://conversionrate.store/increase-ecommerce-conversion/"
+    }
+  },
+  {
+    "isHidden": true,
+    "id": "Somnifix2",
+    "logo": "somnifix.png",
+    "product": "",
+    "about": "Ein führender Anbieter von Schlaflösungen, der für seine Mundstreifen bekannt ist, die die Nasenatmung und die Schlafqualität verbessern und einen wachsenden Kundenstamm bedienen",
+    "experiment": "Steigern Sie den AOV und ARPU Ihres eCommerce-Shops, indem Sie den Umsatz auf teurere Produkte umverteilen.",
+    "result": {
+      "value": 27,
+      "caption": "AOV UPLIFT",
+      "url": ""
+    }
+  }
+]

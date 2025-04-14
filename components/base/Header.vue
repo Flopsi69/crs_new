@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-import { menu } from '~/configs';
+import menu from '~/configs/menu';
+
+const { t } = useI18n();
 
 const isBurgerActive = ref(false);
 
@@ -16,7 +18,7 @@ const toggleBurger = () => {
 
 <template>
   <header class="header bg--purple-dark">
-    <div class="container flex-between">
+    <div class="container header__container">
       <NuxtLink
         to="/"
         class="logo lh-0"
@@ -29,20 +31,22 @@ const toggleBurger = () => {
       </NuxtLink>
 
       <nav
-        v-if="menu.length"
+        v-if="menu?.navigation?.length"
         class="nav flex"
         :class="{active: isBurgerActive}"
       >
         <NuxtLink
-          v-for="menuItem in menu.filter(i => i.isActive)"
+          v-for="menuItem in menu.navigation.filter(i => i.isActive)"
           :key="menuItem.title"
           :to="menuItem.url"
           class="nav__link"
           :external="menuItem.url.includes('http')"
         >
-          {{ menuItem.title }}
+          {{ t(menuItem.title) }}
         </NuxtLink>
       </nav>
+
+      <LanguageToggler class="header__lang-toggler" />
 
       <button
         class="header__trigger button button_flat"
@@ -83,6 +87,19 @@ const toggleBurger = () => {
 
 .header {
   padding: 18px 0 16px;
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    @media(max-width: $md) {
+      gap: 24px;
+    }
+  }
+  &__lang-toggler {
+    @media(max-width: $md) {
+      margin-left: auto;
+    }
+  }
   &__trigger {
     position: relative;
     color: #fff;
@@ -109,6 +126,7 @@ const toggleBurger = () => {
 }
 
 .nav {
+  margin-left: auto;
   gap: 32px;
   @media(max-width: 1100px) {
     gap: 30px;

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 const { openModal } = useModal();
+const { validateInput } = useValidateInput()
 
 const { t } = useI18n();
 

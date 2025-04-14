@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 const { modalTarget, closeModal } = useModal();
+const { validateInput } = useValidateInput();
+const { t } = useI18n();
 
 interface Body {
   audience: 'lead' | 'prelead'
@@ -31,12 +33,12 @@ const props = defineProps({
   info: {
     type: Object,
     default: {
-      title: 'Fill out the form to get your free CRO consultation',
+      title: '',
       subtitle: '',
       list: [],
-      formTitle: 'Schedule Your Results Discussion',
-      cta: 'Submit',
-      note: 'If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift',
+      formTitle: '',
+      cta: '',
+      note: '',
       isGoal: false
     }
   }
@@ -93,7 +95,7 @@ function goToNextStep() {
   if (step.value === 2) {
     if (!isAgree.value) {
       error.agree = true;
-      toast.error('Please agree to the terms');
+      toast.error(t('modal.funnel.agreeError'));
       return;
     }
 
@@ -127,7 +129,7 @@ async function savePrelid() {
 }
 
 async function saveLead() {
-  const toastLoading = toast.loading('Submitting your data...');
+  const toastLoading = toast.loading(t('general.async.pending'));
 
   isLoading.value = true;
 
@@ -150,7 +152,7 @@ async function saveLead() {
   if (excel.error.value) {
     toast.update(toastLoading, {
       type: 'error',
-      render: 'Error submitting data',
+      render: t('general.async.error'),
       autoClose: true,
       isLoading: false
     });
@@ -160,7 +162,7 @@ async function saveLead() {
 
   toast.update(toastLoading, {
     type: 'success',
-    render: 'Data submitted successfully',
+    render: t('general.async.success'),
     autoClose: true,
     isLoading: false
   });
@@ -235,7 +237,7 @@ async function saveLead() {
         class="form__back"
         back
       >
-        Back
+        {{ t('modal.funnel.back') }}
       </BasePill>
 
       <img
@@ -276,9 +278,9 @@ async function saveLead() {
           <BaseInput
             v-model="form.name"
             small
-            label="Full name"
+            :label="t('input.name.label')"
             required
-            placeholder="Your full name"
+            :placeholder="t('input.name.placeholder')"
             icon="fa6-solid:user"
             :error="error.name"
             @click="error.name = ''"
@@ -288,9 +290,9 @@ async function saveLead() {
           <BaseInput
             v-model="form.url"
             small
-            label="Company URL"
+            :label="t('input.companyUrl.label')"
             required
-            placeholder="Company URL"
+            :placeholder="t('input.companyUrl.placeholder')"
             icon="fa6-solid:link"
             :error="error.url"
             @click="error.url = ''"
@@ -300,10 +302,10 @@ async function saveLead() {
           <BaseInput
             v-model="form.email"
             small
-            label="Business email"
+            :label="t('input.email.label')"
             required
             type="email"
-            placeholder="Business email"
+            :placeholder="t('input.email.placeholder')"
             icon="fa6-solid:envelope"
             :error="error.email"
             @click="error.email = ''"
@@ -320,8 +322,8 @@ async function saveLead() {
             v-if="!info.isGoal"
             v-model="form.annual_revenue"
             small
-            label="Annual Revenue"
-            placeholder="Annual Revenue"
+            :label="t('input.annualRevenue.label')"
+            :placeholder="t('input.annualRevenue.placeholder')"
             icon="fa6-solid:coins"
             :items="['less than $250,000', '$250,000 - $1 million', '$1 million - $10 million', 'more than $10 million', 'I prefer not to say']"
             id="annual_revenue"
@@ -330,8 +332,8 @@ async function saveLead() {
           <BaseInput
             v-model="form.hear_about_us"
             small
-            label="How did you hear about us?"
-            placeholder="How did you hear about us?"
+            :label="t('input.hearAboutUs.label')"
+            :placeholder="t('input.hearAboutUs.placeholder')"
             icon="fa6-solid:people-group"
             :items="['Somebody recommended us', 'Organic search', 'Google Ads', 'Other']"
             id="hear_about_us"
@@ -341,8 +343,8 @@ async function saveLead() {
             v-if="info.isGoal"
             v-model="form.project_goal"
             small
-            label="CRO project goal"
-            placeholder="CRO project goal"
+            :label="t('input.projectGoal.label')"
+            :placeholder="t('input.projectGoal.placeholder')"
             icon="octicon:goal-16"
             id="project_goal"
           />
@@ -364,12 +366,11 @@ async function saveLead() {
             :class="{active: isAgree, error: error.agree}"
             @click="isAgree = !isAgree; error.agree = false"
           >
-            By submitting this form, you agree to receive the requested
-            information, as well as occasional communications regarding
-            ConversionRate Store products, services, and events. You can
-            unsubscribe at any time. To read more visit privacy policy. Your
-            personal data will be processed in accordance with our privacy
-            policy.
+            {{ t('modal.funnel.agree') }}
+            <span
+              class="agree__checkbox"
+              :class="{active: isAgree, error: error.agree}"
+            ></span>
           </div>
         </div>
       </div>
@@ -380,7 +381,7 @@ async function saveLead() {
         :data-step="step"
         @click="goToNextStep"
       >
-        {{ step === 1 ?  'Continue' : info?.cta }}
+        {{ step === 1 ?  t("modal.funnel.continue") : info?.cta }}
       </button>
     </div>
   </div>
@@ -462,6 +463,7 @@ async function saveLead() {
     padding: 80px 100px 60px;
     @media(max-width: 1250px) {
       padding: 80px 30px 30px;
+      max-width: 450px;
     }
     @media(max-width: $md) {
       max-width: 100%;

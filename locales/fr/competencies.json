@@ -1,0 +1,40 @@
+{
+  "competencies": [
+    {
+      "title": "Chef de projet",
+      "caption": "Coordonne l'ensemble du processus d'ORC, en veillant à l'intégration et à l'alignement de toutes les activités de l'équipe."
+    },
+    {
+      "title": "Stratégiste CRO",
+      "caption": "Il élabore un plan stratégique pour atteindre les objectifs du projet CRO et est responsable de la création d'hypothèses fondées sur des données qui seront validées par l'expérimentation."
+    },
+    {
+      "title": "Chercheur UX",
+      "caption": "Analyse des sentiments des utilisateurs par le biais d'enquêtes, de tests d'utilisabilité et d'entretiens afin d'identifier les moteurs, les préoccupations, les frictions et les intentions des utilisateurs. Cette recherche UX constitue la base d'hypothèses CRO/UXO gagnantes."
+    },
+    {
+      "title": "Ingénieur de données",
+      "caption": "Créer une architecture avancée de saisie et de stockage des données afin de permettre l'analyse des données et de générer des hypothèses solides et fondées sur des données."
+    },
+    {
+      "title": "Analyste de données",
+      "caption": "Développer des modèles d'analyse de données quantitatives pour analyser la performance de l'entonnoir et identifier les modèles de comportement des utilisateurs. Cette analyse est essentielle pour définir l'orientation du projet CRO."
+    },
+    {
+      "title": "Designer",
+      "caption": "Intégrer les principes de conception orientés CRO au langage et au ton existants de votre marque, en créant des interfaces qui trouvent un écho auprès de votre public et génèrent des conversions."
+    },
+    {
+      "title": "Rédacteur",
+      "caption": "Crée un contenu qui non seulement correspond à la voix de votre marque, mais qui utilise également les meilleures pratiques de CRO pour améliorer de manière significative l'engagement des utilisateurs et les taux de conversion."
+    },
+    {
+      "title": "Développeur",
+      "caption": "Codes des variations UX alternatives basées sur des hypothèses CRO à valider par l'expérimentation."
+    },
+    {
+      "title": "Spécialiste AQ",
+      "caption": "Garantit que votre site web fonctionne parfaitement, en s'alignant sur les stratégies de CRO pour assurer une expérience client parfaite sur toutes les plateformes."
+    }
+  ]
+}

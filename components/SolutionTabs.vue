@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { solutions } from '~/configs';
+// import { solutions } from '~/configs';
 
 const active = ref(0);
 </script>

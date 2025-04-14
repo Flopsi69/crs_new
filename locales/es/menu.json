@@ -1,0 +1,49 @@
+{
+  "navigation": [
+    {
+      "title": "Agencia CRO de comercio electrónico",
+      "url": "https://conversionrate.store/ecommerce-cro-agency/",
+      "isActive": false
+    },
+    {
+      "title": "Estudios de casos de CRO",
+      "url": "https://conversionrate.store/cro-case-studies/",
+      "isActive": true
+    },
+    {
+      "title": "CRO basado en el rendimiento",
+      "url": "https://conversionrate.store/performance-based-cro/",
+      "isActive": false
+    },
+    {
+      "title": "Retenedor CRO",
+      "url": "https://conversionrate.store/cro-retainer/",
+      "isActive": false
+    },
+    {
+      "title": "Auditoría CRO",
+      "url": "https://conversionrate.store/cro-audit/",
+      "isActive": false
+    },
+    {
+      "title": "Carreras profesionales",
+      "url": "https://conversionrate.store/career/",
+      "isActive": true
+    },
+    {
+      "title": "Contacte con nosotros",
+      "url": "https://conversionrate.store/contact-us/",
+      "isActive": true
+    }
+  ],
+  "serviceLinks": [
+    {
+      "title": "Mapa del sitio",
+      "url": "https://conversionrate.store/autotemp_sitemap/"
+    },
+    {
+      "title": "Política de privacidad",
+      "url": "https://conversionrate.store/privacy/"
+    }
+  ]
+}
