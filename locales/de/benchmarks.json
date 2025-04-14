@@ -1,0 +1,236 @@
+{
+  "benchmarks": [
+    {
+      "title": "Mode, Accessoires und Bekleidung",
+      "metrics": [
+        {
+          "title": "Umwandlungssatz (CVR)",
+          "value": "3.64%"
+        },
+        {
+          "title": "Add-to-Cart Rate",
+          "value": "7.61%"
+        },
+        {
+          "title": "Abbruchrate des Warenkorbs",
+          "value": "76.25%"
+        },
+        {
+          "title": "Durchschnittlicher Auftragswert (AOV)",
+          "value": "$175.53"
+        },
+        {
+          "title": "Einheiten pro Transaktion",
+          "value": "2.64"
+        },
+        {
+          "title": "Durchschnittliche Transaktionen pro Benutzer",
+          "value": "0.10"
+        }
+      ]
+    },
+    {
+      "title": "Multi-Brand Einzelhandel",
+      "metrics": [
+        {
+          "title": "Umwandlungssatz (CVR)",
+          "value": "5.13%"
+        },
+        {
+          "title": "Add-to-Cart Rate",
+          "value": "9.43%"
+        },
+        {
+          "title": "Abbruchrate des Warenkorbs",
+          "value": "68.37%"
+        },
+        {
+          "title": "Durchschnittlicher Auftragswert (AOV)",
+          "value": "$90.03"
+        },
+        {
+          "title": "Einheiten pro Transaktion",
+          "value": "4.43"
+        },
+        {
+          "title": "Durchschnittliche Transaktionen pro Benutzer",
+          "value": "0.25"
+        }
+      ]
+    },
+    {
+      "title": "Essen & Trinken",
+      "metrics": [
+        {
+          "title": "Umwandlungssatz (CVR)",
+          "value": "6.52%"
+        },
+        {
+          "title": "Add-to-Cart Rate",
+          "value": "11.59%"
+        },
+        {
+          "title": "Abbruchrate des Warenkorbs",
+          "value": "63.44%"
+        },
+        {
+          "title": "Durchschnittlicher Auftragswert (AOV)",
+          "value": "$108.21"
+        },
+        {
+          "title": "Einheiten pro Transaktion",
+          "value": "7.34"
+        },
+        {
+          "title": "Durchschnittliche Transaktionen pro Benutzer",
+          "value": "0.26"
+        }
+      ]
+    },
+    {
+      "title": "Haus & Möbel",
+      "metrics": [
+        {
+          "title": "Umwandlungssatz (CVR)",
+          "value": "0.96%"
+        },
+        {
+          "title": "Add-to-Cart Rate",
+          "value": "3.32%"
+        },
+        {
+          "title": "Abbruchrate des Warenkorbs",
+          "value": "81.50%"
+        },
+        {
+          "title": "Durchschnittlicher Auftragswert (AOV)",
+          "value": "$370.56"
+        },
+        {
+          "title": "Einheiten pro Transaktion",
+          "value": "5.21"
+        },
+        {
+          "title": "Durchschnittliche Transaktionen pro Benutzer",
+          "value": "0.13"
+        }
+      ]
+    },
+    {
+      "title": "Schönheit & Körperpflege",
+      "metrics": [
+        {
+          "title": "Umwandlungssatz (CVR)",
+          "value": "5.10%"
+        },
+        {
+          "title": "Add-to-Cart Rate",
+          "value": "8.83%"
+        },
+        {
+          "title": "Abbruchrate des Warenkorbs",
+          "value": "74.18%"
+        },
+        {
+          "title": "Durchschnittlicher Auftragswert (AOV)",
+          "value": "$75.10"
+        },
+        {
+          "title": "Einheiten pro Transaktion",
+          "value": "9.23"
+        },
+        {
+          "title": "Durchschnittliche Transaktionen pro Benutzer",
+          "value": "0.45"
+        }
+      ]
+    },
+    {
+      "title": "Konsumgüter",
+      "metrics": [
+        {
+          "title": "Umwandlungssatz (CVR)",
+          "value": "4.49%"
+        },
+        {
+          "title": "Add-to-Cart Rate",
+          "value": "6.44%"
+        },
+        {
+          "title": "Abbruchrate des Warenkorbs",
+          "value": "62.51%"
+        },
+        {
+          "title": "Durchschnittlicher Auftragswert (AOV)",
+          "value": "$196.79"
+        },
+        {
+          "title": "Einheiten pro Transaktion",
+          "value": "8.98"
+        },
+        {
+          "title": "Durchschnittliche Transaktionen pro Benutzer",
+          "value": "0.20"
+        }
+      ]
+    },
+    {
+      "title": "Luxus & Juwelen",
+      "metrics": [
+        {
+          "title": "Umwandlungssatz (CVR)",
+          "value": "1.37%"
+        },
+        {
+          "title": "Add-to-Cart Rate",
+          "value": "3.69%"
+        },
+        {
+          "title": "Abbruchrate des Warenkorbs",
+          "value": "80.65%"
+        },
+        {
+          "title": "Durchschnittlicher Auftragswert (AOV)",
+          "value": "$395.60"
+        },
+        {
+          "title": "Einheiten pro Transaktion",
+          "value": "3.57"
+        },
+        {
+          "title": "Durchschnittliche Transaktionen pro Benutzer",
+          "value": "0.04"
+        }
+      ]
+    },
+    {
+      "title": "Tierpflege & Tierärztliche Dienstleistungen",
+      "metrics": [
+        {
+          "title": "Umwandlungssatz (CVR)",
+          "value": "3.57%"
+        },
+        {
+          "title": "Add-to-Cart Rate",
+          "value": "6.02%"
+        },
+        {
+          "title": "Abbruchrate des Warenkorbs",
+          "value": "57.81%"
+        },
+        {
+          "title": "Durchschnittlicher Auftragswert (AOV)",
+          "value": "$74.03"
+        },
+        {
+          "title": "Einheiten pro Transaktion",
+          "value": "5.08"
+        },
+        {
+          "title": "Durchschnittliche Transaktionen pro Benutzer",
+          "value": "0.17"
+        }
+      ]
+    }
+  ]
+}

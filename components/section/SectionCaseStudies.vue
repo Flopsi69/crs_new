@@ -5,7 +5,7 @@ const { t, locale } = useI18n();
 let cases = [];
 
 try {
-  const module = await import(`~/i18n/locales/${locale.value}/cases.json`);
+  const module = await import(`~/locales/${locale.value}/cases.json`);
   cases = module.default;
 } catch (error) {
   console.log(`Failed to load cases for locale ${locale.value}`);

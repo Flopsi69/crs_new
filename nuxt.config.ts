@@ -49,11 +49,45 @@ export default defineNuxtConfig({
 
   i18n: {
     locales: [
-      { code: 'en', name: 'English', language: 'en-US', file: 'en/en.json' },
-      { code: 'fr', name: 'France', language: 'fr-FR', file: 'fr.json' }
+      {
+        code: 'en',
+        name: 'English',
+        nameEnglish: 'English',
+        language: 'en-US',
+        file: 'en/index.json'
+      },
+      {
+        code: 'de',
+        name: 'Deutsch',
+        nameEnglish: 'German',
+        language: 'de-DE',
+        file: 'de/index.json'
+      },
+      {
+        code: 'es',
+        name: 'Español',
+        nameEnglish: 'Spanish',
+        language: 'es-ES',
+        file: 'es/index.json'
+      },
+      {
+        code: 'fr',
+        name: 'Français',
+        nameEnglish: 'French',
+        language: 'fr-FR',
+        file: 'fr/index.json'
+      }
     ],
+    bundle: {
+      fullInstall: false,
+      optimizeTranslationDirective: false
+    },
+    baseUrl: 'https://conversionrate.store',
     defaultLocale: 'en',
-    debug: false
+    debug: false,
+    lazy: true,
+    langDir: './locales/',
+    restructureDir: ''
   },
 
   gtm: {
@@ -69,11 +103,13 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "~/assets/styles/_colors.scss" as *;'
+          additionalData: '@use "~/assets/styles/_variables.scss" as *;'
         }
       }
     }
   },
+
+  css: ['~/assets/styles/global.scss'],
 
   alias: {
     img: fileURLToPath(new URL('./assets/images', import.meta.url))

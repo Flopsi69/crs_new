@@ -1,0 +1,40 @@
+{
+  "competencies": [
+    {
+      "title": "Jefe de proyecto",
+      "caption": "Coordina todo el proceso de CRO, garantizando una integración y alineación perfectas en todas las actividades del equipo."
+    },
+    {
+      "title": "Estratega de CRO",
+      "caption": "Desarrolla un plan estratégico para alcanzar los objetivos del proyecto de CRO y es responsable de crear hipótesis basadas en datos para su validación mediante la experimentación."
+    },
+    {
+      "title": "Investigador UX",
+      "caption": "Lleva a cabo un análisis del sentimiento de los usuarios mediante encuestas, pruebas de usabilidad y entrevistas para identificar sus motivaciones, preocupaciones, fricciones e intenciones. Esta investigación de la UX constituye la base de las hipótesis ganadoras de CRO/UXO."
+    },
+    {
+      "title": "Ingeniero de datos",
+      "caption": "Crea una arquitectura avanzada de captura y almacenamiento de datos para permitir el análisis de datos y generar hipótesis sólidas basadas en datos"
+    },
+    {
+      "title": "Analista de datos",
+      "caption": "Desarrolla modelos de análisis de datos cuantitativos para analizar el rendimiento del embudo e identificar patrones de comportamiento de los usuarios. Este análisis es esencial para definir el enfoque del proyecto de CRO"
+    },
+    {
+      "title": "Diseñador",
+      "caption": "Integra los principios de diseño impulsados por el CRO con el lenguaje y el tono de diseño existentes de su marca, elaborando interfaces que resuenen con su audiencia e impulsen las conversiones."
+    },
+    {
+      "title": "Redactor",
+      "caption": "Crea contenidos que no sólo coinciden con la voz de su marca, sino que también emplean las mejores prácticas de CRO para mejorar significativamente el compromiso de los usuarios y las tasas de conversión."
+    },
+    {
+      "title": "Desarrollador",
+      "caption": "Codifique variaciones UX alternativas basadas en hipótesis CRO que se validarán mediante experimentación"
+    },
+    {
+      "title": "Especialista en control de calidad",
+      "caption": "Garantiza que su sitio web funcione a la perfección, alineándose con las estrategias de CRO para asegurar una experiencia perfecta del cliente en todas las plataformas."
+    }
+  ]
+}

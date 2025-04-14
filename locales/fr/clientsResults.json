@@ -1,0 +1,206 @@
+[
+  {
+    "logo": "samCart.png",
+    "label": "SaaS",
+    "description": "est une puissante plateforme de commerce électronique qui permet aux entrepreneurs et aux entreprises de vendre des produits en ligne grâce à des solutions de paiement avancées.",
+    "mark": "SamCart",
+    "metrics": [
+      {
+        "label": "Notre objectif",
+        "caption": "Optimiser les achats de webinaires"
+      },
+      {
+        "label": "Domaines d'amélioration",
+        "caption": "Page produit, flux de paiement"
+      }
+    ],
+    "results": [
+      {
+        "value": "+14.1%",
+        "caption": "Taux de conversion"
+      },
+      {
+        "value": "+12.9%",
+        "caption": "Revenu moyen par utilisateur"
+      }
+    ]
+  },
+  {
+    "logo": "papayaGlobal.svg",
+    "label": "Plombgène",
+    "description": "est une plateforme de gestion des ressources humaines de premier plan, qui révolutionne les solutions globales de gestion des salaires et de conformité pour les entreprises de toutes tailles.",
+    "mark": "PapayaGlobal",
+    "metrics": [
+      {
+        "label": "Notre objectif",
+        "caption": "Augmentez le nombre de conversions en vue d'un appel téléphonique"
+      },
+      {
+        "label": "Domaines d'amélioration",
+        "caption": "Mécanismes de conversion"
+      }
+    ],
+    "results": [
+      {
+        "value": "+106.2%",
+        "caption": "Conversion pour l'obtention d'un devis"
+      },
+      {
+        "value": "+88.5%",
+        "caption": "Conversion à la programmation d'une démonstration"
+      }
+    ]
+  },
+  {
+    "logo": "zenithPrep.png",
+    "label": "Plombgène",
+    "description": "est une société de conseil primée dans le domaine de l'enseignement supérieur et est classée numéro 1 dans le domaine de l'éducation par USA Today.",
+    "mark": "Académie Zenith Prep",
+    "metrics": [
+      {
+        "label": "Notre objectif",
+        "caption": "Augmentez le nombre de conversions en vue d'un appel téléphonique"
+      },
+      {
+        "label": "Domaines d'amélioration",
+        "caption": "Page produit, flux d'inscription, flux de réservation"
+      }
+    ],
+    "results": [
+      {
+        "value": "+43.9%",
+        "caption": "Conversion en appels réservés et demandés"
+      },
+      {
+        "value": "+47.7%",
+        "caption": "Conversion de la page de remerciement vers l'affichage des webinaires"
+      }
+    ]
+  },
+  {
+    "logo": "swingu.png",
+    "label": "Application",
+    "description": "est une application de golf de premier plan offrant des scores en temps réel, des statistiques avancées et un coaching personnalisé, à laquelle plus de 5 millions de golfeurs font confiance dans le monde entier.",
+    "mark": "Swing U",
+    "metrics": [
+      {
+        "label": "Notre objectif",
+        "caption": "Augmenter la conversion en abonnés payants"
+      },
+      {
+        "label": "Domaines d'amélioration",
+        "caption": "Entonnoir d'achat, écran payant"
+      }
+    ],
+    "results": [
+      {
+        "value": "+46.9%",
+        "caption": "Abonnement au taux de conversion sur l'écran de mise à niveau"
+      },
+      {
+        "value": "+49.41%",
+        "caption": "Revenu moyen par utilisateur"
+      }
+    ]
+  },
+  {
+    "logo": "natPat.png",
+    "label": "eComm",
+    "description": "est une entreprise de santé et de bien-être reconnue pour ses solutions naturelles primées et bénéficiant de la confiance des familles du monde entier.",
+    "mark": "Patch naturel",
+    "metrics": [
+      {
+        "label": "Notre objectif",
+        "caption": "Augmentation de l'ECR pour tous les produits"
+      },
+      {
+        "label": "Domaines d'amélioration",
+        "caption": "Page d'accueil, page produit, caisse"
+      }
+    ],
+    "results": [
+      {
+        "value": "+26.4%",
+        "caption": "Taux de conversion en achat"
+      },
+      {
+        "value": "+17%",
+        "caption": "Revenu moyen par utilisateur"
+      }
+    ]
+  },
+  {
+    "logo": "depositphotos.svg",
+    "label": "Marché",
+    "description": "est une agence de photos d'archives de premier plan, qui propose plus de 200 millions d'images, de vecteurs et de vidéos de haute qualité aux créatifs et aux entreprises du monde entier.",
+    "mark": "Photos de dépôt",
+    "metrics": [
+      {
+        "label": "Notre objectif",
+        "caption": "Augmenter la conversion vers l'inscription"
+      },
+      {
+        "label": "Domaines d'amélioration",
+        "caption": "Flux d'inscription"
+      }
+    ],
+    "results": [
+      {
+        "value": "9.3%",
+        "caption": "Conversion en inscription"
+      }
+    ]
+  },
+  {
+    "logo": "carId.png",
+    "label": "eComm",
+    "description": "est un détaillant de pièces automobiles de premier plan, offrant une vaste sélection de pièces de rechange, d'accessoires et de personnalisations pour les véhicules de tous types.",
+    "mark": "Carte d'identité de la voiture",
+    "metrics": [
+      {
+        "label": "Notre objectif",
+        "caption": "Augmentation de l'ECR pour tous les produits"
+      },
+      {
+        "label": "Domaines d'amélioration",
+        "caption": "Page d'accueil, page de détails du produit"
+      }
+    ],
+    "results": [
+      {
+        "value": "+4%",
+        "caption": "Taux de conversion du commerce électronique"
+      },
+      {
+        "value": "+5%",
+        "caption": "Revenu moyen par utilisateur"
+      }
+    ]
+  },
+  {
+    "logo": "moneyGeek.png",
+    "label": "Plombgène",
+    "description": "est un site web de premier plan sur les finances personnelles qui fournit des conseils d'experts et des ressources pour aider les individus à prendre des décisions financières intelligentes.",
+    "mark": "MoneyGeek",
+    "metrics": [
+      {
+        "label": "Notre objectif",
+        "caption": "Augmenter la conversion vers les produits partenaires"
+      },
+      {
+        "label": "Domaines d'amélioration",
+        "caption": "Pages de contenu sur l'assurance"
+      }
+    ],
+    "results": [
+      {
+        "value": "+41.0%",
+        "caption": "Conversion en prospects"
+      },
+      {
+        "value": "+24.3% ",
+        "caption": "Revenu moyen par utilisateur"
+      }
+    ]
+  }
+]

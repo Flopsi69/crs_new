@@ -1,0 +1,206 @@
+[
+  {
+    "logo": "samCart.png",
+    "label": "SaaS",
+    "description": "es una potente plataforma de comercio electrónico que permite a empresarios y empresas vender productos en línea con soluciones de pago avanzadas",
+    "mark": "SamCart",
+    "metrics": [
+      {
+        "label": "Nuestro objetivo",
+        "caption": "Optimizar las compras de CR a webinars"
+      },
+      {
+        "label": "Áreas de mejora",
+        "caption": "Página de producto, flujo de pago"
+      }
+    ],
+    "results": [
+      {
+        "value": "+14.1%",
+        "caption": "Tasa de conversión"
+      },
+      {
+        "value": "+12.9%",
+        "caption": "Ingresos medios por usuario"
+      }
+    ]
+  },
+  {
+    "logo": "papayaGlobal.svg",
+    "label": "Leadgen",
+    "description": "es una plataforma líder de gestión de la mano de obra, que revoluciona las soluciones globales de nóminas y cumplimiento para empresas de todos los tamaños",
+    "mark": "PapayaGlobal",
+    "metrics": [
+      {
+        "label": "Nuestro objetivo",
+        "caption": "Aumentar la conversión para reservar una llamada"
+      },
+      {
+        "label": "Áreas de mejora",
+        "caption": "Mecanismos de conversión"
+      }
+    ],
+    "results": [
+      {
+        "value": "+106.2%",
+        "caption": "Conversión a la obtención de un presupuesto"
+      },
+      {
+        "value": "+88.5%",
+        "caption": "Conversión para programar una demostración"
+      }
+    ]
+  },
+  {
+    "logo": "zenithPrep.png",
+    "label": "Leadgen",
+    "description": "es una empresa de consultoría universitaria galardonada y clasificada como nº 1 en Educación en USA Today.",
+    "mark": "Academia Zenith Prep",
+    "metrics": [
+      {
+        "label": "Nuestro objetivo",
+        "caption": "Aumentar la conversión para reservar una llamada"
+      },
+      {
+        "label": "Áreas de mejora",
+        "caption": "Página de producto, flujo de registro, flujo de reserva"
+      }
+    ],
+    "results": [
+      {
+        "value": "+43.9%",
+        "caption": "Conversión a llamadas reservadas y solicitadas"
+      },
+      {
+        "value": "+47.7%",
+        "caption": "Conversión a la vista de seminarios web desde la página de agradecimiento"
+      }
+    ]
+  },
+  {
+    "logo": "swingu.png",
+    "label": "Aplicación",
+    "description": "es una aplicación de golf superior que ofrece puntuación en tiempo real, estadísticas avanzadas y entrenamiento personalizado, en la que confían más de 5 millones de golfistas de todo el mundo",
+    "mark": "Swing U",
+    "metrics": [
+      {
+        "label": "Nuestro objetivo",
+        "caption": "Aumente la conversión a suscriptores de pago"
+      },
+      {
+        "label": "Áreas de mejora",
+        "caption": "Embudo de compra, pantalla paywall"
+      }
+    ],
+    "results": [
+      {
+        "value": "+46.9%",
+        "caption": "Suscripción a la tasa de conversión en la pantalla de actualización"
+      },
+      {
+        "value": "+49.41%",
+        "caption": "Ingresos medios por usuario"
+      }
+    ]
+  },
+  {
+    "logo": "natPat.png",
+    "label": "eComm",
+    "description": "es una empresa de salud y bienestar aclamada por sus galardonadas soluciones naturales y en la que confían familias de todo el mundo",
+    "mark": "Parche natural",
+    "metrics": [
+      {
+        "label": "Nuestro objetivo",
+        "caption": "Aumento del ECR en todos los productos"
+      },
+      {
+        "label": "Áreas de mejora",
+        "caption": "Página de inicio, página de producto, caja"
+      }
+    ],
+    "results": [
+      {
+        "value": "+26.4%",
+        "caption": "Tasa de conversión a compra"
+      },
+      {
+        "value": "+17%",
+        "caption": "Ingresos medios por usuario"
+      }
+    ]
+  },
+  {
+    "logo": "depositphotos.svg",
+    "label": "Mercado",
+    "description": "es una agencia de fotografía de stock de primer orden, que ofrece más de 200 millones de imágenes, vectores y vídeos de alta calidad a creativos y empresas de todo el mundo",
+    "mark": "Depositphotos",
+    "metrics": [
+      {
+        "label": "Nuestro objetivo",
+        "caption": "Aumentar la conversión a inscripción"
+      },
+      {
+        "label": "Áreas de mejora",
+        "caption": "Flujo de inscripción"
+      }
+    ],
+    "results": [
+      {
+        "value": "9.3%",
+        "caption": "Conversión a inscripción"
+      }
+    ]
+  },
+  {
+    "logo": "carId.png",
+    "label": "eComm",
+    "description": "es un minorista líder de piezas de automóviles, que ofrece una amplia selección de piezas de recambio, accesorios y personalizaciones para vehículos de todo tipo.",
+    "mark": "Identificación del coche",
+    "metrics": [
+      {
+        "label": "Nuestro objetivo",
+        "caption": "Aumento del ECR en todos los productos"
+      },
+      {
+        "label": "Áreas de mejora",
+        "caption": "Página de inicio, página de detalles del producto"
+      }
+    ],
+    "results": [
+      {
+        "value": "+4%",
+        "caption": "Tasa de conversión del comercio electrónico"
+      },
+      {
+        "value": "+5%",
+        "caption": "Ingresos medios por usuario"
+      }
+    ]
+  },
+  {
+    "logo": "moneyGeek.png",
+    "label": "Leadgen",
+    "description": "es un sitio web de finanzas personales de primera categoría que proporciona asesoramiento experto y recursos para ayudar a las personas a tomar decisiones financieras inteligentes",
+    "mark": "MoneyGeek",
+    "metrics": [
+      {
+        "label": "Nuestro objetivo",
+        "caption": "Aumentar la conversión a productos asociados"
+      },
+      {
+        "label": "Áreas de mejora",
+        "caption": "Páginas de contenido sobre seguros"
+      }
+    ],
+    "results": [
+      {
+        "value": "+41.0%",
+        "caption": "Conversión en clientes potenciales"
+      },
+      {
+        "value": "+24.3% ",
+        "caption": "Ingresos medios por usuario"
+      }
+    ]
+  }
+]

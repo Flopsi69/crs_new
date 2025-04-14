@@ -1,14 +1,26 @@
 <script lang="ts" setup>
+const { t } = useI18n()
+
+useSeoMeta({
+  title: t('seo.title'),
+  description: t('seo.description'),
+  ogTitle: t('seo.title'),
+  ogDescription: t('seo.description'),
+  ogUrl: 'https://conversionrate.store/',
+  ogType: 'website',
+  ogImage: 'https://conversionrate.store/images/big-logo.png', // Replace with actual OG image
+  twitterCard: 'summary_large_image'
+});
+
 useHead({
-  title: 'Performance-Based CRO Agency: Pay Only for Actual Results',
-  meta: [{
-    name: 'description',
-    content: 'CRO agency with guaranteed growth results. Trusted to run A/B tests on 127+ million users for clients like Microsoft, Unicorns, YC startups'
-  }],
   link: [
-    { rel: 'canonical', href: 'https://conversionrate.store/' }
+    {
+      rel: 'icon',
+      type: 'image/png',
+      href: '/favicon.png'
+    }
   ]
-})
+});
 </script>
 
 <template>

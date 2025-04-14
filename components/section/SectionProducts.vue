@@ -5,7 +5,7 @@ const { t, locale } = useI18n();
 let rows = [];
 
 try {
-  const module = await import(`~/i18n/locales/${locale.value}/productsTable.json`);
+  const module = await import(`~/locales/${locale.value}/productsTable.json`);
   rows = module.default;
 } catch (error) {
   console.log(`Failed to load table products for locale ${locale.value}`);

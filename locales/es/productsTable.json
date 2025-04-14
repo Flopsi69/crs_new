@@ -1,0 +1,32 @@
+[
+  {
+    "col1": "¿A quién va dirigido?",
+    "col2": "PYME",
+    "col3": "LEs con ingresos >$3 millones",
+    "col4": "Proyecto único para las PYME"
+  },
+  {
+    "col1": "Garantía de resultado",
+    "col2": "El compromiso de ofrecer resultados garantizados a lo largo del tiempo",
+    "col3": "El cliente sólo paga por el aumento real de la métrica de ingresos clave predefinida",
+    "col4": "Sin garantía de resultados"
+  },
+  {
+    "col1": "Precio del servicio",
+    "col2": "Cuota mensual fija moderada",
+    "col3": "Comisión por cada punto porcentual de aumento en la métrica de ingresos clave",
+    "col4": "Cuota fija única"
+  },
+  {
+    "col1": "Resultados esperados",
+    "col2": "Nuestro resultado medio es un aumento mensual del 4,5% de la métrica clave de rendimiento",
+    "col3": "Aumento mensual del 3,5% en las métricas clave de rendimiento",
+    "col4": "No validamos nuestras recomendaciones de CRO"
+  },
+  {
+    "col1": "Número de pruebas A/B al mes",
+    "col2": "Una media de 1 prueba A/B/mes",
+    "col3": "Una media de 1,5 pruebas A/B/mes",
+    "col4": "Sin pruebas A/B"
+  }
+]

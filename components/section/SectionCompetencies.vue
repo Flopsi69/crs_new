@@ -4,7 +4,7 @@ const { locale } = useI18n();
 
 let competencies = [];
 try {
-  const module = await import(`~/i18n/locales/${locale.value}/competencies.json`);
+  const module = await import(`~/locales/${locale.value}/competencies.json`);
   competencies = reactive(module.competencies);
 } catch (error) {
   console.log(`Failed to load competencies for locale ${locale.value}`);

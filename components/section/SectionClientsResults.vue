@@ -6,7 +6,7 @@ const { t, locale } = useI18n();
 let clients = [];
 
 try {
-  const module = await import(`~/i18n/locales/${locale.value}/clientsResults.json`);
+  const module = await import(`~/locales/${locale.value}/clientsResults.json`);
   clients = module.default;
 } catch (error) {
   console.log(`Failed to load client results for locale ${locale.value}`);

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 const { isOpen } = useModal();
+
 // const { isOpen: isExitIntentOpen, closeModal: closeExitIntent } = useExitIntent();
 
 // let lastScrollY = 0;
@@ -126,16 +127,4 @@ const { isOpen } = useModal();
 .overlay-fade-leave-to {
   opacity: 0;
 }
-
-// .modal-fade-enter-active,
-// .modal-fade-leave-active {
-//   transition: opacity transform 0.5s;
-//   transform: scale(1);
-// }
-
-// .modal-fade-enter-from,
-// .modal-fade-leave-to {
-//   opacity: 0;
-//   transform: scale(0);
-// }
 </style>

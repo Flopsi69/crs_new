@@ -1,0 +1,145 @@
+[
+  {
+    "isHidden": false,
+    "id": "comodo",
+    "logo": "comodo.svg",
+    "product": "Comodo",
+    "about": "est l'un des principaux fournisseurs de services de cybersécurité, avec une part de 44 % du marché des certificats SSL, et opère sur 13,9 % de l'ensemble des domaines web dans le monde.",
+    "experiment": "Refonte radicale de la page d'accueil de Comodo pour traiter les points de friction critiques des utilisateurs identifiés dans notre analyse des données qualitatives.",
+    "result": {
+      "value": 17.5,
+      "caption": "CVR UPLIFT",
+      "url": "https://conversionrate.store/b2b-saas-conversion-optimization/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "photos de dépôt",
+    "logo": "depositphotos.svg",
+    "product": "Photos de dépôt",
+    "about": "est un site web de photos d'archives de premier plan, qui propose aux utilisateurs des formules à la demande et des formules d'abonnement.",
+    "experiment": "Refonte du flux d'inscription afin d'augmenter le taux d'inscription et le nombre d'utilisateurs qui passent à la caisse et achètent.",
+    "result": {
+      "value": 8.3,
+      "caption": "UPLIFT ARPU",
+      "url": "https://conversionrate.store/saas-registration-flow-optimization/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "gaiam",
+    "logo": "gaiam.png",
+    "product": "",
+    "about": "Une marque leader dans le domaine de l'art de vivre qui met le yoga, le fitness et le bien-être à la portée de tous",
+    "experiment": "Réduisez l'abandon du panier d'achat en utilisant un pop-up de sortie comportemental",
+    "result": {
+      "value": 13,
+      "caption": "CVR UPLIFT",
+      "url": "https://conversionrate.store/ecommerce-popup-increase-conversion-rate/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "moneyGeek",
+    "logo": "moneyGeek.png",
+    "product": "MoneyGeek",
+    "about": "vous aide à maîtriser vos finances grâce à des outils gratuits, des recommandations personnalisées, des avis indépendants et des conseils d'experts.",
+    "experiment": "Remplissage automatique des champs de localisation à l'aide de l'adresse IP, afin d'améliorer le classement dans les moteurs de recherche et le taux de conversion de la génération de leads.",
+    "result": {
+      "value": 10.63,
+      "caption": "CVR UPLIFT",
+      "url": "https://conversionrate.store/increase-lead-generation-conversion-rate-ip-address-autofill/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "natPat",
+    "logo": "natPat.png",
+    "product": "NATPAT",
+    "about": "est un symbole d'innovation dans le domaine de la santé et du bien-être, offrant une gamme unique de patchs et d'autocollants conçus pour améliorer votre vie quotidienne.",
+    "experiment": "Maximisez l'ARPU et le CVR avec des pages d'atterrissage personnalisées, en utilisant des blocs de contenu personnalisés pour naviguer dans l'intention de l'utilisateur.",
+    "result": {
+      "value": 28.3,
+      "caption": "UPLIFT ARPU",
+      "url": "https://conversionrate.store/boost-ecommerce-sales-personilized-content/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "répondre à l'avance",
+    "logo": "preply.svg",
+    "product": "Préparez",
+    "about": "est une place de marché de premier plan qui aide les étudiants à trouver des professeurs particuliers pour étudier en ligne, principalement pour l'apprentissage des langues.",
+    "experiment": "Suppression des éléments inutiles qui se disputent l'attention des utilisateurs sur la page d'accueil, afin de concentrer l'attention sur la première étape du processus de conversion.",
+    "result": {
+      "value": 11.2,
+      "caption": "UPLIFT ARPU",
+      "url": "https://conversionrate.store/home-page-conversions-rate-optimization/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "swingu",
+    "logo": "swingu.png",
+    "product": "SwingU",
+    "about": "est une application de golf de premier plan qui offre des services de télémétrie et de pointage numérique à plus de 6 millions d'utilisateurs dans le monde.",
+    "experiment": "Accélérer la progression de l'entonnoir tout en maintenant la consommation d'informations.",
+    "result": {
+      "value": 80.7,
+      "caption": "CVR UPLIFT",
+      "url": "https://conversionrate.store/app-conversion-rate-boost/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "grantMe",
+    "logo": "grantMe.png",
+    "product": "GrantMe",
+    "about": "est une plateforme canadienne de conseil en éducation en ligne. L'entreprise a pour objectif d'intégrer les étudiants dans les universités et de réduire l'endettement des diplômés.",
+    "experiment": "L'interface utilisateur de Calendly permet de surmonter les problèmes de confidentialité et de résistance à l'appel téléphonique",
+    "result": {
+      "value": 55.7,
+      "caption": "CVR UPLIFT",
+      "url": "https://conversionrate.store/increasing-conversion-with-calendly-book-a-call/"
+    }
+  },
+  {
+    "isHidden": false,
+    "id": "magie de la lune",
+    "logo": "moonMagic.png",
+    "product": "La magie de la lune",
+    "about": "est une bijouterie en ligne en plein essor qui vend des bagues, des colliers, des boucles d'oreilles et d'autres produits de cette catégorie.",
+    "experiment": "Introduction d'un carrousel de vente croisée dans le panier d'achat",
+    "result": {
+      "value": 9,
+      "caption": "UPLIFT ARPU",
+      "url": "https://conversionrate.store/boost-shopify-sales-cross-sell/"
+    }
+  },
+  {
+    "isHidden": true,
+    "id": "somnifix1",
+    "logo": "somnifix.png",
+    "product": "",
+    "about": "Leader dans le domaine des solutions pour le sommeil, l'entreprise est connue pour ses bandelettes buccales qui améliorent la respiration nasale et la qualité du sommeil, et dessert une clientèle de plus en plus nombreuse.",
+    "experiment": "Augmenter le taux de conversion en faisant passer les clients par des étapes de sensibilisation",
+    "result": {
+      "value": 22.7,
+      "caption": "CVR UPLIFT",
+      "url": "https://conversionrate.store/increase-ecommerce-conversion/"
+    }
+  },
+  {
+    "isHidden": true,
+    "id": "somnifix2",
+    "logo": "somnifix.png",
+    "product": "",
+    "about": "Leader dans le domaine des solutions pour le sommeil, l'entreprise est connue pour ses bandelettes buccales qui améliorent la respiration nasale et la qualité du sommeil, et dessert une clientèle de plus en plus nombreuse.",
+    "experiment": "Augmenter le chiffre d'affaires et l'ARPU des boutiques de commerce électronique en redistribuant les ventes vers des produits plus chers.",
+    "result": {
+      "value": 27,
+      "caption": "AOV UPLIFT",
+      "url": ""
+    }
+  }
+]

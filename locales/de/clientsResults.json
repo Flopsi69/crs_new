@@ -1,0 +1,206 @@
+[
+  {
+    "logo": "samCart.png",
+    "label": "SaaS",
+    "description": "ist eine leistungsstarke E-Commerce-Plattform, die es Unternehmern und Unternehmen ermöglicht, Produkte online mit fortschrittlichen Checkout-Lösungen zu verkaufen.",
+    "mark": "SamCart",
+    "metrics": [
+      {
+        "label": "Unser Ziel",
+        "caption": "Optimieren Sie CR zu Webinar-Käufen"
+      },
+      {
+        "label": "Bereiche der Verbesserung",
+        "caption": "Produktseite, Kaufabwicklung"
+      }
+    ],
+    "results": [
+      {
+        "value": "+14.1%",
+        "caption": "Umrechnungskurs"
+      },
+      {
+        "value": "+12.9%",
+        "caption": "Durchschnittlicher Umsatz pro Nutzer"
+      }
+    ]
+  },
+  {
+    "logo": "papayaGlobal.svg",
+    "label": "Leadgen",
+    "description": "ist eine führende Plattform für das Personalmanagement, die die globale Gehaltsabrechnung und Compliance-Lösungen für Unternehmen jeder Größe revolutioniert.",
+    "mark": "PapayaGlobal",
+    "metrics": [
+      {
+        "label": "Unser Ziel",
+        "caption": "Steigern Sie die Konversion zur Buchung eines Anrufs"
+      },
+      {
+        "label": "Bereiche der Verbesserung",
+        "caption": "Mechanismen zur Umwandlung"
+      }
+    ],
+    "results": [
+      {
+        "value": "+106.2%",
+        "caption": "Umstellung auf ein Angebot"
+      },
+      {
+        "value": "+88.5%",
+        "caption": "Umstellung auf die Terminierung einer Demo"
+      }
+    ]
+  },
+  {
+    "logo": "zenithPrep.png",
+    "label": "Leadgen",
+    "description": "ist ein preisgekröntes College-Beratungsunternehmen und wird von USA Today als Nummer 1 im Bereich Bildung eingestuft.",
+    "mark": "Zenith Prep Akademie",
+    "metrics": [
+      {
+        "label": "Unser Ziel",
+        "caption": "Steigern Sie die Konversion zur Buchung eines Anrufs"
+      },
+      {
+        "label": "Bereiche der Verbesserung",
+        "caption": "Produktseite, Registrierungsablauf, Buchungsablauf"
+      }
+    ],
+    "results": [
+      {
+        "value": "+43.9%",
+        "caption": "Umwandlung in gebuchte und angeforderte Anrufe"
+      },
+      {
+        "value": "+47.7%",
+        "caption": "Konvertierung zur Webinar-Ansicht von der Dankeseite"
+      }
+    ]
+  },
+  {
+    "logo": "swingu.png",
+    "label": "App",
+    "description": "ist eine Top-Golf-App, die Scoring in Echtzeit, erweiterte Statistiken und personalisiertes Coaching bietet und der über 5 Millionen Golfer weltweit vertrauen.",
+    "mark": "Schaukel U",
+    "metrics": [
+      {
+        "label": "Unser Ziel",
+        "caption": "Steigern Sie die Umwandlung in bezahlte Abonnenten"
+      },
+      {
+        "label": "Bereiche der Verbesserung",
+        "caption": "Einkaufstrichter, Paywall-Bildschirm"
+      }
+    ],
+    "results": [
+      {
+        "value": "+46.9%",
+        "caption": "Konversionsrate Abonnement auf Upgrade-Bildschirm"
+      },
+      {
+        "value": "+49.41%",
+        "caption": "Durchschnittlicher Umsatz pro Nutzer"
+      }
+    ]
+  },
+  {
+    "logo": "natPat.png",
+    "label": "eComm",
+    "description": "ist ein Unternehmen für Gesundheit und Wellness, das für seine preisgekrönten natürlichen Lösungen bekannt ist und dem Familien weltweit vertrauen.",
+    "mark": "Natural Patch",
+    "metrics": [
+      {
+        "label": "Unser Ziel",
+        "caption": "ECR-Uplift über alle Produkte hinweg"
+      },
+      {
+        "label": "Bereiche der Verbesserung",
+        "caption": "Homepage, Produktseite, Kasse"
+      }
+    ],
+    "results": [
+      {
+        "value": "+26.4%",
+        "caption": "Konversionsrate zum Kauf"
+      },
+      {
+        "value": "+17%",
+        "caption": "Durchschnittlicher Umsatz pro Nutzer"
+      }
+    ]
+  },
+  {
+    "logo": "depositphotos.svg",
+    "label": "Marktplatz",
+    "description": "ist eine führende Bildagentur, die Kreativen und Unternehmen weltweit über 200 Millionen hochwertige Bilder, Vektoren und Videos anbietet.",
+    "mark": "Depositphotos",
+    "metrics": [
+      {
+        "label": "Unser Ziel",
+        "caption": "Steigern Sie die Konversion zur Anmeldung"
+      },
+      {
+        "label": "Bereiche der Verbesserung",
+        "caption": "Ablauf der Registrierung"
+      }
+    ],
+    "results": [
+      {
+        "value": "9.3%",
+        "caption": "Konvertierung zur Anmeldung"
+      }
+    ]
+  },
+  {
+    "logo": "carId.png",
+    "label": "eComm",
+    "description": "ist ein führender Einzelhändler für Kfz-Teile und bietet eine große Auswahl an Ersatzteilen, Zubehör und Anpassungen für Fahrzeuge aller Art.",
+    "mark": "Auto-ID",
+    "metrics": [
+      {
+        "label": "Unser Ziel",
+        "caption": "ECR-Verbesserung für alle Produkte"
+      },
+      {
+        "label": "Bereiche der Verbesserung",
+        "caption": "Homepage, Produkt-Detailseite"
+      }
+    ],
+    "results": [
+      {
+        "value": "+4%",
+        "caption": "Konversionsrate im E-Commerce"
+      },
+      {
+        "value": "+5%",
+        "caption": "Durchschnittlicher Umsatz pro Nutzer"
+      }
+    ]
+  },
+  {
+    "logo": "moneyGeek.png",
+    "label": "Leadgen",
+    "description": "ist eine erstklassige Website für persönliche Finanzen, die Expertenratschläge und Ressourcen bereitstellt, um Einzelpersonen zu helfen, kluge finanzielle Entscheidungen zu treffen.",
+    "mark": "MoneyGeek",
+    "metrics": [
+      {
+        "label": "Unser Ziel",
+        "caption": "Steigern Sie den Umsatz mit Partnerprodukten"
+      },
+      {
+        "label": "Bereiche der Verbesserung",
+        "caption": "Seiten mit Versicherungsinhalten"
+      }
+    ],
+    "results": [
+      {
+        "value": "+41.0%",
+        "caption": "Umwandlung in Leads"
+      },
+      {
+        "value": "+24.3% ",
+        "caption": "Durchschnittlicher Umsatz pro Nutzer"
+      }
+    ]
+  }
+]

@@ -1,0 +1,39 @@
+#
+# Basic Crowdin CLI configuration
+# See https://crowdin.github.io/crowdin-cli/configuration for more information
+# See https://support.crowdin.com/developer/configuration-file/ for all available options
+#
+
+#
+# Your Crowdin credentials
+#
+'project_id': '769205'
+'api_token': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ3UUVxdmhVM3ZMT2EyWGljbVV5VCIsImp0aSI6IjhhOWI3MzU4N2Q5ZjUxZDRkZmU0Nzc4YTEyYjNlMzQzMDFlZTk5M2ZmZDgyMmQ1YjVkNTQxYTUwNjdmNDc5ZmZhZmVhYzkxMTdhMzIzZDExIiwiaWF0IjoxNzQ0MjE0MTQwLjY1MTg2MywibmJmIjoxNzQ0MjE0MTQwLjY1MTg2NiwiZXhwIjoxNzc1NzUwMTQwLjUzNTg0Miwic3ViIjoiMTY5MjI4MzciLCJzY29wZXMiOlsicHJvamVjdCJdLCJkb21haW4iOm51bGwsImFzc29jaWF0aW9ucyI6WyIqIl0sImxvZ2luX21ldGhvZCI6bnVsbCwic2Vzc2lvbiI6MH0.XdnGD8aFFEZNKH-DoOJUZqtt7uJjNRB800A_MhcydsdyYlF_OCe-z1Q7k4QVU1XeVO3A8LLDUTb_oVC_Y-Bkksfjco8mhjytTW45Jm7sSNpk8v_yOSJDH0oF3qSBTgOOrB2UaJjLM_ASPhDdbJCnfKUkZda1QA9j_ys9XHJYAJ1lINEG9BIw6x-RBW9Uk3dUZfAE-gyOhfPUVkIXcDOmonqi3iwVu4O1qum_r7FSi6zULJNerzkYGXs1OtLKGSSy2XIaC2QHKh-hX804xcK9630ohU50bQHjyfaFBkSnAx8y8ujLASCi15RwtheweaYrXbfFIWHg2GL2GTmM7kFHem3Syr5YS8fbilHGyKPG1wz5bs_WMrioosZGGgRXaXJW15PEVaIysXTRStPwmcan-YCSdW7c1TF75suGMkdLkagMFN8pq8MRahVVXZ9EXxGUvDgB0zoDOoh7ym2qEFcF4q5Xyq7Qt2Kr7vWqBfqRPxa-fc1whYvBCam9GZln91q9PWa_sKpLRKT03gBv-tiKTHuusGOWinAPLQC6auF9lBeq8crdAKeaPFXlejbU5MvILGYGIxfykfchiZBjcsTJbHjqCoaoG77w56ag2VzK23wzsASHDIBdg6zsnwfF3uFs5DTLtGztnN8yPn3tI5jSrdrYAE3OP5M3ZOfyHnfkURg'
+'base_path': '.'
+'base_url': 'https://api.crowdin.com'
+
+#
+# Defines whether to preserve the original directory structure in the Crowdin project
+# Recommended to set to true
+#
+'preserve_hierarchy': true
+
+#
+# Files configuration.
+# See https://support.crowdin.com/developer/configuration-file/ for all available options
+#
+files: [
+    {
+      #
+      # Source files filter
+      # e.g. "/resources/en/*.json"
+      #
+      'source': '/locales/en/**/*',
+
+      #
+      # Translation files filter
+      # e.g. "/resources/%two_letters_code%/%original_file_name%"
+      #
+      'translation': '/locales/%two_letters_code%/%original_file_name%'
+    }
+  ]

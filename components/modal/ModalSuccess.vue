@@ -26,17 +26,19 @@ const { closeModal } = useModal();
     </button>
 
     <div class="success__info text-center">
-      <div class="success__title title-1">Thank You!</div>
+      <div class="success__title title-1">
+        {{ $t('modal.success.title') }}
+      </div>
 
       <div class="success__subtitle subtitle-1">
-        We have received your request and will be in touch shortly
+        {{ $t('modal.success.subtitle') }}
       </div>
 
       <button
         class="success__button button button_yellow subtitle-3"
         @click="closeModal"
       >
-        Return to Homepage
+        {{ $t('modal.success.returnToHomepage') }}
       </button>
     </div>
   </div>

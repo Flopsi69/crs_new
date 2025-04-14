@@ -6,7 +6,7 @@
     id="crs-vs-other-cro-agencies"
   >
     <h2 class="section-title title-2">
-      <span class="color-purple">{{ $t('general.crs') }}</span>
+      <span class="color-purple">Conversion Rate Store</span>
       {{ $t('sectionCompare.title') }}
     </h2>
 
@@ -18,7 +18,7 @@
 
             <!-- TODO: create config and loop -->
             <div class="col subtitle-2 bg--gradient flex align-center">
-              {{ $t('sectionCompare.rows.head.crs') }}
+              Conversion Rate Store
             </div>
 
             <div class="col subtitle-2 bg--purple-light flex align-center">

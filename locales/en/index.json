@@ -1,19 +1,98 @@
 {
   "seo": {
     "title": "Performance-Based CRO Agency: Pay Only for Actual Results",
-    "description": "CRO agency with guaranteed growth results. Trusted to run A/B tests on 127+ million users for clients like Microsoft, Unicorns, YC startups",
-    "ogTitle": "Performance-Based CRO Agency: Pay Only for Actual Results",
-    "ogDescription": "CRO agency with guaranteed growth results. Trusted to run A/B tests on 127+ million users for clients like Microsoft, Unicorns, YC startups"
+    "description": "CRO agency with guaranteed growth results. Trusted to run A/B tests on 127+ million users for clients like Microsoft, Unicorns, YC startups"
+  },
+  "validation": {
+    "required": "This field is required",
+    "name": {
+      "minLength": "Name must be at least 3 characters long"
+    },
+    "email": {
+      "invalid": "Email is invalid",
+      "missingAt": "Email must contain an ",
+      "missingDot": "Email must contain a dot"
+    },
+    "url": {
+      "minLength": "URL must be at least 6 characters long",
+      "missingDot": "URL must contain a dot"
+    }
+  },
+  "input": {
+    "email": {
+      "label": "Business email",
+      "placeholder": "Business email"
+    },
+    "url": {
+      "label": "URL",
+      "placeholder": "Your website URL"
+    },
+    "name": {
+      "label": "Full name",
+      "placeholder": "Your full name"
+    },
+    "companyUrl": {
+      "label": "Company URL",
+      "placeholder": "Company URL"
+    },
+    "annualRevenue": {
+      "label": "Annual Revenue",
+      "placeholder": "Annual Revenue"
+    },
+    "hearAboutUs": {
+      "label": "How did you hear about us?",
+      "placeholder": "How did you hear about us?"
+    },
+    "projectGoal": {
+      "label": "CRO project goal",
+      "placeholder": "CRO project goal"
+    }
+  },
+  "modal": {
+    "success": {
+      "title": "Thank You!",
+      "subtitle": "We have received your request and will be in touch shortly",
+      "returnToHomepage": "Return to Homepage"
+    },
+    "funnel": {
+      "back": "Back",
+      "agree": "By submitting this form, you agree to receive the requested information, as well as occasional communications regarding ConversionRate Store products, services, and events. You can unsubscribe at any time. To read more visit privacy policy. Your personal data will be processed in accordance with our privacy policy.",
+      "continue": "Continue",
+      "agreeError": "Please agree to the terms"
+    },
+    "video": {
+      "ctaButton": "Schedule a FREE call",
+      "note": {
+        "title": "Thanks for watching!",
+        "subtitle": "Schedule a free СRO strategy session call with me"
+      }
+    },
+    "language": {
+      "title": "Select Language",
+      "label": "Find language",
+      "placeholder": "Find language"
+    }
   },
   "general": {
-    "crs": "Conversion Rate Store",
     "name": "Name",
     "businessEmail": "Business email",
     "async": {
       "pending": "Submitting your data...",
       "success": "Data submitted successfully",
       "error": "Error submitting data"
-    }
+    },
+    "copyright": "© Conversion Rate Store. All rights reserved. CONVERSIONRATE.STORE LIMITED Hong Kong, Glenealy street №1, Glenealy Tower, Unit 2A, 17/F"
+  },
+  "menu": {
+    "ecommerce": "Ecommerce CRO Agency",
+    "caseStudies": "CRO Case Studies",
+    "performance": "Performance-based CRO",
+    "retainer": "CRO retainer",
+    "audit": "CRO audit",
+    "careers": "Careers",
+    "contactUs": "Contact us",
+    "privacy": "Privacy policy",
+    "sitemap": "SiteMap"
   },
   "welcome": "Welcome to our site!",
   "sectionHero": {
@@ -123,7 +202,6 @@
     "rows": {
       "head": {
         "title": "Comparison",
-        "crs": "Conversion Rate Store",
         "other": "Other CRO agency",
         "inHouse": "In-house CRO/product team"
       },

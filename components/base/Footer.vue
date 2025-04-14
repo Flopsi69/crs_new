@@ -1,5 +1,9 @@
 <script lang="ts" setup>
-import { serviceLinks, menu} from '~/configs';
+import menu from '~/configs/menu';
+// import { serviceLinks, menu} from '~/configs';
+const { t } = useI18n();
+
+// const menu = getMenu(t);
 </script>
 
 <template>
@@ -17,41 +21,39 @@ import { serviceLinks, menu} from '~/configs';
         </NuxtLink>
 
         <nav
-          v-if="menu.length"
+          v-if="menu?.navigation?.length"
           class="nav flex"
         >
           <NuxtLink
-            v-for="menuItem in menu.filter(i => i.isActive)"
+            v-for="menuItem in menu.navigation.filter(i => i.isActive)"
             :key="menuItem.title"
             :to="menuItem.url"
             class="nav__link"
             external
           >
-            {{ menuItem.title }}
+            {{ t(menuItem.title) }}
           </NuxtLink>
         </nav>
       </div>
 
       <div class="footer__bottom flex justify-between">
         <div class="copyright">
-          &copy; Conversion Rate Store. All rights reserved.
-          CONVERSIONRATE.STORE LIMITED Hong Kong, Glenealy street №1, Glenealy
-          Tower, Unit 2A, 17/F
+          {{ t('general.copyright') }}
         </div>
 
         <div
-          v-if="serviceLinks.length"
+          v-if="menu?.serviceLinks?.length"
           class="meta flex"
         >
           <NuxtLink
-            v-for="(linkItem, index) in serviceLinks"
+            v-for="(linkItem, index) in menu.serviceLinks"
             :key="index"
             :to="linkItem.url"
             class="meta__link"
             target="_blank"
             external
           >
-            {{ linkItem.title }}
+            {{ t(linkItem.title) }}
           </NuxtLink>
         </div>
       </div>

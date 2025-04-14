@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 // import { processSteps as steps } from '~/configs';
 
-const { locale } = useI18n();
+const { locale, t } = useI18n();
 
 let steps = [];
 
 try {
-  const module = await import(`~/i18n/locales/${locale.value}/processSteps.json`);
+  const module = await import(`~/locales/${locale.value}/processSteps.json`);
   steps = module.steps;
 } catch (error) {
   console.log(`Failed to load steps for locale ${locale.value}`);
@@ -19,7 +19,7 @@ try {
     id="our-scientific-cro_uxo-process"
   >
     <h2 class="section-title title-2">
-      {{$t('sectionProcess.title')}}
+      {{ t('sectionProcess.title') }}
     </h2>
 
     <!-- TODO make components -->
@@ -32,7 +32,7 @@ try {
       >
         <div class="step__head flex align-start">
           <div class="step__num bg--purple">
-            {{ $t('sectionProcess.step', {number: index + 1}) }}
+            {{ t('sectionProcess.step', {number: index + 1}) }}
           </div>
           <h3 class="step__title subtitle-1">
             <span class="bg--purple-light">{{ step.title }}</span>
@@ -47,7 +47,7 @@ try {
             <div class="step__plate-head flex align-center">
               <img src="img/purpose.svg" />
               <div class="step__plate-title subtitle-1">
-                {{$t('sectionProcess.purpose')}}
+                {{t('sectionProcess.purpose')}}
               </div>
             </div>
 
@@ -63,7 +63,7 @@ try {
             <div class="step__plate-head flex align-center">
               <img src="img/methodology.svg" />
               <div class="step__plate-title subtitle-1">
-                {{ $t('sectionProcess.methodology') }}
+                {{ t('sectionProcess.methodology') }}
               </div>
             </div>
 

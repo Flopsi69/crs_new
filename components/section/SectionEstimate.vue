@@ -1,19 +1,19 @@
 <script lang="ts" setup>
 const { openModal } = useModal();
-
+const { validateInput } = useValidateInput()
 const { t } = useI18n();
 
 const info = {
   title: t(`sectionEstimate.funnelInfo.title`),
-    subtitle: t(`sectionEstimate.funnelInfo.subtitle`),
-    list: [
-      t(`sectionEstimate.funnelInfo.list[0]`),
-      t(`sectionEstimate.funnelInfo.list[1]`),
-      t(`sectionEstimate.funnelInfo.list[2]`)
-    ],
-    formTitle: t(`sectionEstimate.funnelInfo.formTitle`),
-    cta: t(`sectionEstimate.funnelInfo.cta`),
-    note: t(`sectionEstimate.funnelInfo.note`)
+  subtitle: t(`sectionEstimate.funnelInfo.subtitle`),
+  list: [
+    t(`sectionEstimate.funnelInfo.list[0]`),
+    t(`sectionEstimate.funnelInfo.list[1]`),
+    t(`sectionEstimate.funnelInfo.list[2]`)
+  ],
+  formTitle: t(`sectionEstimate.funnelInfo.formTitle`),
+  cta: t(`sectionEstimate.funnelInfo.cta`),
+  note: t(`sectionEstimate.funnelInfo.note`)
 }
 
 const activeTab = ref<'cvr' | 'arpu'>('cvr');
@@ -202,7 +202,7 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
 
           <BaseInput
             v-model="form.conversionRate"
-            :label="t('sectionEstimate.form.conversionPlaceholder')"
+            :label="t('sectionEstimate.form.conversionLabel')"
             required
             :placeholder="t('sectionEstimate.form.conversionPlaceholder')"
             @input="validateInputEstimate('conversionRate', $event)"
@@ -249,7 +249,7 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
             </div>
             <div
               class="identify__link link flex align-center subtitle-3"
-              @click="openModal({ info: info, id: 'homepage_calc_2' })"
+              @click="openModal({ info, id: 'homepage_calc_2' })"
             >
               {{ t('sectionEstimate.contactUs') }}
               <Icon

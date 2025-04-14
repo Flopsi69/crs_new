@@ -12,36 +12,24 @@ export default [
         title: 'Improve the UX/UI/Copy of Your Funnel',
         content: `
               <p class="text">
-                To address declining conversion and revenue metrics, start by
-                identifying whether the issue lies with your funnel's UX/UI/copy
-                or the quality of your traffic. Create a funnel report segmented
-                by source/medium. If all sources/mediums show similar
-                performance at each funnel stage—such as a similar proportion of
-                traffic drop-off at each step—it's likely that the problem is
-                with the funnel's UX/UI. Conversely, if each main source/medium
-                performs differently, the issue may be with the traffic quality.
+                To address declining conversion and revenue metrics, start by identifying whether the issue lies with your funnel's UX/UI/copy or the quality of your traffic. Create a funnel report segmented by source/medium. If all sources/mediums show similar performance at each funnel stage—such as a similar proportion of traffic drop-off at each step—it's likely that the problem is with the funnel's UX/UI. Conversely, if each main source/medium performs differently, the issue may be with the traffic quality.
               </p>
               <p class="subtitle-3">
-                If you determine that the problem is with the funnel UX/UI,
-                follow these steps to analyze and address the deficiencies:
+                If you determine that the problem is with the funnel UX/UI, follow these steps to analyze and address the deficiencies:
               </p>
               <ol class="text">
                 <li>
-                  Identify the performance of each funnel step in relaying
-                  traffic to the next step.
+                  Identify the performance of each funnel step in relaying traffic to the next step.
                 </li>
                 <li>Identify underperforming funnel steps.</li>
                 <li>
-                  Determine the reasons for traffic leaks at each
-                  underperforming step.
+                  Determine the reasons for traffic leaks at each underperforming step.
                 </li>
                 <li>
-                  Create a list of CRO hypotheses (remedies) to address the
-                  leaks.
+                  Create a list of CRO hypotheses (remedies) to address the leaks.
                 </li>
                 <li>
-                  Validate the CRO hypotheses through experimentation, such as
-                  A/B testing.
+                  Validate the CRO hypotheses through experimentation, such as A/B testing.
                 </li>
               </ol>
               <p class="subtitle-3">

@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-const { modalTarget, modalData, closeModal } = useModal();
-
 interface Body {
   audience: 'lead' | 'prelead'
   data: {
@@ -9,6 +7,10 @@ interface Body {
     title?: string
   }
 }
+
+const { validateInput } = useValidateInput()
+const { modalTarget, modalData, closeModal } = useModal();
+const { t } = useI18n()
 
 const form = reactive({
   name: '',
@@ -57,7 +59,7 @@ function validateInputs() {
 async function saveLead() {
   if (!validateInputs()) return false;
 
-  const toastLoading = toast.loading('Submitting your data...');
+  const toastLoading = toast.loading(t('general.async.pending'));
 
   isLoading.value = true;
 
@@ -80,7 +82,7 @@ async function saveLead() {
   if (excel.error.value) {
     toast.update(toastLoading, {
       type: 'error',
-      render: 'Error submitting data',
+      render: t('general.async.error'),
       autoClose: true,
       isLoading: false
     });
@@ -90,7 +92,7 @@ async function saveLead() {
 
   toast.update(toastLoading, {
     type: 'success',
-    render: 'Data submitted successfully',
+    render: t('general.async.success'),
     autoClose: true,
     isLoading: false
   });
@@ -172,9 +174,9 @@ async function saveLead() {
             src="img/modal-note-arrow-purple.svg"
             alt=""
           />
-
-          Thanks for watching! <br />
-          Schedule a free СRO strategy session call with me
+          {{ t('modal.video.note.title') }}
+          <br />
+          {{ t('modal.video.note.subtitle') }}
           <span>
             below
             <img
@@ -189,9 +191,9 @@ async function saveLead() {
           <BaseInput
             v-model="form.name"
             small
-            label="Full name"
             required
-            placeholder="Your full name"
+            :label="t('input.name.label')"
+            :placeholder="t('input.name.placeholder')"
             icon="fa6-solid:user"
             :error="error.name"
             @click="error.name = ''"
@@ -201,9 +203,9 @@ async function saveLead() {
           <BaseInput
             v-model="form.url"
             small
-            label="Company URL"
             required
-            placeholder="Company URL"
+            :label="t('input.companyUrl.label')"
+            :placeholder="t('input.companyUrl.placeholder')"
             icon="fa6-solid:link"
             :error="error.url"
             @click="error.url = ''"
@@ -213,10 +215,10 @@ async function saveLead() {
           <BaseInput
             v-model="form.email"
             small
-            label="Business email"
+            :label="t('input.email.label')"
             required
             type="email"
-            placeholder="Business email"
+            :placeholder="t('input.email.placeholder')"
             icon="fa6-solid:envelope"
             :error="error.email"
             @click="error.email = ''"
@@ -229,7 +231,7 @@ async function saveLead() {
           @click.prevent="saveLead"
           class="button button_yellow form__btn subtitle-3"
         >
-          Schedule a FREE call
+          {{ t('modal.video.ctaButton') }}
         </button>
       </BasePlate>
     </div>

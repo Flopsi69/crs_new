@@ -1,0 +1,236 @@
+{
+  "benchmarks": [
+    {
+      "title": "Mode, accessoires et habillement",
+      "metrics": [
+        {
+          "title": "Taux de conversion (CVR)",
+          "value": "3.64%"
+        },
+        {
+          "title": "Taux d'ajout au panier",
+          "value": "7.61%"
+        },
+        {
+          "title": "Taux d'abandon du panier",
+          "value": "76.25%"
+        },
+        {
+          "title": "Valeur moyenne des commandes (AOV)",
+          "value": "$175.53"
+        },
+        {
+          "title": "Unités par transaction",
+          "value": "2.64"
+        },
+        {
+          "title": "Transactions moyennes par utilisateur",
+          "value": "0.10"
+        }
+      ]
+    },
+    {
+      "title": "Commerce de détail multimarques",
+      "metrics": [
+        {
+          "title": "Taux de conversion (CVR)",
+          "value": "5.13%"
+        },
+        {
+          "title": "Taux d'ajout au panier",
+          "value": "9.43%"
+        },
+        {
+          "title": "Taux d'abandon du panier",
+          "value": "68.37%"
+        },
+        {
+          "title": "Valeur moyenne des commandes (AOV)",
+          "value": "$90.03"
+        },
+        {
+          "title": "Unités par transaction",
+          "value": "4.43"
+        },
+        {
+          "title": "Transactions moyennes par utilisateur",
+          "value": "0.25"
+        }
+      ]
+    },
+    {
+      "title": "Alimentation et boissons",
+      "metrics": [
+        {
+          "title": "Taux de conversion (CVR)",
+          "value": "6.52%"
+        },
+        {
+          "title": "Taux d'ajout au panier",
+          "value": "11.59%"
+        },
+        {
+          "title": "Taux d'abandon du panier",
+          "value": "63.44%"
+        },
+        {
+          "title": "Valeur moyenne des commandes (AOV)",
+          "value": "$108.21"
+        },
+        {
+          "title": "Unités par transaction",
+          "value": "7.34"
+        },
+        {
+          "title": "Transactions moyennes par utilisateur",
+          "value": "0.26"
+        }
+      ]
+    },
+    {
+      "title": "Maison et mobilier",
+      "metrics": [
+        {
+          "title": "Taux de conversion (CVR)",
+          "value": "0.96%"
+        },
+        {
+          "title": "Taux d'ajout au panier",
+          "value": "3.32%"
+        },
+        {
+          "title": "Taux d'abandon du panier",
+          "value": "81.50%"
+        },
+        {
+          "title": "Valeur moyenne des commandes (AOV)",
+          "value": "$370.56"
+        },
+        {
+          "title": "Unités par transaction",
+          "value": "5.21"
+        },
+        {
+          "title": "Transactions moyennes par utilisateur",
+          "value": "0.13"
+        }
+      ]
+    },
+    {
+      "title": "Beauté et soins personnels",
+      "metrics": [
+        {
+          "title": "Taux de conversion (CVR)",
+          "value": "5.10%"
+        },
+        {
+          "title": "Taux d'ajout au panier",
+          "value": "8.83%"
+        },
+        {
+          "title": "Taux d'abandon du panier",
+          "value": "74.18%"
+        },
+        {
+          "title": "Valeur moyenne des commandes (AOV)",
+          "value": "$75.10"
+        },
+        {
+          "title": "Unités par transaction",
+          "value": "9.23"
+        },
+        {
+          "title": "Transactions moyennes par utilisateur",
+          "value": "0.45"
+        }
+      ]
+    },
+    {
+      "title": "Biens de consommation",
+      "metrics": [
+        {
+          "title": "Taux de conversion (CVR)",
+          "value": "4.49%"
+        },
+        {
+          "title": "Taux d'ajout au panier",
+          "value": "6.44%"
+        },
+        {
+          "title": "Taux d'abandon du panier",
+          "value": "62.51%"
+        },
+        {
+          "title": "Valeur moyenne des commandes (AOV)",
+          "value": "$196.79"
+        },
+        {
+          "title": "Unités par transaction",
+          "value": "8.98"
+        },
+        {
+          "title": "Transactions moyennes par utilisateur",
+          "value": "0.20"
+        }
+      ]
+    },
+    {
+      "title": "Luxe et joaillerie",
+      "metrics": [
+        {
+          "title": "Taux de conversion (CVR)",
+          "value": "1.37%"
+        },
+        {
+          "title": "Taux d'ajout au panier",
+          "value": "3.69%"
+        },
+        {
+          "title": "Taux d'abandon du panier",
+          "value": "80.65%"
+        },
+        {
+          "title": "Valeur moyenne des commandes (AOV)",
+          "value": "$395.60"
+        },
+        {
+          "title": "Unités par transaction",
+          "value": "3.57"
+        },
+        {
+          "title": "Transactions moyennes par utilisateur",
+          "value": "0.04"
+        }
+      ]
+    },
+    {
+      "title": "Soins aux animaux et services vétérinaires",
+      "metrics": [
+        {
+          "title": "Taux de conversion (CVR)",
+          "value": "3.57%"
+        },
+        {
+          "title": "Taux d'ajout au panier",
+          "value": "6.02%"
+        },
+        {
+          "title": "Taux d'abandon du panier",
+          "value": "57.81%"
+        },
+        {
+          "title": "Valeur moyenne des commandes (AOV)",
+          "value": "$74.03"
+        },
+        {
+          "title": "Unités par transaction",
+          "value": "5.08"
+        },
+        {
+          "title": "Transactions moyennes par utilisateur",
+          "value": "0.17"
+        }
+      ]
+    }
+  ]
+}

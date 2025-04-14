@@ -1,0 +1,69 @@
+{
+  "steps": [
+    {
+      "title": "Datentechnische Einrichtung für Customer Journey Tracking",
+      "purpose": "Dieser Schritt gewährleistet eine robuste und umfassende Datenerfassungs- und -speicherungsarchitektur zur Analyse des Nutzerverhaltens, der Wahrnehmung und der Stimmungen, während sie sich durch den Trichter bewegen.",
+      "methodology": [
+        "Kartierung jedes Berührungspunkts in der Customer Journey",
+        "Einrichten von Ereignissen für jede Benutzeraktion im Trichter",
+        "Durchführen von QA für Datenströme",
+        "Einrichten der BigQuery-Datenbank"
+      ]
+    },
+    {
+      "title": "Analyse der Trichterleistung und des Benutzerverhaltens",
+      "purpose": "In diesem Schritt werden leistungsschwache Trichterphasen identifiziert, um die CRO-Anstrengungen zu fokussieren, und die Verhaltensmuster der Nutzer ermittelt, die mit hohen und niedrigen Umsatzkennzahlen korrelieren.",
+      "methodology": [
+        "Segmentierte Trichteranalyse",
+        "Regressionsmodellierung",
+        "Analyse des Benutzerflusses",
+        "Formular Analytik",
+        "Industrie-Benchmark-Analyse"
+      ]
+    },
+    {
+      "title": "Analyse der Benutzerstimmung und -wahrnehmung",
+      "purpose": "In diesem Schritt identifizieren und untersuchen wir die Antriebskräfte, Reibungen, Bedenken, Absichten und Unsicherheiten der Nutzer in jeder Phase der Customer Journey.",
+      "methodology": [
+        "Benutzerumfragen",
+        "Usability-Tests",
+        "Interviews",
+        "Analyse von Benutzerbewertungen"
+      ]
+    },
+    {
+      "title": "Erstellen Sie datengestützte CRO/UXO-Hypothesen",
+      "purpose": "Die CRO/UXO-Hypothesen dienen als Abhilfe für die durch die quantitative Datenanalyse und die UX-Forschung identifizierten Design- und Textprobleme. Dieser Schritt basiert auf der Erstellung der UX/UI/Copy für alternative Varianten der unterdurchschnittlichen Trichterstufen.",
+      "methodology": [
+        "Formulierung von Hypothesen auf der Grundlage von Erkenntnissen aus quantitativer Analyse und UX-Forschung",
+        "Optimale UX/UI/Kopie für alternative Varianten entwerfen",
+        "Vorvalidierung der alternativen UX/UI/Kopie durch Benutzertests"
+      ]
+    },
+    {
+      "title": "Hypothesen durch Experimente validieren",
+      "purpose": "In dieser Phase bewerten wir, ob die vorgeschlagene alternative Variante die primären Ertragskennzahlen des Kunden verbessert hat. In dieser Phase entwickeln und testen wir Experimente, gefolgt von einer Post-Test-Analyse, um zu bestätigen, dass die Änderungen der Variation direkt zu den beobachteten Ergebnissen beigetragen haben.",
+      "methodology": [
+        "Kodierung eines Experiments (z.B. A/B-Test) zur Validierung der Hypothese und der optimalen UX/UI/Copy der alternativen Variante",
+        "Testen Sie das Experiment, um eine fehlerfreie Benutzererfahrung der alternativen Variante sicherzustellen."
+      ]
+    },
+    {
+      "title": "Führen Sie eine Analyse der Ergebnisse nach dem Test durch",
+      "purpose": "Dieser Schritt ist von entscheidender Bedeutung, da er sicherstellt, dass die beobachteten Ergebnisse des A/B-Tests direkt auf die in der alternativen Variante eingeführten UX/UI/Copy-Änderungen zurückgeführt werden können. Er hilft uns zu überprüfen, ob die Hypothese richtig validiert wurde, und bestätigt, dass keine externen Faktoren die Testergebnisse beeinflusst haben.",
+      "methodology": [
+        "Segmentierte Trichteranalyse",
+        "Regressionsanalyse",
+        "Visuelle/interaktive Engagement-Analyse"
+      ]
+    },
+    {
+      "title": "Setzen Sie die siegreiche Variante als Standard-UX für alle Benutzer ein",
+      "purpose": "Setzen Sie die siegreiche Variante als Standard-UX für alle Benutzer ein.",
+      "methodology": [
+        "Implementieren Sie den Code der siegreichen alternativen Variante in den Quellcode der Website/des Produkts",
+        "Testen Sie das Rendering des Frontends, die Backend-Integrationen und die Einrichtung der Datentechnik, um die Qualität zu sichern."
+      ]
+    }
+  ]
+}
