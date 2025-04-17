@@ -23,7 +23,9 @@ const videos = [
     title: 'Riga Comm 2024',
     author: authors[0],
     id: 'homepage_video_0',
-    meeting: 'https://calendly.com/ihor-sokol/discovery-call-with-ihor?name=<name>&email=<email>'
+    meeting: 'https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=<name>&email=<email>'
+    // TODO return
+    // meeting: 'https://calendly.com/ihor-sokol/discovery-call-with-ihor?name=<name>&email=<email>'
   },
   {
     preview: '/images/video-preview-1.gif',
@@ -39,7 +41,9 @@ const videos = [
     title: 'eCommerce 2019',
     author: authors[0],
     id: 'homepage_video_2',
-    meeting: 'https://calendly.com/ihor-sokol/discovery-call-with-ihor?name=<name>&email=<email>'
+    meeting: 'https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=<name>&email=<email>'
+    // TODO return
+    // meeting: 'https://calendly.com/ihor-sokol/discovery-call-with-ihor?name=<name>&email=<email>'
   }
 ]
 
