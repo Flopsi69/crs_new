@@ -152,35 +152,25 @@
       }
     }
   },
-  "sectionClientsLogo": {
-    "title": "Our clients"
+  "sectionTrusted": {
+    "title": "Trusted by Market Leaders"
   },
   "sectionLeader": {
-    "prefix": "Recognized as a Global Leader in",
-    "cro": "Conversion Rate Optimization",
-    "uxo": "User Experience Optimization",
-    "croAbbr": "CRO",
-    "uxoAbbr": "UXO",
-    "and": "and\u00A0"
+    "prefix": "CONVERSION RATE STORE IS A",
+    "title": "Global Leader in Conversion Rate Optimization and User Experience Optimization"
   },
-  "sectionVideos": {
-    "title": "Watch our founders share actionable CRO tactics straight from the stage",
-    "videos": {
-      "0": {
-        "title": "Riga Comm 2024"
-      },
-      "1": {
-        "title": "eCommerce 2019"
-      },
-      "2": {
-        "title": "eCommerce 2019"
-      }
-    }
+  "sectionFounderVideos": {
+    "title": "Watch our founders share actionable CRO tactics straight from the stage"
+  },
+  "sectionClientVideos": {
+    "title": "Our Clients About the Results We Deliver"
   },
   "sectionSolutions": {
-    "caption": "Find the solution to your eCommerce business challenges",
-    "title": "Discover the causes and solutions to the challenges your eCommerce business is facing",
-    "subtitle": "Choose problem",
+    "caption": "Use our knowledge base",
+    "titleFirstRow": "Choose you eCommerce",
+    "titleSecondRow": "Get instant FREE",
+    "titleProblem": "problem",
+    "titleSolution": "solution",
     "viewAll": "View all",
     "showMore": "Show more",
     "solution": {
@@ -523,6 +513,19 @@
         "formTitle": "Schedule Your Results Discussion",
         "cta": "Book a call to estimate ROI",
         "note": "If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift"
+      }
+    },
+    "limitedOffer": {
+      "subtitle": "Limited time offer",
+      "title": "Get a CRO Strategy Session \n with Our CEO",
+      "caption": "For businesses generating \n over $500K in monthly revenue",
+      "cta": "Schedule a call",
+      "funnelInfo": {
+        "title": "Get a CRO Strategy Session with Our CEO",
+        "subtitle": "Limited time offer",
+        "cta": "Book a call to estimate ROI",
+        "note": "If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift",
+        "formTitle": "Schedule Your Results Discussion"
       }
     }
   }

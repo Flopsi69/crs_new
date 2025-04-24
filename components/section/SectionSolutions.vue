@@ -2,6 +2,7 @@
 // import { solutions } from '~/configs';
 
 const { t, locale } = useI18n();
+const scrollToElement = useSmoothScroll();
 
 let solutions = [];
 
@@ -13,17 +14,16 @@ try {
 }
 
 const items = reactive(solutions);
-
 const activeSolution = ref(null)
+const isShowAll = ref(false);
 
-const scrollToElement = useSmoothScroll();
 
 function setActiveSolution(item: any) {
   activeSolution.value = item;
 }
 
 const otherProblems = computed(() => {
-  return items.filter((item) => item !== activeSolution.value);
+  return items.filter((item: any) => item !== activeSolution.value);
 });
 
 watch(activeSolution, (value) => {
@@ -32,9 +32,9 @@ watch(activeSolution, (value) => {
         if (value) {
           scrollToElement('.solutions__details')
         } else {
-          scrollToElement('.solutions__all .solutions__list', 'center')
+          scrollToElement('.solutions__grid')
         }
-    }, 400);
+    }, 10);
   })
 });
 </script>
@@ -43,34 +43,71 @@ watch(activeSolution, (value) => {
   <BaseSection
     class="solutions"
     id="solutions"
+    background="purple-light"
   >
-    <BasePlate
+    <div
       v-if="!activeSolution"
       class="solutions__all"
-      data-aos="zoom-in"
-      mob-full
     >
-      <div class="solutions__caption section-caption subtitle-2">
+      <div class="solutions__caption section-caption subtitle-2 text-center">
         {{ t('sectionSolutions.caption') }}
       </div>
 
-      <h2 class="solutions__title section-title title-2">
-        {{ t('sectionSolutions.title') }}
+      <h2 class="solutions__title section-title title-2 text-center">
+        {{ t('sectionSolutions.titleFirstRow') }}&nbsp;<span
+          class="color-yellow"
+        >
+          {{ t('sectionSolutions.titleProblem') }}
+        </span>
+        <br />
+        {{ t('sectionSolutions.titleSecondRow') }}
+        <span class="color-purple">
+          {{ t('sectionSolutions.titleSolution') }}
+        </span>
       </h2>
 
-      <div class="solutions__subtitle title subtitle-1">
-        {{ t('sectionSolutions.subtitle') }}
+      <div
+        class="solutions__grid"
+        :class="{ 'solutions__grid--mob-show': isShowAll }"
+      >
+        <div
+          v-for="i in 3"
+          :key="'solutoin-row-' + i"
+          class="solutions__row"
+          data-aos="fade-up"
+          data-aos-once="true"
+        >
+          <SolutionPreview
+            v-for="(solution, index) in items.slice((i-1) * 3, i === 3 ? 10 : i*3)"
+            :key="index"
+            class="solutions__item"
+            :class="{ 'disable': !solution.solutions }"
+            :solution="solution"
+            :index="((i-1) * 3) + index + 1"
+            @setActiveSolution="setActiveSolution"
+          />
+        </div>
       </div>
 
-      <SolutionList
+      <div
+        v-if="!isShowAll"
+        class="control"
+      >
+        <button
+          class="button button_trans-yellow"
+          @click="isShowAll = true"
+        >
+          {{  t('sectionSolutions.showMore') }}
+        </button>
+      </div>
+
+      <!-- <SolutionList
         class="solutions__list"
         :items="items"
         :mob-items="4"
         @setActiveSolution="setActiveSolution"
-      />
-
-      <!-- <SolutionTabs /> -->
-    </BasePlate>
+      /> -->
+    </div>
 
     <SolutionDetails
       v-else
@@ -78,7 +115,6 @@ watch(activeSolution, (value) => {
       :item="activeSolution"
       :items="otherProblems"
       @setActiveSolution="setActiveSolution"
-      data-aos="zoom-in"
     />
   </BaseSection>
 </template>
@@ -86,16 +122,24 @@ watch(activeSolution, (value) => {
 <style lang="scss" scoped>
 .solutions {
   overflow: initial;
+  &__all {
+    padding: 60px 0;
+    @media(max-width: $sm) {
+      padding: 32px 0;
+    }
+  }
   &__caption {
     @media(max-width: $sm) {
-      font-size: 16px;
+      font-size: 20px;
     }
   }
   &__title {
     max-width: 740px;
+    margin-left: auto;
+    margin-right: auto;
     @media(max-width: $sm) {
-      font-size: 24px;
-      line-height: 32px;
+      font-size: 28px;
+      line-height: 1.3;
     }
   }
   &__subtitle {
@@ -104,17 +148,65 @@ watch(activeSolution, (value) => {
       margin-top: 24px;
     }
   }
-  &__all {
-    padding: 60px;
+  &__grid {
+    margin-top: 40px;
+    @media(max-width: $md) {
+      overflow: hidden;
+      &:not(.solutions__grid--mob-show) {
+        height: 1100px;
+      }
+    }
     @media(max-width: $sm) {
-      padding: 32px 20px;
+      margin-top: 24px;
     }
   }
-  &__list {
-    margin-top: 24px;
-    @media(max-width: $sm) {
-      margin-top: 20px;
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+    @media(max-width: $lg) {
+      gap: 16px;
     }
+    @media(max-width: $md) {
+      grid-template-columns: 1fr;
+    }
+    & + & {
+      margin-top: 38px;
+      @media(max-width: $lg) {
+        margin-top: 16px;
+      }
+    }
+    &:last-child {
+      grid-template-columns: repeat(2, 1fr);
+      @media(max-width: $md) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+  &__item {
+    &.disable {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+  // &__list {
+  //   margin-top: 40px;
+  //   @media(max-width: $sm) {
+  //     margin-top: 20px;
+  //   }
+  // }
+}
+
+.control {
+  position: relative;
+  display: none;
+  text-align: center;
+  z-index: 1;
+  padding: 85px 0 2px;
+  background: linear-gradient(0deg, #FFF 59%, rgba(255, 255, 255, 0.00) 100%);
+  margin: -100px -20px -34px;
+  @media(max-width: $md) {
+    display: block;
   }
 }
 </style>

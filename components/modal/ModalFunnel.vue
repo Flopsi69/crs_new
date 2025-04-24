@@ -39,13 +39,14 @@ const props = defineProps({
       formTitle: '',
       cta: '',
       note: '',
-      isGoal: false
+      isGoal: false,
+      isSpecialOffer: false
     }
   }
 });
 
 const logos = [
-  'microsoft.svg', 'comodo.svg', 'samcart.svg', 'macPaw.svg', 'reckitt.svg'
+  'microsoft.svg', 'comodo.svg', 'macPaw.svg', 'finish.png', 'samcart.svg'
 ];
 
 const form = reactive({
@@ -77,6 +78,22 @@ const mailer = useMailer()
 const step = ref(1);
 const isAgree = ref(true);
 const isLoading = ref(false)
+
+let annualRevenueItems = reactive([
+  'less than $250,000',
+  '$250,000 - $1 million',
+  '$1 million - $10 million',
+  'more than $10 million',
+  'I prefer not to say'
+])
+
+if (props.id.includes('homepage_limited_offer')) {
+  annualRevenueItems = reactive([
+    'Less than $500,000',
+    '$500,000 - $1 million',
+    'Over $1 million'
+  ])
+}
 
 function goToNextStep() {
   error.name = validateInput(form.name, 'name');
@@ -178,7 +195,10 @@ async function saveLead() {
     data-aos="zoom-in"
     class="modal__inner"
   >
-    <div class="info bg-purple_dark">
+    <div
+      class="info bg-purple_dark"
+      :class="{ 'special-offer': info.isSpecialOffer }"
+    >
       <div class="info__head flex-between">
         <img
           class="info__logo"
@@ -187,11 +207,31 @@ async function saveLead() {
           height="38"
         />
 
-        <img
-          src="img/clutch-modal.svg"
-          height="60"
-          alt="clutch"
-        />
+        <div class="info__bages">
+          <div class="info__bage info__bage-european text-center">
+            <div class="info__bage-european-caption">EUROPEAN</div>
+            <div class="info__bage-european-title">CRO Agency of 2024</div>
+          </div>
+          <div class="info__bage info__bage-clutch flex-center">
+            <div class="info__bage-clutch-head flex-center">
+              <img
+                class="info__bage-clutch-logo"
+                src="/images/logo/clutch.svg"
+              />
+              <span class="info__bage-clutch-rate lh-1">4.9</span>
+              <img
+                v-for="i in 5"
+                :key="i"
+                class="info__bage-clutch-star"
+                src="/images/logo/clutch-star.svg"
+              />
+            </div>
+            <div class="info__bage-clutch-caption">
+              <span>BASED ON</span>
+              38 VERIFIED REVIEWS
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="info__body">
@@ -218,9 +258,30 @@ async function saveLead() {
             {{ item }}
           </li>
         </ul>
+
+        <div
+          v-if="info.isSpecialOffer"
+          class="limited-image"
+        >
+          <div class="limited-image__info">
+            <div class="limited-image__info-name subtitle-3">Ihor Sokolov</div>
+            <div class="limited-image__info-position text text-sm">
+              ConversionRateStore CEO, co-founder
+            </div>
+          </div>
+          <img
+            src="/images/cta-ihor.png"
+            alt="Limited offer"
+            data-aos="fade-left"
+            data-aos-delay="100"
+          />
+        </div>
       </div>
 
-      <div class="info__footer flex-center">
+      <div
+        v-if="!info.isSpecialOffer"
+        class="info__footer flex-center"
+      >
         <img
           v-for="logo of logos"
           :key="logo"
@@ -325,7 +386,7 @@ async function saveLead() {
             :label="t('input.annualRevenue.label')"
             :placeholder="t('input.annualRevenue.placeholder')"
             icon="fa6-solid:coins"
-            :items="['less than $250,000', '$250,000 - $1 million', '$1 million - $10 million', 'more than $10 million', 'I prefer not to say']"
+            :items="annualRevenueItems"
             id="annual_revenue"
           />
 
@@ -394,32 +455,90 @@ async function saveLead() {
   gap: 40px;
   position: relative;
   flex-grow: 1;
-  padding: 60px;
+  padding: 30px 45px 0 100px;
   min-width: 0;
-  @media(max-width: 1250px) {
-    padding: 30px;
+  background-image: url('/images/funnel-bg.png');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: -5%;
+  @media(max-width: 1440px) {
+    padding-right: 30px;
+    padding-left: 30px;
   }
   @media(max-width: $md) {
     display: none;
   }
-  & > * {
-      position: relative;
-      z-index: 1;
+  &__logo {
+    @media(max-width: $lg) {
+      max-width: 140px;
     }
-  &:before {
-    content: '';
-    position: absolute;
-    pointer-events: none;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    top: 0;
-    background: url('img/bg-pixel-left.png') bottom left no-repeat;
-    background-size: 70%;
-    mix-blend-mode: lighten;
-    @media(max-width: $md) {
-      display: none;
+  }
+  &__bages {
+    display: flex;
+    gap: 20px;
+    @media(max-width: 1350px) {
+      transform: scale(0.7);
     }
+  }
+  &__bage {
+    border-radius: 8px;
+    background: linear-gradient(90deg, rgba(85, 67, 172, 0.50) 0%, rgba(58, 36, 159, 0.50) 100%);
+    line-height: 24px;
+    padding: 6px 12px;
+    white-space: nowrap;
+    &-european {
+      &-title {
+        font-size: 19px;
+        @media(max-width: $lg) {
+          font-size: 16px;
+        }
+      }
+      &-caption {
+        color: #3EDDD0;
+        font-size: 12px;
+      }
+    }
+    &-clutch {
+      flex-flow: column;
+      &-logo {
+        margin-right: 12px;
+      }
+      &-rate {
+        font-size: 15px;
+        margin-bottom: -4px;
+      }
+      &-star {
+        margin-left: 5px;
+      }
+      &-caption {
+        font-size: 12px;
+        line-height: 16px;
+        margin-top: 8px;
+        span {
+          color: #BFB9DD;
+          margin-right: 2px;
+        }
+      }
+    }
+  }
+  // &:before {
+    // content: '';
+    // position: absolute;
+    // pointer-events: none;
+    // left: 0;
+    // bottom: 0;
+    // right: 0;
+    // top: 0;
+    // background: url('img/bg-pixel-left.png') bottom left no-repeat;
+    // background-size: 70%;
+    // mix-blend-mode: lighten;
+    // @media(max-width: $md) {
+    //   display: none;
+    // }
+  // }
+  &__body {
+    margin: auto 0;
+    padding-bottom: 20px;
   }
 
   &__title {
@@ -427,25 +546,85 @@ async function saveLead() {
   }
 
   &__subtitle {
-    margin-top: 30px;
+    margin-top: 24px;
   }
 
   &__list {
-    margin-top: 30px;
+    margin-top: 24px;
   }
 
   &__footer {
+    border-radius: 20px 20px 0px 0px;
+    background: linear-gradient(90deg, rgba(85, 67, 172, 0.50) 0%, rgba(58, 36, 159, 0.50) 100%);
     margin-top: auto;
-    border-radius: 20px;
-    border: 2px solid $purple;
-    background: $purple;
-    padding: 16px;
+    padding: 24px 16px;
     gap: 20px;
     justify-content: space-evenly;
     img {
       min-width: 0;
       max-height: 40px;
       max-width: 130px;
+      &:nth-child(2) {
+        filter: brightness(1.3);
+      }
+      &:nth-child(4) {
+        margin-top: -5px;
+      }
+    }
+  }
+}
+
+.special-offer {
+  background-image: url('/images/funnel-bg-special-offer.png');
+  background-position: 0;
+  .info {
+    &__body {
+      display: flex;
+      flex-flow: column;
+      text-align: center;
+      align-items: center;
+      padding-bottom: 0;
+      margin-bottom: 0
+    }
+    &__subtitle {
+      order: -1;
+      margin-bottom: 16px;
+      margin-top: 0;
+      text-transform: uppercase;
+      text-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+      color: $gold;
+      font-size: 20px;
+    }
+    &__title {
+      font-size: 50px;
+      line-height: 64px;
+    }
+  }
+}
+
+.limited-image {
+  position: relative;
+  line-height: 0;
+  img {
+    max-width: 454px;
+    @media(max-width: $sm) {
+      max-width: 356px;
+    }
+  }
+
+  &__info {
+    position: absolute;
+    left: -4px;
+    top: 94px;
+    line-height: 1.3;
+    text-align: right;
+    max-width: 128px;
+    @media(max-width: $sm) {
+      left: -25px;
+      top: 70px;
+    }
+    &-position {
+      margin-top: 4px;
     }
   }
 }
@@ -461,7 +640,7 @@ async function saveLead() {
     max-width: 628px;
     width: 100%;
     padding: 80px 100px 60px;
-    @media(max-width: 1250px) {
+    @media(max-width: 1300px) {
       padding: 80px 30px 30px;
       max-width: 450px;
     }
@@ -591,74 +770,6 @@ async function saveLead() {
   }
   &.active:after {
     transform: scale(1) rotate(-45deg);
-  }
-}
-
-.success {
-  background: $bg--purple-dark;
-  &:before, &:after {
-    content: '';
-    position: absolute;
-    pointer-events: none;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    top: 0;
-    background: url('img/bg-pixel-left.png') bottom left no-repeat;
-    background-size: 50%;
-    mix-blend-mode: lighten;
-    @media(max-width: $md) {
-      display: none;
-    }
-  }
-  &:after {
-    transform: rotate(180deg);
-  }
-  &__logo {
-    position: absolute;
-    top: 40px;
-    left: 10vw;
-    @media(max-width: $md) {
-      top: 24px;
-      left: 20px;
-    }
-  }
-  &__info {
-    padding: 60px 20px;
-    max-width: 520px;
-    width: 100%;
-  }
-  &__title {
-    @media(max-width: $sm) {
-      font-size: 30px;
-      line-height: 38px;
-    }
-  }
-  &__subtitle {
-    margin-top: 24px;
-    @media(max-width: $sm) {
-      margin-top: 12px;
-    }
-  }
-  &__caption {
-    margin-top: 16px;
-    @media(max-width: $sm) {
-      margin: 12px auto 0;
-      font-size: 16px;
-      line-height: 26px;
-      max-width: 260px;
-    }
-  }
-  &__button {
-    margin-top: 60px;
-    min-height: 60px;
-    @media(max-width: $sm) {
-      position: fixed;
-      left: 20px;
-      right: 20px;
-      bottom: 20px;
-      margin-top: auto;
-    }
   }
 }
 

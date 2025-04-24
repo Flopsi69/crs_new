@@ -18,7 +18,7 @@ const form = reactive({
   email: '',
   metadata: {
     page: location.href,
-    form_title: `Watch our founders share actionable CRO tactics straight from the stage - ${modalData.value?.title || ''}`,
+    form_title: `Video form - ${modalData.value?.title || ''}`,
     id: modalData.value?.id || ''
   }
 });
@@ -37,6 +37,10 @@ const excel = useExcel()
 const mailer = useMailer()
 
 const isLoading = ref(false)
+
+const isClientVideo = computed(() => {
+  return modalData.value?.id?.includes('homepage_video-client')
+})
 
 onMounted(() => {
   setTimeout(() => {
@@ -111,6 +115,8 @@ async function saveLead() {
   <div
     data-aos="zoom-in"
     class="modal__inner bg-purple_dark"
+    :class="{'modal__inner_video-client': isClientVideo}"
+    :data-modal="modalTarget"
   >
     <button
       class="modal__close button button_flat"
@@ -151,16 +157,16 @@ async function saveLead() {
         >
           <div class="author__photo">
             <img
-              :src="`images/${modalData.author.photo}`"
+              :src="`images/${modalData.isOwnerForm ? 'author-ihor.png' : modalData.author.photo}`"
               alt=""
             />
           </div>
           <div class="author__info">
             <div class="author__name color-purple">
-              {{ modalData.author.name }}
+              {{ modalData.isOwnerForm ? 'Ihor Sokolov' : modalData.author.name }}
             </div>
             <div class="author__position">
-              {{ modalData.author.position }}
+              {{ modalData.isOwnerForm ? 'Conversion Rate Store, co-founder' : modalData.author.position }}
             </div>
           </div>
         </div>
@@ -174,17 +180,29 @@ async function saveLead() {
             src="img/modal-note-arrow-purple.svg"
             alt=""
           />
-          {{ t('modal.video.note.title') }}
-          <br />
-          {{ t('modal.video.note.subtitle') }}
-          <span>
-            below
-            <img
-              class="note__arrow"
-              src="img/modal-note-arrow-yellow.png"
-              alt=""
-            />
-          </span>
+          <template v-if="modalData.note">
+            {{ modalData.note }}
+            <span>
+              <img
+                class="note__arrow"
+                src="img/modal-note-arrow-yellow.png"
+                alt=""
+              />
+            </span>
+          </template>
+          <template v-else>
+            {{ t('modal.video.note.title') }}
+            <br />
+            {{ t('modal.video.note.subtitle') }}
+            <span>
+              below
+              <img
+                class="note__arrow"
+                src="img/modal-note-arrow-yellow.png"
+                alt=""
+              />
+            </span>
+          </template>
         </BasePlate>
 
         <div class="form__inner">
@@ -244,6 +262,13 @@ async function saveLead() {
 }
 .modal__inner {
   background-color: $bg--purple-dark;
+  background-image: url('/images/funnel-bg-special-offer.png');
+  background-position: 0;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  @media(max-width: $sm) {
+    background-image: none
+  }
   &:before {
     content: '';
     position: absolute;
@@ -325,6 +350,7 @@ async function saveLead() {
     flex-grow: 1;
     @media(max-width: $md) {
       width: 100%;
+      flex-grow: 0;
     }
   }
   &__title {
@@ -425,6 +451,14 @@ async function saveLead() {
     left: 40%;
     max-width: initial;
     max-height: initial;
+    @media(max-width: $sm) {
+      .modal__inner_video-client & {
+        height: 100px;
+        left: -30px;
+      }
+    }
   }
+
+
 }
 </style>

@@ -48,7 +48,10 @@ function getRelatedCase() {
     class="solution"
   >
     <div class="solution__inner flex justify-between">
-      <div class="solution__info">
+      <div
+        class="solution__info"
+        :class="{'solution__info_full': !relatedCase}"
+      >
         <BasePill
           back
           class="subtitle-3"
@@ -185,6 +188,10 @@ function getRelatedCase() {
     max-width: 640px;
     width: 100%;
     @media(max-width: $md) {
+      max-width: 100%;
+    }
+
+    &_full {
       max-width: 100%;
     }
   }

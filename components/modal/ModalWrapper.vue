@@ -56,8 +56,9 @@ const { modalData, closeModal, modalTarget } = useModal();
     transition: transform 0.5s 0.3s;
     @media(min-width: 1680px) {
       max-width: 1500px;
-      min-height: auto;
+      min-height: 70vh;
       border-radius: 24px;
+      overflow: hidden;
     }
   }
 

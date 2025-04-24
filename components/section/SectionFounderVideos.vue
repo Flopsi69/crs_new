@@ -21,7 +21,7 @@ const videos = [
   {
     preview: '/images/video-preview-0.gif',
     src: 'https://drive.google.com/file/d/1dUnoEi_-mIXkVB6n8F6izU5fZr4xOoDA/preview',
-    title: t('sectionVideos.videos.0.title'),
+    title: 'Riga Comm 2024',
     author: authors[0],
     id: 'homepage_video_0',
     meeting: 'https://calendly.com/ihor-sokol/discovery-call-with-ihor?name=<name>&email=<email>'
@@ -29,7 +29,7 @@ const videos = [
   {
     preview: '/images/video-preview-1.gif',
     src: 'https://drive.google.com/file/d/1BNQdn7it6YEzOZ14Lzh0xnABLwz7bVjb/preview',
-    title: t('sectionVideos.videos.1.title'),
+    title: 'eCommerce 2019',
     author: authors[1],
     id: 'homepage_video_1',
     meeting: 'https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=<name>&email=<email>'
@@ -37,7 +37,7 @@ const videos = [
   {
     preview: '/images/video-preview-2.gif',
     src: 'https://drive.google.com/file/d/1olltbr6KQlX3wal8Oa0N5p4yDLYzrHSE/preview',
-    title: t('sectionVideos.videos.2.title'),
+    title: 'eCommerce 2019',
     author: authors[0],
     id: 'homepage_video_2',
     meeting: 'https://calendly.com/ihor-sokol/discovery-call-with-ihor?name=<name>&email=<email>'
@@ -57,7 +57,7 @@ function openVideo(video: any) {
 <template>
   <BaseSection class="videos">
     <h2 class="section-title title-2">
-      {{ t('sectionVideos.title') }}
+      {{ t('sectionFounderVideos.title') }}
     </h2>
 
     <Carousel
@@ -137,14 +137,14 @@ function openVideo(video: any) {
 
       <div
         class="pagination flex-center"
-        v-if="carousel.data.maxSlide.value > 0"
+        v-if="carousel.data.maxSlide > 0"
       >
         <div
-          v-for="i of carousel.data.maxSlide.value + 1"
+          v-for="i of carousel.data.maxSlide + 1"
           :key="i"
           :data-test="i"
           class="pagination__item"
-          :class="{active: carousel.data.currentSlide.value === i - 1}"
+          :class="{active: carousel.data.currentSlide === i - 1}"
           @click="carousel.slideTo(i - 1)"
         ></div>
       </div>
@@ -159,67 +159,11 @@ function openVideo(video: any) {
         />
       </button>
     </div>
-
-    <div
-      class="videos__list"
-      v-if="false"
-    >
-      <div
-        v-for="(video, index) in videos"
-        :key="index"
-        class="videos__item video"
-      >
-        <div
-          class="video__preview"
-          @click="openVideo(video)"
-        >
-          <img
-            class="video__preview-play"
-            src="img/video-play.png"
-            alt=""
-          />
-          <img
-            :src="video.preview"
-            :alt="video.title"
-          />
-        </div>
-
-        <div class="video__info">
-          <div class="video__title subtitle-3 color-purple">
-            {{ video.title }}
-          </div>
-
-          <div class="video__author author">
-            <div class="author__photo">
-              <img
-                :src="`images/${video.author.photo}`"
-                alt=""
-              />
-            </div>
-            <div class="author__info">
-              <div class="author__name">{{ video.author.name }}</div>
-              <div class="author__position text text-sm color-secondary">
-                {{ video.author.position }}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </BaseSection>
 </template>
 
 <style lang="scss" scoped>
 .videos {
-  &__list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    @media(max-width: $sm) {
-      gap: 24px;
-    }
-  }
-
   &__carousel {
     margin: 40px -10px 0;
     @media(max-width: $sm) {
