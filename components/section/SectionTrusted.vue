@@ -16,7 +16,7 @@ const logos = [
   'natPat.png',
   'depositphotos.svg',
   'setapp.svg',
-  'carid.png',
+  'carId.png',
   'skylum.png'
 ]
 </script>

@@ -46,7 +46,9 @@ const toggleBurger = () => {
         </NuxtLink>
       </nav>
 
-      <LanguageToggler class="header__lang-toggler" />
+      <DevOnly>
+        <LanguageToggler class="header__lang-toggler" />
+      </DevOnly>
 
       <button
         class="header__trigger button button_flat"
@@ -147,6 +149,11 @@ const toggleBurger = () => {
     overflow: auto;
     &.active {
       transform: translateX(0);
+    }
+
+    // TODO remove
+    & + .header__trigger {
+      margin-left: auto;
     }
   }
 
