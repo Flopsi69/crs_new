@@ -1,130 +1,107 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const { t } = useI18n();
+</script>
 
 <template>
-  <BaseSection class="leader">
-    <BasePlate
-      mob-full
-      class="flex-between"
-    >
-      <div class="title-3">
-        {{ $t('sectionLeader.prefix') }}
-        <span class="color-purple">{{ $t('sectionLeader.cro') }}</span>
-        ({{ $t('sectionLeader.croAbbr') }}) {{ $t('sectionLeader.and')
-        }}<span class="color-purple">{{ $t('sectionLeader.uxo') }}</span>
-        ({{ $t('sectionLeader.uxoAbbr') }})
-      </div>
+  <BaseSection
+    class="leader text-center"
+    id="leader-section"
+  >
+    <div class="leader__caption subtitle-2">
+      {{ t('sectionLeader.prefix') }}
+    </div>
 
+    <div class="leader__title title-2">
+      {{ t('sectionLeader.title') }}
+    </div>
+
+    <div class="leader__labels">
       <div
-        class="bage-mob text-center"
+        v-for="index in 6"
+        :key="index"
+        class="leader__label"
         data-aos="fade-up"
       >
-        <img
-          src="img/leader-clutchBadge0.svg"
-          alt=""
-        />
+        <img :src="`/images/leader-label-${index}.png`" />
       </div>
-
-      <div class="bages flex justify-end">
-        <div
-          class="bage"
-          data-aos="fade-left"
-          data-aos-delay="100"
-          data-aos-duration="700"
-        >
-          <img
-            src="img/leader-clutchBadge1.svg"
-            alt=""
-          />
-        </div>
-        <div
-          class="bage"
-          data-aos="fade-up"
-          data-aos-delay="200"
-          data-aos-duration="700"
-        >
-          <img
-            src="img/leader-badge-european.svg"
-            alt=""
-          />
-        </div>
-        <div
-          class="bage"
-          data-aos="fade-right"
-          data-aos-delay="300"
-          data-aos-duration="700"
-        >
-          <img
-            src="img/leader-clutchBadge2.svg"
-            alt=""
-          />
-        </div>
-      </div>
-    </BasePlate>
+    </div>
   </BaseSection>
 </template>
 
 <style lang="scss" scoped>
-.plate {
-  padding: 40px;
-  display: flex;
-  gap: 25px;
+.leader {
+  background: #7763C3 url('/images/leader-bg-mask.png') center no-repeat;
+  background-size: cover;
+  color: #fff;
+  padding: 64px 0;
   @media(max-width: $sm) {
-    padding: 32px 20px;
-    flex-flow: column;
-    gap: 24px;
+    padding: 32px 0;
+    background-image: url('/images/leader-bg-mask-mobile.png');
   }
-}
-
-.title-3 {
-  max-width: 540px;
-  width: 100%;
-  @media(max-width: $md) {
-    font-size: 24px;
-    line-height: 32px;
-  }
-  @media(max-width: $sm) {
-    max-width: 100%;
-  }
-}
-
-.bages {
-  width: 100%;
-  @media(max-width: $sm) {
-    justify-content: center;
-    margin-right: -5%;
-    padding: 12px 10px 0;
-    border-top: 2px solid #FFF;
-  }
-}
-
-.bage {
-  display: flex;
-  justify-content: flex-end;
-  max-width: 180px;
-  flex: 1;
-  @media(max-width: $sm) {
-    // max-width: 160px;
-    &:first-child {
-      display: none;
-    }
-  }
-
-  img {
-    max-width: initial;
-    width: 110%;
-  }
-
-  &-mob {
-    display: none;
-    padding: 20px 20px 0;
-    max-width: 400px;
-    width: 100%;
-    margin-bottom: -4px;
-    img {
-      width: 100%;
-    }
+  &__caption {
+    color: $gold;
     @media(max-width: $sm) {
-      display: block;
+      font-size: 18px;
+    }
+  }
+  &__title {
+    margin: 16px auto 0;
+    max-width: 740px;
+    @media(max-width: $sm) {
+      margin-top: 12px;
+    }
+  }
+  &__labels {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    @media(max-width: $sm) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px 12px;
+      margin-top: 24px;
+      margin-bottom: 0;
+    }
+  }
+  &__label {
+    line-height: 0;
+    &:nth-child(2), &:nth-child(4) {
+      margin-bottom: 36px;
+      @media(max-width: $sm) {
+        margin-bottom: 0;
+      }
+    }
+    &:nth-child(1) {
+      @media(max-width: $sm) {
+        order: 6;
+      }
+    }
+    &:nth-child(2) {
+      @media(max-width: $sm) {
+        order: -1;
+      }
+    }
+    &:nth-child(3) {
+      margin-bottom: 23px;
+      @media(max-width: $sm) {
+        margin-bottom: 0;
+        order: -3;
+      }
+    }
+    &:nth-child(5) {
+      @media(max-width: $sm) {
+        order: -2;
+      }
+    }
+    &:nth-child(6) {
+      display: none;
+      @media(max-width: $sm) {
+        display: block;
+        order: 5;
+      }
     }
   }
 }

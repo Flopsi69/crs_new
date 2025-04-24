@@ -26,36 +26,41 @@ useHead({
 <template>
   <main class="main">
     <SectionHero />
-    <SectionClientsLogo />
-    <!-- TODO Marquee -->
+    <SectionTrusted />
     <SectionLeader />
-    <SectionVideos />
+    <SectionClientVideos />
+    <SectionFounderVideos />
 
     <BaseSection>
       <CtaGuaranted />
     </BaseSection>
 
-    <!-- TODO solutions open && i18n -->
-    <SectionSolutions />
-    <SectionClientsResults />
-    <SectionCompare />
+    <SectionProcess />
 
     <BaseSection>
-      <CtaKeyFactors />
+      <CtaLimitedOffer />
     </BaseSection>
 
     <SectionCaseStudies />
-    <SectionBenchmark />
-    <SectionEstimate />
+    <SectionCompare />
+    <SectionSolutions />
+    <SectionClientsResults />
+
+    <!-- TODO: remove cta if will not use -->
+    <!-- <BaseSection>
+      <CtaKeyFactors />
+    </BaseSection> -->
+
     <SectionCompetencies />
 
     <BaseSection>
       <CtaWinRate />
     </BaseSection>
 
-    <SectionProcess />
     <SectionProducts />
     <SectionFeedbacks />
+    <SectionBenchmark />
+    <SectionEstimate />
     <SectionFAQ />
   </main>
 </template>

@@ -1,7 +1,7 @@
 export default [
   {
     case: '',
-    problem: 'Dropping online store conversion rate or ARPU',
+    problem: 'Dropping eCommerce Conversion Rate and Revenue per User',
     causes: [
       'Underperforming conversion funnel',
       'Low traffic quality',
@@ -65,7 +65,7 @@ export default [
   {
     case: 'natPat',
     problem:
-      'High and increasing customer acquisition cost (CAC) that prevents business from scaling',
+      'High customer acquisition cost (CAC) that prevents business from scaling',
     causes: [
       'Low onsite conversion rate and average revenue per user (ARPU)',
       'Low quality or irrelevant traffic',
@@ -129,7 +129,7 @@ export default [
   },
   {
     case: 'somnifix2',
-    problem: 'Low AOV because user predominately buy cheaper products',
+    problem: 'Low Average Order Value (AOV)',
     causes: [
       'Lack of clarity on the benefits of more expensive products ',
       'Excessive focus and prioritisation of lower priced products'
@@ -200,6 +200,85 @@ export default [
     ]
   },
   {
+    case: 'gaiam',
+    problem: 'High cart abandonment',
+    causes: [
+      'Distractions at cart/checkout like upsells/cross-sells that lead to cart abandonment',
+      'Surprise shipping cost in cart/checkout',
+      'No credit card details nearby ',
+      'Last minute hesitations'
+    ],
+    solutions: [
+      {
+        title: 'Remove Distractions That Deter Users from Conversion',
+        content: `
+              <p class="text">
+                Every step in the conversion funnel has a specific purpose. The purpose of the cart is to allow users to review their order summary and proceed to payment. The cart should not include any UX/UI elements that do not serve this purpose.
+              </p>
+              <p class="text">
+               A common mistake in many eCommerce stores is the inclusion of unnecessary distractions, such as active navigation menus and footers, which take up valuable space in the cart. These elements can cause high-intent traffic to leak from the funnel. Eliminating these distractions will help keep users focused on completing their purchase.
+              </p>
+            `
+      },
+      {
+        title: 'Control How Upsells/Cross-Sells Impact Cart Abandonment Rate',
+        content: `
+              <p class="text">
+                It is common practice to place a block with recommended products in the cart to encourage users to buy more products. The logic is simple: effective upsells or cross-sells can increase the average order value (AOV), driving an increase in average revenue per user (ARPU). However, this approach often overlooks the potential funnel leaks created by upsells and cross-sells. In many cases, users do not simply add the recommended products to their cart. Instead, they leave the cart to research these products further and often do not return to complete the purchase, leading to an inflated cart abandonment rate.
+              </p>
+              <p class="text">
+                Control how upsells and cross-sells at the cart impact your AOV, cart abandonment rate, and more importantly, ARPU. Track user behavior after they engage with your recommended products using video session recordings and event-based user flow analysis.
+              </p>
+              <p class="text">
+                In basic terms, the increase in AOV must outweigh the decline in conversion rate (CvR) caused by upsells and cross-sells.
+              </p>
+              <p class="text">
+                A common recommendation for upsells and cross-sells at the cart stage is to use products that complement items already in the cart, such as a phone charger for a cell phone.
+              </p>
+            `
+      },
+      {
+        title: 'Offer Express Checkout',
+        content: `
+              <p class="text">
+                Our research shows that users are 40% more likely to complete a purchase if they use express checkout options like Apple Pay, Google Pay, or PayPal. This is especially true for mobile users, who typically have higher cart abandonment rates compared to desktop users.
+              </p>
+              <p class="text">
+                Ensure that express checkout options are available to all users at both the cart and checkout stages.
+              </p>
+            `
+      },
+      {
+        title: 'Emphasize Money-Back Guarantee',
+        content: `
+              <p class="text">
+                Many orders are abandoned in the final steps of the conversion flow due to a common factor: the fear of making an irreversible wrong decision. To address this, reinforce users’ confidence by effectively communicating your money-back guarantee.
+              </p>
+              <p class="text">
+                This fear is strongest for products with a binary outcome—they either fit or don’t—such as rings, apparel, and shoes. A money-back guarantee is essential for these categories.
+              </p>
+              <p class="text">
+                Additionally, the more expensive the product, the higher the perceived risk of making a wrong decision. Therefore, the more essential a money-back guarantee becomes for high-priced items.
+              </p>
+            `
+      },
+      {
+        title: 'Introduce Personalized Customer Reviews',
+        content: `
+              <p class="text">
+                One effective way to mitigate last-minute user hesitations before completing a purchase is by showcasing personalized reviews at the cart and checkout stages. These reviews highlight how the product a user intends to buy has brought joy and satisfaction to other customers.
+              </p>
+              <p class="text">
+                The challenge lies in personalizing the reviews based on the specific products in the user’s cart. Ensure that the reviews are relevant and directly related to the items the user is considering, to maximize their impact and reassure the customer of their purchase decision.
+              </p>
+            `
+      }
+    ]
+  },
+  // {
+  //   problem: 'High checkout abandonment rate'
+  // },
+  {
     case: 'somnifix1',
     problem: 'High bounce rate',
     causes: [
@@ -254,68 +333,7 @@ export default [
     ]
   },
   {
-    problem: 'High exit rate on search result page',
-    causes: [
-      'Inappropriate product selection on a search results page (people may search using different keywords than you have indexed), pay attention to repeated search requests'
-    ],
-    solutions: [
-      {
-        title:
-          'Use an AI-Powered Search Engine to Improve the Relevance of Search Results',
-        content: `
-              <p class="text">
-                People often make mistakes when typing their search queries, and they may use different terms to look for the same product that may not match your associated keywords.  These are just a few of the problems users face when using onsite search engines. An AI-powered search algorithm can learn to interpret these mistakes and associate various search queries with the correct product.
-              </p>
-              <p class="text">
-                Moreover, an AI-powered recommendation algorithm can learn about user preferences and display products in the search results that other users with similar queries or behaviors have engaged with or purchased. This ensures that your search results will never return a "0 results found" message.
-              </p>
-              <p class="text">
-                To determine how significantly these issues affect your business, monitor metrics such as the exit rate from the search results page and the repeat search rate on the search results page.
-              </p>
-              <p class="text">
-                We know that users who use the search function generally have a stronger purchase intent than those who don't. Therefore, an AI-powered search and recommendation engine can capitalize on that intent and drive higher conversion rates (CvR) and average revenue per user (ARPU).
-              </p>
-            `
-      },
-      {
-        title:
-          'Implement Effective Sorting and Filtering Features on the Search Results Page',
-        content: `
-              <p class="text">
-                Sorting and filtering options on the search results page are crucial for helping users find the products they are looking for. There is a direct positive correlation between the use of these features and an increase in conversion rate (CvR).
-              </p>
-              <p class="text">
-                Ensure that your search results page includes effective and easily visible sorting and filtering options to enhance user experience and boost conversions.
-              </p>
-            `
-      },
-      {
-        title:
-          'Customize the Product Overview on the Search Results Page for Each Category to Enable Effective Comparison',
-        content: `
-              <p class="text">
-                Every product category has specific characteristics that are important to users. For example, key characteristics for laptops include CPU, RAM, memory, and weight. These details should be displayed for each product in the laptop category on the search results page. Conversely, weight is an irrelevant characteristic for desktops and should not be included in their product overview.
-              </p>
-              <p class="text">
-                Your goal is to make it easy for users to compare products based on key characteristics directly on the listing page, rather than forcing them to visit each product page individually.
-              </p>
-            `
-      },
-      {
-        title: 'Introduce a Recommendation Engine on the Search Results Page',
-        content: `
-              <p class="text">
-                The primary goal of the search results page is to help users find the products they are looking for while also sparking their interest in discovering alternative or substitute products. This second goal can be achieved through an effective recommendation engine, which suggests alternative or substitute products to users.
-              </p>
-              <p class="text">
-                An AI-powered recommendation engine can learn and refine its product offerings by analyzing user engagement and behavior. This ensures a continuous learning curve and increasingly effective performance of the search results page.
-              </p>
-            `
-      }
-    ]
-  },
-  {
-    problem: 'High exit rate on product listing',
+    problem: 'High exit rate on product listing (PL)',
     causes: [
       'Users can’t find the product that meets their needs',
       'Lack of critical information about products on product listing can make it difficult for users to identify their preferred product and differentiate between options',
@@ -366,8 +384,7 @@ export default [
   },
   {
     case: 'moonMagic',
-    problem:
-      'Low Cart-to-Detail rate (i.e. high exit rate on product detail page)',
+    problem: 'Low Buy-to-Detail rate',
     causes: [
       'High product price',
       'Lack of product images or low quality images',
@@ -474,80 +491,72 @@ export default [
       }
     ]
   },
+  // {
+  //   problem:
+  //     'High exit rate of the product detail page (PDP) / Low Cart-to-Detail rate'
+  // },
   {
-    case: 'gaiam',
-    problem: 'High cart abandonment',
+    problem: 'High exit rate on search result page',
     causes: [
-      'Distractions at cart/checkout like upsells/cross-sells that lead to cart abandonment',
-      'Surprise shipping cost in cart/checkout',
-      'No credit card details nearby ',
-      'Last minute hesitations'
+      'Inappropriate product selection on a search results page (people may search using different keywords than you have indexed), pay attention to repeated search requests'
     ],
     solutions: [
       {
-        title: 'Remove Distractions That Deter Users from Conversion',
+        title:
+          'Use an AI-Powered Search Engine to Improve the Relevance of Search Results',
         content: `
               <p class="text">
-                Every step in the conversion funnel has a specific purpose. The purpose of the cart is to allow users to review their order summary and proceed to payment. The cart should not include any UX/UI elements that do not serve this purpose.
+                People often make mistakes when typing their search queries, and they may use different terms to look for the same product that may not match your associated keywords.  These are just a few of the problems users face when using onsite search engines. An AI-powered search algorithm can learn to interpret these mistakes and associate various search queries with the correct product.
               </p>
               <p class="text">
-               A common mistake in many eCommerce stores is the inclusion of unnecessary distractions, such as active navigation menus and footers, which take up valuable space in the cart. These elements can cause high-intent traffic to leak from the funnel. Eliminating these distractions will help keep users focused on completing their purchase.
+                Moreover, an AI-powered recommendation algorithm can learn about user preferences and display products in the search results that other users with similar queries or behaviors have engaged with or purchased. This ensures that your search results will never return a "0 results found" message.
+              </p>
+              <p class="text">
+                To determine how significantly these issues affect your business, monitor metrics such as the exit rate from the search results page and the repeat search rate on the search results page.
+              </p>
+              <p class="text">
+                We know that users who use the search function generally have a stronger purchase intent than those who don't. Therefore, an AI-powered search and recommendation engine can capitalize on that intent and drive higher conversion rates (CvR) and average revenue per user (ARPU).
               </p>
             `
       },
       {
-        title: 'Control How Upsells/Cross-Sells Impact Cart Abandonment Rate',
+        title:
+          'Implement Effective Sorting and Filtering Features on the Search Results Page',
         content: `
               <p class="text">
-                It is common practice to place a block with recommended products in the cart to encourage users to buy more products. The logic is simple: effective upsells or cross-sells can increase the average order value (AOV), driving an increase in average revenue per user (ARPU). However, this approach often overlooks the potential funnel leaks created by upsells and cross-sells. In many cases, users do not simply add the recommended products to their cart. Instead, they leave the cart to research these products further and often do not return to complete the purchase, leading to an inflated cart abandonment rate.
+                Sorting and filtering options on the search results page are crucial for helping users find the products they are looking for. There is a direct positive correlation between the use of these features and an increase in conversion rate (CvR).
               </p>
               <p class="text">
-                Control how upsells and cross-sells at the cart impact your AOV, cart abandonment rate, and more importantly, ARPU. Track user behavior after they engage with your recommended products using video session recordings and event-based user flow analysis.
-              </p>
-              <p class="text">
-                In basic terms, the increase in AOV must outweigh the decline in conversion rate (CvR) caused by upsells and cross-sells.
-              </p>
-              <p class="text">
-                A common recommendation for upsells and cross-sells at the cart stage is to use products that complement items already in the cart, such as a phone charger for a cell phone.
+                Ensure that your search results page includes effective and easily visible sorting and filtering options to enhance user experience and boost conversions.
               </p>
             `
       },
       {
-        title: 'Offer Express Checkout',
+        title:
+          'Customize the Product Overview on the Search Results Page for Each Category to Enable Effective Comparison',
         content: `
               <p class="text">
-                Our research shows that users are 40% more likely to complete a purchase if they use express checkout options like Apple Pay, Google Pay, or PayPal. This is especially true for mobile users, who typically have higher cart abandonment rates compared to desktop users.
+                Every product category has specific characteristics that are important to users. For example, key characteristics for laptops include CPU, RAM, memory, and weight. These details should be displayed for each product in the laptop category on the search results page. Conversely, weight is an irrelevant characteristic for desktops and should not be included in their product overview.
               </p>
               <p class="text">
-                Ensure that express checkout options are available to all users at both the cart and checkout stages.
+                Your goal is to make it easy for users to compare products based on key characteristics directly on the listing page, rather than forcing them to visit each product page individually.
               </p>
             `
       },
       {
-        title: 'Emphasize Money-Back Guarantee',
+        title: 'Introduce a Recommendation Engine on the Search Results Page',
         content: `
               <p class="text">
-                Many orders are abandoned in the final steps of the conversion flow due to a common factor: the fear of making an irreversible wrong decision. To address this, reinforce users’ confidence by effectively communicating your money-back guarantee.
+                The primary goal of the search results page is to help users find the products they are looking for while also sparking their interest in discovering alternative or substitute products. This second goal can be achieved through an effective recommendation engine, which suggests alternative or substitute products to users.
               </p>
               <p class="text">
-                This fear is strongest for products with a binary outcome—they either fit or don’t—such as rings, apparel, and shoes. A money-back guarantee is essential for these categories.
-              </p>
-              <p class="text">
-                Additionally, the more expensive the product, the higher the perceived risk of making a wrong decision. Therefore, the more essential a money-back guarantee becomes for high-priced items.
-              </p>
-            `
-      },
-      {
-        title: 'Introduce Personalized Customer Reviews',
-        content: `
-              <p class="text">
-                One effective way to mitigate last-minute user hesitations before completing a purchase is by showcasing personalized reviews at the cart and checkout stages. These reviews highlight how the product a user intends to buy has brought joy and satisfaction to other customers.
-              </p>
-              <p class="text">
-                The challenge lies in personalizing the reviews based on the specific products in the user’s cart. Ensure that the reviews are relevant and directly related to the items the user is considering, to maximize their impact and reassure the customer of their purchase decision.
+                An AI-powered recommendation engine can learn and refine its product offerings by analyzing user engagement and behavior. This ensures a continuous learning curve and increasingly effective performance of the search results page.
               </p>
             `
       }
     ]
   }
+  // {
+  //   problem: 'The high volatility of sales throughout the year'
+  // }
 ]
