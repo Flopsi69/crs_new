@@ -59,6 +59,7 @@ const logos = [
   &__item {
     height: 96px;
     padding: 15px;
+    min-width: 0;
     @media(max-width: $md) {
       padding: 10px;
       height: 72px;

@@ -54,6 +54,7 @@ onMounted(() => {
         class="card"
         solid-border
         data-aos="zoom-in"
+        data-aos-offset="20"
       >
         <div
           class="card__item"
