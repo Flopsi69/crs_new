@@ -50,8 +50,6 @@ const videos = [
   }
 ]
 
-const carousel = ref()
-
 function openVideo(video: any) {
   openModal({
     target: 'video',
@@ -68,8 +66,9 @@ function openVideo(video: any) {
 
     <Carousel
       class="videos__carousel"
-      ref="carousel"
       :items-to-show="1.1"
+      :touch-drag="{ threshold: 0.15 }"
+      prevent-excessive-dragging
       :breakpoints="{
          992: { itemsToShow: 3, wrapAround: false },
          768: { itemsToShow: 2, wrapAround: false }

@@ -67,7 +67,8 @@ function openVideo(video: any) {
     <Carousel
       class="videos__carousel"
       ref="carousel"
-      wrapAround
+      :touch-drag="{ threshold: 0.15 }"
+      prevent-excessive-dragging
       :items-to-show="1"
       :breakpoints="{
          992: { itemsToShow: 3, wrapAround: false },
@@ -118,11 +119,6 @@ function openVideo(video: any) {
           </div>
         </div>
       </Slide>
-
-      <!-- <template #addons>
-        <Navigation />
-        <Pagination />
-      </template> -->
     </Carousel>
 
     <div

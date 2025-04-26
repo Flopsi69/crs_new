@@ -16,14 +16,6 @@ const carousel = ref()
 
 const { width } = useWindowSize()
 const isMobile = computed(() => width.value < 768)
-
-// const slides = ref(0);
-
-// onMounted(() => {
-//   slides.value = computed(() => {
-//     return carousel.value?.data.maxSlide.value + 1 || 0
-//   })
-// })
 </script>
 
 <template>
@@ -33,7 +25,7 @@ const isMobile = computed(() => width.value < 768)
   >
     <div class="head flex-between">
       <h2 class="section-title title-2">
-        {{ $t('sectionClientResults.title') }}
+        {{ t('sectionClientResults.title') }}
       </h2>
 
       <ClientOnly>
@@ -57,14 +49,14 @@ const isMobile = computed(() => width.value < 768)
 
             <div
               class="pagination flex-center"
-              v-if="carousel.data.maxSlide.value > 0"
+              v-if="carousel.data.maxSlide > 0"
             >
               <div
-                v-for="i of carousel.data.maxSlide.value + 1"
+                v-for="i of carousel.data.maxSlide + 1"
                 :key="i"
                 :data-test="i"
                 class="pagination__item"
-                :class="{active: carousel.data.currentSlide.value === i - 1}"
+                :class="{active: carousel.data.currentSlide === i - 1}"
                 @click="carousel.slideTo(i - 1)"
               ></div>
             </div>
@@ -85,6 +77,8 @@ const isMobile = computed(() => width.value < 768)
 
     <Carousel
       :items-to-show="1"
+      :touch-drag="{ threshold: 0.15 }"
+      prevent-excessive-dragging
       snapAlign="start"
       ref="carousel"
       :breakpoints="{
@@ -101,11 +95,6 @@ const isMobile = computed(() => width.value < 768)
           :client="client"
         />
       </Slide>
-
-      <!-- <template #addons>
-        <Navigation />
-        <Pagination />
-      </template> -->
     </Carousel>
   </BaseSection>
 </template>
