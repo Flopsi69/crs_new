@@ -4,6 +4,8 @@ const { t } = useI18n();
 
 const videos = [
   {
+    video: '/video/review-lemieux',
+    format: 'mp4',
     preview: '/images/video-review-lemieux.png',
     src: 'https://drive.google.com/file/d/13TUkRekJtqrgv8ZsIEDLw41wkau4ri7y/preview',
     title: 'Lemieux Review',
@@ -19,6 +21,8 @@ const videos = [
     isOwnerForm: true,
   },
   {
+    video: '/video/review-hunter',
+    format: 'mov',
     preview: '/images/video-review-hunter.png',
     src: 'https://drive.google.com/file/d/1HAuH0yYADsTiD6pGqljFC-tjXgQvcQVT/preview',
     title: 'Hunter Galloway Review',
@@ -34,6 +38,8 @@ const videos = [
     isOwnerForm: true,
   },
   {
+    video: '/video/review-natpat',
+    format: 'mp4',
     preview: '/images/video-review-natpat.png',
     src: 'https://drive.google.com/file/d/1oW1JRscEaaGiLD5hxUPpTIk3Yqw4D5Jt/preview',
     title: 'NatPat Review',
@@ -49,6 +55,8 @@ const videos = [
     isOwnerForm: true,
   }
 ]
+
+const isCarouselReady = ref(false)
 
 function openVideo(video: any) {
   openModal({
@@ -69,9 +77,11 @@ function openVideo(video: any) {
 
     <Carousel
       class="videos__carousel"
+      :class="{ 'is-ready': isCarouselReady }"
       :items-to-show="1.1"
       :touch-drag="{ threshold: 0.15 }"
       prevent-excessive-dragging
+      @init="isCarouselReady = true"
       :breakpoints="{
          992: { itemsToShow: 3, wrapAround: false },
          768: { itemsToShow: 2, wrapAround: false }
@@ -125,12 +135,17 @@ function openVideo(video: any) {
 <style lang="scss" scoped>
 .videos {
   &__carousel {
+    transition: opacity .2s;
     margin: 40px -10px 0;
     @media(max-width: $sm) {
       margin: 24px -6px 0;
     }
 
-    :deep(.carousel__viewport) {
+    &:not(.is-ready) {
+      opacity: .1;
+    }
+
+    &.is-ready :deep(.carousel__viewport) {
       overflow: visible;
     }
   }
