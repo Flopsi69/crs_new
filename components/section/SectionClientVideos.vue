@@ -59,7 +59,10 @@ function openVideo(video: any) {
 </script>
 
 <template>
-  <BaseSection class="videos">
+  <BaseSection
+    class="videos"
+    id="testimonials"
+  >
     <h2 class="section-title title-2 text-center">
       {{ t('sectionClientVideos.title') }}
     </h2>
