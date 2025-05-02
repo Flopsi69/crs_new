@@ -116,9 +116,11 @@ async function saveLead() {
 
 function playVideo() {
   isVideoLoaded.value = true
-  if (videoEl.value) {
-    videoEl.value.play()
-  }
+  setTimeout(() => {
+    if (videoEl.value && videoEl.value.paused) {
+      videoEl.value.play()
+    }
+  }, 300);
 }
 </script>
 
