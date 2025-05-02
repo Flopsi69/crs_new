@@ -4,10 +4,10 @@ const { t } = useI18n();
 
 const videos = [
   {
-    video: '/video/review-lemieux',
+    video: 'https://crs-storage.fra1.cdn.digitaloceanspaces.com/video-reviews/review-lemieux',
     format: 'mp4',
     preview: '/images/video-review-lemieux.png',
-    src: 'https://drive.google.com/file/d/13TUkRekJtqrgv8ZsIEDLw41wkau4ri7y/preview',
+    // src: 'https://drive.google.com/file/d/13TUkRekJtqrgv8ZsIEDLw41wkau4ri7y/preview',
     title: 'Lemieux Review',
     previewTitle: 'Over 2 years we<br/> see growth<br/> <span>+30%</span> in<br/> ARPU YoY',
     note: 'We’ve been driving consistent, measurable ARPU uplift for Le Mieux—let’s explore how we can deliver similar uplift for you.',
@@ -15,16 +15,16 @@ const videos = [
       id: 'shaun-loughlin',
       name: 'Shaun Loughlin',
       position: 'Head of Ecomm & Tech',
-      company: 'leMieux.svg'
+      companyLogo: 'leMieux.svg'
     },
     id: 'homepage_video-client_0',
     isOwnerForm: true,
   },
   {
-    video: '/video/review-hunter',
+    video: 'https://crs-storage.fra1.cdn.digitaloceanspaces.com/video-reviews/review-hunter',
     format: 'mov',
     preview: '/images/video-review-hunter.png',
-    src: 'https://drive.google.com/file/d/1HAuH0yYADsTiD6pGqljFC-tjXgQvcQVT/preview',
+    // src: 'https://drive.google.com/file/d/1HAuH0yYADsTiD6pGqljFC-tjXgQvcQVT/preview',
     title: 'Hunter Galloway Review',
     previewTitle: 'They have increased our CvR by <span>+60%</span> sitewide',
     note: 'We’ve been driving consistent, measurable CvR uplift for Hunter Galloway—let’s explore how we can deliver similar uplift for you.',
@@ -32,16 +32,16 @@ const videos = [
       id: 'jaydan-vecchio',
       name: 'Jaydan Vecchio',
       position: 'Director',
-      company: 'hunterGalloway-white.svg'
+      companyLogo: 'hunterGalloway-white.svg'
     },
     id: 'homepage_video-client_1',
     isOwnerForm: true,
   },
   {
-    video: '/video/review-natpat',
+    video: 'https://crs-storage.fra1.cdn.digitaloceanspaces.com/video-reviews/review-natpat',
     format: 'mp4',
     preview: '/images/video-review-natpat.png',
-    src: 'https://drive.google.com/file/d/1oW1JRscEaaGiLD5hxUPpTIk3Yqw4D5Jt/preview',
+    // src: 'https://drive.google.com/file/d/1oW1JRscEaaGiLD5hxUPpTIk3Yqw4D5Jt/preview',
     title: 'NatPat Review',
     previewTitle: 'For past 12<br/> month our ARPU<br/> increased up to <span>+140%</span>',
     note: 'We’ve been driving consistent, measurable ARPU uplift for NATPAT—let’s explore how we can deliver similar uplift for you.',
@@ -49,7 +49,7 @@ const videos = [
       id: 'andrei-safonov',
       name: 'Andrei Safonov',
       position: 'Co-founder',
-      company: 'natPat.svg'
+      companyLogo: 'natPat.svg'
     },
     id: 'homepage_video-client_2',
     isOwnerForm: true,
@@ -115,7 +115,7 @@ function openVideo(video: any) {
 
           <div class="video__footer author">
             <div class="author__company">
-              <img :src="`/images/logo/${video.author.company}`" />
+              <img :src="`/images/logo/${video.author.companyLogo}`" />
             </div>
             <div class="author__info">
               <div class="author__name subtitle-3">
