@@ -4,53 +4,59 @@ const { t } = useI18n();
 
 const videos = [
   {
+    video: 'https://crs-storage.fra1.cdn.digitaloceanspaces.com/video-reviews/review-lemieux',
+    format: 'mp4',
     preview: '/images/video-review-lemieux.png',
-    src: 'https://drive.google.com/file/d/13TUkRekJtqrgv8ZsIEDLw41wkau4ri7y/preview',
-    title: 'Lemieux Review',
-    previewTitle: 'Over 2 years we<br/> see growth<br/> <span>+30%</span> in<br/> ARPU YoY',
-    note: 'We’ve been driving consistent, measurable ARPU uplift for Le Mieux—let’s explore how we can deliver similar uplift for you.',
+    // src: 'https://drive.google.com/file/d/13TUkRekJtqrgv8ZsIEDLw41wkau4ri7y/preview',
+    title: t('sectionClientVideos.lemieux.title'),
+    previewTitle: t('sectionClientVideos.lemieux.previewTitle'),
+    note: t('sectionClientVideos.lemieux.note'),
     author: {
       id: 'shaun-loughlin',
       name: 'Shaun Loughlin',
       position: 'Head of Ecomm & Tech',
-      company: 'leMieux.svg'
+      companyLogo: 'leMieux.svg'
     },
     id: 'homepage_video-client_0',
     isOwnerForm: true,
   },
   {
+    video: 'https://crs-storage.fra1.cdn.digitaloceanspaces.com/video-reviews/review-hunter',
+    format: 'mov',
     preview: '/images/video-review-hunter.png',
-    src: 'https://drive.google.com/file/d/1HAuH0yYADsTiD6pGqljFC-tjXgQvcQVT/preview',
-    title: 'Hunter Galloway Review',
-    previewTitle: 'They have increased our CvR by <span>+60%</span> sitewide',
-    note: 'We’ve been driving consistent, measurable CvR uplift for Hunter Galloway—let’s explore how we can deliver similar uplift for you.',
+    // src: 'https://drive.google.com/file/d/1HAuH0yYADsTiD6pGqljFC-tjXgQvcQVT/preview',
+    title: t('sectionClientVideos.hunter.title'),
+    previewTitle: t('sectionClientVideos.hunter.previewTitle'),
+    note: t('sectionClientVideos.hunter.note'),
     author: {
       id: 'jaydan-vecchio',
       name: 'Jaydan Vecchio',
       position: 'Director',
-      company: 'hunterGalloway-white.svg'
+      companyLogo: 'hunterGalloway-white.svg'
     },
     id: 'homepage_video-client_1',
     isOwnerForm: true,
   },
   {
+    video: 'https://crs-storage.fra1.cdn.digitaloceanspaces.com/video-reviews/review-natpat',
+    format: 'mp4',
     preview: '/images/video-review-natpat.png',
-    src: 'https://drive.google.com/file/d/1oW1JRscEaaGiLD5hxUPpTIk3Yqw4D5Jt/preview',
-    title: 'NatPat Review',
-    previewTitle: 'For past 12<br/> month our ARPU<br/> increased up to <span>+140%</span>',
-    note: 'We’ve been driving consistent, measurable ARPU uplift for NATPAT—let’s explore how we can deliver similar uplift for you.',
+    // src: 'https://drive.google.com/file/d/1oW1JRscEaaGiLD5hxUPpTIk3Yqw4D5Jt/preview',
+    title: t('sectionClientVideos.natpat.title'),
+    previewTitle: t('sectionClientVideos.natpat.previewTitle'),
+    note: t('sectionClientVideos.natpat.note'),
     author: {
       id: 'andrei-safonov',
       name: 'Andrei Safonov',
       position: 'Co-founder',
-      company: 'natPat.svg'
+      companyLogo: 'natPat.svg'
     },
     id: 'homepage_video-client_2',
     isOwnerForm: true,
   }
 ]
 
-const carousel = ref()
+const isCarouselReady = ref(false)
 
 function openVideo(video: any) {
   openModal({
@@ -61,15 +67,21 @@ function openVideo(video: any) {
 </script>
 
 <template>
-  <BaseSection class="videos">
+  <BaseSection
+    class="videos"
+    id="testimonials"
+  >
     <h2 class="section-title title-2 text-center">
       {{ t('sectionClientVideos.title') }}
     </h2>
 
     <Carousel
       class="videos__carousel"
-      ref="carousel"
+      :class="{ 'is-ready': isCarouselReady }"
       :items-to-show="1.1"
+      :touch-drag="{ threshold: 0.15 }"
+      prevent-excessive-dragging
+      @init="isCarouselReady = true"
       :breakpoints="{
          992: { itemsToShow: 3, wrapAround: false },
          768: { itemsToShow: 2, wrapAround: false }
@@ -103,7 +115,7 @@ function openVideo(video: any) {
 
           <div class="video__footer author">
             <div class="author__company">
-              <img :src="`/images/logo/${video.author.company}`" />
+              <img :src="`/images/logo/${video.author.companyLogo}`" />
             </div>
             <div class="author__info">
               <div class="author__name subtitle-3">
@@ -123,12 +135,17 @@ function openVideo(video: any) {
 <style lang="scss" scoped>
 .videos {
   &__carousel {
+    transition: opacity .2s;
     margin: 40px -10px 0;
     @media(max-width: $sm) {
       margin: 24px -6px 0;
     }
 
-    :deep(.carousel__viewport) {
+    &:not(.is-ready) {
+      opacity: .1;
+    }
+
+    &.is-ready :deep(.carousel__viewport) {
       overflow: visible;
     }
   }
@@ -176,7 +193,7 @@ function openVideo(video: any) {
     @media(max-width: $sm) {
       font-size: 24px;
       line-height: 32px;
-      max-width: 60%;
+      max-width: 75%;
     }
 
     &:deep(span) {

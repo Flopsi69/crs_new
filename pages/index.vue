@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 const { t } = useI18n()
+const scrollToElement = useSmoothScroll()
 
 useSeoMeta({
   title: t('seo.title'),
@@ -21,11 +22,21 @@ useHead({
     }
   ]
 });
+
+const route = useRoute()
+
+onMounted(() => {
+  if (route.hash === '#testimonials') {
+    scrollToElement('#testimonials', 'center')
+  }
+})
 </script>
 
 <template>
   <main class="main">
     <SectionHero />
+    <!-- {{ route.hash }}
+    <button @click="scrollToElement('#testimonials', 'center')">scroll</button> -->
     <SectionTrusted />
     <SectionLeader />
     <SectionClientVideos />

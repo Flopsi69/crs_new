@@ -16,6 +16,8 @@ defineProps({
     }),
   },
 })
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -36,7 +38,7 @@ defineProps({
       v-if="caseStudy.about"
     >
       <div class="case__block-title subtitle-3">
-        {{ $t('sectionCaseStudies.product') }}
+        {{ t('sectionCaseStudies.product') }}
       </div>
       <div class="case__block-caption text color-secondary">
         <span
@@ -53,7 +55,7 @@ defineProps({
       v-if="caseStudy.experiment"
     >
       <div class="case__block-title subtitle-3">
-        {{ $t('sectionCaseStudies.experiment') }}
+        {{ t('sectionCaseStudies.experiment') }}
       </div>
       <div class="case__block-caption text color-secondary">
         {{ caseStudy.experiment }}
@@ -63,7 +65,7 @@ defineProps({
     <div class="result case__block flex justify-between align-end">
       <div class="result__left result__col">
         <div class="case__block-title subtitle-3">
-          {{ $t('sectionCaseStudies.result') }}
+          {{ t('sectionCaseStudies.result') }}
         </div>
 
         <div class="result__value color-purple">
@@ -91,7 +93,7 @@ defineProps({
           :to="caseStudy.result.url"
         >
           <span>
-            {{ $t('sectionCaseStudies.viewCaseStudy') }}
+            {{ t('sectionCaseStudies.viewCaseStudy') }}
           </span>
         </NuxtLink>
       </div>

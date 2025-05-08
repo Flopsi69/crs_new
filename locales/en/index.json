@@ -58,7 +58,21 @@
       "back": "Back",
       "agree": "By submitting this form, you agree to receive the requested information, as well as occasional communications regarding ConversionRate Store products, services, and events. You can unsubscribe at any time. To read more visit privacy policy. Your personal data will be processed in accordance with our privacy policy.",
       "continue": "Continue",
-      "agreeError": "Please agree to the terms"
+      "agreeError": "Please agree to the terms",
+      "hearAboutUs": {
+        "somebody": "Somebody recommended us",
+        "organic": "Organic search",
+        "googleAds": "Google Ads",
+        "other": "Other"
+      },
+      "annualRevenue": {
+        "lessThan500k": "Less than $500,000",
+        "from500kTo1m": "$500,000 - $1 million",
+        "from1mTo2m": "$1 million - $2 million",
+        "from2mTo5m": "$2 million - $5 million",
+        "preferNotToSay": "I prefer not to say",
+        "over1m": "Over $1 million"
+      }
     },
     "video": {
       "ctaButton": "Schedule a FREE call",
@@ -163,7 +177,22 @@
     "title": "Watch our founders share actionable CRO tactics straight from the stage"
   },
   "sectionClientVideos": {
-    "title": "Our Clients About the Results We Deliver"
+    "title": "Our Clients About the Results We Deliver",
+    "lemieux": {
+      "title": "Lemieux Review",
+      "previewTitle": "Over 2 years we see growth <span>+30%</span> in ARPU YoY",
+      "note": "We’ve been driving consistent, measurable ARPU uplift for Le Mieux—let’s explore how we can deliver similar uplift for you."
+    },
+    "hunter": {
+      "title": "Hunter Galloway Review",
+      "previewTitle": "They have increased our CvR by <span>+60%</span> sitewide",
+      "note": "We’ve been driving consistent, measurable CvR uplift for Hunter Galloway—let’s explore how we can deliver similar uplift for you."
+    },
+    "natpat": {
+      "title": "NatPat Review",
+      "previewTitle": "For past 12 month our ARPU increased up to <span>+140%</span>",
+      "note": "We’ve been driving consistent, measurable ARPU uplift for NATPAT—let’s explore how we can deliver similar uplift for you."
+    }
   },
   "sectionSolutions": {
     "caption": "Use our knowledge base",

@@ -3,6 +3,7 @@ type Author = {
   name: string
   position: string
   photo: string
+  companyLogo: string
 }
 
 type ModalData = {
@@ -14,10 +15,13 @@ type ModalData = {
   info?: Object
   src?: string
   title?: string
+  titleImage?: string
   author?: Author
   meeting?: string
   note?: string
   isOwnerForm?: boolean
+  video?: string
+  format?: string
 }
 
 const isOpen = ref<boolean>(false)

@@ -21,6 +21,7 @@ const props = defineProps({
 
 const route = useRoute()
 const isDevMode = route.query.mode === 'dev';
+const { t } = useI18n();
 
 const isShowMore = ref(false);
 
@@ -68,7 +69,7 @@ const casesToShow = computed(() => {
       class="button button_trans-yellow"
       @click="isShowMore = !isShowMore"
     >
-      {{ $t('sectionCaseStudies.viewAll') }}
+      {{ t('sectionCaseStudies.viewAll') }}
     </button>
   </div>
 </template>

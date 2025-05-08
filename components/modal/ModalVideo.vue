@@ -37,6 +37,13 @@ const excel = useExcel()
 const mailer = useMailer()
 
 const isLoading = ref(false)
+const videoEl = ref<HTMLVideoElement | null>(null)
+const isVideoStarted = ref(false)
+const isVideoLoaded = ref(false)
+
+const isClientVideo = computed(() => {
+  return modalData.value?.id?.includes('homepage_video-client')
+})
 
 const isClientVideo = computed(() => {
   return modalData.value?.id?.includes('homepage_video-client')
@@ -49,6 +56,7 @@ onMounted(() => {
     })
   }, 7000);
 })
+
 
 function validateInputs() {
   error.name = validateInput(form.name, 'name');
@@ -109,6 +117,15 @@ async function saveLead() {
 
   modalTarget.value = 'success';
 }
+
+function playVideo() {
+  isVideoLoaded.value = true
+  setTimeout(() => {
+    if (videoEl.value && videoEl.value.paused) {
+      videoEl.value.play()
+    }
+  }, 300);
+}
 </script>
 
 <template>
@@ -135,11 +152,47 @@ async function saveLead() {
     >
       <div class="video__inner">
         <div class="video__title">
-          {{ modalData.title}}
+          <img
+            v-if="modalData.author?.companyLogo"
+            :src="`images/logo/${modalData.author?.companyLogo}`"
+            alt=""
+          />
+          <template v-else>
+            {{ modalData.title}}
+          </template>
         </div>
-        <div class="video bg--purple">
-          <div class="video__loader"></div>
+        <div class="video">
+          <div
+            class="video__loader"
+            v-if="!isVideoLoaded"
+          ></div>
+          <template v-if="modalData.video">
+            <img
+              class="video__play"
+              v-if="!isVideoStarted && isVideoLoaded"
+              src="img/video-play.png"
+              alt=""
+            />
+            <video
+              ref="videoEl"
+              class="video__player"
+              :poster="modalData.video + '-poster.png'"
+              controlsList="nodownload noplaybackrate"
+              @loadedmetadata="playVideo"
+              @play="isVideoStarted = true"
+              disablepictureinpicture
+              controls
+              playsinline
+            >
+              <source
+                :src="`${modalData.video}.${modalData.format}`"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+          </template>
           <iframe
+            v-else
             :src="modalData.src"
             allow="autoplay"
             allowfullscreen
@@ -292,11 +345,40 @@ async function saveLead() {
   overflow: hidden;
   line-height: 0;
   padding-top: 56.15%;
-  background: rgba(#000, .5);
+  background: rgba(#5c51a5, .5);
+  cursor: pointer;
   @media(max-width: $sm) {
     margin-top: 16px;
   }
   iframe {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: none;
+  }
+  &__play {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 20px;
+    margin: auto;
+    pointer-events: none;
+    z-index: 1;
+    width: 60px;
+    cursor: pointer;
+    transition: 0.3s;
+    @media(max-width: $sm) {
+      display: none;
+    }
+    .video:hover & {
+      width: 70px;
+    }
+  }
+  &__player {
     position: absolute;
     left: 0;
     top: 0;

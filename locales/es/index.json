@@ -58,7 +58,21 @@
       "back": "Volver",
       "agree": "Al enviar este formulario, acepta recibir la información solicitada, así como comunicaciones ocasionales sobre los productos, servicios y eventos de ConversionRate Store. Puede darse de baja en cualquier momento. Para leer más visite política de privacidad. Sus datos personales serán tratados de acuerdo con nuestra política de privacidad.",
       "continue": "Continúe en",
-      "agreeError": "Por favor, acepte los términos"
+      "agreeError": "Por favor, acepte los términos",
+      "hearAboutUs": {
+        "somebody": "Alguien nos recomendó",
+        "organic": "Búsqueda orgánica",
+        "googleAds": "Anuncios Google",
+        "other": "Otros"
+      },
+      "annualRevenue": {
+        "lessThan500k": "Menos de 500.000 dólares",
+        "from500kTo1m": "500.000 - 1 millón de dólares",
+        "from1mTo2m": "1 - 2 millones de dólares",
+        "from2mTo5m": "2 - 5 millones de dólares",
+        "preferNotToSay": "Prefiero no decir",
+        "over1m": "Más de un millón de dólares"
+      }
     },
     "video": {
       "ctaButton": "Programe una llamada GRATUITA",
@@ -152,35 +166,40 @@
       }
     }
   },
-  "sectionClientsLogo": {
-    "title": "Nuestros clientes"
+  "sectionTrusted": {
+    "title": "Con la confianza de los líderes del mercado"
   },
   "sectionLeader": {
-    "prefix": "Reconocida como líder mundial en",
-    "cro": "Optimización de la tasa de conversión",
-    "uxo": "Optimización de la experiencia del usuario",
-    "croAbbr": "CRO",
-    "uxoAbbr": "UXO",
-    "and": "y"
+    "prefix": "TIENDA DE TASAS DE CONVERSIÓN ES UN",
+    "title": "Líder mundial en optimización de la tasa de conversión y optimización de la experiencia del usuario"
   },
-  "sectionVideos": {
-    "title": "Vea cómo nuestros fundadores comparten tácticas de CRO procesables directamente desde el escenario",
-    "videos": {
-      "0": {
-        "title": "Riga Comm 2024"
-      },
-      "1": {
-        "title": "Comercio electrónico 2019"
-      },
-      "2": {
-        "title": "Comercio electrónico 2019"
-      }
+  "sectionFounderVideos": {
+    "title": "Vea cómo nuestros fundadores comparten tácticas de CRO procesables directamente desde el escenario"
+  },
+  "sectionClientVideos": {
+    "title": "Nuestros clientes sobre los resultados que ofrecemos",
+    "lemieux": {
+      "title": "Revisión de Lemieux",
+      "previewTitle": "En 2 años vemos un crecimiento de <span>+30%</span> en ARPU YoY",
+      "note": "Hemos impulsado un aumento constante y cuantificable del ARPU para Le Mieux; exploremos cómo podemos ofrecerle un aumento similar."
+    },
+    "hunter": {
+      "title": "Reseña de Hunter Galloway",
+      "previewTitle": "Han aumentado nuestro CvR en <span> un +60%</span> en todo el sitio web",
+      "note": "Hemos impulsado un aumento constante y cuantificable del CvR para Hunter Galloway; exploremos cómo podemos proporcionarle un aumento similar."
+    },
+    "natpat": {
+      "title": "Reseña de NatPat",
+      "previewTitle": "En los últimos 12 meses nuestro ARPU aumentó hasta <span> un +140%</span>.",
+      "note": "Hemos impulsado un aumento constante y cuantificable del ARPU para NATPAT; exploremos cómo podemos ofrecerle un aumento similar."
     }
   },
   "sectionSolutions": {
-    "caption": "Encuentre la solución a los retos de su negocio de comercio electrónico",
-    "title": "Descubra las causas y las soluciones a los retos a los que se enfrenta su negocio de comercio electrónico",
-    "subtitle": "Elija el problema",
+    "caption": "Utilice nuestra base de conocimientos",
+    "titleFirstRow": "Elija su comercio electrónico",
+    "titleSecondRow": "Consiga GRATIS al instante",
+    "titleProblem": "problema",
+    "titleSolution": "solución",
     "viewAll": "Ver todos",
     "showMore": "Mostrar más",
     "solution": {
@@ -523,6 +542,19 @@
         "formTitle": "Programe su debate de resultados",
         "cta": "Concierte una llamada para estimar el ROI",
         "note": "Si no está seguro de cuáles son sus métricas actuales, no se preocupe, le ayudaremos a encontrarlas y a estimar el aumento"
+      }
+    },
+    "limitedOffer": {
+      "subtitle": "Oferta por tiempo limitado",
+      "title": "Obtenga una sesión de estrategia CRO \n con nuestro director general",
+      "caption": "Para las empresas que generan \n más de $500K en ingresos mensuales",
+      "cta": "Programe una llamada",
+      "funnelInfo": {
+        "title": "Obtenga una sesión de estrategia de CRO con nuestro director general",
+        "subtitle": "Oferta por tiempo limitado",
+        "cta": "Concierte una llamada para estimar el ROI",
+        "note": "Si no está seguro de cuáles son sus métricas actuales, no se preocupe, le ayudaremos a encontrarlas y a estimar el aumento",
+        "formTitle": "Programe su debate de resultados"
       }
     }
   }
