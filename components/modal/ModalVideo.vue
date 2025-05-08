@@ -45,10 +45,6 @@ const isClientVideo = computed(() => {
   return modalData.value?.id?.includes('homepage_video-client')
 })
 
-const isClientVideo = computed(() => {
-  return modalData.value?.id?.includes('homepage_video-client')
-})
-
 onMounted(() => {
   setTimeout(() => {
     gtm?.trackEvent({
