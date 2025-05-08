@@ -1,7 +1,7 @@
 export default [
     {
         case: '',
-        problem: "Baisse du taux de conversion ou de l'ARPU de la boutique en ligne",
+        problem: "Baisse du taux de conversion du commerce électronique et du chiffre d'affaires par utilisateur",
         causes: ['Entonnoir de conversion peu performant', 'Faible qualité du trafic', 'Saisonnalité'],
         solutions: [
             {
@@ -59,7 +59,7 @@ export default [
     },
     {
         case: 'natPat',
-        problem: "Coût d'acquisition des clients (CAC) élevé et croissant qui empêche l'entreprise de se développer",
+        problem: "Coût d'acquisition des clients (CAC) élevé qui empêche l'entreprise de se développer",
         causes: [
             'Taux de conversion sur site et revenu moyen par utilisateur (ARPU) faibles',
             'Trafic de faible qualité ou non pertinent',
@@ -123,7 +123,7 @@ export default [
     },
     {
         case: 'somnifix2',
-        problem: 'Faible AOV car les utilisateurs achètent principalement des produits moins chers',
+        problem: 'Faible valeur moyenne des commandes (AOV)',
         causes: [
             'Manque de clarté sur les avantages des produits plus chers ',
             'Concentration excessive sur les produits à bas prix et priorité accordée à ces derniers',
@@ -192,6 +192,85 @@ export default [
         ],
     },
     {
+        case: 'gaiam',
+        problem: "Taux élevé d'abandon de panier",
+        causes: [
+            "Distractions au niveau du panier/de la caisse, telles que les ventes incitatives ou croisées, qui conduisent à l'abandon du panier.",
+            "Frais d'expédition surprise dans le panier/la caisse",
+            'Pas de données de carte de crédit à proximité ',
+            'Hésitations de dernière minute',
+        ],
+        solutions: [
+            {
+                title: 'Supprimez les distractions qui dissuadent les utilisateurs de se convertir',
+                content: `
+              <p class="text">
+                Chaque étape de l'entonnoir de conversion a un objectif spécifique. L'objectif du panier est de permettre aux utilisateurs de consulter le récapitulatif de leur commande et de procéder au paiement. Le panier ne doit pas comporter d'éléments UX/UI qui ne servent pas cet objectif.
+              </p>
+              <p class="text">
+               Une erreur courante dans de nombreuses boutiques de commerce électronique est l'inclusion de distractions inutiles, telles que des menus de navigation actifs et des pieds de page, qui occupent un espace précieux dans le panier. Ces éléments peuvent faire fuir le trafic à fort potentiel de l'entonnoir. En éliminant ces distractions, vous aiderez les utilisateurs à se concentrer sur la finalisation de leur achat.
+              </p>
+            `,
+            },
+            {
+                title: "Contrôlez l'impact des ventes incitatives et croisées sur le taux d'abandon du panier",
+                content: `
+              <p class="text">
+                Il est courant de placer un bloc de produits recommandés dans le panier afin d'encourager les utilisateurs à acheter davantage de produits. La logique est simple : des ventes incitatives ou croisées efficaces peuvent augmenter la valeur moyenne de la commande (AOV), ce qui entraîne une augmentation du revenu moyen par utilisateur (ARPU). Cependant, cette approche néglige souvent les fuites potentielles de l'entonnoir créées par les ventes incitatives et les ventes croisées. Dans de nombreux cas, les utilisateurs ne se contentent pas d'ajouter les produits recommandés à leur panier. Au lieu de cela, ils quittent le panier pour effectuer des recherches plus approfondies sur ces produits et, souvent, ne reviennent pas pour finaliser l'achat, ce qui se traduit par un taux d'abandon du panier élevé.
+              </p>
+              <p class="text">
+                Contrôlez l'impact des ventes incitatives et croisées au niveau du panier sur votre AOV, votre taux d'abandon du panier et, plus important encore, votre ARPU. Suivez le comportement des utilisateurs après qu'ils se soient engagés avec les produits que vous leur recommandez en utilisant des enregistrements de sessions vidéo et des analyses de flux d'utilisateurs basées sur les événements.
+              </p>
+              <p class="text">
+                En termes simples, l'augmentation de la valeur ajoutée doit être supérieure à la baisse du taux de conversion (CvR) causée par les ventes incitatives et croisées.
+              </p>
+              <p class="text">
+                Une recommandation courante pour les ventes incitatives et croisées au stade du panier est d'utiliser des produits qui complètent les articles déjà dans le panier, comme un chargeur de téléphone pour un téléphone portable.
+              </p>
+            `,
+            },
+            {
+                title: 'Offrez le paiement express',
+                content: `
+              <p class="text">
+                Nos recherches montrent que les utilisateurs sont 40 % plus susceptibles de terminer un achat s'ils utilisent des options de paiement express comme Apple Pay, Google Pay ou PayPal. C'est particulièrement vrai pour les utilisateurs mobiles, qui ont généralement des taux d'abandon de panier plus élevés que les utilisateurs d'ordinateurs de bureau.
+              </p>
+              <p class="text">
+                Veillez à ce que les options de paiement express soient disponibles pour tous les utilisateurs, tant au niveau du panier que du paiement.
+              </p>
+            `,
+            },
+            {
+                title: "Mettez l'accent sur la garantie de remboursement",
+                content: `
+              <p class="text">
+                De nombreuses commandes sont abandonnées lors des dernières étapes du processus de conversion en raison d'un facteur commun : la peur de prendre une mauvaise décision irréversible. Pour y remédier, renforcez la confiance des utilisateurs en communiquant efficacement sur votre garantie de remboursement.
+              </p>
+              <p class="text">
+                Cette crainte est la plus forte pour les produits dont le résultat est binaire - ils conviennent ou ne conviennent pas - tels que les bagues, les vêtements et les chaussures. Une garantie de remboursement est essentielle pour ces catégories.
+              </p>
+              <p class="text">
+                En outre, plus le produit est cher, plus le risque perçu de prendre une mauvaise décision est élevé. Par conséquent, la garantie de remboursement est d'autant plus essentielle pour les articles à prix élevé.
+              </p>
+            `,
+            },
+            {
+                title: 'Introduire des évaluations personnalisées des clients',
+                content: `
+              <p class="text">
+                Un moyen efficace d'atténuer les hésitations de dernière minute des utilisateurs avant qu'ils n'achètent un produit est de présenter des commentaires personnalisés aux étapes du panier et de la commande. Ces avis soulignent comment le produit que l'utilisateur a l'intention d'acheter a apporté de la joie et de la satisfaction à d'autres clients.
+              </p>
+              <p class="text">
+                Le défi consiste à personnaliser les commentaires en fonction des produits spécifiques qui se trouvent dans le panier de l'utilisateur. Veillez à ce que les avis soient pertinents et directement liés aux articles que l'utilisateur envisage d'acheter, afin de maximiser leur impact et de rassurer le client quant à sa décision d'achat.
+              </p>
+            `,
+            },
+        ],
+    },
+    // {
+    //   problem: 'High checkout abandonment rate'
+    // },
+    {
         case: 'somnifix1',
         problem: 'Taux de rebond élevé',
         causes: [
@@ -245,65 +324,7 @@ export default [
         ],
     },
     {
-        problem: 'Taux de sortie élevé sur la page de résultats de recherche',
-        causes: [
-            'Sélection inappropriée de produits sur une page de résultats de recherche (les internautes peuvent utiliser des mots-clés différents de ceux que vous avez indexés), attention aux demandes de recherche répétées',
-        ],
-        solutions: [
-            {
-                title: "Utiliser un moteur de recherche doté d'IA pour améliorer la pertinence des résultats de recherche",
-                content: `
-              <p class="text">
-                Les internautes se trompent souvent lorsqu'ils saisissent leurs requêtes de recherche, et ils peuvent utiliser différents termes pour rechercher le même produit qui ne correspond pas forcément à vos mots-clés associés.  Ce ne sont là que quelques-uns des problèmes auxquels les utilisateurs sont confrontés lorsqu'ils utilisent des moteurs de recherche sur site. Un algorithme de recherche doté d'une intelligence artificielle peut apprendre à interpréter ces erreurs et à associer les différentes requêtes de recherche au bon produit.
-              </p>
-              <p class="text">
-                En outre, un algorithme de recommandation alimenté par l'IA peut connaître les préférences des utilisateurs et afficher dans les résultats de recherche des produits que d'autres utilisateurs ayant des requêtes ou des comportements similaires ont utilisés ou achetés. Ainsi, vos résultats de recherche ne renverront jamais le message "0 résultat trouvé".
-              </p>
-              <p class="text">
-                Pour déterminer dans quelle mesure ces problèmes affectent votre entreprise, surveillez des paramètres tels que le taux de sortie de la page de résultats de recherche et le taux de recherche répétée sur la page de résultats de recherche.
-              </p>
-              <p class="text">
-                Nous savons que les utilisateurs qui utilisent la fonction de recherche ont généralement une intention d'achat plus forte que ceux qui ne l'utilisent pas. Par conséquent, un moteur de recherche et de recommandation alimenté par l'IA peut capitaliser sur cette intention et générer des taux de conversion (CvR) et des revenus moyens par utilisateur (ARPU) plus élevés.
-              </p>
-            `,
-            },
-            {
-                title: 'Mettre en place des fonctions de tri et de filtrage efficaces sur la page des résultats de recherche',
-                content: `
-              <p class="text">
-                Les options de tri et de filtrage sur la page des résultats de recherche sont essentielles pour aider les utilisateurs à trouver les produits qu'ils recherchent. Il existe une corrélation positive directe entre l'utilisation de ces fonctions et l'augmentation du taux de conversion (CvR).
-              </p>
-              <p class="text">
-                Veillez à ce que votre page de résultats de recherche comporte des options de tri et de filtrage efficaces et facilement visibles afin d'améliorer l'expérience de l'utilisateur et d'augmenter les conversions.
-              </p>
-            `,
-            },
-            {
-                title: "Personnalisez l'aperçu des produits sur la page des résultats de recherche pour chaque catégorie afin de permettre une comparaison efficace.",
-                content: `
-              <p class="text">
-                Chaque catégorie de produits présente des caractéristiques spécifiques importantes pour les utilisateurs. Par exemple, les caractéristiques clés des ordinateurs portables sont le processeur, la mémoire vive, la mémoire et le poids. Ces détails doivent être affichés pour chaque produit de la catégorie ordinateur portable sur la page des résultats de la recherche. À l'inverse, le poids est une caractéristique non pertinente pour les ordinateurs de bureau et ne doit pas figurer dans leur fiche produit.
-              </p>
-              <p class="text">
-                Votre objectif est de permettre aux utilisateurs de comparer facilement les produits en fonction de leurs caractéristiques clés, directement sur la page d'inscription, plutôt que de les obliger à visiter chaque page de produit individuellement.
-              </p>
-            `,
-            },
-            {
-                title: 'Introduire un moteur de recommandation sur la page des résultats de recherche',
-                content: `
-              <p class="text">
-                L'objectif premier de la page de résultats de recherche est d'aider les utilisateurs à trouver les produits qu'ils recherchent tout en suscitant leur intérêt pour la découverte de produits alternatifs ou de substitution. Ce deuxième objectif peut être atteint grâce à un moteur de recommandation efficace, qui suggère aux utilisateurs des produits alternatifs ou de substitution.
-              </p>
-              <p class="text">
-                Un moteur de recommandation alimenté par l'IA peut apprendre et affiner ses offres de produits en analysant l'engagement et le comportement des utilisateurs. Cela garantit une courbe d'apprentissage continue et une performance de plus en plus efficace de la page de résultats de recherche.
-              </p>
-            `,
-            },
-        ],
-    },
-    {
-        problem: 'Taux de sortie élevé sur les listes de produits',
+        problem: 'Taux de sortie élevé sur les listes de produits (PL)',
         causes: [
             'Les utilisateurs ne trouvent pas le produit qui répond à leurs besoins',
             "L'absence d'informations essentielles sur les produits dans les listes de produits peut empêcher les utilisateurs d'identifier le produit qu'ils préfèrent et de faire la distinction entre les différentes options.",
@@ -354,8 +375,7 @@ export default [
     },
     {
         case: 'magie de la lune',
-        problem:
-            "Faible taux de passage de la carte au détail (c'est-à-dire un taux de sortie élevé sur la page de détail du produit)",
+        problem: "Faible taux d'achat au détail",
         causes: [
             'Prix élevé des produits',
             "Absence d'images de produits ou images de mauvaise qualité",
@@ -461,80 +481,69 @@ export default [
             },
         ],
     },
+    // {
+    //   problem:
+    //     'High exit rate of the product detail page (PDP) / Low Cart-to-Detail rate'
+    // },
     {
-        case: 'gaiam',
-        problem: "Taux élevé d'abandon de panier",
+        problem: 'Taux de sortie élevé sur la page de résultats de recherche',
         causes: [
-            "Distractions au niveau du panier/de la caisse, telles que les ventes incitatives ou croisées, qui conduisent à l'abandon du panier.",
-            "Frais d'expédition surprise dans le panier/la caisse",
-            'Pas de données de carte de crédit à proximité ',
-            'Hésitations de dernière minute',
+            'Sélection inappropriée de produits sur une page de résultats de recherche (les internautes peuvent utiliser des mots-clés différents de ceux que vous avez indexés), attention aux demandes de recherche répétées',
         ],
         solutions: [
             {
-                title: 'Supprimez les distractions qui dissuadent les utilisateurs de se convertir',
+                title: "Utiliser un moteur de recherche doté d'IA pour améliorer la pertinence des résultats de recherche",
                 content: `
               <p class="text">
-                Chaque étape de l'entonnoir de conversion a un objectif spécifique. L'objectif du panier est de permettre aux utilisateurs de consulter le récapitulatif de leur commande et de procéder au paiement. Le panier ne doit pas comporter d'éléments UX/UI qui ne servent pas cet objectif.
+                Les internautes se trompent souvent lorsqu'ils saisissent leurs requêtes de recherche, et ils peuvent utiliser différents termes pour rechercher le même produit qui ne correspond pas forcément à vos mots-clés associés.  Ce ne sont là que quelques-uns des problèmes auxquels les utilisateurs sont confrontés lorsqu'ils utilisent des moteurs de recherche sur site. Un algorithme de recherche doté d'une intelligence artificielle peut apprendre à interpréter ces erreurs et à associer les différentes requêtes de recherche au bon produit.
               </p>
               <p class="text">
-               Une erreur courante dans de nombreuses boutiques de commerce électronique est l'inclusion de distractions inutiles, telles que des menus de navigation actifs et des pieds de page, qui occupent un espace précieux dans le panier. Ces éléments peuvent faire fuir le trafic à fort potentiel de l'entonnoir. En éliminant ces distractions, vous aiderez les utilisateurs à se concentrer sur la finalisation de leur achat.
+                En outre, un algorithme de recommandation alimenté par l'IA peut connaître les préférences des utilisateurs et afficher dans les résultats de recherche des produits que d'autres utilisateurs ayant des requêtes ou des comportements similaires ont utilisés ou achetés. Ainsi, vos résultats de recherche ne renverront jamais le message "0 résultat trouvé".
+              </p>
+              <p class="text">
+                Pour déterminer dans quelle mesure ces problèmes affectent votre entreprise, surveillez des paramètres tels que le taux de sortie de la page de résultats de recherche et le taux de recherche répétée sur la page de résultats de recherche.
+              </p>
+              <p class="text">
+                Nous savons que les utilisateurs qui utilisent la fonction de recherche ont généralement une intention d'achat plus forte que ceux qui ne l'utilisent pas. Par conséquent, un moteur de recherche et de recommandation alimenté par l'IA peut capitaliser sur cette intention et générer des taux de conversion (CvR) et des revenus moyens par utilisateur (ARPU) plus élevés.
               </p>
             `,
             },
             {
-                title: "Contrôlez l'impact des ventes incitatives et croisées sur le taux d'abandon du panier",
+                title: 'Mettre en place des fonctions de tri et de filtrage efficaces sur la page des résultats de recherche',
                 content: `
               <p class="text">
-                Il est courant de placer un bloc de produits recommandés dans le panier afin d'encourager les utilisateurs à acheter davantage de produits. La logique est simple : des ventes incitatives ou croisées efficaces peuvent augmenter la valeur moyenne de la commande (AOV), ce qui entraîne une augmentation du revenu moyen par utilisateur (ARPU). Cependant, cette approche néglige souvent les fuites potentielles de l'entonnoir créées par les ventes incitatives et les ventes croisées. Dans de nombreux cas, les utilisateurs ne se contentent pas d'ajouter les produits recommandés à leur panier. Au lieu de cela, ils quittent le panier pour effectuer des recherches plus approfondies sur ces produits et, souvent, ne reviennent pas pour finaliser l'achat, ce qui se traduit par un taux d'abandon du panier élevé.
+                Les options de tri et de filtrage sur la page des résultats de recherche sont essentielles pour aider les utilisateurs à trouver les produits qu'ils recherchent. Il existe une corrélation positive directe entre l'utilisation de ces fonctions et l'augmentation du taux de conversion (CvR).
               </p>
               <p class="text">
-                Contrôlez l'impact des ventes incitatives et croisées au niveau du panier sur votre AOV, votre taux d'abandon du panier et, plus important encore, votre ARPU. Suivez le comportement des utilisateurs après qu'ils se soient engagés avec les produits que vous leur recommandez en utilisant des enregistrements de sessions vidéo et des analyses de flux d'utilisateurs basées sur les événements.
-              </p>
-              <p class="text">
-                En termes simples, l'augmentation de la valeur ajoutée doit être supérieure à la baisse du taux de conversion (CvR) causée par les ventes incitatives et croisées.
-              </p>
-              <p class="text">
-                Une recommandation courante pour les ventes incitatives et croisées au stade du panier est d'utiliser des produits qui complètent les articles déjà dans le panier, comme un chargeur de téléphone pour un téléphone portable.
+                Veillez à ce que votre page de résultats de recherche comporte des options de tri et de filtrage efficaces et facilement visibles afin d'améliorer l'expérience de l'utilisateur et d'augmenter les conversions.
               </p>
             `,
             },
             {
-                title: 'Offrez le paiement express',
+                title: "Personnalisez l'aperçu des produits sur la page des résultats de recherche pour chaque catégorie afin de permettre une comparaison efficace.",
                 content: `
               <p class="text">
-                Nos recherches montrent que les utilisateurs sont 40 % plus susceptibles de terminer un achat s'ils utilisent des options de paiement express comme Apple Pay, Google Pay ou PayPal. C'est particulièrement vrai pour les utilisateurs mobiles, qui ont généralement des taux d'abandon de panier plus élevés que les utilisateurs d'ordinateurs de bureau.
+                Chaque catégorie de produits présente des caractéristiques spécifiques importantes pour les utilisateurs. Par exemple, les caractéristiques clés des ordinateurs portables sont le processeur, la mémoire vive, la mémoire et le poids. Ces détails doivent être affichés pour chaque produit de la catégorie ordinateur portable sur la page des résultats de la recherche. À l'inverse, le poids est une caractéristique non pertinente pour les ordinateurs de bureau et ne doit pas figurer dans leur fiche produit.
               </p>
               <p class="text">
-                Veillez à ce que les options de paiement express soient disponibles pour tous les utilisateurs, tant au niveau du panier que du paiement.
+                Votre objectif est de permettre aux utilisateurs de comparer facilement les produits en fonction de leurs caractéristiques clés, directement sur la page d'inscription, plutôt que de les obliger à visiter chaque page de produit individuellement.
               </p>
             `,
             },
             {
-                title: "Mettez l'accent sur la garantie de remboursement",
+                title: 'Introduire un moteur de recommandation sur la page des résultats de recherche',
                 content: `
               <p class="text">
-                De nombreuses commandes sont abandonnées lors des dernières étapes du processus de conversion en raison d'un facteur commun : la peur de prendre une mauvaise décision irréversible. Pour y remédier, renforcez la confiance des utilisateurs en communiquant efficacement sur votre garantie de remboursement.
+                L'objectif premier de la page de résultats de recherche est d'aider les utilisateurs à trouver les produits qu'ils recherchent tout en suscitant leur intérêt pour la découverte de produits alternatifs ou de substitution. Ce deuxième objectif peut être atteint grâce à un moteur de recommandation efficace, qui suggère aux utilisateurs des produits alternatifs ou de substitution.
               </p>
               <p class="text">
-                Cette crainte est la plus forte pour les produits dont le résultat est binaire - ils conviennent ou ne conviennent pas - tels que les bagues, les vêtements et les chaussures. Une garantie de remboursement est essentielle pour ces catégories.
-              </p>
-              <p class="text">
-                En outre, plus le produit est cher, plus le risque perçu de prendre une mauvaise décision est élevé. Par conséquent, la garantie de remboursement est d'autant plus essentielle pour les articles à prix élevé.
-              </p>
-            `,
-            },
-            {
-                title: 'Introduire des évaluations personnalisées des clients',
-                content: `
-              <p class="text">
-                Un moyen efficace d'atténuer les hésitations de dernière minute des utilisateurs avant qu'ils n'achètent un produit est de présenter des commentaires personnalisés aux étapes du panier et de la validation de l'achat. Ces avis soulignent comment le produit que l'utilisateur a l'intention d'acheter a apporté de la joie et de la satisfaction à d'autres clients.
-              </p>
-              <p class="text">
-                Le défi consiste à personnaliser les commentaires en fonction des produits spécifiques qui se trouvent dans le panier de l'utilisateur. Veillez à ce que les avis soient pertinents et directement liés aux articles que l'utilisateur envisage d'acheter, afin de maximiser leur impact et de rassurer le client quant à sa décision d'achat.
+                Un moteur de recommandation alimenté par l'IA peut apprendre et affiner ses offres de produits en analysant l'engagement et le comportement des utilisateurs. Cela garantit une courbe d'apprentissage continue et une performance de plus en plus efficace de la page de résultats de recherche.
               </p>
             `,
             },
         ],
     },
+    // {
+    //   problem: 'The high volatility of sales throughout the year'
+    // }
 ];

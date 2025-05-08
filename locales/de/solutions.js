@@ -1,7 +1,7 @@
 export default [
     {
         case: '',
-        problem: 'Sinkende Konversionsrate oder ARPU des Online-Shops',
+        problem: 'Sinkende eCommerce-Konversionsrate und Umsatz pro Benutzer',
         causes: ['Schlecht funktionierender Konversionstrichter', 'Geringe Verkehrsqualität', 'Saisonalität'],
         solutions: [
             {
@@ -59,7 +59,7 @@ export default [
     },
     {
         case: 'natPat',
-        problem: 'Hohe und steigende Kundenakquisitionskosten (CAC), die eine Skalierung des Unternehmens verhindern',
+        problem: 'Hohe Kundenakquisitionskosten (CAC), die eine Skalierung des Unternehmens verhindern',
         causes: [
             'Niedrige Onsite-Konversionsrate und durchschnittlicher Umsatz pro Nutzer (ARPU)',
             'Geringe Qualität oder irrelevanter Verkehr',
@@ -123,7 +123,7 @@ export default [
     },
     {
         case: 'Somnifix2',
-        problem: 'Niedriger AOV, weil die Benutzer überwiegend billigere Produkte kaufen',
+        problem: 'Niedriger durchschnittlicher Auftragswert (AOV)',
         causes: [
             'Unklarheit über die Vorteile der teureren Produkte ',
             'Übermäßiger Fokus und Priorisierung von preisgünstigeren Produkten',
@@ -192,6 +192,85 @@ export default [
         ],
     },
     {
+        case: 'gaiam',
+        problem: 'Hoher Abbruch von Einkaufswagen',
+        causes: [
+            'Ablenkungen beim Einkaufswagen/Checkout wie Upsells/Cross-Sells, die zum Abbruch des Einkaufs führen',
+            'Überraschungsversandkosten im Warenkorb/Kasse',
+            'Keine Kreditkartendaten in der Nähe ',
+            'Zögern in letzter Minute',
+        ],
+        solutions: [
+            {
+                title: 'Entfernen Sie Ablenkungen, die Benutzer von der Konvertierung abhalten',
+                content: `
+              <p class="text">
+                Jeder Schritt im Konversionstrichter hat einen bestimmten Zweck. Der Zweck des Warenkorbs besteht darin, dass der Benutzer die Zusammenfassung seiner Bestellung einsehen und zur Zahlung übergehen kann. Der Warenkorb sollte keine UX/UI-Elemente enthalten, die nicht diesem Zweck dienen.
+              </p>
+              <p class="text">
+               Ein häufiger Fehler in vielen eCommerce-Shops ist die Aufnahme von unnötigen Ablenkungen wie aktiven Navigationsmenüs und Fußzeilen, die wertvollen Platz im Warenkorb beanspruchen. Diese Elemente können dazu führen, dass Besucher mit hoher Kaufabsicht den Trichter verlassen. Wenn Sie diese Ablenkungen beseitigen, können Sie dafür sorgen, dass sich die Benutzer auf den Abschluss ihres Kaufs konzentrieren.
+              </p>
+            `,
+            },
+            {
+                title: 'Kontrollieren Sie, wie sich Upsells/Cross-Sells auf die Abbruchrate des Warenkorbs auswirken',
+                content: `
+              <p class="text">
+                Es ist gängige Praxis, einen Block mit empfohlenen Produkten in den Warenkorb zu legen, um Benutzer zum Kauf weiterer Produkte zu ermutigen. Die Logik ist einfach: Effektive Upsells oder Cross-Sells können den durchschnittlichen Bestellwert (AOV) erhöhen, was zu einem Anstieg des durchschnittlichen Umsatzes pro Benutzer (ARPU) führt. Bei diesem Ansatz werden jedoch häufig die potenziellen Lecks im Trichter übersehen, die durch Upsells und Cross-Sells entstehen. In vielen Fällen legen die Benutzer die empfohlenen Produkte nicht einfach in ihren Warenkorb. Stattdessen verlassen sie den Warenkorb, um diese Produkte weiter zu recherchieren, und kehren oft nicht zurück, um den Kauf abzuschließen, was zu einer überhöhten Abbruchquote führt.
+              </p>
+              <p class="text">
+                Kontrollieren Sie, wie sich Upsells und Cross-Sells im Warenkorb auf Ihren AOV, die Abbruchrate und vor allem auf den ARPU auswirken. Verfolgen Sie das Verhalten der Nutzer nach dem Kauf der von Ihnen empfohlenen Produkte mit Hilfe von Videositzungsaufzeichnungen und ereignisbasierten Analysen des Nutzerflusses.
+              </p>
+              <p class="text">
+                Grundsätzlich muss der Anstieg des AOV den durch Upsells und Cross-Sells verursachten Rückgang der Konversionsrate (CvR) überwiegen.
+              </p>
+              <p class="text">
+                Eine gängige Empfehlung für Upsells und Cross-Sells in der Phase des Warenkorbs ist die Verwendung von Produkten, die die bereits im Warenkorb befindlichen Artikel ergänzen, z. B. ein Ladegerät für ein Mobiltelefon.
+              </p>
+            `,
+            },
+            {
+                title: 'Angebot Express Checkout',
+                content: `
+              <p class="text">
+                Unsere Untersuchungen haben ergeben, dass die Wahrscheinlichkeit, einen Kauf abzuschließen, um 40 % höher ist, wenn Sie Express-Kassenoptionen wie Apple Pay, Google Pay oder PayPal verwenden. Dies gilt insbesondere für mobile Nutzer, die in der Regel höhere Abbruchquoten im Vergleich zu Desktop-Nutzern haben.
+              </p>
+              <p class="text">
+                Stellen Sie sicher, dass die Express-Checkout-Optionen allen Nutzern sowohl im Warenkorb als auch beim Checkout zur Verfügung stehen.
+              </p>
+            `,
+            },
+            {
+                title: 'Betonen Sie die Geld-zurück-Garantie',
+                content: `
+              <p class="text">
+                Viele Bestellungen werden in den letzten Schritten des Konversionsprozesses abgebrochen, und zwar aus einem gemeinsamen Grund: der Angst, eine unwiderrufliche Fehlentscheidung zu treffen. Stärken Sie daher das Vertrauen der Nutzer, indem Sie Ihre Geld-zurück-Garantie wirksam kommunizieren.
+              </p>
+              <p class="text">
+                Diese Angst ist am stärksten bei Produkten mit einem binären Ergebnis - entweder sie passen oder nicht - wie z.B. Ringe, Kleidungsstücke und Schuhe. Eine Geld-zurück-Garantie ist für diese Kategorien unerlässlich.
+              </p>
+              <p class="text">
+                Je teurer das Produkt ist, desto höher ist das Risiko, eine falsche Entscheidung zu treffen. Daher ist eine Geld-zurück-Garantie für hochpreisige Artikel umso wichtiger.
+              </p>
+            `,
+            },
+            {
+                title: 'Personalisierte Kundenrezensionen einführen',
+                content: `
+              <p class="text">
+                Ein effektiver Weg, um das Zögern der Kunden vor dem Kauf abzumildern, ist die Anzeige von personalisierten Bewertungen im Warenkorb und an der Kasse. In diesen Bewertungen wird hervorgehoben, wie das Produkt, das ein Nutzer kaufen möchte, anderen Kunden Freude und Zufriedenheit bereitet hat.
+              </p>
+              <p class="text">
+                Die Herausforderung liegt in der Personalisierung der Bewertungen auf der Grundlage der spezifischen Produkte im Warenkorb des Benutzers. Stellen Sie sicher, dass die Bewertungen relevant sind und in direktem Zusammenhang mit den Produkten stehen, die der Benutzer in Erwägung zieht, um ihre Wirkung zu maximieren und den Kunden in seiner Kaufentscheidung zu bestärken.
+              </p>
+            `,
+            },
+        ],
+    },
+    // {
+    //   problem: 'High checkout abandonment rate'
+    // },
+    {
         case: 'somnifix1',
         problem: 'Hohe Absprungrate',
         causes: [
@@ -208,7 +287,7 @@ export default [
                 Eine hohe Absprungrate resultiert oft aus einem Mangel an Verbindung und Konsistenz zwischen der Anzeige oder dem Link zu den Suchergebnissen und der Landing Page. Die Kontinuität der Designsprache, der Botschaften und des Produktangebots ist entscheidend.
               </p>
               <p class="text">
-                Stellen Sie sich folgendes Szenario vor: Sie klicken auf einen bezahlten Suchlink, der einen Yachturlaub in Griechenland bewirbt, werden aber auf die Homepage eines Reisebüros weitergeleitet, wo Sie selbst nach der beworbenen Reise suchen müssen. Diese unzusammenhängende Erfahrung wird wahrscheinlich zu einer Absprungrate von über 80% führen. Stellen Sie sich nun vor, dass derselbe bezahlte Suchlink Sie auf eine spezielle Landing Page weiterleitet, die alle Vorzüge einer Yachtreise in Griechenland hervorhebt, einschließlich einer detaillierten Beschreibung des beworbenen Angebots. Die Absprungrate für diese Seite wird wahrscheinlich deutlich niedriger sein. Dieses Beispiel zeigt, wie wichtig es ist, dass die Botschaft und das Produktangebot in der Anzeige und auf der Zielseite übereinstimmen.
+                Stellen Sie sich folgendes Szenario vor: Sie klicken auf einen bezahlten Suchlink, der einen Yachturlaub in Griechenland bewirbt, werden aber auf die Homepage eines Reisebüros weitergeleitet, wo Sie selbst nach der beworbenen Reise suchen müssen. Diese unzusammenhängende Erfahrung wird wahrscheinlich zu einer Absprungrate von über 80% führen. Stellen Sie sich nun vor, dass derselbe bezahlte Suchlink Sie auf eine spezielle Landing Page weiterleitet, die alle Vorzüge einer Yachtreise in Griechenland hervorhebt und eine detaillierte Beschreibung des beworbenen Angebots enthält. Die Absprungrate für diese Seite wird wahrscheinlich deutlich niedriger sein. Dieses Beispiel zeigt, wie wichtig es ist, dass die Botschaft und das Produktangebot in der Anzeige und auf der Zielseite übereinstimmen.
               </p>
               <p class="text">
                 Um die Absprungrate zu senken, sollten Sie sicherstellen, dass zwischen der Anzeige und der Landing Page eine direkte Verbindung und Konsistenz in Bezug auf das Design, die Botschaften und das Produktangebot besteht. Diese Abstimmung sorgt für ein nahtloses Nutzererlebnis, das das Engagement erhöht und die Absprungrate verringert.
@@ -219,7 +298,7 @@ export default [
                 title: 'Verbessern Sie die Ladegeschwindigkeit der Seite',
                 content: `
               <p class="text">
-                Eine weitere Hauptursache für hohe Absprungraten sind langsame Seitenladezeiten. Es besteht eine direkte positive Korrelation zwischen der Ladezeit einer Seite und der Absprungrate. Idealerweise sollte Ihre Seite innerhalb von 3 Sekunden geladen werden. Nach 3 Sekunden steigen die Absprungraten dramatisch an, wobei jede zusätzliche Sekunde zu einem weiteren Anstieg der Absprungrate um 10 % führt, wie eine Untersuchung von Pingdom zeigt. Dies gilt insbesondere für den mobilen sozialen Verkehr, wo die Aufmerksamkeitsspanne kürzer ist und die Absprungrate bereits nach 8 Sekunden Ladezeit 90% erreichen kann. Die Auswirkungen sind bei langsamen Internetverbindungen, wie sie bei mobilen Datenverbindungen üblich sind, noch ausgeprägter.
+                Eine weitere Hauptursache für hohe Absprungraten sind langsame Seitenladezeiten. Es gibt eine direkte positive Korrelation zwischen der Ladezeit einer Seite und der Absprungrate. Idealerweise sollte Ihre Seite innerhalb von 3 Sekunden geladen werden. Nach 3 Sekunden steigen die Absprungraten dramatisch an, wobei jede zusätzliche Sekunde zu einem weiteren Anstieg der Absprungrate um 10 % führt, wie eine Untersuchung von Pingdom zeigt. Dies gilt insbesondere für den mobilen sozialen Verkehr, wo die Aufmerksamkeitsspanne kürzer ist und die Absprungrate bereits nach 8 Sekunden Ladezeit 90% erreichen kann. Die Auswirkungen sind bei langsamen Internetverbindungen, wie sie bei mobilen Datenverbindungen üblich sind, noch ausgeprägter.
               </p>
               <p class="text">
                 Die Schlussfolgerung ist einfach: Optimieren Sie die Ladegeschwindigkeit Ihrer Seite, indem Sie das Gewicht der Landing Page reduzieren und die JavaScript- und Serveranfragen minimieren. So sorgen Sie für schnellere Ladezeiten, niedrigere Absprungraten und ein besseres Benutzererlebnis.
@@ -245,65 +324,7 @@ export default [
         ],
     },
     {
-        problem: 'Hohe Ausstiegsrate auf der Suchergebnisseite',
-        causes: [
-            'Ungeeignete Produktauswahl auf einer Suchergebnisseite (Menschen suchen möglicherweise mit anderen Schlüsselwörtern, als Sie indiziert haben), achten Sie auf wiederholte Suchanfragen',
-        ],
-        solutions: [
-            {
-                title: 'Verwenden Sie eine KI-gesteuerte Suchmaschine, um die Relevanz der Suchergebnisse zu verbessern',
-                content: `
-              <p class="text">
-                Menschen machen oft Fehler bei der Eingabe ihrer Suchanfragen, und sie verwenden möglicherweise verschiedene Begriffe, um nach demselben Produkt zu suchen, die nicht zu Ihren zugehörigen Schlüsselwörtern passen.  Dies sind nur einige der Probleme, mit denen Benutzer bei der Verwendung von Suchmaschinen vor Ort konfrontiert werden. Ein KI-gestützter Suchalgorithmus kann lernen, diese Fehler zu interpretieren und verschiedene Suchanfragen mit dem richtigen Produkt in Verbindung zu bringen.
-              </p>
-              <p class="text">
-                Darüber hinaus kann ein KI-gestützter Empfehlungsalgorithmus die Vorlieben der Nutzer kennen lernen und in den Suchergebnissen Produkte anzeigen, die andere Nutzer mit ähnlichen Suchanfragen oder Verhaltensweisen gekauft haben. So wird sichergestellt, dass Ihre Suchergebnisse niemals die Meldung "0 Ergebnisse gefunden" anzeigen.
-              </p>
-              <p class="text">
-                Um festzustellen, wie stark sich diese Probleme auf Ihr Geschäft auswirken, überwachen Sie Kennzahlen wie die Absprungrate von der Suchergebnisseite und die Wiederholungsrate auf der Suchergebnisseite.
-              </p>
-              <p class="text">
-                Wir wissen, dass Nutzer, die die Suchfunktion nutzen, im Allgemeinen eine stärkere Kaufabsicht haben als diejenigen, die dies nicht tun. Daher kann eine KI-gestützte Such- und Empfehlungsmaschine diese Absicht ausnutzen und höhere Konversionsraten (CvR) und durchschnittliche Einnahmen pro Nutzer (ARPU) erzielen.
-              </p>
-            `,
-            },
-            {
-                title: 'Implementieren Sie wirksame Sortier- und Filterfunktionen auf der Suchergebnisseite',
-                content: `
-              <p class="text">
-                Die Sortier- und Filteroptionen auf der Suchergebnisseite sind entscheidend dafür, dass Nutzer die Produkte finden, nach denen sie suchen. Es besteht ein direkter positiver Zusammenhang zwischen der Nutzung dieser Funktionen und einer Steigerung der Konversionsrate (CvR).
-              </p>
-              <p class="text">
-                Stellen Sie sicher, dass Ihre Suchergebnisseite effektive und leicht sichtbare Sortier- und Filteroptionen enthält, um die Benutzerfreundlichkeit zu erhöhen und die Konversionsrate zu steigern.
-              </p>
-            `,
-            },
-            {
-                title: 'Passen Sie die Produktübersicht auf der Suchergebnisseite für jede Kategorie an, um einen effektiven Vergleich zu ermöglichen',
-                content: `
-              <p class="text">
-                Jede Produktkategorie hat bestimmte Eigenschaften, die für die Benutzer wichtig sind. Zu den wichtigsten Merkmalen für Laptops gehören zum Beispiel CPU, RAM, Speicher und Gewicht. Diese Details sollten für jedes Produkt in der Laptop-Kategorie auf der Suchergebnisseite angezeigt werden. Umgekehrt ist das Gewicht ein irrelevantes Merkmal für Desktops und sollte nicht in deren Produktübersicht aufgeführt werden.
-              </p>
-              <p class="text">
-                Ihr Ziel ist es, den Nutzern den Vergleich von Produkten auf der Grundlage von Schlüsselmerkmalen direkt auf der Angebotsseite zu erleichtern, anstatt sie zu zwingen, jede Produktseite einzeln zu besuchen.
-              </p>
-            `,
-            },
-            {
-                title: 'Einführung einer Empfehlungsmaschine auf der Suchergebnisseite',
-                content: `
-              <p class="text">
-                Das primäre Ziel der Suchergebnisseite ist es, den Nutzern zu helfen, die Produkte zu finden, nach denen sie suchen, und gleichzeitig ihr Interesse an alternativen oder Ersatzprodukten zu wecken. Dieses zweite Ziel kann durch eine effektive Empfehlungsmaschine erreicht werden, die dem Nutzer alternative oder Ersatzprodukte vorschlägt.
-              </p>
-              <p class="text">
-                Eine KI-gestützte Empfehlungsmaschine kann lernen und ihr Produktangebot verfeinern, indem sie das Engagement und Verhalten der Nutzer analysiert. Dies gewährleistet eine kontinuierliche Lernkurve und eine immer effektivere Leistung der Suchergebnisseite.
-              </p>
-            `,
-            },
-        ],
-    },
-    {
-        problem: 'Hohe Absprungrate bei Produktlisten',
+        problem: 'Hohe Absprungrate beim Produktangebot (PL)',
         causes: [
             'Benutzer können das Produkt, das ihren Bedürfnissen entspricht, nicht finden',
             'Das Fehlen wichtiger Informationen über die Produkte auf der Produktliste kann es den Nutzern erschweren, ihr bevorzugtes Produkt zu identifizieren und zwischen verschiedenen Optionen zu unterscheiden',
@@ -354,7 +375,7 @@ export default [
     },
     {
         case: 'moonMagic',
-        problem: 'Niedrige Cart-to-Detail-Rate (d.h. hohe Absprungrate auf der Produktdetail-Seite)',
+        problem: 'Niedrige Buy-to-Detail-Rate',
         causes: [
             'Hoher Produktpreis',
             'Fehlende Produktbilder oder Bilder von schlechter Qualität',
@@ -460,80 +481,69 @@ export default [
             },
         ],
     },
+    // {
+    //   problem:
+    //     'High exit rate of the product detail page (PDP) / Low Cart-to-Detail rate'
+    // },
     {
-        case: 'gaiam',
-        problem: 'Hoher Abbruch von Einkaufswagen',
+        problem: 'Hohe Ausstiegsrate auf der Suchergebnisseite',
         causes: [
-            'Ablenkungen beim Einkaufswagen/Checkout wie Upsells/Cross-Sells, die zum Abbruch des Einkaufs führen',
-            'Überraschungsversandkosten im Warenkorb/Kasse',
-            'Keine Kreditkartendaten in der Nähe ',
-            'Zögern in letzter Minute',
+            'Ungeeignete Produktauswahl auf einer Suchergebnisseite (Menschen suchen möglicherweise mit anderen Schlüsselwörtern, als Sie indiziert haben), achten Sie auf wiederholte Suchanfragen',
         ],
         solutions: [
             {
-                title: 'Entfernen Sie Ablenkungen, die Benutzer von der Konvertierung abhalten',
+                title: 'Verwenden Sie eine KI-gesteuerte Suchmaschine, um die Relevanz der Suchergebnisse zu verbessern',
                 content: `
               <p class="text">
-                Jeder Schritt im Konversionstrichter hat einen bestimmten Zweck. Der Zweck des Warenkorbs besteht darin, dass der Benutzer die Zusammenfassung seiner Bestellung einsehen und zur Zahlung übergehen kann. Der Warenkorb sollte keine UX/UI-Elemente enthalten, die nicht diesem Zweck dienen.
+                Menschen machen oft Fehler bei der Eingabe ihrer Suchanfragen, und sie verwenden möglicherweise verschiedene Begriffe, um nach demselben Produkt zu suchen, die nicht zu Ihren zugehörigen Schlüsselwörtern passen.  Dies sind nur einige der Probleme, mit denen Benutzer bei der Verwendung von Suchmaschinen vor Ort konfrontiert werden. Ein KI-gestützter Suchalgorithmus kann lernen, diese Fehler zu interpretieren und verschiedene Suchanfragen mit dem richtigen Produkt in Verbindung zu bringen.
               </p>
               <p class="text">
-               Ein häufiger Fehler in vielen eCommerce-Shops ist die Aufnahme von unnötigen Ablenkungen wie aktiven Navigationsmenüs und Fußzeilen, die wertvollen Platz im Warenkorb beanspruchen. Diese Elemente können dazu führen, dass Besucher mit hoher Kaufabsicht den Trichter verlassen. Wenn Sie diese Ablenkungen beseitigen, können Sie dafür sorgen, dass sich die Benutzer auf den Abschluss ihres Kaufs konzentrieren.
+                Darüber hinaus kann ein KI-gestützter Empfehlungsalgorithmus die Vorlieben der Nutzer kennenlernen und in den Suchergebnissen Produkte anzeigen, die andere Nutzer mit ähnlichen Suchanfragen oder Verhaltensweisen gekauft haben. So wird sichergestellt, dass Ihre Suchergebnisse niemals die Meldung "0 Ergebnisse gefunden" anzeigen.
+              </p>
+              <p class="text">
+                Um festzustellen, wie stark sich diese Probleme auf Ihr Geschäft auswirken, überwachen Sie Kennzahlen wie die Absprungrate von der Suchergebnisseite und die Wiederholungsrate auf der Suchergebnisseite.
+              </p>
+              <p class="text">
+                Wir wissen, dass Nutzer, die die Suchfunktion nutzen, im Allgemeinen eine stärkere Kaufabsicht haben als diejenigen, die dies nicht tun. Daher kann eine KI-gestützte Such- und Empfehlungsmaschine diese Absicht ausnutzen und höhere Konversionsraten (CvR) und durchschnittliche Einnahmen pro Nutzer (ARPU) erzielen.
               </p>
             `,
             },
             {
-                title: 'Kontrollieren Sie, wie sich Upsells/Cross-Sells auf die Abbruchrate des Warenkorbs auswirken',
+                title: 'Implementieren Sie wirksame Sortier- und Filterfunktionen auf der Suchergebnisseite',
                 content: `
               <p class="text">
-                Es ist gängige Praxis, einen Block mit empfohlenen Produkten in den Warenkorb zu legen, um Benutzer zum Kauf weiterer Produkte zu ermutigen. Die Logik ist einfach: Effektive Upsells oder Cross-Sells können den durchschnittlichen Bestellwert (AOV) erhöhen, was zu einem Anstieg des durchschnittlichen Umsatzes pro Benutzer (ARPU) führt. Bei diesem Ansatz werden jedoch häufig die potenziellen Lecks im Trichter übersehen, die durch Upsells und Cross-Sells entstehen. In vielen Fällen legen die Benutzer die empfohlenen Produkte nicht einfach in ihren Warenkorb. Stattdessen verlassen sie den Warenkorb, um diese Produkte weiter zu recherchieren, und kehren oft nicht zurück, um den Kauf abzuschließen, was zu einer überhöhten Abbruchquote führt.
+                Die Sortier- und Filteroptionen auf der Suchergebnisseite sind entscheidend dafür, dass die Nutzer die Produkte finden, nach denen sie suchen. Es besteht ein direkter positiver Zusammenhang zwischen der Verwendung dieser Funktionen und einer Steigerung der Konversionsrate (CvR).
               </p>
               <p class="text">
-                Kontrollieren Sie, wie sich Upsells und Cross-Sells im Warenkorb auf Ihren AOV, die Abbruchrate und vor allem auf den ARPU auswirken. Verfolgen Sie das Nutzerverhalten nach dem Kauf der empfohlenen Produkte mit Hilfe von Videositzungsaufzeichnungen und ereignisbasierten Analysen des Nutzerflusses.
-              </p>
-              <p class="text">
-                Grundsätzlich muss der Anstieg des AOV den durch Upsells und Cross-Sells verursachten Rückgang der Konversionsrate (CvR) überwiegen.
-              </p>
-              <p class="text">
-                Eine gängige Empfehlung für Upsells und Cross-Sells in der Phase des Warenkorbs ist die Verwendung von Produkten, die die bereits im Warenkorb befindlichen Artikel ergänzen, z. B. ein Ladegerät für ein Mobiltelefon.
+                Stellen Sie sicher, dass Ihre Suchergebnisseite effektive und leicht sichtbare Sortier- und Filteroptionen enthält, um die Benutzererfahrung zu verbessern und die Konversionsrate zu erhöhen.
               </p>
             `,
             },
             {
-                title: 'Angebot Express Checkout',
+                title: 'Passen Sie die Produktübersicht auf der Suchergebnisseite für jede Kategorie an, um einen effektiven Vergleich zu ermöglichen',
                 content: `
               <p class="text">
-                Unsere Untersuchungen haben ergeben, dass die Wahrscheinlichkeit, einen Kauf abzuschließen, um 40 % höher ist, wenn Sie Express-Kassenoptionen wie Apple Pay, Google Pay oder PayPal verwenden. Dies gilt insbesondere für mobile Nutzer, die in der Regel höhere Abbruchquoten im Vergleich zu Desktop-Nutzern haben.
+                Jede Produktkategorie hat bestimmte Eigenschaften, die für die Benutzer wichtig sind. Zu den wichtigsten Merkmalen für Laptops gehören zum Beispiel CPU, RAM, Speicher und Gewicht. Diese Details sollten für jedes Produkt in der Laptop-Kategorie auf der Suchergebnisseite angezeigt werden. Umgekehrt ist das Gewicht ein irrelevantes Merkmal für Desktops und sollte nicht in deren Produktübersicht aufgeführt werden.
               </p>
               <p class="text">
-                Stellen Sie sicher, dass die Express-Checkout-Optionen allen Nutzern sowohl im Warenkorb als auch beim Checkout zur Verfügung stehen.
+                Ihr Ziel ist es, den Nutzern den Vergleich von Produkten auf der Grundlage von Schlüsselmerkmalen direkt auf der Angebotsseite zu erleichtern, anstatt sie zu zwingen, jede Produktseite einzeln zu besuchen.
               </p>
             `,
             },
             {
-                title: 'Betonen Sie die Geld-zurück-Garantie',
+                title: 'Einführung einer Empfehlungsmaschine auf der Suchergebnisseite',
                 content: `
               <p class="text">
-                Viele Bestellungen werden in den letzten Schritten des Konversionsprozesses abgebrochen, und zwar aus einem gemeinsamen Grund: der Angst, eine unwiderrufliche Fehlentscheidung zu treffen. Stärken Sie daher das Vertrauen der Nutzer, indem Sie Ihre Geld-zurück-Garantie wirksam kommunizieren.
+                Das primäre Ziel der Suchergebnisseite ist es, den Nutzern zu helfen, die Produkte zu finden, nach denen sie suchen, und gleichzeitig ihr Interesse an alternativen oder Ersatzprodukten zu wecken. Dieses zweite Ziel kann durch eine effektive Empfehlungsmaschine erreicht werden, die dem Nutzer alternative oder Ersatzprodukte vorschlägt.
               </p>
               <p class="text">
-                Diese Angst ist am stärksten bei Produkten mit einem binären Ergebnis - entweder sie passen oder nicht - wie z.B. Ringe, Kleidungsstücke und Schuhe. Eine Geld-zurück-Garantie ist für diese Kategorien unerlässlich.
-              </p>
-              <p class="text">
-                Je teurer das Produkt ist, desto höher ist das Risiko, eine falsche Entscheidung zu treffen. Daher ist eine Geld-zurück-Garantie für hochpreisige Artikel umso wichtiger.
-              </p>
-            `,
-            },
-            {
-                title: 'Personalisierte Kundenrezensionen einführen',
-                content: `
-              <p class="text">
-                Ein effektiver Weg, um das Zögern der Kunden vor dem Kauf abzumildern, ist die Anzeige von personalisierten Bewertungen im Warenkorb und an der Kasse. In diesen Bewertungen wird hervorgehoben, wie das Produkt, das ein Nutzer kaufen möchte, anderen Kunden Freude und Zufriedenheit bereitet hat.
-              </p>
-              <p class="text">
-                Die Herausforderung liegt in der Personalisierung der Bewertungen auf der Grundlage der spezifischen Produkte im Warenkorb des Benutzers. Stellen Sie sicher, dass die Bewertungen relevant sind und in direktem Zusammenhang mit den Produkten stehen, die der Benutzer in Erwägung zieht, um ihre Wirkung zu maximieren und den Kunden in seiner Kaufentscheidung zu bestärken.
+                Eine KI-gestützte Empfehlungsmaschine kann lernen und ihr Produktangebot verfeinern, indem sie das Engagement und Verhalten der Nutzer analysiert. Dies gewährleistet eine kontinuierliche Lernkurve und eine immer effektivere Leistung der Suchergebnisseite.
               </p>
             `,
             },
         ],
     },
+    // {
+    //   problem: 'The high volatility of sales throughout the year'
+    // }
 ];

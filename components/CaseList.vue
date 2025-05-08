@@ -19,6 +19,8 @@ const props = defineProps({
   }
 });
 
+const { t } = useI18n();
+
 const isShowMore = ref(false);
 
 const caseFiltered: CaseStudy[] = props.items.filter((item) => (item.status && item.status !== 'INACTIVE') || (!item.status && !item.isHidden) );
@@ -65,7 +67,7 @@ const casesToShow = computed(() => {
       class="button button_trans-yellow"
       @click="isShowMore = !isShowMore"
     >
-      {{ $t('sectionCaseStudies.viewAll') }}
+      {{ t('sectionCaseStudies.viewAll') }}
     </button>
   </div>
 </template>

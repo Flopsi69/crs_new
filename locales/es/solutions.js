@@ -1,7 +1,7 @@
 export default [
     {
         case: '',
-        problem: 'Caída de la tasa de conversión o ARPU de la tienda online',
+        problem: 'Caída de la tasa de conversión del comercio electrónico y de los ingresos por usuario',
         causes: ['Embudo de conversión de bajo rendimiento', 'Baja calidad del tráfico', 'Estacionalidad'],
         solutions: [
             {
@@ -59,7 +59,7 @@ export default [
     },
     {
         case: 'natPat',
-        problem: 'Coste de adquisición de clientes (CAC) elevado y creciente que impide que el negocio escale',
+        problem: 'Alto coste de adquisición de clientes (CAC) que impide que el negocio escale',
         causes: [
             'Baja tasa de conversión in situ e ingresos medios por usuario (ARPU)',
             'Tráfico de baja calidad o irrelevante',
@@ -123,7 +123,7 @@ export default [
     },
     {
         case: 'somnifix2',
-        problem: 'AOV bajo porque el usuario compra predominantemente productos más baratos',
+        problem: 'Valor medio de pedido (VMP) bajo',
         causes: [
             'Falta de claridad sobre los beneficios de los productos más caros ',
             'Enfoque excesivo y priorización de los productos de menor precio',
@@ -192,6 +192,85 @@ export default [
         ],
     },
     {
+        case: 'gaiam',
+        problem: 'Alto abandono de carritos',
+        causes: [
+            'Distracciones en el carrito/la caja, como ventas adicionales/cruzadas que provocan el abandono del carrito',
+            'Coste de envío sorpresa en el carrito/pago',
+            'Sin datos de tarjeta de crédito cerca ',
+            'Dudas de última hora',
+        ],
+        solutions: [
+            {
+                title: 'Elimine las distracciones que disuaden a los usuarios de la conversión',
+                content: `
+              <p class="text">
+                Cada paso del embudo de conversión tiene un propósito específico. El propósito del carrito es permitir a los usuarios revisar el resumen de su pedido y proceder al pago. El carrito no debe incluir ningún elemento UX/UI que no sirva a este propósito.
+              </p>
+              <p class="text">
+               Un error común en muchas tiendas de comercio electrónico es la inclusión de distracciones innecesarias, como menús de navegación activos y pies de página, que ocupan un espacio valioso en el carrito. Estos elementos pueden hacer que el tráfico de alta intención se escape del embudo. Eliminar estas distracciones ayudará a mantener a los usuarios centrados en completar su compra.
+              </p>
+            `,
+            },
+            {
+                title: 'Controle el impacto de las ventas adicionales/cruzadas en la tasa de abandono de carritos',
+                content: `
+              <p class="text">
+                Es una práctica habitual colocar un bloque con productos recomendados en el carrito para animar a los usuarios a comprar más productos. La lógica es simple: las upsells o ventas cruzadas eficaces pueden aumentar el valor medio del pedido (AOV), impulsando un aumento de los ingresos medios por usuario (ARPU). Sin embargo, este enfoque a menudo pasa por alto las posibles fugas del embudo creadas por las upsells y las ventas cruzadas. En muchos casos, los usuarios no se limitan a añadir los productos recomendados a su cesta. En lugar de ello, abandonan el carro para investigar más sobre estos productos y, a menudo, no vuelven para completar la compra, lo que da lugar a una tasa de abandono del carro inflada.
+              </p>
+              <p class="text">
+                Controle cómo las ventas adicionales y cruzadas en el carro influyen en su AOV, en la tasa de abandono del carro y, lo que es más importante, en el ARPU. Realice un seguimiento del comportamiento de los usuarios después de que se comprometan con sus productos recomendados utilizando grabaciones de sesiones de vídeo y análisis del flujo de usuarios basados en eventos.
+              </p>
+              <p class="text">
+                En términos básicos, el aumento del AOV debe compensar la disminución de la tasa de conversión (CvR) causada por las ventas ascendentes y cruzadas.
+              </p>
+              <p class="text">
+                Una recomendación habitual para las upsells y las ventas cruzadas en la fase del carrito es utilizar productos que complementen los artículos que ya están en el carrito, como un cargador para un teléfono móvil.
+              </p>
+            `,
+            },
+            {
+                title: 'Oferta Pago exprés',
+                content: `
+              <p class="text">
+                Nuestra investigación muestra que los usuarios tienen un 40% más de probabilidades de completar una compra si utilizan opciones de pago exprés como Apple Pay, Google Pay o PayPal. Esto es especialmente cierto en el caso de los usuarios móviles, que suelen tener mayores tasas de abandono de carritos en comparación con los usuarios de ordenadores de sobremesa.
+              </p>
+              <p class="text">
+                Asegúrese de que las opciones de pago exprés estén disponibles para todos los usuarios tanto en la fase del carrito como en la de pago.
+              </p>
+            `,
+            },
+            {
+                title: 'Haga hincapié en la garantía de devolución del dinero',
+                content: `
+              <p class="text">
+                Muchos pedidos se abandonan en los últimos pasos del flujo de conversión debido a un factor común: el miedo a tomar una decisión equivocada irreversible. Para solucionarlo, refuerce la confianza de los usuarios comunicando eficazmente su garantía de devolución del dinero.
+              </p>
+              <p class="text">
+                Este miedo es más fuerte en los productos con un resultado binario -se ajustan o no se ajustan- como los anillos, la ropa y los zapatos. Una garantía de devolución del dinero es esencial para estas categorías.
+              </p>
+              <p class="text">
+                Además, cuanto más caro es el producto, mayor es el riesgo percibido de tomar una decisión equivocada. Por lo tanto, una garantía de devolución del dinero resulta más esencial para los artículos de precio elevado.
+              </p>
+            `,
+            },
+            {
+                title: 'Introducir reseñas personalizadas de los clientes',
+                content: `
+              <p class="text">
+                Una forma eficaz de mitigar las dudas de última hora del usuario antes de completar una compra es mostrando reseñas personalizadas en las etapas de carrito y pago. Estas reseñas destacan cómo el producto que un usuario pretende comprar ha aportado alegría y satisfacción a otros clientes.
+              </p>
+              <p class="text">
+                El reto consiste en personalizar las reseñas en función de los productos concretos que haya en el carrito del usuario. Asegúrese de que las reseñas son relevantes y están directamente relacionadas con los artículos que el usuario está considerando, para maximizar su impacto y tranquilizar al cliente en su decisión de compra.
+              </p>
+            `,
+            },
+        ],
+    },
+    // {
+    //   problem: 'High checkout abandonment rate'
+    // },
+    {
         case: 'somnifix1',
         problem: 'Alta tasa de rebote',
         causes: [
@@ -245,65 +324,7 @@ export default [
         ],
     },
     {
-        problem: 'Alta tasa de salida en la página de resultados de búsqueda',
-        causes: [
-            'Selección inadecuada de productos en una página de resultados de búsqueda (la gente puede buscar utilizando palabras clave diferentes a las que usted ha indexado), preste atención a las solicitudes de búsqueda repetidas',
-        ],
-        solutions: [
-            {
-                title: 'Utilice un motor de búsqueda potenciado por IA para mejorar la relevancia de los resultados de búsqueda',
-                content: `
-              <p class="text">
-                La gente suele cometer errores al escribir sus consultas de búsqueda, y puede utilizar términos diferentes para buscar el mismo producto que no coincidan con sus palabras clave asociadas.  Estos son sólo algunos de los problemas a los que se enfrentan los usuarios cuando utilizan los motores de búsqueda in situ. Un algoritmo de búsqueda impulsado por IA puede aprender a interpretar estos errores y asociar varias consultas de búsqueda con el producto correcto.
-              </p>
-              <p class="text">
-                Además, un algoritmo de recomendación potenciado por IA puede aprender sobre las preferencias de los usuarios y mostrar en los resultados de búsqueda productos con los que otros usuarios con consultas o comportamientos similares han interactuado o comprado. Esto garantiza que sus resultados de búsqueda nunca devolverán el mensaje "0 resultados encontrados".
-              </p>
-              <p class="text">
-                Para determinar en qué medida afectan estas cuestiones a su negocio, controle métricas como la tasa de salida de la página de resultados de búsqueda y la tasa de repetición de búsquedas en la página de resultados de búsqueda.
-              </p>
-              <p class="text">
-                Sabemos que los usuarios que utilizan la función de búsqueda suelen tener una mayor intención de compra que los que no lo hacen. Por lo tanto, un motor de búsqueda y recomendación impulsado por la IA puede aprovechar esa intención e impulsar mayores tasas de conversión (CvR) e ingresos medios por usuario (ARPU).
-              </p>
-            `,
-            },
-            {
-                title: 'Implemente funciones eficaces de clasificación y filtrado en la página de resultados de búsqueda',
-                content: `
-              <p class="text">
-                Las opciones de clasificación y filtrado en la página de resultados de búsqueda son cruciales para ayudar a los usuarios a encontrar los productos que buscan. Existe una correlación positiva directa entre el uso de estas funciones y el aumento de la tasa de conversión (CvR).
-              </p>
-              <p class="text">
-                Asegúrese de que su página de resultados de búsqueda incluye opciones de clasificación y filtrado eficaces y fácilmente visibles para mejorar la experiencia del usuario y aumentar las conversiones.
-              </p>
-            `,
-            },
-            {
-                title: 'Personalice la descripción general del producto en la página de resultados de búsqueda de cada categoría para permitir una comparación eficaz',
-                content: `
-              <p class="text">
-                Cada categoría de producto tiene características específicas que son importantes para los usuarios. Por ejemplo, las características clave de los portátiles incluyen la CPU, la RAM, la memoria y el peso. Estos detalles deben mostrarse para cada producto de la categoría de portátiles en la página de resultados de la búsqueda. Por el contrario, el peso es una característica irrelevante para los ordenadores de sobremesa y no debe incluirse en su resumen de productos.
-              </p>
-              <p class="text">
-                Su objetivo es facilitar a los usuarios la comparación de productos basada en características clave directamente en la página del listado, en lugar de obligarles a visitar cada página de producto individualmente.
-              </p>
-            `,
-            },
-            {
-                title: 'Introducir un motor de recomendación en la página de resultados de la búsqueda',
-                content: `
-              <p class="text">
-                El objetivo principal de la página de resultados de búsqueda es ayudar a los usuarios a encontrar los productos que buscan y, al mismo tiempo, despertar su interés por descubrir productos alternativos o sustitutivos. Este segundo objetivo puede lograrse mediante un motor de recomendación eficaz, que sugiera a los usuarios productos alternativos o sustitutivos.
-              </p>
-              <p class="text">
-                Un motor de recomendación impulsado por IA puede aprender y perfeccionar su oferta de productos analizando la participación y el comportamiento de los usuarios. Esto garantiza una curva de aprendizaje continua y un rendimiento cada vez más eficaz de la página de resultados de búsqueda.
-              </p>
-            `,
-            },
-        ],
-    },
-    {
-        problem: 'Alta tasa de salida en el listado de productos',
+        problem: 'Alta tasa de salida en el listado de productos (PL)',
         causes: [
             'Los usuarios no encuentran el producto que satisface sus necesidades',
             'La falta de información crítica sobre los productos en el listado de productos puede dificultar que los usuarios identifiquen su producto preferido y diferencien entre opciones',
@@ -354,8 +375,7 @@ export default [
     },
     {
         case: 'moonMagic',
-        problem:
-            'Baja tasa de conversión del carro al detalle (es decir, alta tasa de salida en la página de detalles del producto)',
+        problem: 'Baja tasa de compra al detalle',
         causes: [
             'Alto precio del producto',
             'Falta de imágenes de los productos o imágenes de baja calidad',
@@ -461,80 +481,69 @@ export default [
             },
         ],
     },
+    // {
+    //   problem:
+    //     'High exit rate of the product detail page (PDP) / Low Cart-to-Detail rate'
+    // },
     {
-        case: 'gaiam',
-        problem: 'Alto abandono de carritos',
+        problem: 'Alta tasa de salida en la página de resultados de búsqueda',
         causes: [
-            'Distracciones en el carrito/la caja, como ventas adicionales/cruzadas que provocan el abandono del carrito',
-            'Coste de envío sorpresa en el carrito/pago',
-            'Sin datos de tarjeta de crédito cerca ',
-            'Dudas de última hora',
+            'Selección inadecuada de productos en una página de resultados de búsqueda (la gente puede buscar utilizando palabras clave diferentes a las que usted ha indexado), preste atención a las solicitudes de búsqueda repetidas',
         ],
         solutions: [
             {
-                title: 'Elimine las distracciones que disuaden a los usuarios de la conversión',
+                title: 'Utilice un motor de búsqueda potenciado por IA para mejorar la relevancia de los resultados de búsqueda',
                 content: `
               <p class="text">
-                Cada paso del embudo de conversión tiene un propósito específico. El propósito del carrito es permitir a los usuarios revisar el resumen de su pedido y proceder al pago. El carrito no debe incluir ningún elemento UX/UI que no sirva a este propósito.
+                La gente suele cometer errores al escribir sus consultas de búsqueda, y puede utilizar términos diferentes para buscar el mismo producto que no coincidan con sus palabras clave asociadas.  Estos son sólo algunos de los problemas a los que se enfrentan los usuarios cuando utilizan los motores de búsqueda in situ. Un algoritmo de búsqueda impulsado por IA puede aprender a interpretar estos errores y asociar varias consultas de búsqueda con el producto correcto.
               </p>
               <p class="text">
-               Un error común en muchas tiendas de comercio electrónico es la inclusión de distracciones innecesarias, como menús de navegación activos y pies de página, que ocupan un espacio valioso en el carrito. Estos elementos pueden hacer que el tráfico de alta intención se escape del embudo. Eliminar estas distracciones ayudará a mantener a los usuarios centrados en completar su compra.
+                Además, un algoritmo de recomendación potenciado por IA puede aprender sobre las preferencias de los usuarios y mostrar en los resultados de búsqueda productos con los que otros usuarios con consultas o comportamientos similares han interactuado o comprado. Esto garantiza que sus resultados de búsqueda nunca devolverán el mensaje "0 resultados encontrados".
+              </p>
+              <p class="text">
+                Para determinar en qué medida afectan estas cuestiones a su negocio, controle métricas como la tasa de salida de la página de resultados de búsqueda y la tasa de repetición de búsquedas en la página de resultados de búsqueda.
+              </p>
+              <p class="text">
+                Sabemos que los usuarios que utilizan la función de búsqueda suelen tener una mayor intención de compra que los que no lo hacen. Por lo tanto, un motor de búsqueda y recomendación impulsado por la IA puede aprovechar esa intención e impulsar mayores tasas de conversión (CvR) e ingresos medios por usuario (ARPU).
               </p>
             `,
             },
             {
-                title: 'Controle el impacto de las ventas adicionales/cruzadas en la tasa de abandono de carritos',
+                title: 'Implemente funciones eficaces de clasificación y filtrado en la página de resultados de búsqueda',
                 content: `
               <p class="text">
-                Es una práctica habitual colocar un bloque con productos recomendados en el carrito para animar a los usuarios a comprar más productos. La lógica es simple: las upsells o ventas cruzadas eficaces pueden aumentar el valor medio del pedido (AOV), impulsando un aumento de los ingresos medios por usuario (ARPU). Sin embargo, este enfoque a menudo pasa por alto las posibles fugas del embudo creadas por las upsells y las ventas cruzadas. En muchos casos, los usuarios no se limitan a añadir los productos recomendados a su cesta. En lugar de ello, abandonan el carro para investigar más sobre estos productos y a menudo no vuelven para completar la compra, lo que da lugar a una tasa de abandono del carro inflada.
+                Las opciones de clasificación y filtrado en la página de resultados de búsqueda son cruciales para ayudar a los usuarios a encontrar los productos que buscan. Existe una correlación positiva directa entre el uso de estas funciones y el aumento de la tasa de conversión (CvR).
               </p>
               <p class="text">
-                Controle cómo las ventas adicionales y cruzadas en el carro influyen en su AOV, en la tasa de abandono del carro y, lo que es más importante, en el ARPU. Realice un seguimiento del comportamiento de los usuarios después de que se comprometan con sus productos recomendados utilizando grabaciones de sesiones de vídeo y análisis del flujo de usuarios basados en eventos.
-              </p>
-              <p class="text">
-                En términos básicos, el aumento del AOV debe compensar la disminución de la tasa de conversión (CvR) causada por las ventas ascendentes y cruzadas.
-              </p>
-              <p class="text">
-                Una recomendación habitual para las upsells y las ventas cruzadas en la fase del carrito es utilizar productos que complementen los artículos que ya están en el carrito, como un cargador para un teléfono móvil.
+                Asegúrese de que su página de resultados de búsqueda incluye opciones de clasificación y filtrado eficaces y fácilmente visibles para mejorar la experiencia del usuario y aumentar las conversiones.
               </p>
             `,
             },
             {
-                title: 'Oferta Pago exprés',
+                title: 'Personalice la descripción general del producto en la página de resultados de búsqueda de cada categoría para permitir una comparación eficaz',
                 content: `
               <p class="text">
-                Nuestra investigación muestra que los usuarios tienen un 40% más de probabilidades de completar una compra si utilizan opciones de pago exprés como Apple Pay, Google Pay o PayPal. Esto es especialmente cierto en el caso de los usuarios móviles, que suelen tener mayores tasas de abandono de carritos en comparación con los usuarios de ordenadores de sobremesa.
+                Cada categoría de producto tiene características específicas que son importantes para los usuarios. Por ejemplo, las características clave de los portátiles incluyen la CPU, la RAM, la memoria y el peso. Estos detalles deben mostrarse para cada producto de la categoría de portátiles en la página de resultados de la búsqueda. Por el contrario, el peso es una característica irrelevante para los ordenadores de sobremesa y no debe incluirse en su resumen de productos.
               </p>
               <p class="text">
-                Asegúrese de que las opciones de pago exprés estén disponibles para todos los usuarios tanto en la fase del carrito como en la de pago.
+                Su objetivo es facilitar a los usuarios la comparación de productos basada en características clave directamente en la página del listado, en lugar de obligarles a visitar cada página de producto individualmente.
               </p>
             `,
             },
             {
-                title: 'Haga hincapié en la garantía de devolución del dinero',
+                title: 'Introducir un motor de recomendación en la página de resultados de la búsqueda',
                 content: `
               <p class="text">
-                Muchos pedidos se abandonan en los últimos pasos del flujo de conversión debido a un factor común: el miedo a tomar una decisión equivocada irreversible. Para solucionarlo, refuerce la confianza de los usuarios comunicando eficazmente su garantía de devolución del dinero.
+                El objetivo principal de la página de resultados de búsqueda es ayudar a los usuarios a encontrar los productos que buscan y, al mismo tiempo, despertar su interés por descubrir productos alternativos o sustitutivos. Este segundo objetivo puede lograrse mediante un motor de recomendación eficaz, que sugiera a los usuarios productos alternativos o sustitutivos.
               </p>
               <p class="text">
-                Este miedo es más fuerte en los productos con un resultado binario -se ajustan o no se ajustan- como los anillos, la ropa y los zapatos. Una garantía de devolución del dinero es esencial para estas categorías.
-              </p>
-              <p class="text">
-                Además, cuanto más caro es el producto, mayor es el riesgo percibido de tomar una decisión equivocada. Por lo tanto, una garantía de devolución del dinero resulta más esencial para los artículos de precio elevado.
-              </p>
-            `,
-            },
-            {
-                title: 'Introducir reseñas personalizadas de los clientes',
-                content: `
-              <p class="text">
-                Una forma eficaz de mitigar las dudas de última hora del usuario antes de completar una compra es mostrando reseñas personalizadas en las etapas de carrito y pago. Estas reseñas destacan cómo el producto que un usuario pretende comprar ha aportado alegría y satisfacción a otros clientes.
-              </p>
-              <p class="text">
-                El reto consiste en personalizar las reseñas en función de los productos concretos que haya en el carrito del usuario. Asegúrese de que las reseñas son relevantes y están directamente relacionadas con los artículos que el usuario está considerando, para maximizar su impacto y tranquilizar al cliente en su decisión de compra.
+                Un motor de recomendación impulsado por IA puede aprender y perfeccionar su oferta de productos analizando la participación y el comportamiento de los usuarios. Esto garantiza una curva de aprendizaje continua y un rendimiento cada vez más eficaz de la página de resultados de búsqueda.
               </p>
             `,
             },
         ],
     },
+    // {
+    //   problem: 'The high volatility of sales throughout the year'
+    // }
 ];

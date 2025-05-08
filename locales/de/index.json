@@ -58,7 +58,21 @@
       "back": "Zurück",
       "agree": "Mit dem Absenden dieses Formulars erklären Sie sich damit einverstanden, die angeforderten Informationen sowie gelegentliche Mitteilungen über Produkte, Dienstleistungen und Veranstaltungen von ConversionRate Store zu erhalten. Sie können sich jederzeit wieder abmelden. Um mehr zu erfahren, besuchen Sie die Datenschutzerklärung. Ihre persönlichen Daten werden in Übereinstimmung mit unserer Datenschutzerklärung verarbeitet.",
       "continue": "Weiter",
-      "agreeError": "Bitte akzeptieren Sie die Bedingungen"
+      "agreeError": "Bitte akzeptieren Sie die Bedingungen",
+      "hearAboutUs": {
+        "somebody": "Jemand hat uns empfohlen",
+        "organic": "Organische Suche",
+        "googleAds": "Google-Anzeigen",
+        "other": "Andere"
+      },
+      "annualRevenue": {
+        "lessThan500k": "Weniger als $500.000",
+        "from500kTo1m": "$500.000 - $1 Million",
+        "from1mTo2m": "$1 Million - $2 Millionen",
+        "from2mTo5m": "$2 Millionen - $5 Millionen",
+        "preferNotToSay": "Ich ziehe es vor, nicht zu sagen",
+        "over1m": "Über $1 Million"
+      }
     },
     "video": {
       "ctaButton": "Vereinbaren Sie einen KOSTENLOSEN Anruf",
@@ -152,35 +166,40 @@
       }
     }
   },
-  "sectionClientsLogo": {
-    "title": "Unsere Kunden"
+  "sectionTrusted": {
+    "title": "Vertrauen bei Marktführern"
   },
   "sectionLeader": {
-    "prefix": "Anerkannt als weltweit führender Anbieter von",
-    "cro": "Optimierung der Konversionsrate",
-    "uxo": "Optimierung der Benutzerfreundlichkeit",
-    "croAbbr": "CRO",
-    "uxoAbbr": "UXO",
-    "and": "und"
+    "prefix": "CONVERSION RATE STORE IST EIN",
+    "title": "Weltweit führend im Bereich Conversion Rate Optimization und User Experience Optimization"
   },
-  "sectionVideos": {
-    "title": "Sehen Sie, wie unsere Gründer umsetzbare CRO-Taktiken direkt von der Bühne aus teilen",
-    "videos": {
-      "0": {
-        "title": "Riga Comm 2024"
-      },
-      "1": {
-        "title": "eCommerce 2019"
-      },
-      "2": {
-        "title": "eCommerce 2019"
-      }
+  "sectionFounderVideos": {
+    "title": "Sehen Sie, wie unsere Gründer umsetzbare CRO-Taktiken direkt von der Bühne aus teilen"
+  },
+  "sectionClientVideos": {
+    "title": "Unsere Kunden über die Ergebnisse, die wir liefern",
+    "lemieux": {
+      "title": "Lemieux Rückblick",
+      "previewTitle": "Über 2 Jahre sehen wir ein Wachstum <span> von +30%</span> beim ARPU YoY",
+      "note": "Wir haben für Le Mieux einen konsistenten, messbaren ARPU-Anstieg erzielt - lassen Sie uns herausfinden, wie wir für Sie einen ähnlichen Anstieg erzielen können."
+    },
+    "hunter": {
+      "title": "Hunter Galloway Rückblick",
+      "previewTitle": "Sie haben unseren CvR um <span>+60%</span> erhöht.",
+      "note": "Wir haben für Hunter Galloway eine konsistente, messbare CvR-Steigerung erzielt - lassen Sie uns herausfinden, wie wir für Sie eine ähnliche Steigerung erzielen können."
+    },
+    "natpat": {
+      "title": "NatPat Rezension",
+      "previewTitle": "In den letzten 12 Monaten stieg unser ARPU um bis zu <span>+140%.</span>",
+      "note": "Wir haben für NATPAT einen konsistenten, messbaren ARPU-Anstieg erzielt - lassen Sie uns herausfinden, wie wir für Sie einen ähnlichen Anstieg erzielen können."
     }
   },
   "sectionSolutions": {
-    "caption": "Finden Sie die Lösung für die Herausforderungen Ihres eCommerce-Geschäfts",
-    "title": "Entdecken Sie die Ursachen und Lösungen für die Herausforderungen, mit denen Ihr eCommerce-Geschäft konfrontiert ist",
-    "subtitle": "Problem wählen",
+    "caption": "Nutzen Sie unsere Wissensdatenbank",
+    "titleFirstRow": "Wählen Sie Ihren eCommerce",
+    "titleSecondRow": "Sofort KOSTENLOS erhalten",
+    "titleProblem": "Problem",
+    "titleSolution": "Lösung",
     "viewAll": "Alle anzeigen",
     "showMore": "Mehr zeigen",
     "solution": {
@@ -523,6 +542,19 @@
         "formTitle": "Planen Sie Ihre Ergebnisbesprechung",
         "cta": "Buchen Sie einen Anruf für eine ROI-Schätzung",
         "note": "Wenn Sie sich nicht sicher sind, wie Ihre aktuellen Kennzahlen lauten, keine Sorge, wir helfen Ihnen, sie zu finden und den Uplift zu schätzen."
+      }
+    },
+    "limitedOffer": {
+      "subtitle": "Zeitlich begrenztes Angebot",
+      "title": "Erhalten Sie eine CRO-Strategie-Sitzung \n mit unserem CEO",
+      "caption": "Für Unternehmen, die einen monatlichen Umsatz von mehr als 500.000 $ erwirtschaften \n",
+      "cta": "Einen Anruf vereinbaren",
+      "funnelInfo": {
+        "title": "Erhalten Sie eine CRO-Strategiesitzung mit unserem CEO",
+        "subtitle": "Zeitlich begrenztes Angebot",
+        "cta": "Buchen Sie einen Anruf für eine ROI-Schätzung",
+        "note": "Wenn Sie sich nicht sicher sind, wie Ihre aktuellen Kennzahlen lauten, keine Sorge, wir helfen Ihnen, sie zu finden und den Uplift zu schätzen.",
+        "formTitle": "Planen Sie Ihre Ergebnisbesprechung"
       }
     }
   }

@@ -79,19 +79,26 @@ const step = ref(1);
 const isAgree = ref(true);
 const isLoading = ref(false)
 
+const hearAboutUsItems = reactive([
+  t('modal.funnel.hearAboutUs.somebody'),
+  t('modal.funnel.hearAboutUs.organic'),
+  t('modal.funnel.hearAboutUs.googleAds'),
+  t('modal.funnel.hearAboutUs.other')
+])
+
 let annualRevenueItems = reactive([
-  'less than $250,000',
-  '$250,000 - $1 million',
-  '$1 million - $10 million',
-  'more than $10 million',
-  'I prefer not to say'
+  t('modal.funnel.annualRevenue.lessThan500k'),
+  t('modal.funnel.annualRevenue.from500kTo1m'),
+  t('modal.funnel.annualRevenue.from1mTo2m'),
+  t('modal.funnel.annualRevenue.from2mTo5m'),
+  t('modal.funnel.annualRevenue.preferNotToSay')
 ])
 
 if (props.id.includes('homepage_limited_offer')) {
   annualRevenueItems = reactive([
-    'Less than $500,000',
-    '$500,000 - $1 million',
-    'Over $1 million'
+    t('modal.funnel.annualRevenue.lessThan500k'),
+    t('modal.funnel.annualRevenue.from500kTo1m'),
+    t('modal.funnel.annualRevenue.over1m'),
   ])
 }
 
@@ -396,7 +403,7 @@ async function saveLead() {
             :label="t('input.hearAboutUs.label')"
             :placeholder="t('input.hearAboutUs.placeholder')"
             icon="fa6-solid:people-group"
-            :items="['Somebody recommended us', 'Organic search', 'Google Ads', 'Other']"
+            :items="hearAboutUsItems"
             id="hear_about_us"
           />
 
@@ -430,7 +437,7 @@ async function saveLead() {
             {{ t('modal.funnel.agree') }}
             <span
               class="agree__checkbox"
-              :class="{active: isAgree, error: error.agree}"
+              :class="{ active: isAgree, error: error.agree }"
             ></span>
           </div>
         </div>

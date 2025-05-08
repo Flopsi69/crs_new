@@ -172,6 +172,7 @@ watch(isShowDetails, async (value) => {
     @media(max-width: $sm) {
       margin-top: 20px;
       max-width: 100%;
+      width: 100%;
       min-width: auto;
       padding-left: 15px;
       padding-right: 15px;

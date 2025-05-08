@@ -78,6 +78,10 @@ export default defineNuxtConfig({
         file: 'fr/index.json'
       }
     ],
+    compilation: {
+      strictMessage: false,
+      escapeHtml: false
+    },
     bundle: {
       fullInstall: false,
       optimizeTranslationDirective: false

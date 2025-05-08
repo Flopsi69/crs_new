@@ -58,7 +58,21 @@
       "back": "Retour",
       "agree": "En soumettant ce formulaire, vous acceptez de recevoir les informations demandées, ainsi que des communications occasionnelles concernant les produits, les services et les événements de ConversionRate Store. Vous pouvez vous désinscrire à tout moment. Pour en savoir plus, consultez la politique de confidentialité. Vos données personnelles seront traitées conformément à notre politique de confidentialité.",
       "continue": "Poursuivre",
-      "agreeError": "Veuillez accepter les conditions"
+      "agreeError": "Veuillez accepter les conditions",
+      "hearAboutUs": {
+        "somebody": "Quelqu'un nous a recommandé",
+        "organic": "Recherche organique",
+        "googleAds": "Annonces Google",
+        "other": "Autre"
+      },
+      "annualRevenue": {
+        "lessThan500k": "Moins de 500 000",
+        "from500kTo1m": "500 000 $ - 1 million de dollars",
+        "from1mTo2m": "1 million - 2 millions",
+        "from2mTo5m": "De 2 à 5 millions de dollars",
+        "preferNotToSay": "Je préfère ne pas le dire",
+        "over1m": "Plus d'un million de dollars"
+      }
     },
     "video": {
       "ctaButton": "Planifiez un appel GRATUIT",
@@ -152,35 +166,40 @@
       }
     }
   },
-  "sectionClientsLogo": {
-    "title": "Nos clients"
+  "sectionTrusted": {
+    "title": "La confiance des leaders du marché"
   },
   "sectionLeader": {
-    "prefix": "Reconnu comme un leader mondial en matière de",
-    "cro": "Optimisation du taux de conversion",
-    "uxo": "Optimisation de l'expérience utilisateur",
-    "croAbbr": "CRO",
-    "uxoAbbr": "UXO",
-    "and": "et"
+    "prefix": "LE MAGASIN DE TAUX DE CONVERSION EST UN",
+    "title": "Leader mondial de l'optimisation des taux de conversion et de l'expérience utilisateur"
   },
-  "sectionVideos": {
-    "title": "Regardez nos fondateurs partager des tactiques de CRO directement depuis la scène.",
-    "videos": {
-      "0": {
-        "title": "Riga Comm 2024"
-      },
-      "1": {
-        "title": "Commerce électronique 2019"
-      },
-      "2": {
-        "title": "Commerce électronique 2019"
-      }
+  "sectionFounderVideos": {
+    "title": "Regardez nos fondateurs partager des tactiques de CRO directement depuis la scène."
+  },
+  "sectionClientVideos": {
+    "title": "Nos clients parlent des résultats que nous obtenons",
+    "lemieux": {
+      "title": "Revue Lemieux",
+      "previewTitle": "Sur 2 ans, nous constatons une croissance de <span>+30%</span> de l'ARPU par rapport à l'année précédente.",
+      "note": "Nous avons permis à Le Mieux d'augmenter son ARPU de façon constante et mesurable. Voyons comment nous pouvons vous apporter la même chose."
+    },
+    "hunter": {
+      "title": "Revue Hunter Galloway",
+      "previewTitle": "Ils ont augmenté notre CvR de <span>+60%</span> sur l'ensemble du site.",
+      "note": "Nous avons permis à Hunter Galloway d'obtenir une augmentation constante et mesurable du CvR. Voyons comment nous pouvons vous apporter une amélioration similaire."
+    },
+    "natpat": {
+      "title": "Revue NatPat",
+      "previewTitle": "Au cours des 12 derniers mois, notre ARPU a augmenté de <span>+140%</span>.",
+      "note": "Nous avons permis à NATPAT d'augmenter son ARPU de façon constante et mesurable. Voyons comment nous pouvons faire de même pour vous."
     }
   },
   "sectionSolutions": {
-    "caption": "Trouvez la solution à vos problèmes de commerce électronique",
-    "title": "Découvrez les causes et les solutions aux défis auxquels votre entreprise de commerce électronique est confrontée.",
-    "subtitle": "Choisissez un problème",
+    "caption": "Utilisez notre base de connaissances",
+    "titleFirstRow": "Choisissez votre eCommerce",
+    "titleSecondRow": "Obtenez immédiatement GRATUITEMENT",
+    "titleProblem": "problème",
+    "titleSolution": "solution",
     "viewAll": "Voir tous",
     "showMore": "Afficher plus",
     "solution": {
@@ -523,6 +542,19 @@
         "formTitle": "Planifiez votre discussion sur les résultats",
         "cta": "Réservez un appel pour estimer le retour sur investissement",
         "note": "Si vous n'êtes pas sûr de vos indicateurs actuels, ne vous inquiétez pas, nous vous aiderons à les trouver et à estimer l'augmentation."
+      }
+    },
+    "limitedOffer": {
+      "subtitle": "Offre limitée dans le temps",
+      "title": "Obtenez une session de stratégie CRO \n avec notre PDG",
+      "caption": "Pour les entreprises générant \n plus de 500 000 $ de revenus mensuels",
+      "cta": "Planifier un appel",
+      "funnelInfo": {
+        "title": "Obtenez une session de stratégie CRO avec notre PDG",
+        "subtitle": "Offre limitée dans le temps",
+        "cta": "Réservez un appel pour estimer le retour sur investissement",
+        "note": "Si vous n'êtes pas sûr de vos indicateurs actuels, ne vous inquiétez pas, nous vous aiderons à les trouver et à estimer l'augmentation.",
+        "formTitle": "Planifiez votre discussion sur les résultats"
       }
     }
   }

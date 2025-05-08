@@ -8,9 +8,9 @@ const videos = [
     format: 'mp4',
     preview: '/images/video-review-lemieux.png',
     // src: 'https://drive.google.com/file/d/13TUkRekJtqrgv8ZsIEDLw41wkau4ri7y/preview',
-    title: 'Lemieux Review',
-    previewTitle: 'Over 2 years we<br/> see growth<br/> <span>+30%</span> in<br/> ARPU YoY',
-    note: 'We’ve been driving consistent, measurable ARPU uplift for Le Mieux—let’s explore how we can deliver similar uplift for you.',
+    title: t('sectionClientVideos.lemieux.title'),
+    previewTitle: t('sectionClientVideos.lemieux.previewTitle'),
+    note: t('sectionClientVideos.lemieux.note'),
     author: {
       id: 'shaun-loughlin',
       name: 'Shaun Loughlin',
@@ -25,9 +25,9 @@ const videos = [
     format: 'mov',
     preview: '/images/video-review-hunter.png',
     // src: 'https://drive.google.com/file/d/1HAuH0yYADsTiD6pGqljFC-tjXgQvcQVT/preview',
-    title: 'Hunter Galloway Review',
-    previewTitle: 'They have increased our CvR by <span>+60%</span> sitewide',
-    note: 'We’ve been driving consistent, measurable CvR uplift for Hunter Galloway—let’s explore how we can deliver similar uplift for you.',
+    title: t('sectionClientVideos.hunter.title'),
+    previewTitle: t('sectionClientVideos.hunter.previewTitle'),
+    note: t('sectionClientVideos.hunter.note'),
     author: {
       id: 'jaydan-vecchio',
       name: 'Jaydan Vecchio',
@@ -42,9 +42,9 @@ const videos = [
     format: 'mp4',
     preview: '/images/video-review-natpat.png',
     // src: 'https://drive.google.com/file/d/1oW1JRscEaaGiLD5hxUPpTIk3Yqw4D5Jt/preview',
-    title: 'NatPat Review',
-    previewTitle: 'For past 12<br/> month our ARPU<br/> increased up to <span>+140%</span>',
-    note: 'We’ve been driving consistent, measurable ARPU uplift for NATPAT—let’s explore how we can deliver similar uplift for you.',
+    title: t('sectionClientVideos.natpat.title'),
+    previewTitle: t('sectionClientVideos.natpat.previewTitle'),
+    note: t('sectionClientVideos.natpat.note'),
     author: {
       id: 'andrei-safonov',
       name: 'Andrei Safonov',
@@ -193,7 +193,7 @@ function openVideo(video: any) {
     @media(max-width: $sm) {
       font-size: 24px;
       line-height: 32px;
-      max-width: 60%;
+      max-width: 75%;
     }
 
     &:deep(span) {
