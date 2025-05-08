@@ -36,6 +36,39 @@ const infoEstimate = {
   cta: t('sectionProducts.buttonFunnelInfo.cta'),
   note: t('sectionProducts.buttonFunnelInfo.note')
 }
+
+const scrollContainer = ref(null)
+const thumbWidth = ref(0)
+const thumbLeft = ref(0)
+
+const updateThumb = () => {
+  const el = scrollContainer.value as HTMLDivElement | null
+
+  if (!el) return
+
+  const visibleRatio = el.clientWidth / el.scrollWidth
+  thumbWidth.value = visibleRatio * 100
+  thumbLeft.value = (el.scrollLeft / el.scrollWidth) * 100
+}
+
+onMounted(() => {
+  const el = scrollContainer.value as HTMLDivElement | null
+
+  if (!el) return
+
+  updateThumb()
+  el.addEventListener('scroll', updateThumb)
+  window.addEventListener('resize', updateThumb)
+})
+
+onUnmounted(() => {
+  const el = scrollContainer.value as HTMLDivElement | null
+
+  if (!el) return
+
+  el.removeEventListener('scroll', updateThumb)
+  window.removeEventListener('resize', updateThumb)
+})
 </script>
 
 <template>
@@ -47,7 +80,10 @@ const infoEstimate = {
       {{ t('sectionProducts.title') }}
     </h2>
 
-    <div class="table-wrap">
+    <div
+      class="table-wrap"
+      ref="scrollContainer"
+    >
       <div class="table">
         <div class="table__head">
           <div class="row">
@@ -117,6 +153,21 @@ const infoEstimate = {
             </div>
           </div>
         </div>
+
+        <div class="table-scrollbar__wrap">
+          <div
+            class="table-scrollbar"
+            :style="{ left: thumbLeft + 1 + '%' }"
+          >
+            <div
+              class="table-scrollbar__thumb"
+              :style="{ 
+                width: thumbWidth + '%', 
+                left: thumbLeft + '%' 
+              }"
+            ></div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -152,10 +203,41 @@ const infoEstimate = {
   padding-left: 20px;
   padding-right: 20px;
   @media(max-width: $md) {
-    overflow: auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
   @media(max-width: $sm) {
     margin-top: 24px;
+  }
+}
+
+.table-scrollbar {
+  pointer-events: none;
+  height: 8px;
+  background: $bg--purple-light;
+  border-radius: 10px;
+  position: relative;
+  max-width: 85vw;
+  will-change: left;
+  &__wrap {
+    display: none;
+    background: #fff;
+    border: 1px solid $border;
+    border-top: 0;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    padding: 20px 16px;
+    @media(max-width: $md) {
+      display: block;
+    }
+  }
+  &__thumb {
+    height: 100%;
+    background: $purple;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    will-change: left;
   }
 }
 
@@ -243,9 +325,15 @@ const infoEstimate = {
   }
   .table__body .row:last-child &:nth-child(2) {
     border-bottom-left-radius: 24px;
+    @media(max-width: $md) {
+      border-bottom-left-radius: 0;
+    }
   }
   .table__body .row:last-child &:last-child {
     border-bottom-right-radius: 24px;
+    @media(max-width: $md) {
+      border-bottom-right-radius: 0;
+    }
   }
 }
 
