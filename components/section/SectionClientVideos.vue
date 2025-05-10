@@ -190,10 +190,18 @@ function openVideo(video: any) {
     line-height: 38px;
     max-width: 285px;
     color: #fff;
+    .lang-fr & {
+      font-size: 24px;
+      line-height: 32px;
+    }
     @media(max-width: $sm) {
       font-size: 24px;
       line-height: 32px;
       max-width: 75%;
+      .lang-fr & {
+        font-size: 20px;
+        line-height: 28px;
+      }
     }
 
     &:deep(span) {
@@ -201,8 +209,14 @@ function openVideo(video: any) {
       padding: 0 5px;
       height: 35px;
       display: inline-block;
+      .lang-fr & {
+        height: 29px;
+      }
       @media(max-width: $sm) {
         height: 29px;
+        .lang-fr & {
+          height: 25px;
+        }
       }
     }
   }

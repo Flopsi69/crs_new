@@ -112,6 +112,11 @@ function handleOpenModal() {
       padding-right: 15px;
       padding-left: 15px;
     }
+    .lang-fr & {
+      font-size: 14px;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
     @media(max-width: $sm) {
       width: 100%;
       padding-left: 10px;

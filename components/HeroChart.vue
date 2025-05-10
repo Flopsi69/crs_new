@@ -1,10 +1,12 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const { t } = useI18n();
+</script>
 
 <template>
   <div class="chart text-center">
     <div class="chart__title subtitle-3">
-      {{ $t('sectionHero.chart.title') }}
-      <span class="nowrap">{{ $t('sectionHero.chart.titleNowrap') }}</span>
+      {{ t('sectionHero.chart.title') }}
+      <span class="nowrap">{{ t('sectionHero.chart.titleNowrap') }}</span>
     </div>
 
     <div class="chart__graph">
@@ -18,13 +20,13 @@
         data-aos-offset="-100"
       >
         <div class="chart__col-name">
-          {{ $t('sectionHero.chart.columns.research.name') }}
+          {{ t('sectionHero.chart.columns.research.name') }}
         </div>
         <div class="chart__col-procent">
-          {{ $t('sectionHero.chart.columns.research.percent') }}
+          {{ t('sectionHero.chart.columns.research.percent') }}
         </div>
         <div class="chart__col-caption">
-          {{ $t('sectionHero.chart.columns.research.caption') }}
+          {{ t('sectionHero.chart.columns.research.caption') }}
         </div>
       </div>
       <div
@@ -38,13 +40,13 @@
         data-aos-offset="-50"
       >
         <div class="chart__col-name">
-          {{ $t('sectionHero.chart.columns.hypotheses.name') }}
+          {{ t('sectionHero.chart.columns.hypotheses.name') }}
         </div>
         <div class="chart__col-procent">
-          {{ $t('sectionHero.chart.columns.hypotheses.percent') }}
+          {{ t('sectionHero.chart.columns.hypotheses.percent') }}
         </div>
         <div class="chart__col-caption">
-          {{ $t('sectionHero.chart.columns.hypotheses.caption') }}
+          {{ t('sectionHero.chart.columns.hypotheses.caption') }}
         </div>
       </div>
       <div
@@ -58,13 +60,13 @@
         data-aos-offset="-25"
       >
         <div class="chart__col-name">
-          {{ $t('sectionHero.chart.columns.validation.name') }}
+          {{ t('sectionHero.chart.columns.validation.name') }}
         </div>
         <div class="chart__col-procent">
-          {{ $t('sectionHero.chart.columns.validation.percent') }}
+          {{ t('sectionHero.chart.columns.validation.percent') }}
         </div>
         <div class="chart__col-caption">
-          {{ $t('sectionHero.chart.columns.validation.caption') }}
+          {{ t('sectionHero.chart.columns.validation.caption') }}
         </div>
       </div>
 
@@ -78,19 +80,19 @@
         data-aos-anchor-placement="top-bottom"
       >
         <div class="chart__col-name color-yellow">
-          {{ $t('sectionHero.chart.columns.scaling.name') }}
+          {{ t('sectionHero.chart.columns.scaling.name') }}
         </div>
         <div class="chart__col-procent">
-          {{ $t('sectionHero.chart.columns.scaling.percent') }}
+          {{ t('sectionHero.chart.columns.scaling.percent') }}
         </div>
         <div class="chart__col-caption">
-          {{ $t('sectionHero.chart.columns.scaling.caption') }}
+          {{ t('sectionHero.chart.columns.scaling.caption') }}
         </div>
       </div>
     </div>
 
     <div class="chart__footer">
-      {{ $t('sectionHero.chart.footer') }}
+      {{ t('sectionHero.chart.footer') }}
     </div>
   </div>
 </template>
@@ -113,9 +115,15 @@
   &__title {
     text-shadow: 0px 1px 0px rgba(53, 36, 118, 0.50);
     @media(max-width: $sm) {
-      text-align: left;
-      max-width: 235px;
       margin: auto;
+      max-width: 90%;
+      .lang-en & {
+        text-align: left;
+        max-width: 235px;
+      }
+      .lang-fr & {
+        font-size: 16px;
+      }
     }
   }
   &__graph {
@@ -179,6 +187,11 @@
         font-size: 14px;
         padding-bottom: 12px;
         line-height: 24px;
+        .lang-fr & {
+          font-size: 12px;
+          line-height: 18px;
+          white-space: nowrap;
+        }
       }
     }
     &-procent {
