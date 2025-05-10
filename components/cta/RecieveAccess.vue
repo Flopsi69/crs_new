@@ -247,6 +247,9 @@ async function save() {
       .lang-de & {
         font-size: 14px;
       }
+      .lang-es & {
+        font-size: 14px;
+      }
     }
     .cta_flat & {
       grid-column: span 2;

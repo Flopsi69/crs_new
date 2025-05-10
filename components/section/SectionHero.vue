@@ -161,6 +161,10 @@ function handleOpenModal() {
       margin-top: 16px;
       font-size: 26px;
       line-height: 34px;
+      .lang-es & {
+        font-size: 20px;
+        line-height: 28px;
+      }
     }
   }
   &__flipper {
