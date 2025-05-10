@@ -75,7 +75,7 @@ const mailchimp = useMailchimp()
 const excel = useExcel()
 const mailer = useMailer()
 
-const step = ref(1);
+const step = ref(2);
 const isAgree = ref(true);
 const isLoading = ref(false)
 
