@@ -470,6 +470,14 @@ function playVideo() {
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
+    .lang-de & {
+      padding-left: 12px;
+      padding-right: 12px;
+      font-size: 14px;
+      @media(max-width: $sm) {
+        font-size: 11px;
+      }
+    }
   }
 }
 

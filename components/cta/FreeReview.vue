@@ -90,6 +90,13 @@ function handleOpenModal() {
     height: auto;
     gap: 20px;
   }
+  :deep(.form__input) {
+    @media(max-width: $sm) {
+      .lang-de & {
+        font-size: 12px;
+      }
+    }
+  }
   &__button {
     font-size: 18px;
     padding-left: 32px;
@@ -98,6 +105,9 @@ function handleOpenModal() {
       width: 100%;
       padding-left: 10px;
       padding-right: 10px;
+      .lang-de & {
+        font-size: 11px;
+      }
     }
   }
 }

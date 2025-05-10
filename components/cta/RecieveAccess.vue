@@ -244,6 +244,9 @@ async function save() {
     @media(max-width: $sm) {
       padding-left: 15px;
       padding-right: 15px;
+      .lang-de & {
+        font-size: 14px;
+      }
     }
     .cta_flat & {
       grid-column: span 2;

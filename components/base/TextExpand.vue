@@ -14,6 +14,8 @@ const props = defineProps({
   }
 })
 
+const { t } = useI18n();
+
 const textDiv = ref(null);
 const rows = ref(0);
 const isExpandClicked = ref(false);
@@ -58,7 +60,7 @@ onMounted(() => {
         <span
           class="link"
           @click="toggleText"
-          >Read more</span
+          >{{ t('sectionFeedbacks.readMore') }}</span
         >
       </slot>
     </template>
