@@ -86,6 +86,11 @@ const info = {
     .lang-es & {
       font-size: 12px;
     }
+    .lang-fr & {
+      white-space: normal;
+      line-height: 1.4;
+      font-size: 12px;
+    }
   }
 }
 </style>

@@ -372,6 +372,9 @@ onUnmounted(() => {
       padding-left: 10px;
       padding-right: 10px;
       width: 100%;
+      .lang-es & {
+        font-size: 14px;
+      }
     }
   }
 }
