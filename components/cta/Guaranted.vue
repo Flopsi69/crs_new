@@ -83,6 +83,9 @@ const info = {
     .lang-de & {
       font-size: 12px;
     }
+    .lang-es & {
+      font-size: 12px;
+    }
   }
 }
 </style>
