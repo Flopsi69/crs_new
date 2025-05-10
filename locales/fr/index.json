@@ -405,7 +405,8 @@
   },
   "sectionFeedbacks": {
     "title": "Que disent nos clients de nous ?",
-    "buttonShowMore": "Afficher plus"
+    "buttonShowMore": "Afficher plus",
+    "readMore": "En savoir plus"
   },
   "sectionFAQ": {
     "title": "FAQ"

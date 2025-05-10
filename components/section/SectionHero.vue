@@ -37,32 +37,32 @@ function handleOpenModal() {
     <div class="row flex-center">
       <div class="info">
         <h1 class="info__title bg--purple subtitle-2">
-          {{ $t('sectionHero.title') }}
+          {{ t('sectionHero.title') }}
         </h1>
 
         <div class="info__subtitle title-1">
-          {{ $t('sectionHero.subtitle.prefix') }}
+          {{ t('sectionHero.subtitle.prefix') }}
           <word-flipper
             class="color-yellow info__flipper"
             :words="words"
             :delay="3000"
           />
           <br />
-          {{ $t('sectionHero.subtitle.suffix') }}
+          {{ t('sectionHero.subtitle.suffix') }}
         </div>
 
         <HeroChart class="info__chart-mob" />
 
         <div class="info__form-wrap form-wrap border-decor_top">
           <div class="subtitle-2">
-            {{ $t('sectionHero.form.title') }}
+            {{ t('sectionHero.form.title') }}
           </div>
           <div class="form flex">
             <BaseInput
               v-model="url"
               class="form__input"
               required
-              :placeholder="$t('sectionHero.form.placeholder')"
+              :placeholder="t('sectionHero.form.placeholder')"
               icon="fa6-solid:link"
               :error="error"
               @click="error = ''"
@@ -74,7 +74,7 @@ function handleOpenModal() {
               @click="handleOpenModal"
               class="button button_yellow form__button"
             >
-              {{ $t('sectionHero.form.cta') }}
+              {{ t('sectionHero.form.cta') }}
             </button>
           </div>
         </div>
@@ -212,6 +212,11 @@ function handleOpenModal() {
   }
   &__button {
     font-size: 18px;
+    .lang-de & {
+      font-size: 14px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
     @media(max-width: $sm) {
       height: 60px;
     }

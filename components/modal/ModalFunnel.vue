@@ -75,7 +75,7 @@ const mailchimp = useMailchimp()
 const excel = useExcel()
 const mailer = useMailer()
 
-const step = ref(1);
+const step = ref(2);
 const isAgree = ref(true);
 const isLoading = ref(false)
 
@@ -716,6 +716,12 @@ async function saveLead() {
     padding-left: 10px;
     padding-right: 10px;
     width: 100%;
+    .lang-de &[data-step="2"] {
+      font-size: 14px;
+      @media(max-width: $sm) {
+        font-size: 12px;
+      }
+    }
   }
 }
 

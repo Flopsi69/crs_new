@@ -80,6 +80,9 @@ const info = {
     padding-left: 5px;
     padding-right: 5px;
     width: 100%;
+    .lang-de & {
+      font-size: 12px;
+    }
   }
 }
 </style>
