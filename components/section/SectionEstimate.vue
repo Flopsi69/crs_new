@@ -289,7 +289,7 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
               {{ t('sectionEstimate.cvr.desktop') }}
             </span>
             <span class="toggler__item-mob">
-              {{ t('sectionEstimate.cvr.mob') }}
+              {{ t('sectionEstimate.cvr.mobile') }}
             </span>
           </div>
           <div
@@ -301,7 +301,7 @@ function validateInputEstimate(field: keyof typeof form, event: any) {
               {{ t('sectionEstimate.arpu.desktop') }}
             </span>
             <span class="toggler__item-mob">
-              {{ t('sectionEstimate.arpu.mob') }}
+              {{ t('sectionEstimate.arpu.mobile') }}
             </span>
           </div>
         </div>

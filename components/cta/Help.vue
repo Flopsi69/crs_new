@@ -99,8 +99,9 @@ function getFunnelInfo(funnelNumber:number) {
       padding-left: 15px;
       padding-right: 15px;
       width: 100%;
-      .lang-de &#benchmark_2-cta {
-        font-size: 11px;
+      .lang-de &.button_trans-yellow {
+        white-space: wrap;
+        font-size: 14px;
       }
     }
   }
