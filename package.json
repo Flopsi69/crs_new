@@ -14,18 +14,19 @@
   "dependencies": {
     "@formkit/auto-animate": "^0.8.2",
     "@img-comparison-slider/vue": "^8.0.0",
-    "@nuxt/fonts": "0.11.1",
-    "@nuxtjs/i18n": "9.5.3",
+    "@nuxt/eslint": "1.4.0",
+    "@nuxt/fonts": "0.11.4",
+    "@nuxtjs/i18n": "9.5.4",
     "@vee-validate/nuxt": "4.15.0",
-    "@vueuse/nuxt": "13.1.0",
+    "@vueuse/nuxt": "13.2.0",
     "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "googleapis": "144.0.0",
-    "nuxt": "3.16.1",
+    "nuxt": "3.17.3",
     "nuxt-aos": "1.2.5",
-    "nuxt-schema-org": "5.0.4",
+    "nuxt-schema-org": "5.0.5",
     "radix-vue": "^1.8.3",
-    "vue": "3.5.13",
-    "vue-router": "4.5.0",
+    "vue": "3.5.14",
+    "vue-router": "4.5.1",
     "vue3-carousel": "^0.15.0",
     "vue3-carousel-nuxt": "1.1.5",
     "vue3-toastify": "0.2.8",
@@ -35,10 +36,10 @@
   "devDependencies": {
     "@nuxt/image": "1.10.0",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
-    "@types/node": "22.14.1",
-    "eslint": "9.22.0",
+    "@types/node": "22.15.19",
+    "eslint": "9.27.0",
     "nuxt-icon": "^0.6.10",
     "nuxt-resend": "^0.0.2",
-    "sass": "1.86.3"
+    "sass": "1.89.0"
   }
 }

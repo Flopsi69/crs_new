@@ -47,7 +47,7 @@ onMounted(() => {
         class="button button_trans-yellow"
         @click="isShowMore = !isShowMore"
       >
-        {{ $t('sectionFeedbacks.buttonShowMore') }}
+        {{ t('sectionFeedbacks.buttonShowMore') }}
       </button>
     </div>
   </div>

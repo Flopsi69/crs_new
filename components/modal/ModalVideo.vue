@@ -468,15 +468,22 @@ function playVideo() {
     min-height: 60px;
     margin-top: 32px;
     width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 12px;
+    padding-right: 12px;
     .lang-de & {
-      padding-left: 12px;
-      padding-right: 12px;
       font-size: 14px;
       @media(max-width: $sm) {
         font-size: 11px;
       }
+    }
+    .lang-es & {
+      font-size: 16px;
+      @media(max-width: $sm) {
+        font-size: 14px;
+      }
+    }
+    .lang-fr & {
+      font-size: 16px;
     }
   }
 }

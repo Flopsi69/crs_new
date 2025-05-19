@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+const { t } = useI18n();
+
 defineProps({
   item: {
     type: Object,
@@ -15,7 +17,7 @@ defineProps({
       class="item__open link"
       @click="$emit('setActiveSolution', item)"
     >
-      <span>{{ $t('sectionSolutions.solution.view') }}</span>
+      <span>{{ t('sectionSolutions.solution.view') }}</span>
       <Icon
         name="line-md:chevron-small-right"
         size="24"
