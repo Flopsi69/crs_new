@@ -15,8 +15,11 @@ if (!caseStudy.value?.id) {
 }
 
 const handlerList: Ref<[]> = await api.getCases('url,status');
-const handlerListArray = handlerList.value.map((item: any) => item.url)
+const handlerListArray = handlerList.value.filter((i: any) => i.status === 'ACTIVE').map((item: any) => item.url)
+const test = handlerList.value.map((item: any) => item.status)
+
 const currentIndex = ref(handlerListArray.indexOf(id));
+
 const nextId = computed(() => {
   if (!handlerListArray.length) return null;
 
@@ -196,13 +199,10 @@ const scrollToTop = () => {
       </div>
 
       <div class="navigation">
-        <template v-if="handlerListArray.length">
+        <template v-if="handlerListArray.length > 1">
           <NuxtLink
             v-if="prevId"
-            :to="{
-              name: 'case-studies-id',
-              params: { id: prevId }
-            }"
+            :to="`/case-studies/${prevId}`"
             class="navigation__arrow button button_trans-purple subtitle-3"
           >
             <svg
@@ -221,10 +221,7 @@ const scrollToTop = () => {
 
           <NuxtLink
             v-if="nextId"
-            :to="{
-              name: 'case-studies-id',
-              params: { id: nextId }
-            }"
+            :to="`/case-studies/${nextId}`"
             class="navigation__arrow button button_trans-purple subtitle-3"
           >
             Next case study

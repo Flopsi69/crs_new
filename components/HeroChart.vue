@@ -22,13 +22,12 @@ const { t } = useI18n();
         <div class="chart__col-name">
           {{ t('sectionHero.chart.columns.research.name') }}
         </div>
-        <div class="chart__col-procent">
-          {{ t('sectionHero.chart.columns.research.percent') }}
-        </div>
+        <div class="chart__col-procent">+3%</div>
         <div class="chart__col-caption">
           {{ t('sectionHero.chart.columns.research.caption') }}
         </div>
       </div>
+
       <div
         class="chart__col"
         style="height: 56%"
@@ -42,13 +41,12 @@ const { t } = useI18n();
         <div class="chart__col-name">
           {{ t('sectionHero.chart.columns.hypotheses.name') }}
         </div>
-        <div class="chart__col-procent">
-          {{ t('sectionHero.chart.columns.hypotheses.percent') }}
-        </div>
+        <div class="chart__col-procent">+7%</div>
         <div class="chart__col-caption">
           {{ t('sectionHero.chart.columns.hypotheses.caption') }}
         </div>
       </div>
+
       <div
         class="chart__col"
         style="height: 78%"
@@ -62,9 +60,7 @@ const { t } = useI18n();
         <div class="chart__col-name">
           {{ t('sectionHero.chart.columns.validation.name') }}
         </div>
-        <div class="chart__col-procent">
-          {{ t('sectionHero.chart.columns.validation.percent') }}
-        </div>
+        <div class="chart__col-procent">+14%</div>
         <div class="chart__col-caption">
           {{ t('sectionHero.chart.columns.validation.caption') }}
         </div>
@@ -82,9 +78,7 @@ const { t } = useI18n();
         <div class="chart__col-name color-yellow">
           {{ t('sectionHero.chart.columns.scaling.name') }}
         </div>
-        <div class="chart__col-procent">
-          {{ t('sectionHero.chart.columns.scaling.percent') }}
-        </div>
+        <div class="chart__col-procent">+22%</div>
         <div class="chart__col-caption">
           {{ t('sectionHero.chart.columns.scaling.caption') }}
         </div>
