@@ -710,18 +710,20 @@ async function saveLead() {
 
   &__submit {
     margin-top: auto;
-    height: 60px;
+    min-height: 60px;
     padding-left: 10px;
     padding-right: 10px;
     width: 100%;
     .lang-de &[data-step="2"] {
       font-size: 14px;
+      white-space: wrap;
       @media(max-width: $sm) {
         font-size: 12px;
       }
     }
     .lang-es &[data-step="2"] {
       font-size: 14px;
+      white-space: wrap;
       @media(max-width: $sm) {
         font-size: 12px;
       }

@@ -234,6 +234,9 @@ watch(isShowDetails, async (value) => {
 .metric {
   max-width: 230px;
   width: 100%;
+  @media(max-width: $sm) {
+    max-width: 100%;
+  }
   &__value {
     color: $purple;
     font-size: 32px;

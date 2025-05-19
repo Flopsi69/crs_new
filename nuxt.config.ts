@@ -100,7 +100,7 @@ export default defineNuxtConfig({
     defer: true,
     compatibility: true,
     debug: false,
-    devtools: true
+    devtools: false
   },
 
   vite: {

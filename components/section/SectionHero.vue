@@ -221,7 +221,13 @@ function handleOpenModal() {
       padding-left: 20px;
       padding-right: 20px;
     }
+    .lang-es {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
     @media(max-width: $sm) {
+      padding-left: 20px;
+      padding-right: 20px;
       height: 60px;
     }
   }

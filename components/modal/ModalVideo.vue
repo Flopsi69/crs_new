@@ -41,10 +41,6 @@ const videoEl = ref<HTMLVideoElement | null>(null)
 const isVideoStarted = ref(false)
 const isVideoLoaded = ref(false)
 
-const isClientVideo = computed(() => {
-  return modalData.value?.id?.includes('homepage_video-client')
-})
-
 onMounted(() => {
   setTimeout(() => {
     gtm?.trackEvent({
@@ -128,7 +124,6 @@ function playVideo() {
   <div
     data-aos="zoom-in"
     class="modal__inner bg-purple_dark"
-    :class="{'modal__inner_video-client': isClientVideo}"
     :data-modal="modalTarget"
   >
     <button
@@ -231,27 +226,17 @@ function playVideo() {
           />
           <template v-if="modalData.note">
             {{ modalData.note }}
-            <span>
-              <img
-                class="note__arrow"
-                src="img/modal-note-arrow-yellow.png"
-                alt=""
-              />
-            </span>
           </template>
           <template v-else>
             {{ t('modal.video.note.title') }}
             <br />
             {{ t('modal.video.note.subtitle') }}
-            <span>
-              below
-              <img
-                class="note__arrow"
-                src="img/modal-note-arrow-yellow.png"
-                alt=""
-              />
-            </span>
           </template>
+          <img
+            class="note__arrow"
+            src="img/modal-note-arrow-yellow.png"
+            alt=""
+          />
         </BasePlate>
 
         <div class="form__inner">
@@ -520,13 +505,13 @@ function playVideo() {
 }
 
 .note {
-  &.plate {
-    overflow: visible;
-  }
   position: relative;
-  padding: 16px;
+  padding: 16px 25px 16px 16px;
   @media(max-width: $sm) {
     font-size: 18px;
+  }
+  &.plate {
+    overflow: visible;
   }
   &__icon {
     position: absolute;
@@ -534,22 +519,14 @@ function playVideo() {
     top: 2px;
     transform: translateY(-100%);
   }
-  span {
-    position: relative;
-  }
-
   &__arrow {
+    pointer-events: none;
     position: absolute;
     height: 105px;
-    left: 40%;
+    right: 0;
     max-width: initial;
     max-height: initial;
-    @media(max-width: $sm) {
-      .modal__inner_video-client & {
-        height: 100px;
-        left: -30px;
-      }
-    }
+    transform: translateX(35%);
   }
 
 
