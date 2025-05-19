@@ -22,9 +22,6 @@ const { t } = useI18n();
         <div class="chart__col-name">
           {{ t('sectionHero.chart.columns.research.name') }}
         </div>
-        <div class="chart__col-procent">
-          {{ t('sectionHero.chart.columns.research.percent') }}
-        </div>
         <div class="chart__col-procent">+3%</div>
         <div class="chart__col-caption">
           {{ t('sectionHero.chart.columns.research.caption') }}
