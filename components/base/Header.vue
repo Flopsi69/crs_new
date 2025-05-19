@@ -46,9 +46,7 @@ const toggleBurger = () => {
         </NuxtLink>
       </nav>
 
-      <DevOnly>
-        <LanguageToggler class="header__lang-toggler" />
-      </DevOnly>
+      <LanguageToggler class="header__lang-toggler" />
 
       <button
         class="header__trigger button button_flat"
