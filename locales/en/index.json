@@ -145,22 +145,18 @@
       "columns": {
         "research": {
           "name": "Research",
-          "percent": "+3%",
           "caption": "Month 1"
         },
         "hypotheses": {
           "name": "Hypotheses",
-          "percent": "+7%",
           "caption": "Month 2"
         },
         "validation": {
           "name": "Validation",
-          "percent": "+12%",
           "caption": "Month 3"
         },
         "scaling": {
           "name": "Scaling",
-          "percent": "+16%",
           "caption": "Month 4"
         }
       }
