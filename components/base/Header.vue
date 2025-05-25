@@ -55,6 +55,7 @@ const isDark = computed(() => {
       </nav>
 
       <LanguageToggler
+        v-if="isDark"
         :dark="isDark"
         class="header__lang-toggler"
       />
