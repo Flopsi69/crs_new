@@ -198,6 +198,7 @@ const filterTabs = computed(() => {
   overflow-x: auto;
   &__item {
     min-width: 70px;
+    flex-shrink: 0;
     @media(max-width: $md) {
       white-space: nowrap;
     }
