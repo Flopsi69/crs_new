@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import menu from '~/configs/menu';
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
+const route = useRoute();
 
 const isBurgerActive = ref(false);
 
@@ -14,10 +15,17 @@ const toggleBurger = () => {
   }
   isBurgerActive.value = !isBurgerActive.value;
 };
+
+const isDark = computed(() => {
+  return route.path === `/${locale.value}` || route.path === '/'
+})
 </script>
 
 <template>
-  <header class="header bg--purple-dark">
+  <header
+    class="header"
+    :class="{ header_dark: isDark, 'bg--purple-dark': isDark }"
+  >
     <div class="container header__container">
       <NuxtLink
         to="/"
@@ -46,7 +54,10 @@ const toggleBurger = () => {
         </NuxtLink>
       </nav>
 
-      <LanguageToggler class="header__lang-toggler" />
+      <LanguageToggler
+        :dark="isDark"
+        class="header__lang-toggler"
+      />
 
       <button
         class="header__trigger button button_flat"
@@ -57,11 +68,13 @@ const toggleBurger = () => {
             v-if="!isBurgerActive"
             name="radix-icons:hamburger-menu"
             size="28"
+            :color="isDark ? '#fff' : '#000'"
           ></Icon>
           <Icon
             v-else
             name="solar:close-circle-linear"
             size="28"
+            :color="isDark ? '#fff' : '#000'"
           ></Icon>
         </Transition>
       </button>
@@ -86,7 +99,13 @@ const toggleBurger = () => {
 }
 
 .header {
+  transition: background .2s;
   padding: 18px 0 16px;
+  border-bottom: 1px solid $border;
+  &_dark {
+    border-color: transparent
+    // background-color: $bg--purple-dark;
+  }
   &__container {
     display: flex;
     align-items: center;
@@ -118,6 +137,10 @@ const toggleBurger = () => {
 }
 
 .logo {
+  filter: invert(1);
+  .header_dark & {
+    filter: invert(0);
+  }
   @media(max-width: $md) {
     img {
       height: 34px;
@@ -136,10 +159,10 @@ const toggleBurger = () => {
     padding: 24px 20px;
     position: fixed;
     z-index: 2;
-    background: $bg--purple-dark;
     flex-flow: column;
     left: 0;
     top: 68px;
+    background-color: $bg--purple-light;
     right: 0;
     gap: 40px;
     bottom: 0;
@@ -147,6 +170,10 @@ const toggleBurger = () => {
     overflow: auto;
     &.active {
       transform: translateX(0);
+    }
+
+    .header_dark & {
+      background: $bg--purple-dark;
     }
 
     // TODO remove

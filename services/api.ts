@@ -10,6 +10,21 @@ const apiClient = $fetch.create({
   }
 })
 
+const getCasesNew = async (queries?: string): Promise<any> => {
+  let urlQuery = ''
+
+  if (queries) {
+    urlQuery += `?select=${queries}`
+  }
+
+  try {
+    return await apiClient(`/case-studies${urlQuery}`)
+  } catch (error) {
+    console.error('Error fetching case studies:', error)
+    throw error
+  }
+}
+
 // GET Request
 const getCases = async (
   queries?: string,
@@ -113,7 +128,8 @@ const api = {
   getResource,
   createResource,
   updateResource,
-  deleteResource
+  deleteResource,
+  getCasesNew
 }
 
 export default api

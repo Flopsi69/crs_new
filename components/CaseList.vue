@@ -19,16 +19,14 @@ const props = defineProps({
   }
 });
 
-const route = useRoute()
-const isDevMode = route.query.mode === 'dev';
 const { t } = useI18n();
 
 const isShowMore = ref(false);
 
-const caseFiltered: CaseStudy[] = props.items.filter((item) => isDevMode || (item.status && item.status !== 'INACTIVE') || (!item.status && !item.isHidden) );
+// const caseFiltered: CaseStudy[] = props.items.filter((item) => isDevMode || (item.status && item.status !== 'INACTIVE') || (!item.status && !item.isHidden) );
 
 const casesToShow = computed(() => {
-  return  isShowMore.value || !props.expand ? caseFiltered : caseFiltered.slice(0, 3);
+  return  isShowMore.value || !props.expand ? props.items : props.items.slice(0, 3);
 });
 </script>
 
@@ -38,23 +36,21 @@ const casesToShow = computed(() => {
     :class="`cols-${cols}`"
     v-bind="$attrs"
   >
-    <template v-if="!caseFiltered.length">
+    <template v-if="!items.length">
       <div class="empty text color-secondary">No case studies found</div>
     </template>
-    <template v-else-if="caseFiltered[0].status">
+    <template v-else-if="items[0].status">
       <CaseItem
         v-for="(caseStudy, index) in casesToShow"
-        :key="index"
-        :caseStudy="caseStudy"
-        data-aos="fade-up"
-        data-aos-once="true"
+        :key="caseStudy.url"
+        :case-study="caseStudy"
       />
     </template>
     <template v-else>
       <CaseItemOld
         v-for="(caseStudy, index) in casesToShow"
         :key="index"
-        :caseStudy="caseStudy"
+        :case-study="caseStudy"
         data-aos="fade-up"
         data-aos-once="true"
       />

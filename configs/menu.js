@@ -7,7 +7,8 @@ export default {
     },
     {
       title: 'menu.caseStudies',
-      url: 'https://conversionrate.store/cro-case-studies/',
+      // url: 'https://conversionrate.store/cro-case-studies/',
+      url: '/case-studies/',
       isActive: true
     },
     {

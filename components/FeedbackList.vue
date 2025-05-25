@@ -36,6 +36,7 @@ onMounted(() => {
         :key="feedback.logo"
         :feedback="feedback"
         data-aos="fade-up"
+        :text-lines="5"
       />
     </div>
 

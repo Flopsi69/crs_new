@@ -34,7 +34,7 @@ const activeTab = ref(tabs[0]);
     </h2>
 
     <!-- TODO make cases -->
-    <!-- 
+
     <div class="cases__tabs">
       <BasePill
         v-for="tab in tabs"
@@ -46,7 +46,7 @@ const activeTab = ref(tabs[0]);
         {{ tab }}
         <div class="cases__tab-amount flex-center color-purple lh-1">12</div>
       </BasePill>
-    </div> -->
+    </div>
 
     <CaseList
       class="cases__list"

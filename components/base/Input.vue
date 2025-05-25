@@ -32,6 +32,10 @@ const props = defineProps({
     type: String,
     default: null,
   },
+  textarea: {
+    type: Boolean,
+    default: false,
+  },
   id: {
     type: String,
     default: null,
@@ -72,7 +76,10 @@ onClickOutside(target, () => {
       >{{ label }}&nbsp;</span
     >
 
-    <div class="input__wrap">
+    <div
+      class="input__wrap"
+      :class="{ 'textarea__wrap': textarea }"
+    >
       <Icon
         v-if="icon"
         class="input__icon"
@@ -97,6 +104,7 @@ onClickOutside(target, () => {
       </template>
 
       <input
+        v-if="!textarea"
         v-model="model"
         :id="id"
         type="text"
@@ -106,6 +114,15 @@ onClickOutside(target, () => {
         :placeholder="placeholder"
         :readonly="!!items?.length"
         @click="toggleDropdown"
+      />
+
+      <textarea
+        v-else
+        v-model="model"
+        :id="id"
+        class="input textarea"
+        v-bind="$attrs"
+        :placeholder="placeholder"
       />
     </div>
 
@@ -215,6 +232,15 @@ onClickOutside(target, () => {
     @media(max-width: $sm) {
       font-size: 13px;
     }
+  }
+}
+
+.textarea {
+  resize: vertical;
+  height: 50px;
+  line-height: normal;
+  &__wrap {
+    line-height: 0;
   }
 }
 

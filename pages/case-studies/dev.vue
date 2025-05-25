@@ -77,9 +77,9 @@ const banner = ref(false)
     class="case"
     :class="{'case_banner': banner }"
   >
-    <Breadcrumbs :items="breadcrumbs" />
-
     <div class="container container_narrow">
+      <BaseBreadcrumbs :items="breadcrumbs" />
+
       <button
         class="temp button button_yellow"
         :class="banner ? 'button_yellow' : 'button_purple'"
@@ -101,7 +101,7 @@ const banner = ref(false)
         <UiImage
           class="case__image"
           src="/images/temp-banner.jpg"
-        ></UiImage>
+        />
       </div>
 
       <!-- Base header -->
@@ -225,7 +225,7 @@ const banner = ref(false)
           <h2 class="post__title title-3 text-center">
             <span>Ui List</span>
           </h2>
-          <UiList v-bind="list"></UiList>
+          <UiList v-bind="list" />
         </div>
 
         <BasePlate
@@ -274,7 +274,7 @@ const banner = ref(false)
             <span>Ui Note</span>
           </h2>
 
-          <UiNote v-bind="note"></UiNote>
+          <UiNote v-bind="note" />
         </div>
 
         <BasePlate
@@ -313,8 +313,8 @@ const banner = ref(false)
             />
           </div>
           <div
-            class="component__block"
             v-if="note.icon"
+            class="component__block"
           >
             <BaseCheckbox
               v-model="note.iconSize"
@@ -378,8 +378,8 @@ const banner = ref(false)
             <BaseCheckbox
               v-model="metric.description"
               label="Is active description"
-              @click="metric.description"
               value="Using dropdown boxes to control user awareness & engagement — creating personalized customer journeys that increase ARPU & CVR."
+              @click="metric.description"
             />
           </div>
           <!-- <div class="component__block">
@@ -524,10 +524,11 @@ const banner = ref(false)
             </section>
 
             <section class="post__section">
-              <UiList v-bind="list"></UiList>
-              <UiNote v-bind="note"></UiNote>
+              <UiList v-bind="list" />
+              <UiNote v-bind="note" />
               <UiMetric v-bind="metric" />
               <UiCompare v-bind="compare" />
+              <UiCompare2 v-bind="compare" />
               <UiIncrease v-bind="increase" />
             </section>
           </div>
@@ -650,6 +651,11 @@ const banner = ref(false)
       width: 50%;
     }
   }
+}
+
+.breadcrumbs {
+  margin-bottom: 40px;
+  margin-top: 15px;
 }
 
 .case {
@@ -834,7 +840,6 @@ hr {
   width: 100%;
   position: sticky;
   padding: 28px;
-  margin-top: 25px;
   top: 20px;
   margin-bottom: 20px;
   color: #fff;
