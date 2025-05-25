@@ -6,6 +6,12 @@ const props = defineProps<{
 }>();
 
 const preview = computed(() => props.caseStudy.preview1);
+
+const router = useRouter();
+
+const navigate = () => {
+  router.push(`/case-studies/${props.caseStudy.url}`)
+}
 </script>
 
 <template>
@@ -14,8 +20,9 @@ const preview = computed(() => props.caseStudy.preview1);
   <!-- {{ preview }} -->
   <BasePlate
     class="case"
-    solidBorder
+    solid-border
     background="white"
+    @click="navigate"
   >
     <div class="case__logo flex align-center">
       <img
@@ -25,19 +32,19 @@ const preview = computed(() => props.caseStudy.preview1);
     </div>
 
     <div
-      class="case__block"
       v-if="preview.product"
+      class="case__block"
     >
       <div class="case__block-title subtitle-3">Product:</div>
       <div
         class="case__block-caption text color-secondary"
         v-html="preview.product"
-      ></div>
+      />
     </div>
 
     <div
-      class="case__block"
       v-if="preview.experiment"
+      class="case__block"
     >
       <div class="case__block-title subtitle-3">Experiment:</div>
       <div class="case__block-caption text color-secondary">
@@ -66,15 +73,12 @@ const preview = computed(() => props.caseStudy.preview1);
           />
         </div>
 
-        <NuxtLink
+        <div
           v-if="caseStudy.url"
-          external
           class="result__link link flex-center"
-          :to="`/case-studies/${caseStudy.url}`"
         >
           View case study
-          <!-- <span></span> -->
-        </NuxtLink>
+        </div>
       </div>
     </div>
   </BasePlate>
@@ -86,6 +90,7 @@ const preview = computed(() => props.caseStudy.preview1);
   flex-flow: column;
   padding: 30px;
   gap: 20px;
+  cursor: pointer;
 
   @media(max-width: $sm) {
     padding: 30px 20px;
@@ -119,7 +124,6 @@ const preview = computed(() => props.caseStudy.preview1);
     color: $font-secondary;
     font-size: 18px;
     line-height: 30px;
-    text-transform: uppercase;
   }
 
   &__link {

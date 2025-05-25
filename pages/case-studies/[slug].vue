@@ -2,23 +2,31 @@
 import api from '@/services/api.js';
 
 const route = useRoute();
-const { id } = route.params;
 
-if (!id || Array.isArray(id)) {
+const { slug } = route.params as any;
+
+if (!slug) {
   await navigateTo('/case-studies');
 }
 
-const caseStudy = await api.getCase(id);
+// const { getCases, getCase } = useCaseService()
 
-if (!caseStudy.value?.id) {
-  await navigateTo('/case-studies');
-}
 
-const handlerList: Ref<[]> = await api.getCases('url,status');
-const handlerListArray = handlerList.value.filter((i: any) => i.status === 'ACTIVE').map((item: any) => item.url)
-const test = handlerList.value.map((item: any) => item.status)
+const caseStudy = await api.getCase(slug);
+// const { data: caseStudy } = await useAsyncData(`case-study`, () => getCase(slug))
+// const caseStudy = ref({})
 
-const currentIndex = ref(handlerListArray.indexOf(id));
+// if (!caseStudy?.id) {
+//   await navigateTo('/case-studies');
+// }
+
+const slugsList = await api.getCases('url,status');
+// const { data: slugsList } = await useAsyncData('casesList', () => getCases('url,status'))
+// const slugsList = ref([])
+
+const handlerListArray = slugsList.value?.filter((i: any) => i.status === 'ACTIVE').map((item: any) => item.url) || []
+
+const currentIndex = ref(handlerListArray.indexOf(slug));
 
 const nextId = computed(() => {
   if (!handlerListArray.length) return null;
@@ -80,13 +88,19 @@ const scrollToTop = () => {
 <template>
   <main
     class="case"
-    :class="{'case_banner': caseStudy.banner }"
+    :class="{'case_banner': caseStudy?.banner }"
   >
-    <Breadcrumbs :items="breadcrumbs" />
+    <BaseBreadcrumbs
+      class="container"
+      :items="breadcrumbs"
+    />
 
-    <div class="container container_narrow">
+    <div
+      v-if="caseStudy"
+      class="container container_narrow"
+    >
       <div
-        v-if="caseStudy.banner"
+        v-if="caseStudy?.banner"
         class="case__head"
       >
         <h1
@@ -152,7 +166,10 @@ const scrollToTop = () => {
           />
 
           <div class="post">
-            <section class="post__section">
+            <section
+              v-if="mainContent"
+              class="post__section"
+            >
               <UiComponentBuilder :content="mainContent" />
             </section>
 
@@ -167,35 +184,9 @@ const scrollToTop = () => {
           </div>
         </div>
 
-        <BasePlate
-          class="case__aside aside"
-          background="purple-dark"
-        >
-          <h3 class="aside__title subtitle-1">
-            Estimate uplift from a performance-based CRO project for your
-            business
-          </h3>
-          <div class="aside__description text">
-            We will also provide you with 3 CRO hypotheses for your business for
-            free if you&nbsp;qualify
-          </div>
-          <button class="aside__button button button_yellow subtitle-3">
-            Estimate your uplift
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="13"
-              height="11"
-              viewBox="0 0 13 11"
-              fill="#2B2B2B"
-            >
-              <g clip-path="url(#clip0_521_1825)">
-                <path
-                  d="M12.2855 6.00633L7.59856 10.5891C7.31259 10.8687 6.84882 10.8687 6.56286 10.5891C6.27684 10.3095 6.27684 9.85611 6.56286 9.57644L9.99961 6.21605H1.23233C0.827909 6.21605 0.5 5.89543 0.5 5.49999C0.5 5.10461 0.827909 4.78393 1.23233 4.78393H9.99961L6.56298 1.42355C6.27696 1.14388 6.27696 0.69053 6.56298 0.410866C6.70593 0.271148 6.89341 0.201146 7.08082 0.201146C7.26824 0.201146 7.45566 0.271148 7.59867 0.410866L12.2855 4.99365C12.5715 5.27332 12.5715 5.72667 12.2855 6.00633Z"
-                />
-              </g>
-            </svg>
-          </button>
-        </BasePlate>
+        <div class="case__aside">
+          <CtaCaseStudy class="cases__cta" />
+        </div>
       </div>
 
       <div class="navigation">
@@ -242,6 +233,7 @@ const scrollToTop = () => {
         <button
           @click="scrollToTop"
           class="navigation__up button button_trans-purple subtitle-3 flex-center"
+          :class="{ 'navigation__up-solo': handlerListArray.length <= 1 }"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -261,20 +253,9 @@ const scrollToTop = () => {
 </template>
 
 <style lang="scss" scoped>
-.temp {
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
-  z-index: 1000;
-  border-radius: 25px;
-  width: 120px;
-  padding: 0;
-  font-size: 10px;
-  min-height: 30px;
-}
-
 .case {
   overflow: clip;
+  padding-top: 12px;
   &__head {
     margin: 42px 0;
   }
@@ -285,9 +266,12 @@ const scrollToTop = () => {
     display: flex;
     align-items: flex-start;
     gap: 50px;
-    margin-top: 6px;
+    margin-top: 60px;
     @media(max-width: $lg) {
       gap: 25px;
+    }
+    @media(max-width: $md) {
+      margin-top: 30px;
     }
   }
   &__content {
@@ -307,6 +291,16 @@ const scrollToTop = () => {
   }
   &__reading {
     margin-top: 12px;
+  }
+  &__aside {
+    max-width: 380px;
+    width: 100%;
+    position: sticky;
+    top: 20px;
+    margin-bottom: 60px;
+    @media (max-width: $md) {
+      display: none;
+    }
   }
 }
 
@@ -408,48 +402,6 @@ const scrollToTop = () => {
   }
 }
 
-.aside {
-  max-width: 380px;
-  width: 100%;
-  position: sticky;
-  padding: 28px;
-  top: 20px;
-  margin-bottom: 20px;
-  color: #fff;
-  @media(max-width: $lg) {
-    max-width: 280px;
-    padding: 20px;
-  }
-  @media(max-width: $md) {
-    max-width: 240px;
-  }
-  @media(max-width: $sm) {
-    display: none;
-  }
-  &__title {
-    line-height: 1.3;
-    @media(max-width: $lg) {
-      font-size: 20px;
-    }
-  }
-  &__description {
-    margin-top: 12px;
-  }
-  &__button {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    text-transform: none;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    @media(max-width: $md) {
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-  }
-}
-
 .results {
   position: relative;
   background-color: $bg--purple-light;
@@ -510,6 +462,9 @@ const scrollToTop = () => {
       position: absolute;
       right: 0;
       top: 40px;
+      &-solo {
+        top: 15px;
+      }
     }
   }
 }

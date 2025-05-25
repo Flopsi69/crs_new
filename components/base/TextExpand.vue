@@ -6,7 +6,7 @@ defineOptions({
 const props = defineProps({
   lines: {
     type: Number,
-    default: 5
+    default: -1
   },
   text: {
     type: String,
@@ -32,7 +32,7 @@ const toggleText = () => {
   isExpandClicked.value = !isExpandClicked.value;
 };
 
-const isExapnd = computed(() => rows.value > props.lines && !isExpandClicked.value);
+const isExpandVisible = computed(() => props.lines > 0 && rows.value > props.lines && !isExpandClicked.value);
 
 onMounted(() => {
   if (textDiv.value) {
@@ -44,15 +44,15 @@ onMounted(() => {
 <template>
   <div
     class="text-expand"
-    :style="{ visibility: rows ? 'visible' : 'hidden' }"
+    :style="{ opacity: rows ? '1' : '0.2' }"
   >
     <div
       ref="textDiv"
       v-bind="$attrs"
       v-html="text"
-      :style="[!isExapnd ? '' : css]"
+      :style="[!isExpandVisible || lines < 0 ? '' : css]"
     ></div>
-    <template v-if="isExapnd">
+    <template v-if="isExpandVisible">
       <slot
         name="trigger"
         @click="toggleText"

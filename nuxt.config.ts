@@ -2,7 +2,7 @@ import { fileURLToPath } from 'url'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: { enabled: process.env.NODE_ENV !== 'production' },
 
   features: {
     // inlineStyles: false // or a function to determine inlining
@@ -44,7 +44,8 @@ export default defineNuxtConfig({
     '@zadigetvoltaire/nuxt-gtm',
     'nuxt-resend',
     'nuxt-schema-org',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    '@nuxt/eslint'
   ],
 
   i18n: {
@@ -99,8 +100,8 @@ export default defineNuxtConfig({
     source: 'https://yfduetmi.euw.stape.io/yfduetmi.js',
     defer: true,
     compatibility: true,
-    debug: false,
-    devtools: false
+    debug: process.env.NODE_ENV !== 'production' ? false : false,
+    devtools: process.env.NODE_ENV !== 'production' ? false : false
   },
 
   vite: {

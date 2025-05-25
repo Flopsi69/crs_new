@@ -11,6 +11,10 @@ defineProps({
       text: String,
     }),
   },
+  textLines: {
+    type: Number,
+    default: -1,
+  },
 })
 </script>
 
@@ -34,6 +38,7 @@ defineProps({
       <BaseTextExpand
         class="text lh-15 color-secondary"
         :text="feedback.text"
+        :lines="textLines"
       >
       </BaseTextExpand>
     </div>
