@@ -318,6 +318,7 @@ const scrollToTop = () => {
     line-height: 0;
     img {
       max-width: 180px;
+      width: 100%;
       max-height: 60px;
     }
   }

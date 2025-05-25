@@ -13,10 +13,10 @@ export default defineNuxtConfig({
   //   inlineSSRStyles: false
   // },
 
-  // routeRules: {
-  // '/case-studies/:id': { prerender: true },
-  // '/': { prerender: true }
-  // },
+  routeRules: {
+    '/case-studies': { swr: true },
+    '/case-studies/**': { swr: true }
+  },
 
   app: {
     head: {
