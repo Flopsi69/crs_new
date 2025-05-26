@@ -13,6 +13,11 @@ if (!slug) {
 
 
 const caseStudy = await api.getCase(slug);
+
+useSeoMeta({
+  title: caseStudy.value.title,
+  description: caseStudy.value.description,
+});
 // const { data: caseStudy } = await useAsyncData(`case-study`, () => getCase(slug))
 // const caseStudy = ref({})
 
@@ -117,13 +122,13 @@ const scrollToTop = () => {
       <div class="case__inner">
         <div class="case__content">
           <BasePlate
+            v-if="caseStudy?.client?.logo"
             class="case__banner banner"
             solid-border
-            v-if="caseStudy?.client?.logo"
           >
             <div
-              class="banner__logo"
               v-if="caseStudy?.client?.logo"
+              class="banner__logo"
             >
               <img :src="caseStudy.client.logo" />
             </div>
@@ -132,9 +137,9 @@ const scrollToTop = () => {
               class="banner__metrics flex-center"
             >
               <div
-                class="banner__metric"
                 v-for="(metric, key) in previewMetrics"
                 :key="metric.id"
+                class="banner__metric"
               >
                 <div class="banner__metric-value">
                   {{ metric.value }}
@@ -147,8 +152,8 @@ const scrollToTop = () => {
           </BasePlate>
 
           <div
-            class="case__reading reading text color-secondary"
             v-if="caseStudy.readTime"
+            class="case__reading reading text color-secondary"
           >
             <img
               class="reading__icon"
@@ -174,8 +179,8 @@ const scrollToTop = () => {
             </section>
 
             <div
-              class="results"
               v-if="resultContent?.length"
+              class="results"
             >
               <section class="post__section">
                 <UiComponentBuilder :content="resultContent" />
@@ -231,9 +236,9 @@ const scrollToTop = () => {
         </template>
 
         <button
-          @click="scrollToTop"
           class="navigation__up button button_trans-purple subtitle-3 flex-center"
           :class="{ 'navigation__up-solo': handlerListArray.length <= 1 }"
+          @click="scrollToTop"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

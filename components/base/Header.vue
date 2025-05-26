@@ -54,11 +54,11 @@ const isDark = computed(() => {
         </NuxtLink>
       </nav>
 
-      <LanguageToggler
+      <!-- <LanguageToggler
         v-if="isDark"
         :dark="isDark"
         class="header__lang-toggler"
-      />
+      /> -->
 
       <button
         class="header__trigger button button_flat"

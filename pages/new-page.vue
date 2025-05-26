@@ -35,35 +35,43 @@ onMounted(() => {
 <template>
   <main class="main">
     <SectionHero />
-
-    <SectionClientsLogoOld />
-    <SectionLeaderOld />
+    <!-- {{ route.hash }}
+    <button @click="scrollToElement('#testimonials', 'center')">scroll</button> -->
+    <SectionTrusted />
+    <SectionLeader />
+    <SectionClientVideos />
     <SectionFounderVideos />
 
     <BaseSection>
       <CtaGuaranted />
     </BaseSection>
 
-    <SectionSolutionsOld />
-    <SectionClientsResults />
-    <SectionCompare />
+    <SectionProcess />
 
     <BaseSection>
-      <CtaKeyFactors />
+      <CtaLimitedOffer />
     </BaseSection>
 
-    <SectionCaseStudiesOld />
-    <SectionBenchmark />
-    <SectionEstimate />
+    <SectionCaseStudies />
+    <SectionCompare />
+    <SectionSolutions />
+    <SectionClientsResults />
+
+    <!-- TODO: remove cta if will not use -->
+    <!-- <BaseSection>
+      <CtaKeyFactors />
+    </BaseSection> -->
+
     <SectionCompetencies />
 
     <BaseSection>
       <CtaWinRate />
     </BaseSection>
 
-    <SectionProcess />
     <SectionProducts />
     <SectionFeedbacks />
+    <SectionBenchmark />
+    <SectionEstimate />
     <SectionFAQ />
   </main>
 </template>

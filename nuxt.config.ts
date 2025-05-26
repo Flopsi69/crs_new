@@ -2,7 +2,7 @@ import { fileURLToPath } from 'url'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: process.env.NODE_ENV !== 'production' },
+  devtools: { enabled: true },
 
   features: {
     // inlineStyles: false // or a function to determine inlining
@@ -56,28 +56,28 @@ export default defineNuxtConfig({
         nameEnglish: 'English',
         language: 'en-US',
         file: 'en/index.json'
-      },
-      {
-        code: 'de',
-        name: 'Deutsch',
-        nameEnglish: 'German',
-        language: 'de-DE',
-        file: 'de/index.json'
-      },
-      {
-        code: 'es',
-        name: 'Español',
-        nameEnglish: 'Spanish',
-        language: 'es-ES',
-        file: 'es/index.json'
-      },
-      {
-        code: 'fr',
-        name: 'Français',
-        nameEnglish: 'French',
-        language: 'fr-FR',
-        file: 'fr/index.json'
       }
+      // {
+      //   code: 'de',
+      //   name: 'Deutsch',
+      //   nameEnglish: 'German',
+      //   language: 'de-DE',
+      //   file: 'de/index.json'
+      // },
+      // {
+      //   code: 'es',
+      //   name: 'Español',
+      //   nameEnglish: 'Spanish',
+      //   language: 'es-ES',
+      //   file: 'es/index.json'
+      // },
+      // {
+      //   code: 'fr',
+      //   name: 'Français',
+      //   nameEnglish: 'French',
+      //   language: 'fr-FR',
+      //   file: 'fr/index.json'
+      // }
     ],
     compilation: {
       strictMessage: false,
@@ -145,5 +145,5 @@ export default defineNuxtConfig({
     }
   },
 
-  compatibilityDate: '2025-02-20'
+  compatibilityDate: '2025-05-15'
 })

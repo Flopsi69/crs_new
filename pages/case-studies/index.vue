@@ -1,4 +1,9 @@
 <script lang="ts" setup>
+useSeoMeta({
+  title: '20+ CRO case studies from Conversionrate.store',
+  description: 'Get inspired by real-world CRO case studies—see how Conversionrate.store delivers guaranteed growth',
+})
+
 const cases: any[] = await useApi().get('case-studies');
 
 const newsletterText = {
@@ -62,12 +67,9 @@ const filterTabs = computed(() => {
       <div class="cases__inner">
         <div class="cases__content">
           <div class="cases__head">
-            <h1 class="cases__title title-2">
-              CRO case studies from Conversionrate.store
-            </h1>
+            <h1 class="cases__title title-2">CRO Сase Studies</h1>
             <div class="cases__caption subtitle-2">
-              Selected A/B test results with 8-55% total conversion rate growth
-              from a single experiment
+              The World’s Largest Collection of Serial Case Studies
             </div>
           </div>
 

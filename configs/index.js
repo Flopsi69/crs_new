@@ -1,4 +1,5 @@
 // import menu from './menu'
 // import serviceLinks from './serviceLinks'
+import solutions from './solutions'
 
-// export { menu, serviceLinks }
+export { solutions }
