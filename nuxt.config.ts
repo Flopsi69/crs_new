@@ -14,8 +14,8 @@ export default defineNuxtConfig({
   // },
 
   routeRules: {
-    '/case-studies': { swr: true },
-    '/case-studies/**': { swr: true }
+    // '/case-studies': { swr: 300 },
+    // '/case-studies/**': { swr: 300 }
   },
 
   app: {
