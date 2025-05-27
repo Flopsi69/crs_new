@@ -4,7 +4,12 @@ useSeoMeta({
   description: 'Get inspired by real-world CRO case studies—see how Conversionrate.store delivers guaranteed growth',
 })
 
-const cases: any[] = await useApi().get('case-studies');
+// const cases = ref<any[]>(await useApi().get('case-studies'));
+const { data: cases } = await useAsyncData('cases', () =>
+  useApi().get('/case-studies')
+)
+
+// const { data: cases } = await useFetch('https://stageserver.conversionrate.store/api/case-studies');
 
 const newsletterText = {
   title: 'Sign up for our newsletter to get early updates',
@@ -17,19 +22,30 @@ const breadcrumbsItems = [
   { href: '/case-studies', text: 'Cases' }
 ]
 
-const activeTab = ref('All');
 
 const route = useRoute()
+const router = useRouter()
+const activeTab = ref('All');
+
+if (route.query.selectedTab) {
+  activeTab.value = route.query.selectedTab as string;
+    router.push({
+      query: {
+        ...route.query,
+        selectedTab: undefined // this will remove it
+      }
+    })
+}
 
 const isDevMode = useCookie('isDevMode')
 isDevMode.value = isDevMode.value || route.query.mode === 'dev' ? 'true' : '';
 
 const publishedCases = computed(() => {
-  return cases.filter((item) =>
+  return cases.value?.filter((item) =>
     isDevMode.value ||
     (item.status && item.status !== 'INACTIVE') ||
     (!item.status && !item.isHidden)
-  )
+  ) || [];
 });
 
 const casesToShow = computed(() => {
@@ -75,16 +91,21 @@ const filterTabs = computed(() => {
 
           <CtaCaseStudy class="cases__cta cases__cta-mob" />
 
-          <div class="cases__filter filter">
-            <BasePill
-              v-for="tab in filterTabs"
-              :key="tab"
-              class="filter__item text-sm"
-              :class="{ active: activeTab === tab }"
-              @click="activeTab = tab"
-            >
-              {{ tab }}
-            </BasePill>
+          <div
+            v-if="filterTabs.length > 2"
+            class="cases__filter filter"
+          >
+            <div class="filter__inner">
+              <BasePill
+                v-for="tab in filterTabs"
+                :key="tab"
+                class="filter__item text-sm"
+                :class="{ active: activeTab === tab }"
+                @click="activeTab = tab"
+              >
+                {{ tab }}
+              </BasePill>
+            </div>
           </div>
 
           <CaseList
@@ -135,6 +156,11 @@ const filterTabs = computed(() => {
       font-size: 16px;
     }
   }
+
+  &__list {
+    margin-top: 20px;
+  }
+
   &__inner {
     display: flex;
     align-items: flex-start;
@@ -156,14 +182,6 @@ const filterTabs = computed(() => {
       width: 100%;
     }
   }
-  &__filter{
-    margin: 32px -20px;
-    padding: 0 20px;
-    @media(max-width: $sm) {
-      margin-top: 24px;
-      margin-bottom: 24px;
-    }
-  }
   &__newsletter {
     margin-top: 60px;
     &:deep(.info_submitted) {
@@ -177,7 +195,11 @@ const filterTabs = computed(() => {
     max-width: 380px;
     width: 100%;
     position: sticky;
-    top: 20px;
+    top: 12px;
+    flex-shrink: 0;
+    @media (max-width: 1200px) {
+      max-width: 300px;
+    }
     @media (max-width: $md) {
       display: none;
     }
@@ -194,10 +216,19 @@ const filterTabs = computed(() => {
 }
 
 .filter {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  overflow-x: auto;
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  background: #fff;
+  margin-top: 20px;
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 -20px;
+    padding: 12px 20px;
+    overflow-x: auto;
+  }
   &__item {
     min-width: 70px;
     flex-shrink: 0;

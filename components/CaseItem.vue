@@ -24,6 +24,13 @@ const navigate = () => {
     background="white"
     @click="navigate"
   >
+    <div
+      v-if="caseStudy.client?.type"
+      class="case__type color-purple"
+    >
+      {{ caseStudy.client.type }}
+    </div>
+
     <div class="case__logo flex align-center">
       <img
         :src="`${caseStudy.client?.logo}`"
@@ -88,16 +95,16 @@ const navigate = () => {
 .case {
   display: flex;
   flex-flow: column;
-  padding: 30px;
+  padding: 35px 30px 30px;
   gap: 20px;
   cursor: pointer;
-
   @media(max-width: $sm) {
     padding: 30px 20px;
   }
 
   &__logo {
-    height: 70px;
+    height: 60px;
+    max-width: 80%;
   }
 
   &__block-caption {
@@ -105,6 +112,23 @@ const navigate = () => {
     ::v-deep(i) {
       font-weight: bold;
       color: $purple;
+    }
+  }
+
+  &__type {
+    position: absolute;
+    z-index: 1;
+    line-height: 1;
+    right: 0;
+    top: 0;
+    background: $bg--purple-light;
+    padding: 10px 24px;
+    white-space: nowrap;
+    border-bottom: 1px solid $border;
+    border-left: 1px solid $border;
+    border-radius: 0px 24px;
+    @media(max-width: $sm) {
+      padding: 7px 15px;
     }
   }
 }

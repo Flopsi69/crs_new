@@ -20,7 +20,7 @@
     "@vueuse/nuxt": "13.2.0",
     "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "googleapis": "149.0.0",
-    "nuxt": "3.17.4",
+    "nuxt": "^3.17.4",
     "nuxt-aos": "1.2.5",
     "nuxt-schema-org": "5.0.5",
     "radix-vue": "^1.8.3",

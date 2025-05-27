@@ -2,7 +2,6 @@
 import type { CaseStudy } from '~/types';
 // import { cases } from '~/configs';
 // import useApiService from '@/services/api.js';
-
 const props = defineProps({
   cols: {
     type: Number,
@@ -31,42 +30,43 @@ const casesToShow = computed(() => {
 </script>
 
 <template>
-  <div
-    class="list"
-    :class="`cols-${cols}`"
-    v-bind="$attrs"
-  >
-    <template v-if="!items.length">
-      <div class="empty text color-secondary">No case studies found</div>
-    </template>
-    <template v-else-if="items[0].status">
-      <CaseItem
-        v-for="(caseStudy, index) in casesToShow"
-        :key="caseStudy.url"
-        :case-study="caseStudy"
-      />
-    </template>
-    <template v-else>
-      <CaseItemOld
-        v-for="(caseStudy, index) in casesToShow"
-        :key="index"
-        :case-study="caseStudy"
-        data-aos="fade-up"
-        data-aos-once="true"
-      />
-    </template>
-  </div>
-
-  <div
-    v-if="!isShowMore && expand"
-    class="control flex-center"
-  >
-    <button
-      class="button button_trans-yellow"
-      @click="isShowMore = !isShowMore"
+  <div>
+    <div
+      class="list"
+      :class="`cols-${cols}`"
     >
-      {{ t('sectionCaseStudies.viewAll') }}
-    </button>
+      <template v-if="!items.length">
+        <div class="empty text color-secondary">No case studies found</div>
+      </template>
+      <template v-else-if="items[0].status">
+        <CaseItem
+          v-for="(caseStudy) in casesToShow"
+          :key="caseStudy.url"
+          :case-study="caseStudy"
+        />
+      </template>
+      <template v-else>
+        <CaseItemOld
+          v-for="(caseStudy, index) in casesToShow"
+          :key="index"
+          :case-study="caseStudy"
+          data-aos="fade-up"
+          data-aos-once="true"
+        />
+      </template>
+    </div>
+
+    <div
+      v-if="!isShowMore && expand"
+      class="control flex-center"
+    >
+      <button
+        class="button button_trans-yellow"
+        @click="isShowMore = !isShowMore"
+      >
+        {{ t('sectionCaseStudies.viewAll') }}
+      </button>
+    </div>
   </div>
 </template>
 

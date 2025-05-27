@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import api from '@/services/api.js';
-
 const route = useRoute();
 
 const { slug } = route.params as any;
@@ -9,50 +7,47 @@ if (!slug) {
   await navigateTo('/case-studies');
 }
 
-// const { getCases, getCase } = useCaseService()
+const { data: caseStudy } = await useAsyncData(slug, () =>
+  useApi().get(`/case-studies/${slug}`)
+)
 
-
-const caseStudy = await api.getCase(slug);
+const { data: slugsList } = useAsyncData('slug-list', () =>
+  useApi().get('/case-studies?select=url,status'), {
+    server: false
+  }
+)
 
 useSeoMeta({
-  title: caseStudy.value.title,
-  description: caseStudy.value.description,
+  title: caseStudy.value?.title,
+  description: caseStudy.value?.description,
 });
-// const { data: caseStudy } = await useAsyncData(`case-study`, () => getCase(slug))
-// const caseStudy = ref({})
 
-// if (!caseStudy?.id) {
-//   await navigateTo('/case-studies');
-// }
+const handlerListArray = computed(() => {
+  return slugsList.value?.filter((i: any) => i.status === 'ACTIVE').map((item: any) => item.url) || []
+});
 
-const slugsList = await api.getCases('url,status');
-// const { data: slugsList } = await useAsyncData('casesList', () => getCases('url,status'))
-// const slugsList = ref([])
-
-const handlerListArray = slugsList.value?.filter((i: any) => i.status === 'ACTIVE').map((item: any) => item.url) || []
-
-const currentIndex = ref(handlerListArray.indexOf(slug));
+const currentIndex = ref(handlerListArray.value.indexOf(slug));
 
 const nextId = computed(() => {
-  if (!handlerListArray.length) return null;
+  if (!handlerListArray.value.length) return null;
 
   const nextIndex =
-    currentIndex.value < handlerListArray.length - 1
+    currentIndex.value < handlerListArray.value.length - 1
       ? currentIndex.value + 1
       : 0;
 
-  return handlerListArray[nextIndex];
+  return handlerListArray.value[nextIndex];
 });
 
 const prevId = computed(() => {
-  if (!handlerListArray.length) return null;
+  if (!handlerListArray.value.length) return null;
 
   const prevIndex =
     currentIndex.value > 0
       ? currentIndex.value - 1
-      : handlerListArray.length - 1;
+      : handlerListArray.value.length - 1;
 
-  return handlerListArray[prevIndex];
+  return handlerListArray.value[prevIndex];
 });
 
 const mainContent = computed(() => {
@@ -99,7 +94,6 @@ const scrollToTop = () => {
       class="container"
       :items="breadcrumbs"
     />
-
     <div
       v-if="caseStudy"
       class="container container_narrow"
@@ -299,6 +293,7 @@ const scrollToTop = () => {
   }
   &__aside {
     max-width: 380px;
+    flex-shrink: 0;
     width: 100%;
     position: sticky;
     top: 20px;

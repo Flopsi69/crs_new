@@ -1,20 +1,48 @@
 <script lang="ts" setup>
-// import { cases } from '~/configs';
-const { t, locale } = useI18n();
+const { t } = useI18n();
 
-let cases = [];
+const activeTab = ref('All');
 
-try {
-  const module = await import(`~/locales/${locale.value}/cases.json`);
-  cases = module.default;
-} catch (error) {
-  console.log(`Failed to load cases for locale ${locale.value}`);
-}
+// const cases = await useApi().get('case-studies')
+const { data: cases } = useAsyncData('cases', () =>
+  useApi().get('/case-studies'), {
+    server: false
+  }
+)
+
+const publishedCases = computed(() => {
+  return cases.value?.filter((item) =>
+    (item.status && item.status !== 'INACTIVE') ||
+    (!item.status && !item.isHidden)
+  ) || []
+})
+
+const casesToShow = computed(() => {
+  if (activeTab.value === 'All') {
+    return publishedCases.value.slice(0, 3)
+  }
+
+  return publishedCases.value
+    .filter((item) => item.client?.type === activeTab.value)
+    .slice(0, 3)
+})
+
+const filterTabs = computed(() => {
+  const types = publishedCases.value.map((item) => item.client?.type)
+  types.unshift('All')
+  return [...new Set(types)].filter(Boolean)
+})
+
+// try {
+//   const module = await import(`~/locales/${locale.value}/cases.json`);
+//   cases = module.default;
+// } catch (error) {
+//   console.log(`Failed to load cases for locale ${locale.value}`);
+// }
 </script>
 
 <template>
   <BaseSection
-    v-if="cases.length"
     id="case-studies"
     background="purple-light"
     class="cases"
@@ -28,10 +56,40 @@ try {
       {{ t('sectionCaseStudies.subtitle') }}
     </div>
 
+    <div
+      v-if="casesToShow.length"
+      class="filter"
+    >
+      <BasePill
+        v-for="tab in filterTabs"
+        :key="tab"
+        class="filter__item text-sm"
+        :class="{ active: activeTab === tab }"
+        @click="activeTab = tab"
+      >
+        {{ tab }}
+      </BasePill>
+    </div>
+
+    <!-- <ClintOnly> -->
     <CaseList
       class="cases__list"
-      :items="cases"
+      :items="casesToShow"
+      :expand="false"
     />
+    <!-- </ClintOnly> -->
+
+    <div
+      v-if="casesToShow.length"
+      class="cases__control flex-center"
+    >
+      <NuxtLink
+        :to="`/case-studies${activeTab !== 'All' ? '?selectedTab=' + activeTab : ''}`"
+        class="cases__btn button button_trans-yellow"
+      >
+        {{ t('sectionCaseStudies.viewAll') }}
+      </NuxtLink>
+    </div>
 
     <CtaRecieveAccess class="cta" />
   </BaseSection>
@@ -48,6 +106,32 @@ try {
   }
   &__list {
     margin-top: 24px;
+  }
+  &__control {
+    margin-top: 40px;
+    @media(max-width: $sm) {
+      margin-top: 24px;
+    }
+  }
+  &__btn {
+    font-size: 18px;
+  }
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  gap: 12px;
+  margin: 40px -20px 0;
+  padding: 0 20px;
+  @media(max-width: $sm) {
+    margin-top: 24px;
+  }
+  &__item {
+    min-width: 70px;
+    flex-shrink: 0;
+    white-space: nowrap;
   }
 }
 
