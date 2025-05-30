@@ -138,14 +138,14 @@ function playVideo() {
     </button>
 
     <div
-      class="video__wrap"
       v-if="modalData"
+      class="video__wrap"
     >
       <div class="video__inner">
         <div class="video__title">
           <img
             v-if="modalData.author?.companyLogo"
-            :src="`images/logo/${modalData.author?.companyLogo}`"
+            :src="`/images/logo/${modalData.author?.companyLogo}`"
             alt=""
           />
           <template v-else>
@@ -154,13 +154,13 @@ function playVideo() {
         </div>
         <div class="video">
           <div
-            class="video__loader"
             v-if="!isVideoLoaded"
+            class="video__loader"
           ></div>
           <template v-if="modalData.video">
             <img
-              class="video__play"
               v-if="!isVideoStarted && isVideoLoaded"
+              class="video__play"
               src="img/video-play.png"
               alt=""
             />
@@ -169,11 +169,11 @@ function playVideo() {
               class="video__player"
               :poster="modalData.video + '-poster.png'"
               controlsList="nodownload noplaybackrate"
-              @loadedmetadata="playVideo"
-              @play="isVideoStarted = true"
               disablepictureinpicture
               controls
               playsinline
+              @loadedmetadata="playVideo"
+              @play="isVideoStarted = true"
             >
               <source
                 :src="`${modalData.video}.${modalData.format}`"
@@ -196,12 +196,12 @@ function playVideo() {
         class="form"
       >
         <div
-          class="form__author author"
           v-if="modalData.author"
+          class="form__author author"
         >
           <div class="author__photo">
             <img
-              :src="`images/${modalData.isOwnerForm ? 'author-ihor.png' : modalData.author.photo}`"
+              :src="`/images/${modalData.isOwnerForm ? 'author-ihor.png' : modalData.author.photo}`"
               alt=""
             />
           </div>
@@ -241,6 +241,7 @@ function playVideo() {
 
         <div class="form__inner">
           <BaseInput
+            id="modal_video_name"
             v-model="form.name"
             small
             required
@@ -249,10 +250,10 @@ function playVideo() {
             icon="fa6-solid:user"
             :error="error.name"
             @click="error.name = ''"
-            id="modal_video_name"
           />
 
           <BaseInput
+            id="modal_video_url"
             v-model="form.url"
             small
             required
@@ -261,10 +262,10 @@ function playVideo() {
             icon="fa6-solid:link"
             :error="error.url"
             @click="error.url = ''"
-            id="modal_video_url"
           />
 
           <BaseInput
+            id="modal_video_email"
             v-model="form.email"
             small
             :label="t('input.email.label')"
@@ -274,14 +275,13 @@ function playVideo() {
             icon="fa6-solid:envelope"
             :error="error.email"
             @click="error.email = ''"
-            id="modal_video_email"
           />
         </div>
 
         <button
           :disabled="isLoading"
-          @click.prevent="saveLead"
           class="button button_yellow form__btn subtitle-3"
+          @click.prevent="saveLead"
         >
           {{ t('modal.video.ctaButton') }}
         </button>

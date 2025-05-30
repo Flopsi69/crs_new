@@ -1,13 +1,19 @@
 <script lang="ts" setup>
+
 useSeoMeta({
   title: '20+ CRO case studies from Conversionrate.store',
   description: 'Get inspired by real-world CRO case studies—see how Conversionrate.store delivers guaranteed growth',
 })
 
-// const cases = ref<any[]>(await useApi().get('case-studies'));
-const { data: cases } = await useAsyncData('cases', () =>
-  useApi().get('/case-studies')
-)
+const route = useRoute()
+const router = useRouter()
+
+const isDevMode = useCookie('isDevMode')
+if (import.meta.client) {
+  isDevMode.value = isDevMode.value || route.query.mode === 'dev' ? 'true' : '';
+}
+
+const { data: cases } = await useCasesApi().getCases()
 
 // const { data: cases } = await useFetch('https://stageserver.conversionrate.store/api/case-studies');
 
@@ -23,8 +29,6 @@ const breadcrumbsItems = [
 ]
 
 
-const route = useRoute()
-const router = useRouter()
 const activeTab = ref('All');
 
 if (route.query.selectedTab) {
@@ -37,15 +41,35 @@ if (route.query.selectedTab) {
     })
 }
 
-const isDevMode = useCookie('isDevMode')
-isDevMode.value = isDevMode.value || route.query.mode === 'dev' ? 'true' : '';
 
 const publishedCases = computed(() => {
-  return cases.value?.filter((item) =>
-    isDevMode.value ||
+  const filteredCase = cases.value?.filter((item) =>
     (item.status && item.status !== 'INACTIVE') ||
     (!item.status && !item.isHidden)
-  ) || [];
+  ) || []
+
+  const sortPriority = [
+    "cleanmymac",
+    "preply",
+    "doyogawithme",
+    "comodo",
+    "depositphotos",
+    "grantme",
+    "moneygeek-funnel-conversions"
+  ];
+
+  filteredCase.sort((a, b) => {
+    const indexA = sortPriority.indexOf(a.url);
+    const indexB = sortPriority.indexOf(b.url);
+
+    if (indexA === -1 && indexB === -1) return 0; // both not in priority
+    if (indexA === -1) return 1; // a not in priority, b is
+    if (indexB === -1) return -1; // b not in priority, a is
+
+    return indexA - indexB; // both in priority, sort by index
+  });
+
+  return filteredCase
 });
 
 const casesToShow = computed(() => {
@@ -57,13 +81,24 @@ const casesToShow = computed(() => {
 });
 
 const filterTabs = computed(() => {
-  const types = publishedCases.value.map((item) => {
-    return item.client?.type
+  const types = new Set(publishedCases.value.map((item) => item.client?.type).filter(Boolean));
+
+  const tabs = Array.from(types).map((type) => {
+    return {
+      type,
+      amount: publishedCases.value.filter((c) => c.client?.type === type).length || 0
+    };
   });
 
-  types.unshift('All');
+  tabs.unshift({
+    type: 'All',
+    amount: publishedCases.value.length
+  });
 
-  return [...new Set(types)].filter((type) => type);
+  // sort by amount
+  tabs.sort((a, b) => b.amount - a.amount);
+
+  return tabs;
 });
 </script>
 
@@ -72,20 +107,22 @@ const filterTabs = computed(() => {
     <div class="container">
       <BaseBreadcrumbs :items="breadcrumbsItems" />
 
-      <button
-        v-if="isDevMode"
-        class="dev-mode button button_yellow"
-        @click="isDevMode = ''"
-      >
-        DevMode - Off
-      </button>
+      <ClientOnly>
+        <button
+          v-if="isDevMode"
+          class="dev-mode button button_yellow"
+          @click="isDevMode = ''"
+        >
+          DevMode - Off
+        </button>
+      </ClientOnly>
 
       <div class="cases__inner">
         <div class="cases__content">
           <div class="cases__head">
             <h1 class="cases__title title-2">CRO Сase Studies</h1>
             <div class="cases__caption subtitle-2">
-              The World’s Largest Collection of Serial Case Studies
+              The World’s Largest Collection of Case Studies
             </div>
           </div>
 
@@ -98,12 +135,12 @@ const filterTabs = computed(() => {
             <div class="filter__inner">
               <BasePill
                 v-for="tab in filterTabs"
-                :key="tab"
+                :key="tab.type"
                 class="filter__item text-sm"
-                :class="{ active: activeTab === tab }"
-                @click="activeTab = tab"
+                :class="{ active: activeTab === tab.type }"
+                @click="activeTab = tab.type"
               >
-                {{ tab }}
+                {{ tab.type }}
               </BasePill>
             </div>
           </div>

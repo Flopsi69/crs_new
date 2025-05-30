@@ -1,19 +1,6 @@
 <script lang="ts" setup>
 const { openModal } = useModal();
 const { t } = useI18n();
-
-const info = {
-  title: t('sectionHero.funnelInfo.title'),
-  subtitle: t('sectionHero.funnelInfo.subtitle'),
-  list: [
-    t('sectionHero.funnelInfo.list.item1'),
-    t('sectionHero.funnelInfo.list.item2'),
-    t('sectionHero.funnelInfo.list.item3'),
-  ],
-  formTitle: t('sectionHero.funnelInfo.formTitle'),
-  cta: t('sectionHero.funnelInfo.cta'),
-  note: t('sectionHero.funnelInfo.note')
-};
 </script>
 
 <template>
@@ -30,7 +17,7 @@ const info = {
     </div>
     <button
       class="cta__button button button_yellow subtitle-3"
-      @click="openModal({ info, id: 'cases_listing_0' });"
+      @click="openModal({ id: 'cases_studies_listing_0' });"
     >
       Estimate your uplift
       <svg

@@ -7,9 +7,16 @@ export const useApi = () => {
 
   const $apiFetch = $fetch.create({
     baseURL,
-    headers: {
-      // Optional: add default headers
-    }
+    ...(import.meta.dev
+      ? {
+          onResponse({ response }) {
+            console.info('onResponse ', {
+              endpoint: response.url,
+              status: response?.status
+            })
+          }
+        }
+      : {})
   })
 
   return {

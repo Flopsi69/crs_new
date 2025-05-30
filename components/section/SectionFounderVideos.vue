@@ -61,8 +61,8 @@ function openVideo(video: any) {
     </h2>
 
     <Carousel
-      class="videos__carousel"
       ref="carousel"
+      class="videos__carousel"
       :touch-drag="{ threshold: 0.15 }"
       prevent-excessive-dragging
       :items-to-show="1"
@@ -101,7 +101,7 @@ function openVideo(video: any) {
             <div class="video__author author">
               <div class="author__photo">
                 <img
-                  :src="`images/${video.author.photo}`"
+                  :src="`/images/${video.author.photo}`"
                   alt=""
                 />
               </div>
@@ -118,8 +118,8 @@ function openVideo(video: any) {
     </Carousel>
 
     <div
-      class="controls flex-center"
       v-if="carousel"
+      class="controls flex-center"
     >
       <button
         class="button button_trans-purple button-prev flex-center"
@@ -132,8 +132,8 @@ function openVideo(video: any) {
       </button>
 
       <div
-        class="pagination flex-center"
         v-if="carousel.data.maxSlide > 0"
+        class="pagination flex-center"
       >
         <div
           v-for="i of carousel.data.maxSlide + 1"

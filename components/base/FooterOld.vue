@@ -63,20 +63,11 @@ const { t } = useI18n();
 
 <style lang="scss" scoped>
 .footer {
-  padding: 60px 0;
-  background:
-  repeating-linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.11) 0,
-    rgba(255, 255, 255, 0.11) 0.5px,
-    transparent 0.5px,
-    transparent 100px
-  ),
-  linear-gradient(180deg, #392DAC 0%, #5E4EDF 100%);
+  padding: 60px 0 20px;
+  background: $font-primary;
   color: #fff;
   @media(max-width: $sm) {
-    padding-top: 42px;
-    padding-bottom: 25px;
+    padding: 42px 0;
   }
   &__top {
     gap: 15px;
@@ -87,7 +78,7 @@ const { t } = useI18n();
     }
   }
   &__bottom {
-    margin-top: 55px;
+    margin-top: 60px;
     @media(max-width: $md) {
       flex-flow: column-reverse;
       gap: 18px;
@@ -98,13 +89,15 @@ const { t } = useI18n();
 
 .logo {
   line-height: 0;
-  img {
-    width: 141px;
+  @media(max-width: $sm) {
+    img {
+      width: 200px
+    }
   }
 }
 
 .nav {
-  gap: 40px;
+  gap: 30px;
   @media(max-width: 1100px) {
     font-size: 14px;
     gap: 20px;
@@ -126,6 +119,7 @@ const { t } = useI18n();
 }
 
 .copyright {
+  color: $font-secondary;
   font-size: 12px;
 }
 
@@ -133,6 +127,9 @@ const { t } = useI18n();
   gap: 20px;
   &__link {
     font-size: 12px;
+    text-decoration-line: underline;
+    text-underline-offset: 3px;
+
     &:hover {
       @media(hover:hover) {
         color: $yellow;

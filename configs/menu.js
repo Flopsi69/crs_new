@@ -1,14 +1,24 @@
 export default {
   navigation: [
     {
+      title: 'menu.home',
+      url: '/',
+      isActive: true
+    },
+    {
       title: 'menu.ecommerce',
       url: 'https://conversionrate.store/ecommerce-cro-agency/',
-      isActive: true
+      isActive: false
     },
     {
       title: 'menu.caseStudies',
       // url: 'https://conversionrate.store/cro-case-studies/',
       url: '/case-studies/',
+      isActive: true
+    },
+    {
+      title: 'menu.croServices',
+      url: '/cro-services/',
       isActive: true
     },
     {
@@ -27,7 +37,7 @@ export default {
       isActive: false
     },
     {
-      title: 'menu.careers',
+      title: 'menu.career',
       url: 'https://conversionrate.store/career/',
       isActive: true
     },

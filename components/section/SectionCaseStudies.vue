@@ -3,121 +3,176 @@ const { t } = useI18n();
 
 const activeTab = ref('All');
 
-const cases = ref<any[]>(await useApi().get('case-studies'));
+const { data: cases } = useCasesApi().getCases({ server: false })
+// const { data: cases } = useAsyncData('cases', () =>
+//   useApi().get('/case-studies'), {
+//     server: false
+//   }
+// )
 
 const publishedCases = computed(() => {
-  return cases.value?.filter((item) =>
+  const filteredCase = cases.value?.filter((item) =>
     (item.status && item.status !== 'INACTIVE') ||
     (!item.status && !item.isHidden)
-  ) || [];
+  ) || []
+
+  const sortPriority = [
+    "cleanmymac",
+    "preply",
+    "doyogawithme",
+    "comodo",
+    "depositphotos",
+    "grantme",
+    "moneygeek-funnel-conversions"
+  ];
+
+  filteredCase.sort((a, b) => {
+    const indexA = sortPriority.indexOf(a.url);
+    const indexB = sortPriority.indexOf(b.url);
+
+    if (indexA === -1 && indexB === -1) return 0; // both not in priority
+    if (indexA === -1) return 1; // a not in priority, b is
+    if (indexB === -1) return -1; // b not in priority, a is
+
+    return indexA - indexB; // both in priority, sort by index
+  });
+
+  return filteredCase
 });
 
 const casesToShow = computed(() => {
   if (activeTab.value === 'All') {
-    return publishedCases.value;
+    return publishedCases.value.slice(0, 3);
   }
 
-  return publishedCases.value.filter((item) => item.client?.type === activeTab.value);
+  return publishedCases.value.filter((item) => item.client?.type === activeTab.value).slice(0, 3);
 });
 
 const filterTabs = computed(() => {
-  const types = publishedCases.value.map((item) => {
-    return item.client?.type
+  const types = new Set(publishedCases.value.map((item) => item.client?.type).filter(Boolean));
+
+  const tabs = Array.from(types).map((type) => {
+    return {
+      type,
+      amount: publishedCases.value.filter((c) => c.client?.type === type).length || 0
+    };
   });
 
-  types.unshift('All');
+  tabs.unshift({
+    type: 'All',
+    amount: publishedCases.value.length
+  });
 
-  return [...new Set(types)].filter((type) => type);
+  // sort by amount
+  tabs.sort((a, b) => b.amount - a.amount);
+
+  return tabs;
 });
 </script>
 
 <template>
   <BaseSection
-    v-if="cases.length"
     id="case-studies"
     background="purple-light"
     class="cases"
   >
     <h2 class="section-title title-2 cases__title">
       {{ t('sectionCaseStudies.title') }}
-      <span class="color-purple">Conversionrate.store</span>
+      Conversionrate.store
     </h2>
 
-    <!-- TODO make cases -->
-    <div class="filter__inner">
+    <div
+      v-if="casesToShow.length"
+      class="filter"
+    >
       <BasePill
         v-for="tab in filterTabs"
         :key="tab"
         class="filter__item text-sm"
-        :class="{ active: activeTab === tab }"
-        @click="activeTab = tab"
+        :class="{ active: activeTab === tab.type }"
+        @click="activeTab = tab.type"
       >
-        {{ tab }}
+        {{ tab.type }}
+        <div class="filter__amount flex-center color-purple lh-1">
+          {{ tab.amount }}
+        </div>
       </BasePill>
     </div>
-
-    <!-- <div class="cases__tabs">
-      <BasePill
-        v-for="tab in tabs"
-        :key="tab"
-        class="cases__tab"
-        :class="{ active: activeTab === tab }"
-        @click="activeTab = tab"
-      >
-        {{ tab }}
-        <div class="cases__tab-amount flex-center color-purple lh-1">12</div>
-      </BasePill>
-    </div> -->
 
     <CaseList
       class="cases__list"
       :items="casesToShow"
+      :expand="false"
     />
 
-    <CtaRecieveAccess class="cta" />
+    <div
+      v-if="casesToShow.length"
+      class="cases__control flex-center"
+    >
+      <NuxtLink
+        :to="`/case-studies${activeTab !== 'All' ? '?selectedTab=' + activeTab : ''}`"
+        class="cases__btn button button_trans-yellow"
+      >
+        {{ t('sectionCaseStudies.viewAll') }}
+      </NuxtLink>
+    </div>
+
+    <slot></slot>
   </BaseSection>
 </template>
 
 <style lang="scss" scoped>
 .cases {
   padding: 60px 0;
+  @media(max-width: $sm) {
+    padding: 42px 0;
+  }
   &__title {
     margin-bottom: 24px;
   }
   &__list {
     margin-top: 24px;
   }
-  &__tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 24px;
+  &__control {
     margin-top: 40px;
     @media(max-width: $sm) {
       margin-top: 24px;
     }
   }
-  &__tab {
-    &.pill {
-      font-size: 18px;
-      min-height: 50px;
-      padding-right: 12px;
-      gap: 10px;
-    }
-    &-amount {
-      padding-top: 3px;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background-color: #E6E2FD;
-    }
+  &__btn {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    height: 60px;
   }
 }
 
-.cta {
-  margin-top: 60px;
+.filter {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  gap: 12px;
+  margin: 40px -20px 0;
+  padding: 0 20px;
   @media(max-width: $sm) {
-    margin-top: 42px;
+    margin-top: 24px;
+  }
+  &__item {
+    font-size: 18px;
+    line-height: 28px;
+    min-width: 70px;
+    flex-shrink: 0;
+    white-space: nowrap;
+    gap: 10px;
+    padding: 11px 12px 9px 16px;
+  }
+  &__amount {
+    padding-top: 3px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #E6E2FD;
+    margin-top: -1px;
   }
 }
 </style>

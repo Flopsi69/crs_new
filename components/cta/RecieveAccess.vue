@@ -109,25 +109,25 @@ async function save() {
 
 <template>
   <BasePlate
+    v-auto-animate
     class="cta"
     :class="{'cta_flat': flat}"
     background="purple-dark"
     chart
-    v-auto-animate
   >
     <div
       class="info"
       :class="{'info_submitted': isSubmitted}"
     >
       <h3 class="info__caption section-caption subtitle-2">
-        {{ isSubmitted ? $t('cta.recieveAccess.successfully') : info.subtitle }}
+        {{ isSubmitted ? t('cta.recieveAccess.successfully') : info.subtitle }}
       </h3>
 
       <h2
         class="info__title section-title"
         :class="[flat ? 'title-3' : 'title-2']"
       >
-        {{ isSubmitted ? $t('cta.recieveAccess.submitted') : info.title }}
+        {{ isSubmitted ? t('cta.recieveAccess.submitted') : info.title }}
       </h2>
     </div>
 
@@ -136,6 +136,7 @@ async function save() {
       class="form flex"
     >
       <BaseInput
+        id="recieve_access_name"
         v-model="form.name"
         class="form__input"
         required
@@ -143,10 +144,10 @@ async function save() {
         icon="fa6-solid:user"
         :error="error.name"
         @click="error.name = ''"
-        id="recieve_access_name"
       />
 
       <BaseInput
+        id="recieve_access_email"
         v-model="form.email"
         class="form__input"
         required
@@ -154,15 +155,14 @@ async function save() {
         icon="fa6-solid:envelope"
         :error="error.email"
         @click="error.email = ''"
-        id="recieve_access_email"
       />
 
       <button
-        @click="initSave"
-        data-related="recieve_access_url"
         id="recieve_access_cta"
+        data-related="recieve_access_url"
         class="form__button button button_yellow"
         :disabled="isLoading"
+        @click="initSave"
       >
         {{ info.button }}
       </button>

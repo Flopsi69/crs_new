@@ -52,7 +52,9 @@ onMounted(() => {
       <CtaLimitedOffer />
     </BaseSection>
 
-    <SectionCaseStudies />
+    <SectionCaseStudies>
+      <CtaRecieveAccess class="cta" />
+    </SectionCaseStudies>
     <SectionCompare />
     <SectionSolutions />
     <SectionClientsResults />
@@ -86,6 +88,13 @@ onMounted(() => {
   }
   @media(max-width: $sm) {
     margin-bottom: 0;
+  }
+}
+
+.cta {
+  margin-top: 60px;
+  @media(max-width: $sm) {
+    margin-top: 42px;
   }
 }
 </style>

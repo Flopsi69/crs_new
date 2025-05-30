@@ -1,13 +1,22 @@
 <script lang="ts" setup>
-const { t, locale } = useI18n();
+const { locale } = useI18n();
 
-let faqs = [];
+const { items } = defineProps({
+  items: {
+    type: Array,
+    default: () => null
+  }
+})
 
-try {
-  const module = await import(`~/locales/${locale.value}/faqs.json`);
-  faqs = module.default;
-} catch (error) {
-  console.log(`Failed to load faq for locale ${locale.value}`);
+let faqs = items || [];
+
+if (!faqs.length) {
+  try {
+    const module = await import(`~/locales/${locale.value}/faqs.json`);
+    faqs = module.default;
+  } catch (error) {
+    console.log(`Failed to load faq for locale ${locale.value}`);
+  }
 }
 
 const sanitizeText = (text: string | (string | string[])[]): string => {
@@ -42,9 +51,9 @@ const activeFaq = ref<number | null>(0);
 
 <template>
   <BaseSection
-    class="faq"
-    id="faq"
     v-if="faqs.length"
+    id="faq"
+    class="faq"
   >
     <BasePlate
       background="purple-light"
@@ -55,26 +64,26 @@ const activeFaq = ref<number | null>(0);
       </h2>
 
       <div
-        class="faq__list"
         v-if="faqs.length"
+        class="faq__list"
       >
         <BasePlate
           v-for="(faq, index) of faqs"
           :key="index"
+          v-auto-animate
           class="faq__item"
           :class="{active: activeFaq === index}"
-          @click="activeFaq = activeFaq === index ? null : index"
           background="white"
           solid-border
-          v-auto-animate
+          @click="activeFaq = activeFaq === index ? null : index"
         >
           <h3 class="faq__item-title subtitle-3">
             {{ faq.question }}
           </h3>
           <div
             v-if="activeFaq === index"
-            class="faq__item-content text color-secondary"
             :key="index"
+            class="faq__item-content text color-secondary"
           >
             <template v-if="Array.isArray(faq.answer)">
               <template
@@ -83,13 +92,13 @@ const activeFaq = ref<number | null>(0);
               >
                 <p v-if="typeof item === 'string'">{{ item }}</p>
                 <ul
-                  class="list-brand"
                   v-else-if="Array.isArray(item)"
+                  class="list-brand"
                 >
                   <li
-                    class="list-brand__item"
                     v-for="(listItem, listIndex) in item"
                     :key="listIndex"
+                    class="list-brand__item"
                   >
                     {{ listItem }}
                   </li>

@@ -52,7 +52,9 @@ onMounted(() => {
       <CtaKeyFactors />
     </BaseSection>
 
-    <SectionCaseStudiesOld />
+    <SectionCaseStudies>
+      <CtaRecieveAccess class="cta" />
+    </SectionCaseStudies>
     <SectionBenchmark />
     <SectionEstimate />
     <SectionCompetencies />
@@ -78,6 +80,13 @@ onMounted(() => {
   }
   @media(max-width: $sm) {
     margin-bottom: 0;
+  }
+}
+
+.cta {
+  margin-top: 60px;
+  @media(max-width: $sm) {
+    margin-top: 42px;
   }
 }
 </style>

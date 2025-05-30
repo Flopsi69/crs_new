@@ -59,6 +59,7 @@ function handleOpenModal() {
           </div>
           <div class="form flex">
             <BaseInput
+              id="hero_url"
               v-model="url"
               class="form__input"
               required
@@ -66,13 +67,12 @@ function handleOpenModal() {
               icon="fa6-solid:link"
               :error="error"
               @click="error = ''"
-              id="hero_url"
             />
 
             <button
               data-related="hero_url"
-              @click="handleOpenModal"
               class="button button_yellow form__button"
+              @click="handleOpenModal"
             >
               {{ t('sectionHero.form.cta') }}
             </button>

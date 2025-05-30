@@ -98,12 +98,14 @@
     "copyright": "© Conversion Rate Store. All rights reserved. CONVERSIONRATE.STORE LIMITED Hong Kong, Glenealy street №1, Glenealy Tower, Unit 2A, 17/F"
   },
   "menu": {
+    "home": "Home",
     "ecommerce": "Ecommerce CRO Agency",
     "caseStudies": "CRO Case Studies",
+    "croServices": "Conversion Optimization Service",
     "performance": "Performance-based CRO",
     "retainer": "CRO retainer",
     "audit": "CRO audit",
-    "careers": "Careers",
+    "career": "Career",
     "contactUs": "Contact us",
     "privacy": "Privacy policy",
     "sitemap": "SiteMap"
@@ -192,7 +194,7 @@
   },
   "sectionSolutions": {
     "caption": "Use our knowledge base",
-    "titleFirstRow": "Choose you eCommerce",
+    "titleFirstRow": "Choose your eCommerce",
     "titleSecondRow": "Get instant FREE",
     "titleProblem": "problem",
     "titleSolution": "solution",

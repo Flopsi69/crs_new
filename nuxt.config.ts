@@ -13,10 +13,12 @@ export default defineNuxtConfig({
   //   inlineSSRStyles: false
   // },
 
+  // ...(process.env.NODE_ENV !== 'development' && {
   routeRules: {
-    // '/case-studies': { swr: 300 },
-    // '/case-studies/**': { swr: 300 }
+    '/case-studies': { swr: 60 * 5 },
+    '/case-studies/**': { swr: 60 * 5 }
   },
+  // }),
 
   app: {
     head: {

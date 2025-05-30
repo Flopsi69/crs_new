@@ -32,18 +32,33 @@ const props = defineProps({
   },
   info: {
     type: Object,
-    default: {
-      title: '',
-      subtitle: '',
-      list: [],
-      formTitle: '',
-      cta: '',
-      note: '',
-      isGoal: false,
-      isSpecialOffer: false
-    }
+    default: (): {
+      title: string,
+      subtitle: string,
+      list: string[],
+      formTitle: string,
+      cta: string,
+      note: string,
+      isGoal: boolean,
+      isSpecialOffer: boolean
+    } => ({})
   }
 });
+
+const info = computed(() => ({
+  title: props.info.title ?? t('sectionHero.funnelInfo.title'),
+  subtitle: props.info.subtitle ?? t('sectionHero.funnelInfo.subtitle'),
+  list: props.info.list ?? [
+    t('sectionHero.funnelInfo.list.item1'),
+    t('sectionHero.funnelInfo.list.item2'),
+    t('sectionHero.funnelInfo.list.item3')
+  ],
+  formTitle: props.info.formTitle ?? t('sectionHero.funnelInfo.formTitle'),
+  cta: props.info.cta ?? t('sectionHero.funnelInfo.cta'),
+  note: props.info.note ?? t('sectionHero.funnelInfo.note'),
+  isGoal: props.info.isGoal ?? false,
+  isSpecialOffer: props.info.isSpecialOffer ?? false
+}));
 
 const logos = [
   'microsoft.svg', 'comodo.svg', 'macPaw.svg', 'finish.png', 'samcart.svg'
@@ -301,9 +316,9 @@ async function saveLead() {
     <div class="form__wrap bg-white">
       <BasePill
         v-if="step === 2"
-        @click="step = 1"
         class="form__back"
         back
+        @click="step = 1"
       >
         {{ t('modal.funnel.back') }}
       </BasePill>
@@ -334,8 +349,8 @@ async function saveLead() {
       <h3 class="form__subtitle subtitle-1">{{ info?.formTitle || '-' }}</h3>
 
       <div
-        class="form"
         v-auto-animate
+        class="form"
       >
         <div
           v-if="step == 1"
@@ -344,6 +359,7 @@ async function saveLead() {
           data-step="1"
         >
           <BaseInput
+            id="modal_name"
             v-model="form.name"
             small
             :label="t('input.name.label')"
@@ -352,10 +368,10 @@ async function saveLead() {
             icon="fa6-solid:user"
             :error="error.name"
             @click="error.name = ''"
-            id="modal_name"
           />
 
           <BaseInput
+            id="modal_url"
             v-model="form.url"
             small
             :label="t('input.companyUrl.label')"
@@ -364,10 +380,10 @@ async function saveLead() {
             icon="fa6-solid:link"
             :error="error.url"
             @click="error.url = ''"
-            id="modal_url"
           />
 
           <BaseInput
+            id="modal_email"
             v-model="form.email"
             small
             :label="t('input.email.label')"
@@ -377,7 +393,6 @@ async function saveLead() {
             icon="fa6-solid:envelope"
             :error="error.email"
             @click="error.email = ''"
-            id="modal_email"
           />
         </div>
         <div
@@ -388,33 +403,33 @@ async function saveLead() {
         >
           <BaseInput
             v-if="!info.isGoal"
+            id="annual_revenue"
             v-model="form.annual_revenue"
             small
             :label="t('input.annualRevenue.label')"
             :placeholder="t('input.annualRevenue.placeholder')"
             icon="fa6-solid:coins"
             :items="annualRevenueItems"
-            id="annual_revenue"
           />
 
           <BaseInput
+            id="hear_about_us"
             v-model="form.hear_about_us"
             small
             :label="t('input.hearAboutUs.label')"
             :placeholder="t('input.hearAboutUs.placeholder')"
             icon="fa6-solid:people-group"
             :items="hearAboutUsItems"
-            id="hear_about_us"
           />
 
           <BaseInput
             v-if="info.isGoal"
+            id="project_goal"
             v-model="form.project_goal"
             small
             :label="t('input.projectGoal.label')"
             :placeholder="t('input.projectGoal.placeholder')"
             icon="octicon:goal-16"
-            id="project_goal"
           />
 
           <!-- <div

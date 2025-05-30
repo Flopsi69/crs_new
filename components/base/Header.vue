@@ -16,15 +16,22 @@ const toggleBurger = () => {
   isBurgerActive.value = !isBurgerActive.value;
 };
 
-const isDark = computed(() => {
+const isPurple = computed(() => {
   return route.path === `/${locale.value}` || route.path === '/'
+})
+
+const isDarkPurple = computed(() => {
+  return route.path.includes(`/${locale.value}/cro-services`) || route.path.includes('/cro-services')
 })
 </script>
 
 <template>
   <header
     class="header"
-    :class="{ header_dark: isDark, 'bg--purple-dark': isDark }"
+    :class="{
+      header_purple: isPurple,
+      header_purple_dark: isDarkPurple,
+    }"
   >
     <div class="container header__container">
       <NuxtLink
@@ -49,14 +56,15 @@ const isDark = computed(() => {
           :to="menuItem.url"
           class="nav__link"
           :external="menuItem.url.includes('http')"
+          @click="isBurgerActive = false"
         >
           {{ t(menuItem.title) }}
         </NuxtLink>
       </nav>
 
       <!-- <LanguageToggler
-        v-if="isDark"
-        :dark="isDark"
+        v-if="isPurple"
+        :dark="isPurple"
         class="header__lang-toggler"
       /> -->
 
@@ -69,13 +77,13 @@ const isDark = computed(() => {
             v-if="!isBurgerActive"
             name="radix-icons:hamburger-menu"
             size="28"
-            :color="isDark ? '#fff' : '#000'"
+            :color="isPurple || isDarkPurple ? '#fff' : '#000'"
           ></Icon>
           <Icon
             v-else
             name="solar:close-circle-linear"
             size="28"
-            :color="isDark ? '#fff' : '#000'"
+            :color="isPurple || isDarkPurple ? '#fff' : '#000'"
           ></Icon>
         </Transition>
       </button>
@@ -100,12 +108,18 @@ const isDark = computed(() => {
 }
 
 .header {
-  transition: background .2s;
+  // transition: background .2s;
   padding: 18px 0 16px;
   border-bottom: 1px solid $border;
-  &_dark {
-    border-color: transparent
-    // background-color: $bg--purple-dark;
+  &_purple {
+    border-color: transparent;
+    background-color: $bg--purple-dark;
+    color: #fff;
+  }
+  &_purple_dark {
+    border-color: transparent;
+    background-color: #3219AF;
+    color: #fff;
   }
   &__container {
     display: flex;
@@ -139,7 +153,7 @@ const isDark = computed(() => {
 
 .logo {
   filter: invert(1);
-  .header_dark & {
+  .header_purple &, .header_purple_dark & {
     filter: invert(0);
   }
   @media(max-width: $md) {
@@ -173,8 +187,12 @@ const isDark = computed(() => {
       transform: translateX(0);
     }
 
-    .header_dark & {
+    .header_purple & {
       background: $bg--purple-dark;
+    }
+
+    .header_purple_dark & {
+      background: #3219AF;
     }
 
     // TODO remove

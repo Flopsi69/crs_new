@@ -7,15 +7,22 @@ if (!slug) {
   await navigateTo('/case-studies');
 }
 
-const { data: caseStudy } = await useAsyncData(slug, () =>
-  useApi().get(`/case-studies/${slug}`)
-)
 
-const { data: slugsList } = useAsyncData('slug-list', () =>
-  useApi().get('/case-studies?select=url,status'), {
-    server: false
-  }
-)
+// const { data: caseStudy } = await useAsyncData(slug, () =>
+//   useApi().get(`/case-studies/${slug}`)
+// )
+
+// const { data: slugsList } = useAsyncData('slug-list', () =>
+//   useApi().get('/case-studies?select=url,status'), {
+//     server: false
+//   }
+// )
+
+const casesApi = useCasesApi();
+
+const { data: caseStudy } = await casesApi.getCaseBySlug(slug);
+const { data: slugsList } = await casesApi.getCasesSlugs();
+
 
 useSeoMeta({
   title: caseStudy.value?.title,

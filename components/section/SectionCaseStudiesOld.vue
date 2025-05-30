@@ -5,9 +5,7 @@ const activeTab = ref('All');
 
 // const cases = await useApi().get('case-studies')
 const { data: cases } = useAsyncData('cases', () =>
-  useApi().get('/case-studies'), {
-    server: false
-  }
+  useApi().get('/case-studies')
 )
 
 const publishedCases = computed(() => {
@@ -71,13 +69,11 @@ const filterTabs = computed(() => {
       </BasePill>
     </div>
 
-    <!-- <ClintOnly> -->
     <CaseList
       class="cases__list"
       :items="casesToShow"
       :expand="false"
     />
-    <!-- </ClintOnly> -->
 
     <div
       v-if="casesToShow.length"
@@ -91,7 +87,7 @@ const filterTabs = computed(() => {
       </NuxtLink>
     </div>
 
-    <CtaRecieveAccess class="cta" />
+    <slot></slot>
   </BaseSection>
 </template>
 
@@ -129,6 +125,7 @@ const filterTabs = computed(() => {
     margin-top: 24px;
   }
   &__item {
+    font-size: 18px;
     min-width: 70px;
     flex-shrink: 0;
     white-space: nowrap;
