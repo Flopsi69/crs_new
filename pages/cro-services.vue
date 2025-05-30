@@ -1,16 +1,8 @@
 <script lang="ts" setup>
-const { t } = useI18n()
-
 useSeoMeta({
-  title: t('seo.title'),
-  description: t('seo.description'),
-  ogTitle: t('seo.title'),
-  ogDescription: t('seo.description'),
-  ogUrl: 'https://conversionrate.store/',
-  ogType: 'website',
-  ogImage: 'https://conversionrate.store/images/big-logo.png', // Replace with actual OG image
-  twitterCard: 'summary_large_image'
-});
+  title: 'CRO Services with a Results Guarantee',
+  description: 'Grow your business with powerful Conversion Rate Optimization Services :white_check_mark: ​​We use data insights and A/B testing to improve website performance.',
+})
 
 const faqsItems = [
   {
