@@ -8,6 +8,10 @@ export default defineNuxtConfig({
     // inlineStyles: false // or a function to determine inlining
   },
 
+  telemetry: {
+    enabled: false
+  },
+
   // experimental: {
   //   // @ts-ignore
   //   inlineSSRStyles: false

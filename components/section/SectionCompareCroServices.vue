@@ -7,7 +7,7 @@ const { t } = useI18n();
   <BaseSection class="compare text-center">
     <h2 class="compare__title section-title title-1">
       How <span>Conversion Rate Store</span> <br />
-      compare to there CRO&nbsp;services
+      compare to other CRO&nbsp;services
     </h2>
 
     <button
