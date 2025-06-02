@@ -6,16 +6,21 @@ const route = useRoute();
 
 const isBurgerActive = ref(false);
 
-const toggleBurger = (isPassive = false) => {
+const toggleBurger = () => {
   if (isBurgerActive.value) {
     document.body.style.overflow = 'auto';
   } else {
     document.body.style.overflow = 'hidden';
-    if (!isPassive) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
   isBurgerActive.value = !isBurgerActive.value;
+};
+
+const closeBurger = () => {
+  if (isBurgerActive.value) {
+    isBurgerActive.value = false;
+    document.body.style.overflow = 'auto';
+  }
 };
 
 const isPurple = computed(() => {
@@ -58,7 +63,7 @@ const isDarkPurple = computed(() => {
           :to="menuItem.url"
           class="nav__link"
           :external="menuItem.url.includes('http')"
-          @click="toggleBurger(true)"
+          @click="closeBurger()"
         >
           {{ t(menuItem.title) }}
         </NuxtLink>
@@ -72,7 +77,7 @@ const isDarkPurple = computed(() => {
 
       <button
         class="header__trigger button button_flat"
-        @click="toggleBurger(false)"
+        @click="toggleBurger()"
       >
         <Transition name="slide-up">
           <Icon
