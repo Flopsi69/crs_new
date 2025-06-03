@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import reviews_all from '@/configs/feedbacks'
+// import reviews_all from '@/configs/feedbacks'
 
-const { t, locale } = useI18n();
-let feedbacks = [];
+// const { t, locale } = useI18n();
+const feedbacks = [];
 
-try {
-  const module = await import(`~/i18n/locales/${locale.value}/feedbacks.json`);
-  feedbacks = module.default;
-} catch (error) {
-  console.log(`Failed to load feedbacks for locale ${locale.value}`);
-}
+// try {
+//   const module = await import(`~/i18n/locales/${locale.value}/feedbacks.json`);
+//   feedbacks = module.default;
+// } catch (error) {
+//   console.log(`Failed to load feedbacks for locale ${locale.value}`);
+// }
 
 const feedbacksList = [
   'ariel-geifman.png',
@@ -79,13 +79,13 @@ const breadcrumbsItems = [
           </div>
 
           <div
-            class="contacts__feedbacks-list"
             v-if="feedbacksToShow?.length"
+            class="contacts__feedbacks-list"
           >
             <FeedbackItem
               v-for="(feedback, index) in feedbacksToShow"
-              class="contacts__feedback"
               :key="index"
+              class="contacts__feedback"
               :feedback="feedback"
               :text-lines="4"
             />

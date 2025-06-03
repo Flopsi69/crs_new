@@ -2,19 +2,25 @@
 // import { feedbacks } from '~/configs';
 const { t, locale } = useI18n();
 
-let feedbacks = [];
+// let feedbacks = [];
 
-try {
-  const module = await import(`~/i18n/locales/${locale.value}/feedbacks.json`);
-  feedbacks = module.default;
-} catch (error) {
-  console.log(`Failed to load feedbacks for locale ${locale.value}`);
-}
+// try {
+//   const module = await import(`~/i18n/locales/${locale.value}/feedbacks.json`);
+//   feedbacks = module.default;
+// } catch (error) {
+//   console.log(`Failed to load feedbacks for locale ${locale.value}`);
+// }
+
+const { data: feedbacks } = await useAsyncData('i18n-locale-feedbacks', async () => {
+  const json = await import(`~/i18n/locales/${locale.value}/feedbacks.json`)
+
+  return json.default
+})
 
 const isShowMore = ref(false)
 const initShow = ref(4)
 
-const feedbacksToShow = computed(() => isShowMore.value ? feedbacks : feedbacks.slice(0, initShow.value));
+const feedbacksToShow = computed(() => isShowMore.value ? feedbacks.value : feedbacks.value.slice(0, initShow.value));
 
 onMounted(() => {
   const { width } = useWindowSize()
@@ -27,8 +33,8 @@ onMounted(() => {
 
 <template>
   <div
-    class="list-wrap"
     v-if="feedbacks.length"
+    class="list-wrap"
   >
     <div class="list">
       <FeedbackItem
@@ -41,8 +47,8 @@ onMounted(() => {
     </div>
 
     <div
-      class="control flex-center"
       v-if="!isShowMore"
+      class="control flex-center"
     >
       <button
         class="button button_trans-yellow"

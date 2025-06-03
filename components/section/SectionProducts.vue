@@ -2,14 +2,21 @@
 const { openModal } = useModal();
 const { t, locale } = useI18n();
 
-let rows = [];
+// let rows = [];
 
-try {
-  const module = await import(`~/i18n/locales/${locale.value}/productsTable.json`);
-  rows = module.default;
-} catch (error) {
-  console.log(`Failed to load table products for locale ${locale.value}`);
-}
+// try {
+//   const module = await import(`~/i18n/locales/${locale.value}/productsTable.json`);
+//   rows = module.default;
+// } catch (error) {
+//   console.log(`Failed to load table products for locale ${locale.value}`);
+// }
+
+
+ const { data: rows } = await useAsyncData('i18n-locale-productsTable', async () => {
+    const json = await import(`~/i18n/locales/${locale.value}/productsTable.json`)
+
+    return json.default
+  })
 
 const infoBook = {
   title: t('sectionProducts.linkFunnelInfo.title'),
@@ -73,16 +80,16 @@ onUnmounted(() => {
 
 <template>
   <BaseSection
-    class="products"
     id="our-cro-products"
+    class="products"
   >
     <h2 class="section-title title-2">
       {{ t('sectionProducts.title') }}
     </h2>
 
     <div
-      class="table-wrap"
       ref="scrollContainer"
+      class="table-wrap"
     >
       <div class="table">
         <div class="table__head">

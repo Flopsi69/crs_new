@@ -2,13 +2,19 @@
 const { locale } = useI18n();
 
 
-let competencies = [];
-try {
-  const module = await import(`~/i18n/locales/${locale.value}/competencies.json`);
-  competencies = reactive(module.competencies);
-} catch (error) {
-  console.log(`Failed to load competencies for locale ${locale.value}`);
-}
+// let competencies = [];
+// try {
+//   const module = await import(`~/i18n/locales/${locale.value}/competencies.json`);
+//   competencies = reactive(module.competencies);
+// } catch (error) {
+//   console.log(`Failed to load competencies for locale ${locale.value}`);
+// }
+
+const { data: competencies } = await useAsyncData('i18n-locale-competencies', async () => {
+  const json = await import(`~/i18n/locales/${locale.value}/competencies.json`)
+
+  return json.default
+})
 
 const { width } = useWindowSize();
 const isReady = ref(false);
@@ -17,7 +23,7 @@ const isReady = ref(false);
 const setActive = (index: number) => {
   if (width.value > 768) return;
 
-  competencies.forEach((item, i) => {
+  competencies.value.forEach((item, i) => {
     if (i === index) {
       item.isActive = !item.isActive;
     } else {
@@ -33,8 +39,8 @@ onMounted(() => {
 
 <template>
   <BaseSection
-    class="competencies"
     id="9-essential-competencies"
+    class="competencies"
   >
     <h2 class="section-title title-2">
       {{ $t('sectionCompetencies.title') }}
@@ -57,8 +63,8 @@ onMounted(() => {
         data-aos-offset="20"
       >
         <div
-          class="card__item"
           v-auto-animate
+          class="card__item"
         >
           <h3
             class="card__title subtitle-1"
@@ -79,9 +85,9 @@ onMounted(() => {
             />
           </h3>
           <div
+            v-if="isReady && (isActive || width > 768)"
             :key="title"
             class="card__caption text color-secondary"
-            v-if="isReady && (isActive || width > 768)"
           >
             {{ caption }}
           </div>

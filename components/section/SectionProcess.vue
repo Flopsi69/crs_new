@@ -3,20 +3,28 @@
 
 const { locale, t } = useI18n();
 
-let steps = [];
+// let steps = [];
 
-try {
-  const module = await import(`~/i18n/locales/${locale.value}/processSteps.json`);
-  steps = module.steps;
-} catch (error) {
-  console.log(`Failed to load steps for locale ${locale.value}`);
-}
+// try {
+//   const module = await import(`~/i18n/locales/${locale.value}/processSteps.json`);
+//   steps = module.steps;
+// } catch (error) {
+//   console.log(`Failed to load steps for locale ${locale.value}`);
+// }
+
+ const { data: steps } = await useAsyncData('i18n-locale-steps', async () => {
+    const json = await import(`~/i18n/locales/${locale.value}/processSteps.json`)
+
+    return json.default.steps
+  })
+
+  console.log('steps', steps.value);
 </script>
 
 <template>
   <BaseSection
-    class="process"
     id="our-scientific-cro_uxo-process"
+    class="process"
   >
     <h2 class="section-title title-2">
       {{ t('sectionProcess.title') }}
@@ -69,9 +77,9 @@ try {
 
             <div class="step__plate-body text color-secondary list-brand">
               <div
-                class="list-brand__item"
                 v-for="(method, index) in step.methodology"
                 :key="index"
+                class="list-brand__item"
               >
                 {{ method }}
               </div>

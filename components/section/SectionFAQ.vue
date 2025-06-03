@@ -8,16 +8,26 @@ const { items } = defineProps({
   }
 })
 
-let faqs = items || [];
+const faqs = ref(items || []);
 
-if (!faqs.length) {
-  try {
-    const module = await import(`~/i18n/locales/${locale.value}/faqs.json`);
-    faqs = module.default;
-  } catch (error) {
-    console.log(`Failed to load faq for locale ${locale.value}`);
-  }
+if (!faqs.value.length) {
+  // try {
+  //   const module = await import(`~/i18n/locales/${locale.value}/faqs.json`);
+  //   faqs = module.default;
+  // } catch (error) {
+  //   console.log(`Failed to load faq for locale ${locale.value}`);
+  // }
+
+  const { data } = await useAsyncData('i18n-locale-faqs', async () => {
+    const json = await import(`~/i18n/locales/${locale.value}/faqs.json`)
+
+    return json.default
+  })
+
+  faqs.value = data.value
 }
+
+
 
 const sanitizeText = (text: string | (string | string[])[]): string => {
   if (!Array.isArray(text)) {
@@ -38,7 +48,7 @@ useSchemaOrg([
   defineWebPage({
     '@type': 'FAQPage',
   }),
-  ...faqs.map(faq =>
+  ...faqs.value.map(faq =>
     defineQuestion({
       name: faq.question,
       acceptedAnswer: sanitizeText(faq.answer)

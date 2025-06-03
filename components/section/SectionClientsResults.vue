@@ -3,14 +3,20 @@
 
 const { t, locale } = useI18n();
 
-let clients = [];
+// let clients = [];
 
-try {
-  const module = await import(`~/i18n/locales/${locale.value}/clientsResults.json`);
-  clients = module.default;
-} catch (error) {
-  console.log(`Failed to load client results for locale ${locale.value}`);
-}
+// try {
+//   const module = await import(`~/i18n/locales/${locale.value}/clientsResults.json`);
+//   clients = module.default;
+// } catch (error) {
+//   console.log(`Failed to load client results for locale ${locale.value}`);
+// }
+
+const { data: clients } = await useAsyncData('i18n-locale-clients', async () => {
+  const json = await import(`~/i18n/locales/${locale.value}/clientsResults.json`)
+
+  return json.default
+})
 
 const carousel = ref()
 

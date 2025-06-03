@@ -4,20 +4,26 @@ import { useSmoothScroll } from '~/composables/useSmoothScroll';
 
 const { t, locale } = useI18n();
 
-let benchmarks = [];
-try {
-  const module = await import(`~/i18n/locales/${locale.value}/benchmarks.json`);
-  benchmarks = module.benchmarks;
-} catch (error) {
-  console.log(`Failed to load benchmarks for locale ${locale.value}`);
-}
+// let benchmarks = [];
+// try {
+//   const module = await import(`~/i18n/locales/${locale.value}/benchmarks.json`);
+//   benchmarks = module.benchmarks;
+// } catch (error) {
+//   console.log(`Failed to load benchmarks for locale ${locale.value}`);
+// }
+
+const { data: benchmarks } = await useAsyncData('i18n-locale-benchmarks', async () => {
+  const json = await import(`~/i18n/locales/${locale.value}/benchmarks.json`)
+
+  return json.default
+})
 
 const activeIndex = ref<null | number>(null);
 const isShowDetails = ref(false);
 
 const scrollToElement = useSmoothScroll()
 
-const currentBenchmark = computed(() => activeIndex.value !== null ? benchmarks[activeIndex.value] : null);
+const currentBenchmark = computed(() => activeIndex.value !== null ? benchmarks.value?.[activeIndex.value] : null);
 
 const getTooltipText = (index: number) => {
   return t(`sectionBenchmark.tooltips.tooltip${index}`, 'uknown');

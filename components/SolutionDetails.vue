@@ -3,14 +3,20 @@
 
 const { t, locale } = useI18n();
 
-let cases = [];
+// let cases = [];
 
-try {
-  const module = await import(`~/i18n/locales/${locale.value}/cases.json`);
-  cases = module.default;
-} catch (error) {
-  console.log(`Failed to load cases for locale ${locale.value}`);
-}
+// try {
+//   const module = await import(`~/i18n/locales/${locale.value}/cases.json`);
+//   cases = module.default;
+// } catch (error) {
+//   console.log(`Failed to load cases for locale ${locale.value}`);
+// }
+
+const { data: cases } = await useAsyncData('i18n-locale-cases', async () => {
+  const json = await import(`~/i18n/locales/${locale.value}/cases.json`)
+
+  return json.default
+})
 
 const props = defineProps({
   items: {
@@ -34,7 +40,7 @@ onMounted(() => {
 });
 
 function getRelatedCase() {
-  relatedCase.value = cases.find((c) => c.id === props.item.case);
+  relatedCase.value = cases.value.find((c) => c.id === props.item.case);
 
   // if (relatedCase.value?.result?.url2) {
   //   relatedCase.value.result.url = relatedCase.value.result.url2;

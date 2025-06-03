@@ -4,16 +4,21 @@
 const { t, locale } = useI18n();
 const scrollToElement = useSmoothScroll();
 
-let solutions = [];
+// let solutions = [];
 
-try {
-  const module = await import(`~/i18n/locales/${locale.value}/solutions.js`);
-  solutions = module.default;
-} catch (error) {
-  console.log(`Failed to load solutions for locale ${locale.value}`);
-}
+// try {
+//   const module = await import(`~/i18n/locales/${locale.value}/solutions.js`);
+//   solutions = module.default;
+// } catch (error) {
+//   console.log(`Failed to load solutions for locale ${locale.value}`);
+// }
 
-const items = reactive(solutions);
+ const { data: solutions } = await useAsyncData('i18n-locale-productsTable', async () => {
+    const json = await import(`~/i18n/locales/${locale.value}/productsTable.json`)
+
+    return json.default
+  })
+
 const activeSolution = ref(null)
 const isShowAll = ref(false);
 
@@ -23,7 +28,7 @@ function setActiveSolution(item: any) {
 }
 
 const otherProblems = computed(() => {
-  return items.filter((item: any) => item !== activeSolution.value);
+  return solutions.value.filter((item: any) => item !== activeSolution.value);
 });
 
 watch(activeSolution, (value) => {
@@ -78,7 +83,7 @@ watch(activeSolution, (value) => {
           data-aos-once="true"
         >
           <SolutionPreview
-            v-for="(solution, index) in items.slice((i-1) * 3, i === 3 ? 10 : i*3)"
+            v-for="(solution, index) in solutions.slice((i-1) * 3, i === 3 ? 10 : i*3)"
             :key="index"
             class="solutions__item"
             :class="{ 'disable': !solution.solutions }"
