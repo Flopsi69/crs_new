@@ -6,7 +6,7 @@ const { t, locale } = useI18n();
 let clients = [];
 
 try {
-  const module = await import(`~/locales/${locale.value}/clientsResults.json`);
+  const module = await import(`~/i18n/locales/${locale.value}/clientsResults.json`);
   clients = module.default;
 } catch (error) {
   console.log(`Failed to load client results for locale ${locale.value}`);
@@ -20,8 +20,8 @@ const isMobile = computed(() => width.value < 768)
 
 <template>
   <BaseSection
-    class="results"
     v-if="clients.length"
+    class="results"
   >
     <div class="head flex-between">
       <h2 class="section-title title-2">
@@ -34,8 +34,8 @@ const isMobile = computed(() => width.value < 768)
           to=".results"
         >
           <div
-            class="controls flex-center"
             v-if="carousel"
+            class="controls flex-center"
           >
             <button
               class="button button_trans-purple button-prev flex-center"
@@ -48,8 +48,8 @@ const isMobile = computed(() => width.value < 768)
             </button>
 
             <div
-              class="pagination flex-center"
               v-if="carousel.data.maxSlide > 0"
+              class="pagination flex-center"
             >
               <div
                 v-for="i of carousel.data.maxSlide + 1"
@@ -76,19 +76,19 @@ const isMobile = computed(() => width.value < 768)
     </div>
 
     <Carousel
+      ref="carousel"
       :items-to-show="1"
       :touch-drag="{ threshold: 0.15 }"
       prevent-excessive-dragging
-      snapAlign="start"
-      ref="carousel"
+      snap-align="start"
       :breakpoints="{
          992: { itemsToShow: 2 }
       }"
     >
       <Slide
-        class="slide"
         v-for="(client, index) in clients"
         :key="index"
+        class="slide"
       >
         <ClientResultItem
           class="slide__item"

@@ -7,7 +7,7 @@ const scrollToElement = useSmoothScroll();
 let solutions = [];
 
 try {
-  const module = await import(`~/locales/${locale.value}/solutions.js`);
+  const module = await import(`~/i18n/locales/${locale.value}/solutions.js`);
   solutions = module.default;
 } catch (error) {
   console.log(`Failed to load solutions for locale ${locale.value}`);
@@ -41,8 +41,8 @@ watch(activeSolution, (value) => {
 
 <template>
   <BaseSection
-    class="solutions"
     id="solutions"
+    class="solutions"
     background="purple-light"
   >
     <div
@@ -84,7 +84,7 @@ watch(activeSolution, (value) => {
             :class="{ 'disable': !solution.solutions }"
             :solution="solution"
             :index="((i-1) * 3) + index + 1"
-            @setActiveSolution="setActiveSolution"
+            @set-active-solution="setActiveSolution"
           />
         </div>
       </div>
@@ -114,7 +114,7 @@ watch(activeSolution, (value) => {
       class="solutions__details"
       :item="activeSolution"
       :items="otherProblems"
-      @setActiveSolution="setActiveSolution"
+      @set-active-solution="setActiveSolution"
     />
   </BaseSection>
 </template>

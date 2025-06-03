@@ -6,7 +6,7 @@ const { t, locale } = useI18n();
 let cases = [];
 
 try {
-  const module = await import(`~/locales/${locale.value}/cases.json`);
+  const module = await import(`~/i18n/locales/${locale.value}/cases.json`);
   cases = module.default;
 } catch (error) {
   console.log(`Failed to load cases for locale ${locale.value}`);
@@ -14,7 +14,7 @@ try {
 
 const props = defineProps({
   items: {
-    type: Array<{ problem: String, causes: Array<String>, solutions: Array<Object> }>,
+    type: Array<{ problem: string, causes: Array<string>, solutions: Array<object> }>,
     default: () => []
   },
   item: {
@@ -122,9 +122,9 @@ function getRelatedCase() {
         </div>
 
         <div
+          v-if="relatedCase"
           class="solution__case-wrap"
           data-view="mob"
-          v-if="relatedCase"
         >
           <h3 class="subtitle-1 solution__case-title">
             {{ t('sectionSolutions.solution.relavent') }}
@@ -132,7 +132,7 @@ function getRelatedCase() {
 
           <CaseItemOld
             class="solution__case"
-            :caseStudy="relatedCase"
+            :case-study="relatedCase"
           />
         </div>
 
@@ -140,9 +140,9 @@ function getRelatedCase() {
       </div>
 
       <div
+        v-if="relatedCase"
         class="solution__case-wrap"
         data-view="desk"
-        v-if="relatedCase"
       >
         <h3 class="subtitle-1 solution__case-title">
           {{ t('sectionSolutions.solution.relavent') }}
@@ -150,7 +150,7 @@ function getRelatedCase() {
 
         <CaseItemOld
           class="solution__case"
-          :caseStudy="relatedCase"
+          :case-study="relatedCase"
         />
       </div>
     </div>
@@ -164,7 +164,7 @@ function getRelatedCase() {
         class="other__list"
         :items-to-show="3"
         :items="items"
-        @setActiveSolution="$emit('setActiveSolution', $event)"
+        @set-active-solution="$emit('setActiveSolution', $event)"
       />
     </div>
   </BasePlate>

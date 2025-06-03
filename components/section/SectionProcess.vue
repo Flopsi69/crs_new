@@ -6,7 +6,7 @@ const { locale, t } = useI18n();
 let steps = [];
 
 try {
-  const module = await import(`~/locales/${locale.value}/processSteps.json`);
+  const module = await import(`~/i18n/locales/${locale.value}/processSteps.json`);
   steps = module.steps;
 } catch (error) {
   console.log(`Failed to load steps for locale ${locale.value}`);

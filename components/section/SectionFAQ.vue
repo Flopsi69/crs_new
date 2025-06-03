@@ -12,7 +12,7 @@ let faqs = items || [];
 
 if (!faqs.length) {
   try {
-    const module = await import(`~/locales/${locale.value}/faqs.json`);
+    const module = await import(`~/i18n/locales/${locale.value}/faqs.json`);
     faqs = module.default;
   } catch (error) {
     console.log(`Failed to load faq for locale ${locale.value}`);

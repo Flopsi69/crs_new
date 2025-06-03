@@ -6,7 +6,7 @@ const { t, locale } = useI18n();
 
 let benchmarks = [];
 try {
-  const module = await import(`~/locales/${locale.value}/benchmarks.json`);
+  const module = await import(`~/i18n/locales/${locale.value}/benchmarks.json`);
   benchmarks = module.benchmarks;
 } catch (error) {
   console.log(`Failed to load benchmarks for locale ${locale.value}`);
@@ -57,12 +57,12 @@ watch(isShowDetails, async (value) => {
     </BasePlate>
 
     <div
-      class="benchmarks__body"
       v-auto-animate
+      class="benchmarks__body"
     >
       <BasePlate
-        key="choose"
         v-if="!isShowDetails"
+        key="choose"
         class="choose benchmarks__body-plate"
         mob-full
       >
@@ -89,16 +89,16 @@ watch(isShowDetails, async (value) => {
         <button
           class="choose__button button button_purple"
           :disabled="activeIndex === null"
-          @click="isShowDetails = true"
           data-aos="fade-up"
+          @click="isShowDetails = true"
         >
           {{ t('sectionBenchmark.choose.button') }}
         </button>
       </BasePlate>
 
       <BasePlate
-        key="details"
         v-if="isShowDetails && currentBenchmark"
+        key="details"
         mob-full
         class="details benchmarks__body-plate"
       >

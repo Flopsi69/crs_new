@@ -7,7 +7,7 @@ const scrollToElement = useSmoothScroll();
 // let solutions = [];
 
 // try {
-//   const module = await import(`~/locales/${locale.value}/solutions.js`);
+//   const module = await import(`~/i18n/locales/${locale.value}/solutions.js`);
 //   solutions = module.default;
 // } catch (error) {
 //   console.log(`Failed to load solutions for locale ${locale.value}`);
