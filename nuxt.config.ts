@@ -61,7 +61,7 @@ export default defineNuxtConfig({
         name: 'English',
         nameEnglish: 'English',
         language: 'en-US',
-        file: 'en/index.json'
+        file: 'en/en.json'
       }
       // {
       //   code: 'de',
@@ -94,11 +94,11 @@ export default defineNuxtConfig({
       optimizeTranslationDirective: false
     },
     baseUrl: 'https://conversionrate.store',
-    defaultLocale: 'en',
-    debug: false,
-    lazy: true,
-    langDir: './locales/',
-    restructureDir: ''
+    defaultLocale: 'en'
+    // debug: false,
+    // lazy: true,
+    // langDir: './locales/'
+    // restructureDir: ''
   },
 
   gtm: {
