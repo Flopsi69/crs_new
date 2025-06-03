@@ -19,15 +19,15 @@ function handleOpenModal() {
   <BaseSection class="hero">
     <div class="row flex-between">
       <div class="info">
-        <h1 class="info__title subtitle-2">
+        <div class="info__title subtitle-2">
           We commit to increasing your key revenue metric —
           <span>contractually</span>
-        </h1>
+        </div>
 
-        <div class="info__subtitle title-1">
+        <h1 class="info__subtitle title-1">
           Conversion Rate Optimization Service with a
           <span>Results Guarantee</span>
-        </div>
+        </h1>
 
         <div class="info__form-wrap form-wrap">
           <div class="form__caption subtitle-2">

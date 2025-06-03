@@ -119,16 +119,16 @@ async function save() {
       class="info"
       :class="{'info_submitted': isSubmitted}"
     >
-      <h3 class="info__caption section-caption subtitle-2">
+      <div class="info__caption section-caption subtitle-2">
         {{ isSubmitted ? t('cta.recieveAccess.successfully') : info.subtitle }}
-      </h3>
+      </div>
 
-      <h2
+      <div
         class="info__title section-title"
         :class="[flat ? 'title-3' : 'title-2']"
       >
         {{ isSubmitted ? t('cta.recieveAccess.submitted') : info.title }}
-      </h2>
+      </div>
     </div>
 
     <div

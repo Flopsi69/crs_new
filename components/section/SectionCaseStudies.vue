@@ -76,10 +76,10 @@ const filterTabs = computed(() => {
     background="purple-light"
     class="cases"
   >
-    <h2 class="section-title title-2 cases__title">
+    <div class="section-title title-2 cases__title">
       {{ t('sectionCaseStudies.title') }}
       Conversionrate.store
-    </h2>
+    </div>
 
     <div
       v-if="casesToShow.length"
