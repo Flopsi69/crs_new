@@ -7,6 +7,7 @@
     "dev": "nuxi dev",
     "generate": "nuxi generate",
     "preview": "nuxi preview",
+    "build:preview": "nuxi build && nuxi preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint --ext .js,.vue,.ts,.tsx --ignore-path .gitignore .",
     "start": "node .output/server/index.mjs"
@@ -15,7 +16,7 @@
     "@formkit/auto-animate": "^0.8.2",
     "@img-comparison-slider/vue": "^8.0.0",
     "@nuxt/fonts": "0.11.4",
-    "@nuxtjs/i18n": "9.5.4",
+    "@nuxtjs/i18n": "9.5.5",
     "@vee-validate/nuxt": "4.15.0",
     "@vueuse/nuxt": "13.3.0",
     "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
@@ -34,12 +35,12 @@
   "devDependencies": {
     "@nuxt/eslint": "^1.4.1",
     "@nuxt/image": "1.10.0",
-    "@types/node": "22.15.24",
-    "eslint": "^9.27.0",
+    "@types/node": "22.15.29",
+    "eslint": "9.28.0",
     "nuxi": "^3.25.1",
     "nuxt-icon": "^0.6.10",
     "nuxt-resend": "^0.0.2",
-    "sass": "1.89.0",
+    "sass": "1.89.1",
     "typescript": "^5.8.3"
   }
 }
