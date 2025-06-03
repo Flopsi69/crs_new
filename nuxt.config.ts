@@ -94,9 +94,9 @@ export default defineNuxtConfig({
       optimizeTranslationDirective: false
     },
     baseUrl: 'https://conversionrate.store',
-    defaultLocale: 'en'
-    // debug: false,
-    // lazy: true,
+    defaultLocale: 'en',
+    debug: false,
+    lazy: true
     // langDir: './locales/'
     // restructureDir: ''
   },
