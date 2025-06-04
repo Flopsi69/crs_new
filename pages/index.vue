@@ -35,37 +35,43 @@ onMounted(() => {
 <template>
   <main class="main">
     <SectionHero />
-
-    <SectionClientsLogoOld />
-    <SectionLeaderOld />
+    <SectionTrusted />
+    <SectionLeader />
+    <SectionClientVideos />
     <SectionFounderVideos />
 
     <BaseSection>
       <CtaGuaranted />
     </BaseSection>
 
-    <SectionSolutionsOld />
-    <SectionClientsResults />
-    <SectionCompare />
+    <SectionProcess />
 
     <BaseSection>
-      <CtaKeyFactors />
+      <CtaLimitedOffer />
     </BaseSection>
 
     <SectionCaseStudies>
       <CtaRecieveAccess class="cta" />
     </SectionCaseStudies>
-    <SectionBenchmark />
-    <SectionEstimate />
+    <SectionCompare />
+    <SectionSolutions />
+    <SectionClientsResults />
+
+    <!-- TODO: remove cta if will not use -->
+    <!-- <BaseSection>
+      <CtaKeyFactors />
+    </BaseSection> -->
+
     <SectionCompetencies />
 
     <BaseSection>
       <CtaWinRate />
     </BaseSection>
 
-    <SectionProcess />
     <SectionProducts />
     <SectionFeedbacks />
+    <SectionBenchmark />
+    <SectionEstimate />
     <SectionFAQ />
   </main>
 </template>

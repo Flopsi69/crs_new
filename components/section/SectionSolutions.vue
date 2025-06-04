@@ -13,11 +13,11 @@ const scrollToElement = useSmoothScroll();
 //   console.log(`Failed to load solutions for locale ${locale.value}`);
 // }
 
- const { data: solutions } = await useAsyncData('i18n-locale-productsTable', async () => {
-    const json = await import(`~/i18n/locales/${locale.value}/productsTable.json`)
+ const { data: solutions } = await useAsyncData('i18n-locale-solutions', async () => {
+    const json = await import(`~/i18n/locales/${locale.value}/solutions.js`)
 
     return json.default
-  })
+ })
 
 const activeSolution = ref(null)
 const isShowAll = ref(false);
@@ -83,7 +83,7 @@ watch(activeSolution, (value) => {
           data-aos-once="true"
         >
           <SolutionPreview
-            v-for="(solution, index) in solutions.slice((i-1) * 3, i === 3 ? 10 : i*3)"
+            v-for="(solution, index) in solutions?.slice((i-1) * 3, i === 3 ? 10 : i*3)"
             :key="index"
             class="solutions__item"
             :class="{ 'disable': !solution.solutions }"
