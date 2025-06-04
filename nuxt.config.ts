@@ -41,17 +41,17 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    '@nuxtjs/i18n',
     '@nuxt/image',
     'vue3-carousel-nuxt',
     '@vueuse/nuxt',
     '@formkit/auto-animate/nuxt',
-    'nuxt-icon',
     'nuxt-aos',
     '@zadigetvoltaire/nuxt-gtm',
     'nuxt-resend',
     'nuxt-schema-org',
-    '@nuxtjs/i18n',
-    '@nuxt/eslint'
+    '@nuxt/eslint',
+    '@nuxt/icon'
   ],
 
   i18n: {

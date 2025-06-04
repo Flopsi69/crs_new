@@ -17,8 +17,6 @@ const { locale, t } = useI18n();
 
     return json.default.steps
   })
-
-  console.log('steps', steps.value);
 </script>
 
 <template>
