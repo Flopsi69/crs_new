@@ -18,6 +18,8 @@
     "@nuxt/fonts": "0.11.4",
     "@nuxtjs/i18n": "9.5.5",
     "@vee-validate/nuxt": "4.15.0",
+    "@nuxt/image": "1.10.0",
+    "@nuxt/icon": "1.13.0",
     "@vueuse/nuxt": "13.3.0",
     "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "googleapis": "149.0.0",
@@ -34,7 +36,6 @@
   "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447",
   "devDependencies": {
     "@nuxt/eslint": "^1.4.1",
-    "@nuxt/image": "1.10.0",
     "@types/node": "22.15.29",
     "eslint": "9.28.0",
     "nuxi": "^3.25.1",
