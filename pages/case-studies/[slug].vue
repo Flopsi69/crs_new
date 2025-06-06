@@ -25,8 +25,8 @@ const { data: slugsList } = await casesApi.getCasesSlugs();
 
 
 useSeoMeta({
-  title: caseStudy.value?.title,
-  description: caseStudy.value?.description,
+  title: caseStudy.value?.metaTitle || caseStudy.value?.title,
+  description: caseStudy.value?.metaDescription || caseStudy.value?.description,
 });
 
 const handlerListArray = computed(() => {
