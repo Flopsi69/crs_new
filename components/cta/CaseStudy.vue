@@ -8,9 +8,9 @@ const { t } = useI18n();
     class="cta"
     background="purple-dark"
   >
-    <h3 class="cta__title subtitle-1">
+    <div class="cta__title subtitle-1">
       Estimate uplift from a performance-based CRO project for your business
-    </h3>
+    </div>
     <div class="cta__description text">
       We will also provide you with 3 CRO hypotheses for your business for free
       if you&nbsp;qualify

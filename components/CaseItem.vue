@@ -31,6 +31,14 @@ const navigate = () => {
       {{ caseStudy.client.type }}
     </div>
 
+    <h3
+      v-if="caseStudy.client?.name"
+      class="case__title subtitle-2"
+      style="display: none"
+    >
+      {{ caseStudy.client.name }}
+    </h3>
+
     <div class="case__logo flex align-center">
       <img
         :src="`${caseStudy.client?.logo}`"

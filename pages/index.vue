@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-const { t } = useI18n()
+const { t, locale } = useI18n()
+const i18nHead = useLocaleHead()
 const scrollToElement = useSmoothScroll()
 
 useSeoMeta({
@@ -13,14 +14,33 @@ useSeoMeta({
   twitterCard: 'summary_large_image'
 });
 
+useHead(() => ({
+  htmlAttrs: {
+    lang: i18nHead.value.htmlAttrs.lang
+  },
+  bodyAttrs: {
+    class: 'lang-' + locale.value
+  },
+  link: [...(i18nHead.value.link || [])],
+  meta: [...(i18nHead.value.meta || [])]
+}))
+
 useHead({
+  htmlAttrs: {
+    lang: i18nHead.value.htmlAttrs.lang
+  },
+  bodyAttrs: {
+    class: 'lang-' + locale.value
+  },
   link: [
     {
       rel: 'icon',
       type: 'image/png',
       href: '/favicon.png'
-    }
-  ]
+    },
+    ...(i18nHead.value.link || []),
+  ],
+  meta: [...(i18nHead.value.meta || [])]
 });
 
 const route = useRoute()

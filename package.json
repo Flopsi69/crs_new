@@ -19,6 +19,7 @@
     "@nuxt/icon": "^1.13.0",
     "@nuxt/image": "^1.10.0",
     "@nuxtjs/i18n": "9.5.5",
+    "@nuxtjs/seo": "3.0.3",
     "@vueuse/nuxt": "13.3.0",
     "@zadigetvoltaire/nuxt-gtm": "^0.0.13",
     "eslint": "^9.28.0",

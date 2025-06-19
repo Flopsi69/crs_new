@@ -48,10 +48,10 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@zadigetvoltaire/nuxt-gtm',
     'vue3-carousel-nuxt',
-    'nuxt-schema-org',
     '@formkit/auto-animate/nuxt',
     'nuxt-resend',
-    'nuxt-aos'
+    'nuxt-aos',
+    '@nuxtjs/seo'
   ],
 
   i18n: {
@@ -60,7 +60,7 @@ export default defineNuxtConfig({
         code: 'en',
         name: 'English',
         nameEnglish: 'English',
-        language: 'en-US',
+        language: 'en',
         file: 'en/en.json'
       }
       // {
@@ -149,6 +149,10 @@ export default defineNuxtConfig({
     resend: {
       apiKey: process.env.RESEND_API_KEY
     }
+  },
+
+  sitemap: {
+    exclude: ['/case-studies/dev', '/index-old', '/about-us', '/contact-us']
   },
 
   compatibilityDate: '2025-05-15'

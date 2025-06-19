@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 
 useSeoMeta({
-  title: '20+ CRO case studies from Conversionrate.store',
+  title: '25+ Real Conversion Rate Optimization Case Studies',
   description: 'Get inspired by real-world CRO case studies—see how Conversionrate.store delivers guaranteed growth',
 })
 
@@ -120,7 +120,9 @@ const filterTabs = computed(() => {
       <div class="cases__inner">
         <div class="cases__content">
           <div class="cases__head">
-            <h1 class="cases__title title-2">CRO Сase Studies</h1>
+            <h1 class="cases__title title-2">
+              Conversion Rate Optimization Case Studies
+            </h1>
             <div class="cases__caption subtitle-2">
               The World’s Largest Collection of Case Studies
             </div>
