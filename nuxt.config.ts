@@ -31,6 +31,7 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
       htmlAttrs: { lang: 'en' },
       title: 'Performance-Based CRO Agency: Pay Only for Actual Results',
+      titleTemplate: '%s',
       meta: [
         {
           name: 'google-site-verification',
@@ -41,6 +42,7 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    '@nuxtjs/seo',
     '@nuxt/eslint',
     '@nuxt/icon',
     '@nuxt/image',
@@ -50,8 +52,7 @@ export default defineNuxtConfig({
     'vue3-carousel-nuxt',
     '@formkit/auto-animate/nuxt',
     'nuxt-resend',
-    'nuxt-aos',
-    '@nuxtjs/seo'
+    'nuxt-aos'
   ],
 
   i18n: {
