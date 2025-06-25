@@ -7,22 +7,22 @@ const props = defineProps<{
 
 const preview = computed(() => props.caseStudy.preview1);
 
-const router = useRouter();
+// const router = useRouter();
 
-const navigate = () => {
-  router.push(`/case-studies/${props.caseStudy.url}`)
-}
+// const navigate = () => {
+//   if (props.caseStudy.url) {
+//     window.open(`/case-studies/${props.caseStudy.url}`, '_blank');
+//   }
+// }
 </script>
 
 <template>
-  <!-- :data-id="caseStudy.id" -->
-  <!-- {{ caseStudy }} -->
-  <!-- {{ preview }} -->
   <BasePlate
     class="case"
     solid-border
     background="white"
-    @click="navigate"
+    :href="`/case-studies/${caseStudy.url}`"
+    target="_blank"
   >
     <div
       v-if="caseStudy.client?.type"

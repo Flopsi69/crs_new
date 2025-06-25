@@ -9,13 +9,13 @@ const route = useRoute()
 const router = useRouter()
 
 const isDevMode = useCookie('isDevMode')
+
 if (import.meta.client) {
   isDevMode.value = isDevMode.value || route.query.mode === 'dev' ? 'true' : '';
 }
 
 const { data: cases } = await useCasesApi().getCases()
 
-// const { data: cases } = await useFetch('https://stageserver.conversionrate.store/api/case-studies');
 
 const newsletterText = {
   title: 'Sign up for our newsletter to get early updates',
@@ -41,12 +41,8 @@ if (route.query.selectedTab) {
     })
 }
 
-
 const publishedCases = computed(() => {
-  const filteredCase = cases.value?.filter((item) =>
-    (item.status && item.status !== 'INACTIVE') ||
-    (!item.status && !item.isHidden)
-  ) || []
+  const filteredCase = cases.value?.filter((item) => item.status !== 'INACTIVE') || []
 
   const sortPriority = [
     "cleanmymac",

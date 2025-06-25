@@ -21,6 +21,10 @@ const props = defineProps(
       type: Boolean,
       default: false,
     },
+    href: {
+      type: String,
+      default: '',
+    },
   },
 );
 
@@ -28,7 +32,9 @@ const background = computed(() => 'bg--' + (props.background || 'purple-light'))
 </script>
 
 <template>
-  <div
+  <component
+    :is="href ? 'a' : 'div'"
+    :href="href || undefined"
     class="plate"
     :class="[
       background,
@@ -39,7 +45,7 @@ const background = computed(() => 'bg--' + (props.background || 'purple-light'))
     ]"
   >
     <slot></slot>
-  </div>
+  </component>
 </template>
 
 <style lang="scss" scoped>
