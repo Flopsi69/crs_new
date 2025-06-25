@@ -373,6 +373,10 @@ const scrollToTop = () => {
   &:deep(b) {
     font-weight: bold;
   }
+  :deep(td) {
+    font-weight: 400;
+    color: $font-secondary;
+  }
   &:deep(p) {
     font-size: 18px;
     font-weight: 400;
