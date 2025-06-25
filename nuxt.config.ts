@@ -12,6 +12,11 @@ export default defineNuxtConfig({
     enabled: false
   },
 
+  site: {
+    url: 'https://conversionrate.store',
+    name: 'Conversion Rate Store'
+  },
+
   // experimental: {
   //   // @ts-ignore
   //   inlineSSRStyles: false
@@ -104,7 +109,6 @@ export default defineNuxtConfig({
 
   gtm: {
     id: 'GTM-MR6SLVZ6',
-    source: 'https://yfduetmi.euw.stape.io/yfduetmi.js',
     defer: true,
     compatibility: true,
     debug: process.env.NODE_ENV !== 'production' ? false : false,
@@ -153,7 +157,24 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    exclude: ['/case-studies/dev', '/index-old', '/about-us', '/contact-us']
+    exclude: ['/case-studies/dev', '/index-old', '/about-us', '/contact-us'],
+    // sources: [
+    //   'https://stageserver.conversionrate.store/api/case-studies?select=url'
+    // ]
+    urls: async () => {
+      // fetch your URLs from a database or other source
+      const res = await fetch(
+        'https://stageserver.conversionrate.store/api/case-studies?select=url'
+      )
+
+      const urlsRaw = await res.json()
+
+      const urls = urlsRaw.map((i) => '/case-studies/' + i.url)
+
+      console.log('sitemap urls', urls)
+
+      return urls
+    }
   },
 
   compatibilityDate: '2025-05-15'
