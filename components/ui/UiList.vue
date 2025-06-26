@@ -23,8 +23,7 @@ defineProps({
   },
   items: {
     type: Array as PropType<Item[]>,
-    required: true,
-    default: () => []
+    required: true
   },
   id: {
     type: String,
@@ -42,16 +41,16 @@ defineProps({
     }"
   >
     <div
-      class="box__title subtitle-2"
       v-if="title"
+      class="box__title subtitle-2"
     >
       {{ title }}
     </div>
 
     <ul
+      v-if="items.length"
       class="box__list"
       :class="{ 'box__list_numeric': numeric }"
-      v-if="items.length"
     >
       <li
         v-for="(item, index) in items"
@@ -59,12 +58,15 @@ defineProps({
         class="box__item"
       >
         <div
-          class="box__item-title"
           v-if="item.title"
+          class="box__item-title"
         >
           {{ item.title }}
         </div>
-        <div class="box__item-description">
+        <div
+          v-if="item.description"
+          class="box__item-description"
+        >
           {{ item.description }}
         </div>
       </li>
@@ -111,7 +113,7 @@ defineProps({
     &:before {
       content: '';
       position: absolute;
-      top: 10px;
+      top: 11px;
       left: 0;
       width: 6px;
       height: 6px;
@@ -135,7 +137,9 @@ defineProps({
       }
     }
     &-title {
-      margin-bottom: 4px;
+      & + .box__item-description {
+        margin-top: 4px;
+      }
     }
     &-description {
       font-weight: 400;

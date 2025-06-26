@@ -16,7 +16,6 @@ if (import.meta.client) {
 
 const { data: cases } = await useCasesApi().getCases()
 
-
 const newsletterText = {
   title: 'Sign up for our newsletter to get early updates',
   subtitle: 'Stay ahead of the game',

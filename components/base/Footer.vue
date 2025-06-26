@@ -2,12 +2,21 @@
 import menu from '~/configs/menu';
 // import { serviceLinks, menu} from '~/configs';
 const { t } = useI18n();
+const route = useRoute();
 
 // const menu = getMenu(t);
+const isPurple = computed(() => {
+  return route.path.includes(`/about-us`)
+})
 </script>
 
 <template>
-  <footer class="footer">
+  <footer
+    class="footer"
+    :class="{
+    'footer--purple': isPurple
+  }"
+  >
     <div class="container">
       <div class="footer__top flex-between">
         <NuxtLink
@@ -64,19 +73,20 @@ const { t } = useI18n();
 <style lang="scss" scoped>
 .footer {
   padding: 60px 0;
-  background:
-  repeating-linear-gradient(
+  color: #fff;
+  background: repeating-linear-gradient(
     to right,
     rgba(255, 255, 255, 0.11) 0,
     rgba(255, 255, 255, 0.11) 0.5px,
     transparent 0.5px,
     transparent 100px
-  ),
-  linear-gradient(180deg, #392DAC 0%, #5E4EDF 100%);
-  color: #fff;
+  ), linear-gradient(180deg, #392DAC 0%, #5E4EDF 100%);
   @media(max-width: $sm) {
     padding-top: 42px;
     padding-bottom: 25px;
+  }
+  &.footer--purple {
+    background: #35237C;
   }
   &__top {
     gap: 15px;

@@ -24,7 +24,7 @@ const closeBurger = () => {
 };
 
 const isPurple = computed(() => {
-  return route.path === `/${locale.value}` || route.path === '/'
+  return route.path === `/${locale.value}` || route.path === '/' || route.path.includes(`/about-us`)
 })
 
 const isDarkPurple = computed(() => {
@@ -115,6 +115,8 @@ const isDarkPurple = computed(() => {
 }
 
 .header {
+  position: relative;
+  z-index: 1;
   // transition: background .2s;
   padding: 18px 0 16px;
   border-bottom: 1px solid $border;

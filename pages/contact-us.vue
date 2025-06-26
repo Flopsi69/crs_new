@@ -1,15 +1,13 @@
 <script setup lang="ts">
 // import reviews_all from '@/configs/feedbacks'
 
-// const { t, locale } = useI18n();
-const feedbacks = [];
+const { locale } = useI18n();
 
-// try {
-//   const module = await import(`~/i18n/locales/${locale.value}/feedbacks.json`);
-//   feedbacks = module.default;
-// } catch (error) {
-//   console.log(`Failed to load feedbacks for locale ${locale.value}`);
-// }
+const { data: feedbacks } = await useAsyncData('i18n-locale-feedbacks', async () => {
+  const json = await import(`~/i18n/locales/${locale.value}/feedbacks.json`)
+
+  return json.default
+})
 
 const feedbacksList = [
   'ariel-geifman.png',
@@ -20,7 +18,7 @@ const feedbacksList = [
 const feedbacksToShow = computed(() =>
   feedbacksList
     .map(avatar =>
-      feedbacks.find((feedback: any) => feedback.avatar === avatar)
+      feedbacks.value?.find((feedback: any) => feedback.avatar === avatar) || []
     )
 );
 
@@ -65,7 +63,6 @@ const breadcrumbsItems = [
           >
             <Icon
               size="20"
-              color="#5c51a5"
               name="fa6-solid:envelope"
             />
             i@conversionrate.store
@@ -73,7 +70,10 @@ const breadcrumbsItems = [
         </div>
 
         <!-- Reviews -->
-        <div class="contacts__feedbacks">
+        <div
+          v-if="feedbacksToShow?.length"
+          class="contacts__feedbacks"
+        >
           <div class="contacts__feedbacks-title subtitle-1">
             What do our clients say about us?
           </div>
@@ -87,7 +87,6 @@ const breadcrumbsItems = [
               :key="index"
               class="contacts__feedback"
               :feedback="feedback"
-              :text-lines="4"
             />
           </div>
         </div>
@@ -124,6 +123,9 @@ const breadcrumbsItems = [
     background: $bg--purple-light;
     border-radius: 20px;
     transition: .3s;
+    span {
+      color: $purple;
+    }
     &:hover {
       opacity: .8;
     }

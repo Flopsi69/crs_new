@@ -19,6 +19,7 @@ const props = defineProps({
   <template v-if="content">
     <h2
       v-if="level === 2"
+      :id="id"
       class="post__title title-3"
     >
       <span>{{ content }}</span>

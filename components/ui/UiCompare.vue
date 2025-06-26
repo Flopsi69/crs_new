@@ -41,7 +41,6 @@ defineProps({
 
     <ClientOnly>
       <ImgComparisonSlider class="compare__slider">
-        <!-- ignore auto fix -->
         <!-- eslint-disable -->
         <img
           slot="first"

@@ -67,6 +67,7 @@ const { modalData, closeModal, modalTarget } = useModal();
     z-index: 11;
     right: 40px;
     top: 24px;
+    line-height: 0;
     @media(max-width: $sm) {
       width: 36px;
       height: 36px;

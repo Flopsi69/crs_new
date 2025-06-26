@@ -6,9 +6,31 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="container">
-    <h1 class="title">About Us</h1>
-  </div>
+  <main class="main bg--purple-dark">
+    <AboutUsBlurLine />
+    <SectionAboutUsHero />
+    <SectionAboutUsFounders />
+    <SectionAboutUsExpertise />
+    <SectionAboutUsCommits />
+    <SectionAboutUsPrinciples />
+    <SectionLeader class="leader" />
+  </main>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.main {
+  // display: grid;
+  // gap: 90px;
+  // margin-bottom: 90px;
+  // @media(max-width: $md) {
+  //   gap: 60px;
+  // }
+  // @media(max-width: $sm) {
+  //   margin-bottom: 0;
+  // }
+}
+.leader {
+  padding: 120px 0;
+  background: $bg--purple-dark;
+}
+</style>

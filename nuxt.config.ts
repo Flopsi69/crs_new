@@ -157,23 +157,47 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    exclude: ['/case-studies/dev', '/index-old', '/about-us', '/contact-us'],
-    // sources: [
-    //   'https://stageserver.conversionrate.store/api/case-studies?select=url'
-    // ]
-    urls: async () => {
-      // fetch your URLs from a database or other source
-      const res = await fetch(
-        'https://stageserver.conversionrate.store/api/case-studies?select=url'
-      )
+    exclude: ['/case-studies/dev', '/index-old', '/about-us'],
+    sitemaps: {
+      pages: {
+        includeAppSources: true,
+        // defaults: {
+        //   changefreq: 'daily', // or 'weekly', 'monthly', etc.
+        //   priority: 1
+        // },
+        urls: [
+          { loc: '/cro-audit/' },
+          { loc: '/career/' },
+          { loc: '/shopify-conversion-rate-optimization-services/' },
+          { loc: '/saas-conversion-rate-optimization-services/' },
+          { loc: '/ecommerce-cro-agency/' },
+          { loc: '/app-conversion-rate-optimization-services/' },
+          { loc: '/marketplace-conversion-rate-optimization-services/' },
+          { loc: '/blog-conversion-rate-optimization-services/' },
+          { loc: '/freemium-conversion-rate-optimization-services/' },
+          { loc: '/webinar-conversion-rate-optimization-services/' }
+        ]
+      },
+      cases: {
+        defaults: {
+          changefreq: 'daily', // or 'weekly', 'monthly', etc.
+          priority: 0.7,
+          _sitemap: 'test'
+        },
+        async urls() {
+          const res = await fetch(
+            'https://stageserver.conversionrate.store/api/case-studies?select=url,status'
+          )
 
-      const urlsRaw = await res.json()
+          const urlsRaw = await res.json()
 
-      const urls = urlsRaw.map((i) => '/case-studies/' + i.url)
-
-      console.log('sitemap urls', urls)
-
-      return urls
+          return urlsRaw
+            .filter((i) => i.status !== 'INACTIVE')
+            .map((i: { url: string }) => ({
+              loc: `/case-studies/${i.url}`
+            }))
+        }
+      }
     }
   },
 

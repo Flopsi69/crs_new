@@ -7,8 +7,7 @@ interface ComponentProps {
 defineProps({
   content: {
     type: Array as PropType<ComponentProps[]>,
-    required: true,
-    default: () => []
+    required: true
   }
 });
 
@@ -30,8 +29,8 @@ const uiComponents: Record<string, ReturnType<typeof resolveComponent>> = {
     :key="index"
   >
     <component
-      v-if="component.type"
       :is="uiComponents[component.type]"
+      v-if="component.type"
       v-bind="component.props"
     />
   </template>
