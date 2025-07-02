@@ -33,11 +33,6 @@ useHead({
     class: 'lang-' + locale.value
   },
   link: [
-    {
-      rel: 'icon',
-      type: 'image/png',
-      href: '/favicon.png'
-    },
     ...(i18nHead.value.link || []),
   ],
   meta: [...(i18nHead.value.meta || [])]

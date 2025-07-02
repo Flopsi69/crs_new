@@ -27,9 +27,15 @@ export default defineNuxtConfig({
     '/case-studies': { swr: 60 * 5 },
     '/case-studies/**': { swr: 60 * 5 }
   },
-  // }),
+
+  // nitro: {
+  //   prerender: {
+  //     routes: ['/sitemap.xml', '/sitemap_index.xml']
+  //   }
+  // },
 
   app: {
+    // pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1.0, maximum-scale=1.0',
@@ -181,8 +187,7 @@ export default defineNuxtConfig({
       cases: {
         defaults: {
           changefreq: 'daily', // or 'weekly', 'monthly', etc.
-          priority: 0.7,
-          _sitemap: 'test'
+          priority: 0.7
         },
         async urls() {
           const res = await fetch(
