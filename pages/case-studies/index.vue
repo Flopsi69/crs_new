@@ -32,13 +32,31 @@ const activeTab = ref('All');
 
 if (route.query.selectedTab) {
   activeTab.value = route.query.selectedTab as string;
+    // router.push({
+    //   query: {
+    //     ...route.query,
+    //     selectedTab: undefined // this will remove it
+    //   }
+    // })
+}
+
+watch(activeTab, (newTab) => {
+  if (newTab !== 'All') {
+    router.push({
+      query: {
+        ...route.query,
+        selectedTab: newTab
+      }
+    });
+  } else {
     router.push({
       query: {
         ...route.query,
         selectedTab: undefined // this will remove it
       }
-    })
-}
+    });
+  }
+});
 
 const publishedCases = computed(() => {
   const filteredCase = cases.value?.filter((item) => item.status !== 'INACTIVE') || []
