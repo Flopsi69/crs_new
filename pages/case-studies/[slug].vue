@@ -327,6 +327,11 @@ const scrollToTop = () => {
       max-width: 180px;
       width: 100%;
       max-height: 60px;
+      @media(max-width: $sm) {
+        max-width: 100%;
+        width: auto;
+        max-height: 70px;
+      }
     }
   }
   &__metrics {
