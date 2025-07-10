@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 const { openModal } = useModal();
-const { t } = useI18n();
 </script>
 
 <template>

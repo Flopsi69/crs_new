@@ -5,21 +5,18 @@ const { openModal } = useModal();
 <template>
   <BasePlate
     class="cta"
-    background="purple-dark"
+    solid-border
+    background="white"
   >
     <div class="cta__title subtitle-1">
       Pay only for actual funnel conversion rates growth based on A/B test
       results
     </div>
-    <div class="cta__description text">
-      We will also provide you with 3 CRO hypotheses for your business for free
-      if you qualify
-    </div>
     <button
-      class="cta__button button button_yellow subtitle-3"
-      @click="openModal({ id: 'blog_listing_0' });"
+      class="cta__button button button_purple subtitle-3"
+      @click="openModal({ id: 'blog_post_details_0' });"
     >
-      Book Strategy Session
+      Schedule a consultation
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="13"

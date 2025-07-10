@@ -6,14 +6,11 @@ useSeoMeta({
 </script>
 
 <template>
-  <main class="main bg--purple-dark">
+  <main class="main">
     <AboutUsBlurLine />
     <SectionAboutUsHero />
-    <SectionAboutUsFounders />
     <SectionAboutUsExpertise />
-    <SectionAboutUsCommits />
     <SectionAboutUsPrinciples />
-    <SectionLeader class="leader" />
   </main>
 </template>
 

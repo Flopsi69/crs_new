@@ -23,22 +23,52 @@ const closeBurger = () => {
   }
 };
 
-const isPurple = computed(() => {
-  return route.path === `/${locale.value}` || route.path === '/' || route.path.includes(`/about-us`)
-})
+const isDark = computed(() => {
+  return route.path.includes(`/${locale.value}/cro-services`) || route.path.includes('/cro-services') || route.path === `/${locale.value}` || route.path === '/' || route.path.includes(`/about-us`);
+});
 
-const isDarkPurple = computed(() => {
-  return route.path.includes(`/${locale.value}/cro-services`) || route.path.includes('/cro-services')
-})
+const pageName = computed(() => {
+  const originalName = route.name?.toString() || '';
+
+  if (originalName.includes('cro-services')) {
+    return 'header__cro-services';
+  } else if (originalName.includes('about-us')) {
+    return 'header__about-us';
+  } else if (originalName.includes('home')) {
+    return 'header__home';
+  } else if (originalName.includes('blog')) {
+    return 'header__blog';
+  } else if (originalName.includes('contact-us')) {
+    return 'header__contact-us';
+  } else if (originalName.includes('case-study')) {
+    return 'header__case-study';
+  } else {
+    return '';
+  }
+});
+
+// const isPurple = computed(() => {
+//   return route.path === `/${locale.value}` || route.path === '/'
+// })
+
+// const isGradient = computed(() => {
+//   return route.path.includes(`/about-us`)
+// })
+
+// const isDarkPurple = computed(() => {
+//   return route.path.includes(`/${locale.value}/cro-services`) || route.path.includes('/cro-services')
+// })
 </script>
 
 <template>
   <header
     class="header"
-    :class="{
-      header_purple: isPurple,
-      header_purple_dark: isDarkPurple,
-    }"
+    :class="[pageName, {
+      header_dark: isDark,
+      // header_purple: isPurple,
+      // header_purple_dark: isDarkPurple,
+      // header_gradient: isGradient,
+    }]"
   >
     <div class="container header__container">
       <NuxtLink
@@ -79,56 +109,59 @@ const isDarkPurple = computed(() => {
         class="header__trigger button button_flat"
         @click="toggleBurger()"
       >
-        <Transition name="slide-up">
-          <Icon
-            v-if="!isBurgerActive"
-            name="radix-icons:hamburger-menu"
-            size="28"
-            :color="isPurple || isDarkPurple ? '#fff' : '#000'"
-          ></Icon>
-          <Icon
-            v-else
-            name="solar:close-circle-linear"
-            size="28"
-            :color="isPurple || isDarkPurple ? '#fff' : '#000'"
-          ></Icon>
-        </Transition>
+        <!-- <Transition name="slide-up"> -->
+        <Icon
+          v-if="!isBurgerActive"
+          name="radix-icons:hamburger-menu"
+          size="28"
+        ></Icon>
+        <Icon
+          v-else
+          name="solar:close-circle-linear"
+          size="28"
+        ></Icon>
+        <!-- </Transition> -->
       </button>
     </div>
   </header>
 </template>
 
 <style lang="scss" scoped>
-.slide-up-enter-active,
-.slide-up-leave-active {
-  transition: all 0.25s ease-out;
-}
+// .slide-up-enter-active,
+// .slide-up-leave-active {
+//   transition: transform 0.25s ease-out, opacity 0.25s ease-out;
+// }
 
-.slide-up-enter-from {
-  opacity: 0;
-  transform: translateY(30px);
-}
+// .slide-up-enter-from {
+//   opacity: 0;
+//   // transform: translateY(10px);
+// }
 
-.slide-up-leave-to {
-  opacity: 0;
-  transform: translateY(-30px);
-}
+// .slide-up-leave-to {
+//   opacity: 0;
+//   // transform: translateY(-10px);
+// }
 
 .header {
   position: relative;
-  z-index: 1;
+  z-index: 20;
   // transition: background .2s;
   padding: 18px 0 16px;
   border-bottom: 1px solid $border;
-  &_purple {
-    border-color: transparent;
+  &_dark {
+    color: #fff;
     background-color: $bg--purple-dark;
-    color: #fff;
-  }
-  &_purple_dark {
     border-color: transparent;
+  }
+  &__cro-services {
     background-color: #3219AF;
-    color: #fff;
+  }
+  &__about-us {
+      background: linear-gradient(90deg, #5543AC 0%, #3A249F 100%);
+  }
+  &_gradient {
+    background: linear-gradient(90deg, #5543AC 0%, #3A249F 100%);
+    border-color: transparent;
   }
   &__container {
     display: flex;
@@ -145,10 +178,12 @@ const isDarkPurple = computed(() => {
   }
   &__trigger {
     position: relative;
-    color: #fff;
     display: none;
     width: 28px;
     height: 28px;
+    .header_dark & {
+      color: #fff;
+    }
     svg {
       position: absolute;
       top: 0;
@@ -161,10 +196,13 @@ const isDarkPurple = computed(() => {
 }
 
 .logo {
-  filter: invert(1);
-  .header_purple &, .header_purple_dark & {
-    filter: invert(0);
+  .header:not(.header_dark) & {
+    filter: invert(1);
   }
+  // filter: invert(1);
+  // .header_dark & {
+  //   filter: invert(0);
+  // }
   @media(max-width: $md) {
     img {
       height: 34px;
@@ -182,26 +220,31 @@ const isDarkPurple = computed(() => {
   @media(max-width: $md) {
     padding: 24px 20px;
     position: fixed;
-    z-index: 2;
+    z-index: 99;
     flex-flow: column;
     left: 0;
     top: 68px;
-    background-color: $bg--purple-light;
+    background: $bg--purple-light;
     right: 0;
     gap: 40px;
     bottom: 0;
-    transform: translateX(-100%);
+    transform: translateY(100%);
     overflow: auto;
+    transition: transform .3s ease-out, background .3s ease-out;
     &.active {
       transform: translateX(0);
     }
 
-    .header_purple & {
+    .header_dark & {
       background: $bg--purple-dark;
     }
 
-    .header_purple_dark & {
+    .header__cro-services & {
       background: #3219AF;
+    }
+
+    .header__about-us & {
+      background: linear-gradient(90deg, #5543AC 0%, #3A249F 100%);
     }
 
     // TODO remove
@@ -211,7 +254,7 @@ const isDarkPurple = computed(() => {
   }
 
   &__link {
-    transition: color .5s;
+    transition: color .25s;
     &.router-link-exact-active {
       color: $yellow;
       pointer-events: none;

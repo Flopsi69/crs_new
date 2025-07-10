@@ -43,7 +43,12 @@ export default {
     },
     {
       title: 'menu.blog',
-      url: '/blog/',
+      url: '/blog',
+      isActive: false
+    },
+    {
+      title: 'menu.aboutUs',
+      url: '/about-us',
       isActive: false
     },
     {

@@ -4,8 +4,8 @@ const { t } = useI18n();
 
 <template>
   <BaseSection
-    class="leader text-center"
     id="leader-section"
+    class="leader text-center"
   >
     <div class="leader__caption subtitle-2">
       {{ t('sectionLeader.prefix') }}

@@ -9,6 +9,10 @@ const props = defineProps({
     type: Boolean,
     default: true
   },
+  show: {
+    type: Number,
+    default: -1
+  },
   items: {
     type: Array as PropType<CaseStudy[]>,
     required: true
@@ -20,7 +24,11 @@ const { t } = useI18n();
 const isShowMore = ref(false);
 
 const postsToShow = computed(() => {
-  return  isShowMore.value || !props.expand ? props.items : props.items.slice(0, 3);
+  if (props.show > 0 && !isShowMore.value) {
+    return props.items.slice(0, props.show);
+  }
+
+  return props.items
 });
 </script>
 
@@ -43,7 +51,7 @@ const postsToShow = computed(() => {
     </div>
 
     <div
-      v-if="!isShowMore && expand"
+      v-if="postsToShow.length < items.length && !isShowMore"
       class="control flex-center"
     >
       <button

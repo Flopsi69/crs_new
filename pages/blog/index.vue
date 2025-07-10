@@ -2,8 +2,8 @@
 
 // TODO add meta
 useSeoMeta({
-  // title: '25+ Real Conversion Rate Optimization Case Studies',
-  // description: 'Get inspired by real-world CRO case studies—see how Conversionrate.store delivers guaranteed growth',
+  title: 'Blog - Conversion Rate Store',
+  description: 'Skyrocket conversions with ConversionRate.store’s expert CRO strategies. Optimize user experience and boost ROI with our top-rated blog insights',
 })
 
 const route = useRoute()
@@ -52,8 +52,8 @@ const publishedPosts = computed(() => {
       <div class="blog__inner">
         <div class="blog__content">
           <div class="blog__head">
-            <h1 class="blog__title title-2">Blog</h1>
-            <div class="blog__caption subtitle-2">Blog caption</div>
+            <h1 class="blog__title title-2">Our Blog</h1>
+            <!-- <div class="blog__caption subtitle-2">Blog caption</div> -->
           </div>
 
           <CtaBlog class="blog__cta blog__cta-mob" />
@@ -61,7 +61,6 @@ const publishedPosts = computed(() => {
           <BlogList
             class="blog__list"
             :cols="2"
-            :expand="false"
             :items="publishedPosts"
           />
 

@@ -60,8 +60,11 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
-  pointer-events: none;;
+  z-index: 21;
+  pointer-events: none;
+  @media(max-width: $md) {
+    display: none;
+  }
   svg {
     position: absolute;
     left: 0;

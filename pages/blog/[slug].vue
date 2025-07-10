@@ -12,13 +12,13 @@ const blogApi = useBlogApi();
 const { data: post } = await blogApi.getPostBySlug(slug);
 const { data: slugsList } = await blogApi.getPostsSlugs();
 
-console.log('post', post.value);
-
-
 useSeoMeta({
   title: post.value?.metaTitle || post.value?.title,
   description: post.value?.metaDescription || post.value?.description,
 });
+
+const contentRef = ref<HTMLElement | null>(null)
+const progress = ref<number>(0)
 
 const handlerListArray = computed(() => {
   return slugsList.value?.filter((i: any) => i.status === 'ACTIVE').map((item: any) => item.url) || []
@@ -79,7 +79,7 @@ const scrollToTop = () => {
 };
 
 const toc = computed(() => {
-  return mainContent.value?.filter((item: any) => item.type === "uiSubtitle").map((item: any) => ({
+  return mainContent.value?.filter((item: any) => item.type === "uiSubtitle" && item.props?.level === 2).map((item: any) => ({
     title: item.props?.content,
     id: item.props?.id
   }));
@@ -91,16 +91,55 @@ function scrollToSection(id: string) {
     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
+
+const handleScroll = () => {
+  // const el = contentRef.value
+
+  // if (!el) return
+
+  // const rect = el.getBoundingClientRect()
+  // const windowHeight = window.innerHeight
+
+  // const contentTop = rect.top + window.scrollY
+  // const contentHeight = el.offsetHeight
+
+  // const scrollTop = window.scrollY
+  // const scrollBottom = scrollTop + windowHeight
+
+  // const scrolled = Math.min(
+  //   1,
+  //   Math.max(0, (scrollBottom - contentTop) / contentHeight)
+  // )
+
+  // progress.value = Math.round(scrolled * 100)
+
+  const scrollTop = window.scrollY
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight
+
+  const scrolled = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
+  progress.value = Math.min(100, Math.max(0, scrolled))
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll, { passive: true })
+  window.addEventListener('resize', handleScroll)
+  handleScroll() // initial update
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('resize', handleScroll)
+})
 </script>
 
 <template>
   <main
     class="post"
-    :class="{'post_banner': post?.banner }"
+    :style="{ '--progress-bar-width': progress + '%' }"
   >
     <!-- Breadcrumbs -->
     <BaseBreadcrumbs
-      class="container"
+      class="container post__breadcrumbs"
       :items="breadcrumbs"
     />
 
@@ -109,29 +148,15 @@ function scrollToSection(id: string) {
       v-if="post"
       class="container container_narrow"
     >
-      <!-- Banner -->
-      <div
-        v-if="post?.banner"
-        class="post__head"
-      >
-        <h1
-          class="post__title title-1"
-          v-html="post.title"
-        />
-
-        <UiImage
-          class="post__image"
-          :src="post.bannerImage"
-        ></UiImage>
-      </div>
-
       <!-- Inner Content -->
       <div class="post__inner">
         <!-- Article -->
-        <div class="post__content">
+        <div
+          ref="contentRef"
+          class="post__content"
+        >
           <!-- Title -->
           <h1
-            v-if="!post.banner"
             class="post__title title-1"
             v-html="post.title"
           />
@@ -173,7 +198,7 @@ function scrollToSection(id: string) {
         <!-- Aside -->
         <div class="post__aside">
           <!-- CTA -->
-          <CtaBlog class="post__cta" />
+          <CtaBlogDetails class="post__cta" />
 
           <!-- TOC -->
           <div
@@ -257,8 +282,24 @@ function scrollToSection(id: string) {
 
 <style lang="scss" scoped>
 .post {
+  position: relative;
   overflow: clip;
-  padding-top: 12px;
+  &__breadcrumbs {
+    margin-top: 20px;;
+  }
+  &:before {
+    content: '';
+    position: sticky;
+    display: block;
+    width: var(--progress-bar-width, 0%);
+    left: 0;
+    top: 0;
+    height: 8px;
+    transition:  width 0.1s linear;
+    background-color: #3C2FB0;
+    z-index: 10;
+    pointer-events: none;
+  }
   &__head {
     margin: 42px 0;
   }
@@ -269,7 +310,7 @@ function scrollToSection(id: string) {
     display: flex;
     // align-items: flex-start;
     gap: 50px;
-    margin-top: 60px;
+    margin-top: 30px;
     @media(max-width: $lg) {
       gap: 25px;
     }
@@ -308,7 +349,7 @@ function scrollToSection(id: string) {
   &__sections {
     display: grid;
     gap: 60px;
-    margin-top: 60px;
+    margin-top: 30px;
     @media(max-width: $md) {
       margin-top: 40px;
       gap: 40px;
@@ -339,57 +380,6 @@ function scrollToSection(id: string) {
     gap: 24px;
     @media(max-width: $md) {
       gap: 20px;
-    }
-  }
-}
-
-.banner {
-  display: flex;
-  align-items: center;
-  padding: 28px;
-  border-radius: 20px;
-  border: 2px solid #ede8f6;
-  gap: 20px;
-  @media(max-width: $sm) {
-    flex-flow: column;
-  }
-  &__logo {
-    line-height: 0;
-    img {
-      max-width: 180px;
-      width: 100%;
-      max-height: 60px;
-    }
-  }
-  &__metrics {
-    position: relative;
-    top: -5px;
-    display: flex;
-    gap: 32px;
-    grid-template-columns: repeat(3, 1fr);
-    margin-left: auto;
-    @media(max-width: $sm) {
-      margin: auto;
-      top: 0;
-    }
-  }
-  &__metric {
-    text-align: center;
-    background: url('img/metric-grow-arrow.svg') top center no-repeat;
-    background-size: contain;
-    padding-top: 29px;
-    min-width: 117px;
-    &-value {
-      font-size: 28px;
-      line-height: 1;
-      color: $violet;
-    }
-    &-label {
-      margin-top: 8px;
-      font-size: 13px;
-      line-height: 20px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
     }
   }
 }

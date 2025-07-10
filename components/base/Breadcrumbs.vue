@@ -18,8 +18,8 @@ defineProps({
 
 <template>
   <div
-    class="breadcrumbs"
     v-if="items.length"
+    class="breadcrumbs"
   >
     <div class="breadcrumbs__inner">
       <template
@@ -63,6 +63,9 @@ defineProps({
     color: #909090;
     font-size: 12px;
     font-weight: 400;
+    &:hover:not(:last-child) {
+      color: $yellow;
+    }
     &:last-child {
       color: #2B2B2B;
     }
