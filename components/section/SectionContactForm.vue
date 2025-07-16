@@ -5,7 +5,7 @@ const form = reactive({
   name: '',
   url: '',
   email: '',
-  annual_revenue: '',
+  monthly_revenue: '',
   marketing_budget: '',
   message: '',
 });
@@ -64,10 +64,10 @@ function submitForm() {
           @click="error.url = ''"
         />
         <BaseInput
-          v-model="form.annual_revenue"
+          v-model="form.monthly_revenue"
           icon="fa6-solid:coins"
-          placeholder="Annual Revenue"
-          label="What is your annual online revenue?"
+          placeholder="Monthly Revenue"
+          label="What is your monthly online revenue?"
           :items="['less than $250,000', '$250,000 - $1 million', '$1 million - $10 million', 'more than $10 million', 'I prefer not to say']"
           small
         />
@@ -89,8 +89,8 @@ function submitForm() {
       </div>
 
       <button
-        @click="submitForm"
         class="button button_yellow form__button"
+        @click="submitForm"
       >
         Book a call to estimate ROI
       </button>

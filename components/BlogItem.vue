@@ -49,7 +49,6 @@ const navigate = () => {
           Reading time: <strong>{{ post.readTime }} min</strong>
         </span>
       </div>
-      <p>{{ post.url }}</p>
     </div>
   </BasePlate>
 </template>

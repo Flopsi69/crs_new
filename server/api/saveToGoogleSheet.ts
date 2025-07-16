@@ -50,7 +50,7 @@ export default defineEventHandler(async (event) => {
     name,
     url,
     email,
-    annual_revenue,
+    monthly_revenue,
     hear_about_us,
     project_goal,
     title
@@ -68,7 +68,7 @@ export default defineEventHandler(async (event) => {
       email || '-',
       name || '-',
       url || '-',
-      annual_revenue || '-',
+      monthly_revenue || '-',
       hear_about_us || '-',
       project_goal || '-',
       title || '-'

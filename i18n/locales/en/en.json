@@ -35,9 +35,9 @@
       "label": "Company URL",
       "placeholder": "Company URL"
     },
-    "annualRevenue": {
-      "label": "Annual Revenue",
-      "placeholder": "Annual Revenue"
+    "monthlyRevenue": {
+      "label": "Monthly Revenue",
+      "placeholder": "Monthly Revenue"
     },
     "hearAboutUs": {
       "label": "How did you hear about us?",
@@ -58,6 +58,7 @@
       "back": "Back",
       "agree": "By submitting this form, you agree to receive the requested information, as well as occasional communications regarding ConversionRate Store products, services, and events. You can unsubscribe at any time. To read more visit privacy policy. Your personal data will be processed in accordance with our privacy policy.",
       "continue": "Continue",
+      "strategySession": "Book a Strategy Session",
       "agreeError": "Please agree to the terms",
       "hearAboutUs": {
         "somebody": "Somebody recommended us",
@@ -65,12 +66,13 @@
         "googleAds": "Google Ads",
         "other": "Other"
       },
-      "annualRevenue": {
-        "lessThan500k": "Less than $500,000",
+      "monthlyRevenue": {
+        "lessThan100k": "Less than $100,000",
+        "from200kTo500k": "$200,000 - $500,000",
         "from500kTo1m": "$500,000 - $1 million",
-        "from1mTo2m": "$1 million - $2 million",
-        "from2mTo5m": "$2 million - $5 million",
+        "moreThan1m": "More than $1 million",
         "preferNotToSay": "I prefer not to say",
+        "lessThan500k": "Less than $500,000",
         "over1m": "Over $1 million"
       }
     },
@@ -114,10 +116,10 @@
   },
   "welcome": "Welcome to our site!",
   "sectionHero": {
-    "title": "Performance-based Conversion\u00A0Rate\u00A0Optimization agency",
+    "title": "AI Powered Conversion Optimization Agency",
     "subtitle": {
-      "prefix": "We increase your",
-      "suffix": "revenue metrics\n You pay only for the actual uplift"
+      "prefix": " Improve your",
+      "suffix": "revenue metrics with our award-winning CRO agency."
     },
     "funnelInfo": {
       "title": "Estimate the Potential Uplift of Your Key Revenue Metric",
@@ -132,7 +134,7 @@
       "cta": "Book a call to get an estimate"
     },
     "form": {
-      "title": "Get an uplift estimate for your business from our Conversion Rate Optimization service",
+      "title": "Find out how much we can increase your conversions in 60 days.",
       "placeholder": "Type your site's URL",
       "cta": "Get an estimate"
     },
@@ -174,7 +176,7 @@
     "title": "Global Leader in Conversion Rate Optimization and User Experience Optimization"
   },
   "sectionFounderVideos": {
-    "title": "Watch our founders share actionable CRO tactics straight from the stage"
+    "title": "Watch our co-founder share actionable CRO tactics straight from the stage"
   },
   "sectionClientVideos": {
     "title": "Our Clients About the Results We Deliver",
@@ -226,19 +228,19 @@
       },
       "guarantee": {
         "title": "Guarantee of project success",
-        "crs": "We are the only CRO agency we know of that commits to an agreed-upon revenue metrics uplift. Our guarantees are based on our track record of results for clients",
+        "crs": "We commit to a predetermined conversion uplift goal. Our guarantees are based on a statistical model of our A/B test win rate.",
         "other": "Most other agencies lack the capacity to deliver guaranteed results and effectively manage the uncertainties of CRO projects",
         "inHouse": "In-house teams typically are not required to demonstrate monthly uplifts in key revenue metrics for continued investment. We, on the other hand, are required to perform on a monthly basis"
       },
       "roi": {
         "title": "ROI from CRO project",
-        "crs": "We guarantee an agreed-upon result, making it easy for our clients to calculate the ROI of a CRO project with us",
+        "crs": "Our engagement model includes a minimum conversion growth commitment, ensuring our clients consistently achieve a positive ROI.",
         "other": "Other CRO agencies typically do not commit to specific results, making ROI uncertain",
         "inHouse": "In-house teams often yield lower ROI due to KPI bias, full staffing costs, and lack of competence in CRO"
       },
       "cost": {
         "title": "Cost of project",
-        "crs": "Our prices are typically 20-30% lower than those of top US and UK based agencies, thanks to our cost-efficient remote team structure in Europe",
+        "crs": "Our prices are typically 30-40% lower than those of top US and UK based agencies, thanks to our cost-efficient remote team structure in Europe",
         "other": "Other leading CRO agencies in the US and Europe typically charge 30-40% more for their services without guaranteeing results",
         "inHouse": "In-house CRO teams bear the full cost of employing professionals with the skills required for continuous revenue metrics improvement. Typically, this cost is four times higher than hiring a CRO agency"
       },
@@ -257,8 +259,8 @@
     }
   },
   "sectionCaseStudies": {
-    "title": "CRO case studies from",
-    "subtitle": "Selected A/B test results with 8-55% total conversion rate growth from a single experiment",
+    "title": "The world’s largest database of CRO case studies among all CRO agencies",
+    "caption": "Choose your business model",
     "viewAll": "View all",
     "result": "Result:",
     "viewCaseStudy": "View case study",
@@ -414,11 +416,7 @@
   "cta": {
     "guaranteed": {
       "subtitle": "Guaranteed results",
-      "title": {
-        "prefix": "A performance-based arrangement means that we commit to an agreed-upon revenue metrics uplift, ensuring a",
-        "roi": "positive ROI",
-        "suffix": "from your CRO project with\u00A0us"
-      },
+      "title": "Apply to get an estimate of the conversion rate and revenue per user uplift we can commit to delivering",
       "funnelInfo": {
         "title": "Estimate Your ROI from a CRO/UXO Project for Your Business",
         "subtitle": "On the call, you will receive:",
@@ -431,7 +429,7 @@
         "note": "If you are not sure what your current metrics are, don’t worry, we will help you find them and estimate the uplift",
         "cta": "Book a call to estimate ROI"
       },
-      "cta": "Estimate your CRO project ROI"
+      "cta": "Estimate your conversions uplift"
     },
     "keyFactors": {
       "subtitle": "Performance-based pricing",
@@ -456,7 +454,7 @@
       }
     },
     "recieveAccess": {
-      "title": "Sign up to receive access to additional 16\u00A0CRO case studies and all future updates",
+      "title": "Sign up to receive access to an additional 25\u00A0CRO case studies and all future updates",
       "subtitle": "Stay ahead of the game",
       "button": "Receive all case studies",
       "submitted": "You'll now receive all case studies straight to your inbox",
@@ -547,9 +545,9 @@
     },
     "limitedOffer": {
       "subtitle": "Limited time offer",
-      "title": "Get a CRO Strategy Session \n with Our CEO",
+      "title": "Book a CRO Strategy Session \n with Our CEO",
       "caption": "For businesses generating \n over $500K in monthly revenue",
-      "cta": "Schedule a call",
+      "cta": "Book Strategy Session",
       "funnelInfo": {
         "title": "Get a CRO Strategy Session with Our CEO",
         "subtitle": "Limited time offer",

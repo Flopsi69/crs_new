@@ -21,7 +21,8 @@ const contentRef = ref<HTMLElement | null>(null)
 const progress = ref<number>(0)
 
 const handlerListArray = computed(() => {
-  return slugsList.value?.filter((i: any) => i.status === 'ACTIVE').map((item: any) => item.url) || []
+  return slugsList.value?.map((item: any) => item.url) || []
+  // return slugsList.value?.filter((i: any) => i.status === 'ACTIVE').map((item: any) => item.url) || []
 });
 
 const currentIndex = ref(handlerListArray.value.indexOf(slug));
@@ -175,6 +176,25 @@ onBeforeUnmount(() => {
             </span>
           </div>
 
+          <!-- TOC mobile -->
+          <div class="mobile">
+            <div
+              v-if="toc.length"
+              class="post__toc toc mobile__toc"
+            >
+              <div
+                v-for="(item, index) in toc"
+                :key="index"
+                class="toc__item"
+                @click="scrollToSection(item.id)"
+              >
+                {{ item.title }}
+              </div>
+            </div>
+
+            <CtaBlogDetails class="mobile__cta" />
+          </div>
+
           <!-- Article Content -->
           <div class="post__sections">
             <section
@@ -198,7 +218,8 @@ onBeforeUnmount(() => {
         <!-- Aside -->
         <div class="post__aside">
           <!-- CTA -->
-          <CtaBlogDetails class="post__cta" />
+          <CtaBlog form-id="blog_post_details_0" />
+          <!-- <CtaBlogDetails class="post__cta" /> -->
 
           <!-- TOC -->
           <div
@@ -309,13 +330,14 @@ onBeforeUnmount(() => {
   &__inner {
     display: flex;
     // align-items: flex-start;
-    gap: 50px;
+    gap: 100px;
     margin-top: 30px;
     @media(max-width: $lg) {
       gap: 25px;
     }
     @media(max-width: $md) {
       margin-top: 30px;
+      display: block;
     }
   }
   &__content {
@@ -343,7 +365,13 @@ onBeforeUnmount(() => {
     // top: 20px;
     // margin-bottom: 60px;
     @media (max-width: $md) {
-      display: none;
+      max-width: 100%;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      .toc {
+        display: none;
+      }
+      // display: none;
     }
   }
   &__sections {
@@ -353,6 +381,12 @@ onBeforeUnmount(() => {
     @media(max-width: $md) {
       margin-top: 40px;
       gap: 40px;
+    }
+    &:deep(* + h2) {
+      padding-top: 30px;
+      @media(max-width: $sm) {
+        padding-top: 15px;
+      }
     }
     &:deep(b) {
       font-weight: bold;
@@ -467,6 +501,12 @@ onBeforeUnmount(() => {
   top: 20px;
   margin-top: 32px;
   padding: 0 28px;
+  @media(max-width: $md) {
+    position: static;
+    padding: 0;
+    margin: 0;
+    top: 0;
+  }
   &__item {
     position: relative;
     padding-left: 18px;
@@ -495,6 +535,19 @@ onBeforeUnmount(() => {
     & + & {
       margin-top: 8px;
     }
+  }
+}
+
+.mobile {
+  display: none;
+  padding: 20px;
+  margin: 30px -20px 10px;
+  background-color: #F3F1F7;
+  @media(max-width: $md) {
+    display: block;
+  }
+  &__toc {
+    margin-bottom: 20px;
   }
 }
 </style>

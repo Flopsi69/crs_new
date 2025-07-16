@@ -58,19 +58,41 @@ const leadersIcons = [
   background: linear-gradient(90deg, #5543AC 0%, #3A249F 100%);
   &__info {
     max-width: 570px;
+    @media(max-width: $sm) {
+      max-width: 100%;
+    }
+  }
+  &__title {
+    @media(max-width: $md) {
+      font-size: 30px;
+      line-height: 38px;
+    }
   }
   &__row {
     position: relative;
     z-index: 22;
     gap: 60px;
     @media(max-width: $md) {
-      z-index: 2;
+      z-index: 1;
+      gap: 32px;
     }
     &.main {
       padding: 80px 0;
+      @media(max-width: $md) {
+        padding: 40px 0;
+      }
+      @media(max-width: $sm) {
+        flex-flow: column;
+        padding: 16px 0 24px;
+      }
     }
     &.secondary {
       padding: 60px 0;
+      @media(max-width: $sm) {
+        flex-flow: column-reverse;
+        padding: 32px 0 64px;
+        gap: 16px;
+      }
       &:before {
         content: '';
         position: absolute;
@@ -82,11 +104,18 @@ const leadersIcons = [
       }
     }
   }
-  &__gap {
-    gap: 60px;
-  }
   &__image {
     max-width: 570px;
+    min-width: 400px;
+    line-height: 0;
+    @media(max-width: $md) {
+      min-width: 300px;
+    }
+    @media(max-width: $sm) {
+      min-width: auto;
+      max-width: 100%;
+      width: 100%;
+    }
   }
 }
 
@@ -94,6 +123,10 @@ const leadersIcons = [
   &__description {
     max-width: 570px;
     font-weight: 400;
+    @media(max-width: $sm) {
+      max-width: 100%;
+      line-height: 28px;
+    }
   }
 }
 
@@ -102,9 +135,28 @@ const leadersIcons = [
   flex-wrap: wrap;
   justify-content: center;
   gap: 12px 24px;
+  max-width: 460px;
+  flex-shrink: 0;
+  @media(max-width: $md) {
+    max-width: 420px;
+  }
+  @media(max-width: $sm) {
+    // max-width: 400px;
+  }
   &__item {
     line-height: 0;
     max-width: 136px;
+    @media(max-width: $md) {
+      max-width: 120px;
+    }
+    @media(max-width: $sm) {
+      max-width: 100%;
+      width: 27%;
+      &:nth-child(1), &:nth-child(2) {
+       max-width: 138px;
+       width: 100%;
+      }
+    }
   }
 }
 </style>

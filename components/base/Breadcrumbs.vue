@@ -58,17 +58,25 @@ defineProps({
     display: flex;
     align-items: center;
     gap: 4px;
+    &>svg {
+      flex-shrink: 0;
+    }
   }
   &__item {
     color: #909090;
     font-size: 12px;
     font-weight: 400;
+    white-space: nowrap;
     &:hover:not(:last-child) {
       color: $yellow;
     }
     &:last-child {
       color: #2B2B2B;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
+
 }
 </style>

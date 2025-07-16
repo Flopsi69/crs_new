@@ -28,9 +28,7 @@ const info = {
       </div>
 
       <h2 class="info__title section-title title-2">
-        {{ t('cta.guaranteed.title.prefix') }}
-        <span class="color-yellow">{{ t('cta.guaranteed.title.roi') }}</span>
-        {{ t('cta.guaranteed.title.suffix') }}
+        {{ t('cta.guaranteed.title') }}
       </h2>
 
       <button
@@ -49,6 +47,12 @@ const info = {
   padding: 60px;
   @media(max-width: $sm) {
     padding: 32px 20px 36px
+  }
+  &:after {
+    background-position: 100% 45px;
+    @media(max-width: $md) {
+      background-position: bottom right;
+    }
   }
 }
 

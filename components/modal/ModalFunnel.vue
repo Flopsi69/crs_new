@@ -12,7 +12,6 @@ interface Body {
   }
 }
 
-// @ts-ignore
 const props = defineProps({
   name: {
     type: String,
@@ -68,7 +67,7 @@ const form = reactive({
   name: props.name || '',
   url: props.url || '',
   email: props.email || '',
-  annual_revenue: '',
+  monthly_revenue: '',
   hear_about_us: '',
   project_goal: '',
   metadata: {
@@ -101,19 +100,19 @@ const hearAboutUsItems = reactive([
   t('modal.funnel.hearAboutUs.other')
 ])
 
-let annualRevenueItems = reactive([
-  t('modal.funnel.annualRevenue.lessThan500k'),
-  t('modal.funnel.annualRevenue.from500kTo1m'),
-  t('modal.funnel.annualRevenue.from1mTo2m'),
-  t('modal.funnel.annualRevenue.from2mTo5m'),
-  t('modal.funnel.annualRevenue.preferNotToSay')
+let monthlyRevenueItems = reactive([
+  t('modal.funnel.monthlyRevenue.lessThan100k'),
+  t('modal.funnel.monthlyRevenue.from200kTo500k'),
+  t('modal.funnel.monthlyRevenue.from500kTo1m'),
+  t('modal.funnel.monthlyRevenue.moreThan1m'),
+  t('modal.funnel.monthlyRevenue.preferNotToSay')
 ])
 
 if (props.id.includes('homepage_limited_offer')) {
-  annualRevenueItems = reactive([
-    t('modal.funnel.annualRevenue.lessThan500k'),
-    t('modal.funnel.annualRevenue.from500kTo1m'),
-    t('modal.funnel.annualRevenue.over1m'),
+  monthlyRevenueItems = reactive([
+    t('modal.funnel.monthlyRevenue.lessThan500k'),
+    t('modal.funnel.monthlyRevenue.from500kTo1m'),
+    t('modal.funnel.monthlyRevenue.over1m'),
   ])
 }
 
@@ -232,7 +231,7 @@ async function saveLead() {
         <div class="info__bages">
           <div class="info__bage info__bage-european text-center">
             <div class="info__bage-european-caption">EUROPEAN</div>
-            <div class="info__bage-european-title">CRO Agency of 2024</div>
+            <div class="info__bage-european-title">CRO Agency of the Year</div>
           </div>
           <div class="info__bage info__bage-clutch flex-center">
             <div class="info__bage-clutch-head flex-center">
@@ -302,14 +301,18 @@ async function saveLead() {
 
       <div
         v-if="!info.isSpecialOffer"
-        class="info__footer flex-center"
+        class="info__footer"
       >
-        <img
-          v-for="logo of logos"
-          :key="logo"
-          :src="`/images/logo/${logo}`"
-          alt=""
-        />
+        <div class="info__footer-caption">Trusted by</div>
+        <div class="info__footer-list flex-center">
+          <img
+            v-for="logo of logos"
+            :key="logo"
+            class="info__footer-image"
+            :src="`/images/logo/${logo}`"
+            alt=""
+          />
+        </div>
       </div>
     </div>
 
@@ -403,13 +406,13 @@ async function saveLead() {
         >
           <BaseInput
             v-if="!info.isGoal"
-            id="annual_revenue"
-            v-model="form.annual_revenue"
+            id="monthly_revenue"
+            v-model="form.monthly_revenue"
             small
-            :label="t('input.annualRevenue.label')"
-            :placeholder="t('input.annualRevenue.placeholder')"
+            :label="t('input.monthlyRevenue.label')"
+            :placeholder="t('input.monthlyRevenue.placeholder')"
             icon="fa6-solid:coins"
-            :items="annualRevenueItems"
+            :items="monthlyRevenueItems"
           />
 
           <BaseInput
@@ -464,7 +467,7 @@ async function saveLead() {
         :data-step="step"
         @click="goToNextStep"
       >
-        {{ step === 1 ?  t("modal.funnel.continue") : info?.cta }}
+        {{ step === 1 ?  t("modal.funnel.continue") : t("modal.funnel.strategySession") }}
       </button>
     </div>
   </div>
@@ -472,6 +475,7 @@ async function saveLead() {
 
 <style lang="scss" scoped>
 .info {
+  overflow: hidden;
   display: flex;
   flex-flow: column;
   gap: 40px;
@@ -560,7 +564,7 @@ async function saveLead() {
   // }
   &__body {
     margin: auto 0;
-    padding-bottom: 20px;
+    // padding-bottom: 20px;
   }
 
   &__title {
@@ -576,13 +580,31 @@ async function saveLead() {
   }
 
   &__footer {
-    border-radius: 20px 20px 0px 0px;
-    background: linear-gradient(90deg, rgba(85, 67, 172, 0.50) 0%, rgba(58, 36, 159, 0.50) 100%);
+    position: relative;
     margin-top: auto;
-    padding: 24px 16px;
-    gap: 20px;
-    justify-content: space-evenly;
-    img {
+    padding: 16px 0;
+    &:before {
+      content: '';
+      position: absolute;
+      left: -100%;
+      right: -100%;
+      bottom: 0;
+      top: 0;
+      background: linear-gradient(90deg, rgba(85, 67, 172, 0.50) 0%, rgba(58, 36, 159, 0.50) 100%);
+    }
+    &-caption {
+      position: relative;
+      z-index: 1;
+      font-size: 16px;
+    }
+    &-list {
+      position: relative;
+      z-index: 1;
+      gap: 20px;
+      justify-content: space-between;
+      margin-top: 6px;
+    }
+    &-image {
       min-width: 0;
       max-height: 40px;
       max-width: 130px;

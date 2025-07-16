@@ -92,6 +92,9 @@ const pageName = computed(() => {
           :key="menuItem.title"
           :to="menuItem.url"
           class="nav__link"
+          :class="{
+            'button button_yellow nav__link--yellow flex-center': menuItem.title.includes('contactUs'),
+          }"
           :external="menuItem.url.includes('http')"
           @click="closeBurger()"
         >
@@ -146,8 +149,11 @@ const pageName = computed(() => {
   position: relative;
   z-index: 20;
   // transition: background .2s;
-  padding: 18px 0 16px;
+  padding: 12px 0;
   border-bottom: 1px solid $border;
+  @media(max-width: $md) {
+    padding: 18px 0 16px;
+  }
   &_dark {
     color: #fff;
     background-color: $bg--purple-dark;
@@ -211,6 +217,7 @@ const pageName = computed(() => {
 }
 
 .nav {
+  align-items: center;
   margin-left: auto;
   gap: 32px;
   @media(max-width: 1100px) {
@@ -222,17 +229,20 @@ const pageName = computed(() => {
     position: fixed;
     z-index: 99;
     flex-flow: column;
+    align-items: flex-start;
     left: 0;
     top: 68px;
     background: $bg--purple-light;
     right: 0;
-    gap: 40px;
+    gap: 30px;
     bottom: 0;
-    transform: translateY(100%);
+    transform: translateX(-100%);
     overflow: auto;
     transition: transform .3s ease-out, background .3s ease-out;
+    opacity: 0;
     &.active {
       transform: translateX(0);
+      opacity: 1;
     }
 
     .header_dark & {
@@ -255,9 +265,19 @@ const pageName = computed(() => {
 
   &__link {
     transition: color .25s;
-    &.router-link-exact-active {
+    &:not(.nav__link--yelow).router-link-exact-active {
       color: $yellow;
       pointer-events: none;
+    }
+    &--yellow {
+      min-height: 42px;
+      padding-left: 24px;
+      padding-right: 24px;
+      text-transform: none;
+      @media(max-width: $md) {
+        width: 100%;
+        min-height: 48px;
+      }
     }
     @media(hover: hover) {
       &:hover {
@@ -265,7 +285,7 @@ const pageName = computed(() => {
       }
     }
     @media(max-width: $md) {
-      font-size: 24px;
+      font-size: 22px;
     }
   }
 }

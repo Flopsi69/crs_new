@@ -1,5 +1,12 @@
 <script lang="ts" setup>
 const { openModal } = useModal();
+
+defineProps({
+  formId: {
+    type: String,
+    default: 'blog_listing_0',
+  },
+})
 </script>
 
 <template>
@@ -8,18 +15,14 @@ const { openModal } = useModal();
     background="purple-dark"
   >
     <div class="cta__title subtitle-1">
-      Pay only for actual funnel conversion rates growth based on A/B test
-      results
-    </div>
-    <div class="cta__description text">
-      We will also provide you with 3 CRO hypotheses for your business for free
-      if you qualify
+      Book a Strategy Session to learn how CRO can grow your business — and get
+      an estimate of your potential uplift
     </div>
     <button
       class="cta__button button button_yellow subtitle-3"
-      @click="openModal({ id: 'blog_listing_0' });"
+      @click="openModal({ id: formId });"
     >
-      Book Strategy Session
+      Estimate your uplift
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="13"
@@ -42,9 +45,6 @@ const { openModal } = useModal();
   padding: 28px;
   &__title {
     line-height: 1.3;
-  }
-  &__description {
-    margin-top: 12px;
   }
   &__button {
     display: flex;

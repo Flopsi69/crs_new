@@ -26,14 +26,14 @@ const videos = [
     id: 'homepage_video_0',
     meeting: 'https://calendly.com/ihor-sokol/discovery-call-with-ihor?name=<name>&email=<email>'
   },
-  {
-    preview: '/images/video-preview-1.gif',
-    src: 'https://drive.google.com/file/d/1BNQdn7it6YEzOZ14Lzh0xnABLwz7bVjb/preview',
-    title: 'eCommerce 2019',
-    author: authors[1],
-    id: 'homepage_video_1',
-    meeting: 'https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=<name>&email=<email>'
-  },
+  // {
+  //   preview: '/images/video-preview-1.gif',
+  //   src: 'https://drive.google.com/file/d/1BNQdn7it6YEzOZ14Lzh0xnABLwz7bVjb/preview',
+  //   title: 'eCommerce 2019',
+  //   author: authors[1],
+  //   id: 'homepage_video_1',
+  //   meeting: 'https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=<name>&email=<email>'
+  // },
   {
     preview: '/images/video-preview-2.gif',
     src: 'https://drive.google.com/file/d/1olltbr6KQlX3wal8Oa0N5p4yDLYzrHSE/preview',
@@ -67,7 +67,7 @@ function openVideo(video: any) {
       prevent-excessive-dragging
       :items-to-show="1"
       :breakpoints="{
-         992: { itemsToShow: 3, wrapAround: false },
+         992: { itemsToShow: 2, wrapAround: false },
          768: { itemsToShow: 2, wrapAround: false }
       }"
     >
@@ -181,10 +181,10 @@ function openVideo(video: any) {
 
 .video {
   text-align: left;
+  width: 100%;
   @media(max-width: $sm) {
     background-color: $bg--purple-light;
     border-radius: 24px;
-    width: 100%;
   }
   &__preview {
     position: relative;
@@ -211,6 +211,9 @@ function openVideo(video: any) {
       }
     }
     &-poster {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
       @media(max-width: $sm) {
         width: 100%;
       }

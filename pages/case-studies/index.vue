@@ -149,13 +149,16 @@ const filterTabs = computed(() => {
           >
             <div class="filter__inner">
               <BasePill
-                v-for="tab in filterTabs"
-                :key="tab.type"
+                v-for="(tab, index) in filterTabs"
+                :key="index"
                 class="filter__item text-sm"
                 :class="{ active: activeTab === tab.type }"
                 @click="activeTab = tab.type"
               >
                 {{ tab.type }}
+                <!-- <div class="filter__amount flex-center color-purple lh-1">
+                  {{ tab.amount }}
+                </div> -->
               </BasePill>
             </div>
           </div>

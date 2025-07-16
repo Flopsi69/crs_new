@@ -2,7 +2,7 @@ interface Lead {
   email: string
   name?: string
   url?: string
-  annual_revenue?: string
+  monthly_revenue?: string
   hear_about_us?: string
   project_goal?: string
   metadata?: {
@@ -14,7 +14,7 @@ interface Lead {
 
 function getTemplate(lead: Lead, isPrelid: boolean, isHTML = false): string {
   const isAdditional =
-    lead.annual_revenue || lead.hear_about_us || lead.project_goal
+    lead.monthly_revenue || lead.hear_about_us || lead.project_goal
 
   const template = `
     <p><strong>=== NEW LEAD ${isPrelid ? '(first step)' : ''} ===</strong></p>
@@ -23,8 +23,8 @@ function getTemplate(lead: Lead, isPrelid: boolean, isHTML = false): string {
     <div>\t- Email: ${lead.email || '-'}</div>
     ${isAdditional ? `<br/>` : ''}
     ${
-      lead.annual_revenue
-        ? `<div>\t- Annual Revenue: ${lead.annual_revenue}</div>`
+      lead.monthly_revenue
+        ? `<div>\t- Monthly Revenue: ${lead.monthly_revenue}</div>`
         : ''
     }
     ${

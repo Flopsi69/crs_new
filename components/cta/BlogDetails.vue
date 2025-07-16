@@ -37,8 +37,15 @@ const { openModal } = useModal();
 <style lang="scss" scoped>
 .cta {
   padding: 28px;
+  @media(max-width: $md) {
+    padding: 20px;
+  }
   &__title {
     line-height: 1.3;
+    @media(max-width: $md) {
+      font-size: 20px;
+      line-height: 1.4;
+    }
   }
   &__description {
     margin-top: 12px;
@@ -53,6 +60,9 @@ const { openModal } = useModal();
     width: 100%;
     padding-left: 15px;
     padding-right: 15px;
+    @media(max-width: $md) {
+      margin-top: 16px;
+    }
   }
 }
 </style>

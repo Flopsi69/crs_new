@@ -2,21 +2,10 @@
 import menu from '~/configs/menu';
 // import { serviceLinks, menu} from '~/configs';
 const { t } = useI18n();
-const route = useRoute();
-
-// const menu = getMenu(t);
-const isPurple = computed(() => {
-  return route.path.includes(`/about-us`)
-})
 </script>
 
 <template>
-  <footer
-    class="footer"
-    :class="{
-    'footer--purple': isPurple
-  }"
-  >
+  <footer class="footer">
     <div class="container">
       <div class="footer__top flex-between">
         <NuxtLink
@@ -84,9 +73,7 @@ const isPurple = computed(() => {
   @media(max-width: $sm) {
     padding-top: 42px;
     padding-bottom: 25px;
-  }
-  &.footer--purple {
-    background: #35237C;
+    background: linear-gradient(180deg, #392DAC 0%, #5E4EDF 100%);
   }
   &__top {
     gap: 15px;

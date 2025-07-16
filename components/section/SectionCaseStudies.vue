@@ -76,9 +76,12 @@ const filterTabs = computed(() => {
     background="purple-light"
     class="cases"
   >
-    <div class="section-title title-2 cases__title">
+    <div class="section-title title-1 cases__title">
       {{ t('sectionCaseStudies.title') }}
-      Conversionrate.store
+    </div>
+
+    <div class="cases__caption">
+      {{ t('sectionCaseStudies.caption') }}
     </div>
 
     <div
@@ -86,8 +89,8 @@ const filterTabs = computed(() => {
       class="filter"
     >
       <BasePill
-        v-for="tab in filterTabs"
-        :key="tab"
+        v-for="(tab, index) in filterTabs"
+        :key="index"
         class="filter__item text-sm"
         :class="{ active: activeTab === tab.type }"
         @click="activeTab = tab.type"
@@ -128,7 +131,20 @@ const filterTabs = computed(() => {
     padding: 42px 0;
   }
   &__title {
-    margin-bottom: 24px;
+    max-width: 700px;
+    @media(max-width: $sm) {
+      font-size: 28px;
+      line-height: 1.3;
+    }
+  }
+  &__caption {
+    margin-top: 40px;
+    font-size: 24px;
+    font-weight: 700;
+    @media(max-width: $sm) {
+      margin-top: 30px;
+      font-size: 20px;
+    }
   }
   &__list {
     margin-top: 24px;
@@ -152,10 +168,10 @@ const filterTabs = computed(() => {
   align-items: center;
   overflow-x: auto;
   gap: 12px;
-  margin: 40px -20px 0;
+  margin: 24px -20px 0;
   padding: 0 20px;
   @media(max-width: $sm) {
-    margin-top: 24px;
+    margin-top: 16px;
   }
   &__item {
     font-size: 18px;
