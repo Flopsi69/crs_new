@@ -23,52 +23,61 @@ const closeBurger = () => {
   }
 };
 
-const isDark = computed(() => {
-  return route.path.includes(`/${locale.value}/cro-services`) || route.path.includes('/cro-services') || route.path === `/${locale.value}` || route.path === '/' || route.path.includes(`/about-us`);
-});
+interface HeaderConfig {
+  isDark: boolean;
+  background?: string;
+}
+
+const headerConfig: Record<string, HeaderConfig> = {
+  'index': {
+    isDark: true,
+    background: '#4d3a98'
+  },
+  'cro-services': {
+    isDark: true,
+    background: '#3219AF'
+  },
+  'app-conversion-rate-optimization-services': {
+    isDark: true,
+    background: '#3219AF'
+  },
+  'ecommerce-conversion-rate-optimization-services': {
+    isDark: true,
+    background: '#3219AF'
+  },
+  'saas-conversion-rate-optimization-services': {
+    isDark: true,
+    background: '#3219AF'
+  },
+  'shopify-conversion-rate-optimization-services': {
+    isDark: true,
+    background: '#3219AF'
+  },
+  'about-us': {
+    isDark: true,
+    background: 'linear-gradient(90deg, #5543AC 0%, #3A249F 100%)'
+  }
+};
 
 const pageName = computed(() => {
   const originalName = route.name?.toString() || '';
+  const nameWithoutLocale = originalName.replace(`___${locale.value}`, '');
 
-  if (originalName.includes('cro-services')) {
-    return 'header__cro-services';
-  } else if (originalName.includes('about-us')) {
-    return 'header__about-us';
-  } else if (originalName.includes('home')) {
-    return 'header__home';
-  } else if (originalName.includes('blog')) {
-    return 'header__blog';
-  } else if (originalName.includes('contact-us')) {
-    return 'header__contact-us';
-  } else if (originalName.includes('case-study')) {
-    return 'header__case-study';
-  } else {
-    return '';
-  }
+  return nameWithoutLocale;
 });
 
-// const isPurple = computed(() => {
-//   return route.path === `/${locale.value}` || route.path === '/'
-// })
-
-// const isGradient = computed(() => {
-//   return route.path.includes(`/about-us`)
-// })
-
-// const isDarkPurple = computed(() => {
-//   return route.path.includes(`/${locale.value}/cro-services`) || route.path.includes('/cro-services')
-// })
+const styleConfig = computed(() => {
+  return headerConfig[pageName.value] || { isDark: false };
+});
 </script>
 
 <template>
   <header
     class="header"
-    :class="[pageName, {
-      header_dark: isDark,
-      // header_purple: isPurple,
-      // header_purple_dark: isDarkPurple,
-      // header_gradient: isGradient,
-    }]"
+    :class="{
+      header_dark: styleConfig.isDark,
+    }"
+    :style="{ background: styleConfig.background }"
   >
     <div class="container header__container">
       <NuxtLink
@@ -86,6 +95,7 @@ const pageName = computed(() => {
         v-if="menu?.navigation?.length"
         class="nav flex"
         :class="{active: isBurgerActive}"
+        :style="{'--nav-bg': styleConfig.background}"
       >
         <NuxtLink
           v-for="menuItem in menu.navigation.filter(i => i.isActive)"
@@ -157,16 +167,6 @@ const pageName = computed(() => {
   &_dark {
     color: #fff;
     background-color: $bg--purple-dark;
-    border-color: transparent;
-  }
-  &__cro-services {
-    background-color: #3219AF;
-  }
-  &__about-us {
-      background: linear-gradient(90deg, #5543AC 0%, #3A249F 100%);
-  }
-  &_gradient {
-    background: linear-gradient(90deg, #5543AC 0%, #3A249F 100%);
     border-color: transparent;
   }
   &__container {
@@ -246,18 +246,9 @@ const pageName = computed(() => {
     }
 
     .header_dark & {
-      background: $bg--purple-dark;
+      background: var(--nav-bg);
     }
 
-    .header__cro-services & {
-      background: #3219AF;
-    }
-
-    .header__about-us & {
-      background: linear-gradient(90deg, #5543AC 0%, #3A249F 100%);
-    }
-
-    // TODO remove
     & + .header__trigger {
       margin-left: auto;
     }
@@ -286,6 +277,7 @@ const pageName = computed(() => {
     }
     @media(max-width: $md) {
       font-size: 22px;
+      width: 100%;
     }
   }
 }

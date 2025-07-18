@@ -1,4 +1,8 @@
 <script lang="ts" setup>
+defineProps<{
+  title?: string;
+}>();
+
 const activeItem: Ref<number | null> = ref(0);
 
 function setActiveItem(index: number) {
@@ -17,7 +21,7 @@ function setActiveItem(index: number) {
 <template>
   <BaseSection class="achive">
     <h2 class="achive__title title title-1">
-      What do you want to achieve with Conversion Optimization Services?
+      {{ title || 'What do you want to achieve with Conversion Optimization Services?' }}
     </h2>
 
     <div class="achive__list">

@@ -21,8 +21,8 @@ const contentRef = ref<HTMLElement | null>(null)
 const progress = ref<number>(0)
 
 const handlerListArray = computed(() => {
-  return slugsList.value?.map((item: any) => item.url) || []
-  // return slugsList.value?.filter((i: any) => i.status === 'ACTIVE').map((item: any) => item.url) || []
+  // return slugsList.value?.map((item: any) => item.url) || []
+  return slugsList.value?.filter((i: any) => i.status === 'ACTIVE').map((item: any) => item.url) || []
 });
 
 const currentIndex = ref(handlerListArray.value.indexOf(slug));

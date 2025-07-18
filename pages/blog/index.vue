@@ -29,7 +29,6 @@ const breadcrumbsItems = [
 ]
 
 const publishedPosts = computed(() => {
-  return posts.value
   return posts.value?.filter((item) => item.status !== 'INACTIVE') || []
 });
 </script>

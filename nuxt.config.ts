@@ -171,18 +171,7 @@ export default defineNuxtConfig({
         //   changefreq: 'daily', // or 'weekly', 'monthly', etc.
         //   priority: 1
         // },
-        urls: [
-          { loc: '/cro-audit/' },
-          { loc: '/career/' },
-          { loc: '/shopify-conversion-rate-optimization-services/' },
-          { loc: '/saas-conversion-rate-optimization-services/' },
-          { loc: '/ecommerce-cro-agency/' },
-          { loc: '/app-conversion-rate-optimization-services/' },
-          { loc: '/marketplace-conversion-rate-optimization-services/' },
-          { loc: '/blog-conversion-rate-optimization-services/' },
-          { loc: '/freemium-conversion-rate-optimization-services/' },
-          { loc: '/webinar-conversion-rate-optimization-services/' }
-        ]
+        urls: [{ loc: '/cro-audit/' }, { loc: '/career/' }]
       },
       cases: {
         defaults: {
@@ -200,6 +189,25 @@ export default defineNuxtConfig({
             .filter((i) => i.status !== 'INACTIVE')
             .map((i: { url: string }) => ({
               loc: `/case-studies/${i.url}`
+            }))
+        }
+      },
+      blog: {
+        defaults: {
+          changefreq: 'daily', // or 'weekly', 'monthly', etc.
+          priority: 0.7
+        },
+        async urls() {
+          const res = await fetch(
+            'https://stageserver.conversionrate.store/api/case-studies/blog?select=url,status'
+          )
+
+          const urlsRaw = await res.json()
+
+          return urlsRaw
+            .filter((i) => i.status === 'ACTIVE')
+            .map((i: { url: string }) => ({
+              loc: `/blog/${i.url}`
             }))
         }
       }

@@ -1,4 +1,8 @@
 <script lang="ts" setup>
+defineProps<{
+  title?: string;
+}>();
+
 const { validateInput } = useValidateInput()
 const { openModal } = useModal();
 const { t } = useI18n();
@@ -24,10 +28,11 @@ function handleOpenModal() {
           <span>contractually</span>
         </div>
 
-        <h1 class="info__subtitle title-1">
-          Conversion Rate Optimization Service with a
-          <span>Results Guarantee</span>
-        </h1>
+        <h1
+          class="info__subtitle title-1"
+          v-html="title || `Conversion Rate Optimization Service with a
+          <span>Results Guarantee</span>`"
+        />
 
         <div class="info__form-wrap form-wrap">
           <div class="form__caption subtitle-2">
@@ -136,7 +141,7 @@ function handleOpenModal() {
       font-size: 30px;
       line-height: 38px;
     }
-    span {
+    :deep(span) {
       position: relative;
       white-space: nowrap;
       color: #E3AA10;

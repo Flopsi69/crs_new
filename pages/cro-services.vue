@@ -1,4 +1,20 @@
 <script lang="ts" setup>
+const page = {
+  seoTitle: 'CRO Services with a Results Guarantee',
+  seoDescription:
+    'Grow your business with powerful Conversion Rate Optimization Services :white_check_mark: ​​We use data insights and A/B testing to improve website performance.',
+  title_h1:
+    'Conversion Rate Optimization Service with a <span>Results Guarantee</span>',
+  howItWorksTitle:
+    'Conversion Rate Optimization Service with a Results Guarantee',
+  achiveTitle:
+    'What do you want to achieve with Conversion Optimization Services?'
+}
+
+useSeoMeta({
+  title: page.seoTitle,
+  description: page.seoDescription,
+})
 useSeoMeta({
   title: 'CRO Services with a Results Guarantee',
   description: 'Grow your business with powerful Conversion Rate Optimization Services :white_check_mark: ​​We use data insights and A/B testing to improve website performance.',
@@ -88,10 +104,10 @@ const faqsItems = [
 
 <template>
   <main class="main">
-    <SectionServicesHero />
+    <SectionServicesHero :title="page.title_h1" />
     <SectionTrusted />
-    <SectionHowItWorks />
-    <SectionAchive />
+    <SectionHowItWorks :title="page.howItWorksTitle" />
+    <SectionAchive :title="page.achiveTitle" />
     <SectionCompareCroServices />
     <SectionClientVideos />
     <SectionCaseStudies>
