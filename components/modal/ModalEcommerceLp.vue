@@ -24,7 +24,6 @@ const logos = [
 ];
 
 const form = reactive({
-  name: '',
   url: '',
   email: '',
   monthly_traffic: '',
@@ -59,7 +58,7 @@ const monthlyTraffic = reactive([
 ])
 
 function goToNextStep() {
-  error.name = validateInput(form.name, 'name');
+  // error.name = validateInput(form.name, 'name');
   error.url = validateInput(form.url, 'url');
   error.email = validateInput(form.email, 'email');
   error.monthly_traffic = validateInput(form.monthly_traffic, 'monthly_traffic');
@@ -136,12 +135,9 @@ async function saveLead() {
 }
 
 function loadMeetingsEmbed() {
-  console.log('loadMeetingsEmbed');
   if (document.querySelector('.form-hubspot script[src*="MeetingsEmbedCode.js"]')) {
     return;
   }
-
-  console.log('loadMeetingsEmbed2');
 
   const script = document.createElement('script');
   script.type = 'text/javascript';
@@ -264,7 +260,7 @@ function loadMeetingsEmbed() {
         class="form"
       >
         <div class="form__step">
-          <BaseInput
+          <!-- <BaseInput
             id="modal_name"
             v-model="form.name"
             small
@@ -274,7 +270,7 @@ function loadMeetingsEmbed() {
             icon="fa6-solid:user"
             :error="error.name"
             @click="error.name = ''"
-          />
+          /> -->
 
           <BaseInput
             id="modal_url"
@@ -322,13 +318,13 @@ function loadMeetingsEmbed() {
       >
         <div
           class="meetings-iframe-container"
-          :data-src="`https://meetings.hubspot.com/ihor-sokolov/e-commerce-lp?embed=true&firstName=${form.name}&email=${form.email}`"
+          :data-src="`https://meetings.hubspot.com/ihor-sokolov/e-commerce-lp?embed=true&email=${form.email}`"
         ></div>
       </div>
 
       <button
         v-if="step === 1"
-        :disabled="!form.name || !form.url || !form.email || !form.monthly_traffic || isLoading"
+        :disabled="!form.url || !form.email || !form.monthly_traffic || isLoading"
         class="form__submit button button_yellow subtitle-3"
         @click="goToNextStep"
       >
