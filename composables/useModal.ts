@@ -12,7 +12,7 @@ type ModalData = {
   name?: string
   email?: string
   id?: string
-  info?: Object
+  info?: object
   src?: string
   title?: string
   titleImage?: string

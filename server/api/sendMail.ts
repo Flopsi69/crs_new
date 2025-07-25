@@ -2,6 +2,7 @@ interface Lead {
   email: string
   name?: string
   url?: string
+  monthly_traffic?: string
   monthly_revenue?: string
   hear_about_us?: string
   project_goal?: string
@@ -22,6 +23,11 @@ function getTemplate(lead: Lead, isPrelid: boolean, isHTML = false): string {
     <div>\t- Company: ${lead.url || '-'}</div>
     <div>\t- Email: ${lead.email || '-'}</div>
     ${isAdditional ? `<br/>` : ''}
+    ${
+      lead.monthly_traffic
+        ? `<div>\t- Monthly Traffic: ${lead.monthly_traffic}</div>`
+        : ''
+    }
     ${
       lead.monthly_revenue
         ? `<div>\t- Monthly Revenue: ${lead.monthly_revenue}</div>`

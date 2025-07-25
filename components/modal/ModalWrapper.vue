@@ -12,6 +12,10 @@ const { modalData, closeModal, modalTarget } = useModal();
       v-if="modalTarget === 'funnel'"
       v-bind="modalData"
     />
+    <ModalEcommerceLp
+      v-if="modalTarget === 'ecommerce-lp'"
+      v-bind="modalData"
+    />
     <ModalSuccess v-if="modalTarget === 'success'" />
     <ModalVideo v-if="modalTarget === 'video'" />
     <ModalLanguage v-if="modalTarget === 'language'" />

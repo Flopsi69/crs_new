@@ -37,6 +37,10 @@ const headerConfig: Record<string, HeaderConfig> = {
     isDark: true,
     background: '#3219AF'
   },
+  'e-commerce-lp': {
+    isDark: true,
+    background: '#4d3a98'
+  },
   'app-conversion-rate-optimization-services': {
     isDark: true,
     background: '#3219AF'

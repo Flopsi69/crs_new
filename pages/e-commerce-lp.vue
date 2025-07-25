@@ -1,43 +1,15 @@
 <script lang="ts" setup>
-const { t, locale } = useI18n()
-const i18nHead = useLocaleHead()
-const scrollToElement = useSmoothScroll()
-
-useSeoMeta({
-  title: t('seo.title'),
-  description: t('seo.description'),
-  ogTitle: t('seo.title'),
-  ogDescription: t('seo.description'),
-  ogUrl: 'https://conversionrate.store/',
-  ogType: 'website',
-  ogImage: 'https://conversionrate.store/images/big-logo.png', // Replace with actual OG image
-  twitterCard: 'summary_large_image'
-});
-
-useHead(() => ({
-  htmlAttrs: {
-    lang: i18nHead.value.htmlAttrs.lang
-  },
-  bodyAttrs: {
-    class: 'lang-' + locale.value
-  },
-  link: [...(i18nHead.value.link || [])],
-  meta: [...(i18nHead.value.meta || [])]
-}))
-
-const route = useRoute()
-
-onMounted(() => {
-  if (route.hash === '#testimonials') {
-    scrollToElement('#testimonials', 'center')
-  }
+useHead({
+  meta: [
+    { name: 'robots', content: 'noindex, nofollow' }
+  ]
 })
 </script>
 
 <template>
   <main class="main">
-    <SectionHero />
-    <SectionTrusted />
+    <SectionHeroEcommerceLp />
+    <SectionTrustedEcommerceLp />
     <SectionLeader />
     <SectionClientVideos />
     <SectionFounderVideos />
