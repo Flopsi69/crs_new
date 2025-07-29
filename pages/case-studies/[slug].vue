@@ -382,6 +382,15 @@ const scrollToTop = () => {
     font-weight: 400;
     color: $font-secondary;
   }
+  &:deep(a) {
+    color: $purple;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.3s ease;
+    &:hover {
+      color: $violet;
+    }
+  }
   &:deep(p) {
     font-size: 18px;
     font-weight: 400;

@@ -306,7 +306,7 @@ onBeforeUnmount(() => {
   position: relative;
   overflow: clip;
   &__breadcrumbs {
-    margin-top: 20px;;
+    margin-top: 20px;
   }
   &:before {
     content: '';
@@ -386,6 +386,15 @@ onBeforeUnmount(() => {
       padding-top: 30px;
       @media(max-width: $sm) {
         padding-top: 15px;
+      }
+    }
+    &:deep(a) {
+      color: $purple;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 0.3s ease;
+      &:hover {
+        color: $violet;
       }
     }
     &:deep(b) {

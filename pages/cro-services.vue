@@ -2,7 +2,7 @@
 const page = {
   seoTitle: 'CRO Services with a Results Guarantee',
   seoDescription:
-    'Grow your business with powerful Conversion Rate Optimization Services :white_check_mark: ​​We use data insights and A/B testing to improve website performance.',
+    'Grow your business with powerful Conversion Rate Optimization Services ✅ ​​We use data insights and A/B testing to improve website performance.',
   title_h1:
     'Conversion Rate Optimization Service with a <span>Results Guarantee</span>',
   howItWorksTitle:
@@ -14,10 +14,6 @@ const page = {
 useSeoMeta({
   title: page.seoTitle,
   description: page.seoDescription,
-})
-useSeoMeta({
-  title: 'CRO Services with a Results Guarantee',
-  description: 'Grow your business with powerful Conversion Rate Optimization Services :white_check_mark: ​​We use data insights and A/B testing to improve website performance.',
 })
 
 const faqsItems = [
