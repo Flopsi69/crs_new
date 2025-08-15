@@ -1,13 +1,33 @@
 <script setup lang="ts">
+interface Body {
+  audience: 'lead' | 'prelead'
+  data: {
+    name: string
+    email: string
+    title?: string
+  }
+}
+
 const { validateInput } = useValidateInput();
+const toast = useToast()
+const mailchimp = useMailchimp()
+const excel = useExcel()
+const mailer = useMailer()
+const { t } = useI18n()
+const { openModal } = useModal()
+
+const isLoading = ref(false);
 
 const form = reactive({
   name: '',
   url: '',
   email: '',
-  monthly_revenue: '',
-  marketing_budget: '',
   message: '',
+  metadata: {
+    page: location?.href || '',
+    title: 'Contact Us',
+    id: 'contact-us_form'
+  }
 });
 
 const error = reactive({
@@ -17,31 +37,81 @@ const error = reactive({
 });
 
 
-function submitForm() {
+async function submitForm() {
   error.name = validateInput(form.name, 'name');
   error.url = validateInput(form.url, 'url');
   error.email = validateInput(form.email, 'email');
 
   if (error.name || error.url || error.email) return
 
-  alert('submitted');
+  isLoading.value = true;
+  const toastLoading = toast.loading(t('general.async.pending'));
+
+  const body: Body = {
+    audience: 'lead',
+    data: { ...form, title: 'Contact Us page' }
+  }
+
+  mailchimp.save(body)
+  mailer.send(form)
+  await excel.save(body)
+
+  isLoading.value = false;
+
+  if (excel.error.value) {
+    toast.update(toastLoading, {
+      type: 'error',
+      render: t('general.async.error'),
+      autoClose: true,
+      isLoading: false
+    });
+
+    return;
+  }
+
+  toast.update(toastLoading, {
+    type: 'success',
+    render: t('general.async.success'),
+    autoClose: true,
+    isLoading: false
+  });
+
+  form.name = '';
+  form.url = '';
+  form.email = '';
+  form.message = '';
+
+  window.open('https://meetings.hubspot.com/ihor-sokolov?firstName=' + form.name + '&email=' + form.email, '_blank');
+
+  openModal({ target: 'success' });
 };
 </script>
 
 <template>
   <div class="form__wrap">
     <div class="form">
-      <div class="form__title subtitle-1">Let us know how we can help</div>
+      <div class="form__title subtitle-1">Schedule Your Results Discussion</div>
+      {{ form }}
       <div class="form__inputs">
         <BaseInput
           v-model="form.name"
           icon="fa6-solid:user"
-          placeholder="Name"
-          label="Name"
+          placeholder="Your full name"
+          label="Full name"
           small
           required
           :error="error.name"
           @click="error.name = ''"
+        />
+        <BaseInput
+          v-model="form.url"
+          icon="fa6-solid:link"
+          placeholder="Company URL"
+          label="Company URL"
+          small
+          required
+          :error="error.url"
+          @click="error.url = ''"
         />
         <BaseInput
           v-model="form.email"
@@ -54,35 +124,9 @@ function submitForm() {
           @click="error.email = ''"
         />
         <BaseInput
-          v-model="form.url"
-          icon="fa6-solid:link"
-          placeholder="URL"
-          label="URL"
-          small
-          required
-          :error="error.url"
-          @click="error.url = ''"
-        />
-        <BaseInput
-          v-model="form.monthly_revenue"
-          icon="fa6-solid:coins"
-          placeholder="Monthly Revenue"
-          label="What is your monthly online revenue?"
-          :items="['less than $250,000', '$250,000 - $1 million', '$1 million - $10 million', 'more than $10 million', 'I prefer not to say']"
-          small
-        />
-        <BaseInput
-          v-model="form.marketing_budget"
-          icon="fa6-solid:coins"
-          placeholder="Marketing Budget"
-          label="What is your monthly digital marketing budget?"
-          small
-        />
-        <BaseInput
           v-model="form.message"
-          icon="fa6-solid:comment"
-          placeholder="Message"
-          label="Message"
+          placeholder="Give us more detail about your project"
+          label="Your message"
           small
           textarea
         />
@@ -90,9 +134,10 @@ function submitForm() {
 
       <button
         class="button button_yellow form__button"
+        :disabled="isLoading"
         @click="submitForm"
       >
-        Book a call to estimate ROI
+        Continue
       </button>
     </div>
   </div>
@@ -103,23 +148,8 @@ function submitForm() {
   position: sticky;
   top: 16px;
   display: grid;
-  gap: 24px;
-  &__wrap {
-    position: relative;
-    flex-grow: 1;
-    padding: 40px 0 80px 80px;
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: -500%;
-      bottom: 0;
-      background: $bg--purple-light;
-      z-index: -1;
-    }
-  }
-
+  gap: 32px;
+  color: #393939;
   &__inputs {
     display: grid;
     gap: 16px;
@@ -129,6 +159,8 @@ function submitForm() {
   }
 
   &__button {
+    min-height: 60px;
+    font-size: 18px;
   }
 }
 </style>

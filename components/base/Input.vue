@@ -65,10 +65,10 @@ onClickOutside(target, () => {
 <template>
   <!-- v-on-click-outside="toggleDropdown" -->
   <label
+    :id="id + '_wrap'"
     ref="target"
     class="input__group"
     :class="{ group_required: required, group_icon: icon, group_error: error, group_small: small, group_dropdown: items?.length, active: isOpen}"
-    :id="id + '_wrap'"
   >
     <span
       v-if="label"
@@ -103,10 +103,19 @@ onClickOutside(target, () => {
         />
       </template>
 
-      <input
-        v-if="!textarea"
-        v-model="model"
+      <textarea
+        v-if="textarea"
         :id="id"
+        v-model="model"
+        class="input textarea"
+        v-bind="$attrs"
+        :placeholder="placeholder"
+      />
+
+      <input
+        v-else
+        :id="id"
+        v-model="model"
         type="text"
         class="input"
         v-bind="$attrs"
@@ -114,15 +123,6 @@ onClickOutside(target, () => {
         :placeholder="placeholder"
         :readonly="!!items?.length"
         @click="toggleDropdown"
-      />
-
-      <textarea
-        v-else
-        v-model="model"
-        :id="id"
-        class="input textarea"
-        v-bind="$attrs"
-        :placeholder="placeholder"
       />
     </div>
 
@@ -237,8 +237,10 @@ onClickOutside(target, () => {
 
 .textarea {
   resize: vertical;
-  height: 50px;
+  min-height: 110px;
   line-height: normal;
+  border-radius: 32px;
+  padding: 12px 24px;
   &__wrap {
     line-height: 0;
   }

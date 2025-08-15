@@ -53,6 +53,10 @@ const headerConfig: Record<string, HeaderConfig> = {
     isDark: true,
     background: '#3219AF'
   },
+  'landing-page-optimization-services': {
+    isDark: true,
+    background: '#3219AF'
+  },
   'shopify-conversion-rate-optimization-services': {
     isDark: true,
     background: '#3219AF'
@@ -60,6 +64,10 @@ const headerConfig: Record<string, HeaderConfig> = {
   'about-us': {
     isDark: true,
     background: 'linear-gradient(90deg, #5543AC 0%, #3A249F 100%)'
+  },
+  'contact-us': {
+    isDark: true,
+    background: '#4d3a98'
   }
 };
 
@@ -260,7 +268,7 @@ const styleConfig = computed(() => {
 
   &__link {
     transition: color .25s;
-    &:not(.nav__link--yelow).router-link-exact-active {
+    &:not(.nav__link--yellow).router-link-exact-active {
       color: $yellow;
       pointer-events: none;
     }

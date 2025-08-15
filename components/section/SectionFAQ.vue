@@ -100,7 +100,10 @@ const activeFaq = ref<number | null>(0);
                 v-for="(item, subIndex) in faq.answer"
                 :key="subIndex"
               >
-                <p v-if="typeof item === 'string'">{{ item }}</p>
+                <p
+                  v-if="typeof item === 'string'"
+                  v-html="item"
+                ></p>
                 <ul
                   v-else-if="Array.isArray(item)"
                   class="list-brand"
@@ -109,15 +112,15 @@ const activeFaq = ref<number | null>(0);
                     v-for="(listItem, listIndex) in item"
                     :key="listIndex"
                     class="list-brand__item"
-                  >
-                    {{ listItem }}
-                  </li>
+                    v-html="listItem"
+                  ></li>
                 </ul>
               </template>
             </template>
-            <p v-else>
-              {{ faq.answer }}
-            </p>
+            <p
+              v-else
+              v-html="faq.answer"
+            ></p>
           </div>
         </BasePlate>
       </div>
@@ -197,6 +200,11 @@ const activeFaq = ref<number | null>(0);
       border-top: 1px dashed $border;
       &:deep(p + p) {
         margin-top: 12px;
+      }
+      &:deep(a) {
+        color: $purple;
+        text-decoration: underline;
+        font-weight: 500;
       }
       &:deep(ul) {
         padding-left: 15px;

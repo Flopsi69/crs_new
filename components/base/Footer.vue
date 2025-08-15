@@ -1,11 +1,37 @@
 <script lang="ts" setup>
 import menu from '~/configs/menu';
+
+interface FooterConfig {
+  background?: string;
+}
 // import { serviceLinks, menu} from '~/configs';
-const { t } = useI18n();
+const { t, locale } = useI18n();
+const route = useRoute();
+
+const pageName = computed(() => {
+  const originalName = route.name?.toString() || '';
+  const nameWithoutLocale = originalName.replace(`___${locale.value}`, '');
+
+  return nameWithoutLocale;
+});
+
+
+const footerConfig: Record<string, FooterConfig> = {
+  // 'contact-us': {
+  //   background: '#4d3a98'
+  // }
+};
+
+const styleConfig = computed(() => {
+  return footerConfig[pageName.value] || { isDark: false };
+});
 </script>
 
 <template>
-  <footer class="footer">
+  <footer
+    class="footer"
+    :style="{ background: styleConfig.background }"
+  >
     <div class="container">
       <div class="footer__top flex-between">
         <NuxtLink

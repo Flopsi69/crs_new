@@ -25,7 +25,13 @@ export default defineNuxtConfig({
   // ...(process.env.NODE_ENV !== 'development' && {
   routeRules: {
     '/case-studies': { swr: 60 * 5 },
-    '/case-studies/**': { swr: 60 * 5 }
+    '/case-studies/**': { swr: 60 * 5 },
+    '/cro-services': { prerender: true },
+    '/saas-conversion-rate-optimization-services': { prerender: true },
+    '/ecommerce-conversion-rate-optimization-services': { prerender: true },
+    '/landing-page-optimization-services': { prerender: true },
+    '/shopify-conversion-rate-optimization-services': { prerender: true },
+    '/app-conversion-rate-optimization-services': { prerender: true }
   },
 
   // nitro: {

@@ -32,7 +32,7 @@ export default {
     },
     {
       title: 'menu.contactUs',
-      url: 'https://conversionrate.store/contact-us',
+      url: '/contact-us',
       isActive: true
     }
     // {
@@ -63,7 +63,7 @@ export default {
     },
     {
       title: 'menu.privacy',
-      url: 'https://conversionrate.store/privacy/'
+      url: 'https://conversionrate.store/privacy'
     }
   ]
 }
