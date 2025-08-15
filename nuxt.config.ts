@@ -169,7 +169,12 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    exclude: ['/case-studies/dev', '/index-old', '/e-commerce-lp'],
+    exclude: [
+      '/case-studies/dev',
+      '/index-old',
+      '/e-commerce-lp',
+      '/contact-us-new'
+    ],
     sitemaps: {
       pages: {
         includeAppSources: true,

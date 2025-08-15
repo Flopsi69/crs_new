@@ -32,7 +32,7 @@ export default {
     },
     {
       title: 'menu.contactUs',
-      url: '/contact-us',
+      url: 'https://conversionrate.store/contact-us',
       isActive: true
     }
     // {
