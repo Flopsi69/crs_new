@@ -133,16 +133,14 @@ function setActiveItem(index: number) {
         </div>
         <div class="item__descr">
           <p>
-            CAC is influenced by two factors: the cost of bringing users to your
-            site or product (CPC) and your conversion rate.
+            CLTV is driven by retention, repeat purchase rate, and the total
+            value of a customer’s payments over time.
           </p>
           <p>
-            CRO focuses on optimizing the funnel to improve CvR — making
-            customer acquisition more efficient.
-          </p>
-          <p>
-            In short, CRO helps you convert more users from the same traffic
-            volume, lowering your CAC.
+            User Experience Optimization (UXO) plays a key role by designing a
+            frictionless, compelling customer journey that fosters loyalty,
+            encourages repeat purchases, and increases order value through
+            effective upsell and cross-sell mechanisms.
           </p>
         </div>
       </div>
