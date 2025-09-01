@@ -318,7 +318,7 @@ function loadMeetingsEmbed() {
       >
         <div
           class="meetings-iframe-container"
-          :data-src="`https://meetings.hubspot.com/ihor-sokolov/e-commerce-lp?embed=true&email=${form.email}`"
+          :data-src="`https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?embed=true&email=${form.email}`"
         ></div>
       </div>
 
