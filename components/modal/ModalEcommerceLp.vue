@@ -31,7 +31,8 @@ const form = reactive({
     page: location.href,
     form_title: 'Get a 20% increase in your E‑Commerce store’s conversion rate within 4 months - Guaranteed',
     id: props.id || ''
-  }
+  },
+  e_target: 'g'
 });
 const error = reactive({
   name: '',

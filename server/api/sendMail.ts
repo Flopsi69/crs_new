@@ -7,6 +7,7 @@ interface Lead {
   hear_about_us?: string
   project_goal?: string
   message?: string
+  e_target?: 'g' | 'i'
   metadata?: {
     form_title?: string
     page?: string
@@ -81,13 +82,17 @@ export default defineEventHandler(async (event) => {
     event
   )
 
+  const sendTo = ['al@conversionrate.store']
+
+  if (lead.e_target === 'g') {
+    sendTo.push('g@conversionrate.store')
+  } else {
+    sendTo.push('i@conversionrate.store')
+  }
+
   const mailInfo = {
     from: 'Conversionrate.store <analytics@conversionrate.store>',
-    to: [
-      'al@conversionrate.store',
-      'g@conversionrate.store',
-      'i@conversionrate.store'
-    ],
+    to: sendTo,
     subject: isPrelid ? 'New Lead (first step)' : 'New Lead',
     html: getTemplate(lead, isPrelid, true),
     text: getTemplate(lead, isPrelid)
