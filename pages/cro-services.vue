@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const page = {
-  seoTitle: 'CRO Services with a Results Guarantee',
+  seoTitle: 'Conversion Rate Optimization Services with a Results Guarantee',
   seoDescription:
     'Grow your business with powerful Conversion Rate Optimization Services ✅ ​​We use data insights and A/B testing to improve website performance.',
   title_h1:

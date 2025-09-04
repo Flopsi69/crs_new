@@ -44,6 +44,8 @@ const props = defineProps({
   }
 });
 
+const route = useRoute();
+
 const info = computed(() => ({
   title: props.info.title ?? t('sectionHero.funnelInfo.title'),
   subtitle: props.info.subtitle ?? t('sectionHero.funnelInfo.subtitle'),
@@ -74,7 +76,8 @@ const form = reactive({
     page: location.href,
     form_title: props.info.title || '',
     id: props.id || ''
-  }
+  },
+  e_target: !route.fullPath.includes('e-commerce-lp') ? 'i' : 'g'
 });
 const error = reactive({
   name: '',
@@ -205,7 +208,11 @@ async function saveLead() {
     isLoading: false
   });
 
-  window.open('https://meetings.hubspot.com/ihor-sokolov?firstName=' + form.name + '&email=' + form.email, '_blank');
+  if (!route.fullPath.includes('e-commerce-lp')) {
+    window.open('https://meetings.hubspot.com/ihor-sokolov?firstName=' + form.name + '&email=' + form.email, '_blank');
+  } else {
+    window.open('https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=' + form.name + '&email=' + form.email, '_blank');
+  }
 
   modalTarget.value = 'success';
 }

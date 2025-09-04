@@ -11,18 +11,13 @@ useHead({
     <SectionHeroEcommerceLp />
     <SectionTrustedEcommerceLp />
     <SectionLeader />
-    <SectionClientVideos />
-    <SectionFounderVideos />
+    <!-- <SectionClientVideos /> -->
 
     <BaseSection>
       <CtaGuaranted />
     </BaseSection>
 
     <SectionProcess />
-
-    <BaseSection>
-      <CtaLimitedOffer />
-    </BaseSection>
 
     <SectionCaseStudies>
       <CtaRecieveAccess class="cta" />
