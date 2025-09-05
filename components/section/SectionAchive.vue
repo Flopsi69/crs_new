@@ -1,6 +1,16 @@
 <script lang="ts" setup>
+interface AchiveContent {
+  title: string;
+  list: {
+    cvr?: string[];
+    cac?: string[];
+    roas?: string[];
+    cltv?: string[];
+  };
+}
+
 defineProps<{
-  title?: string;
+  content?: AchiveContent;
 }>();
 
 const activeItem: Ref<number | null> = ref(0);
@@ -21,7 +31,7 @@ function setActiveItem(index: number) {
 <template>
   <BaseSection class="achive">
     <h2 class="achive__title title title-1">
-      {{ title || 'What do you want to achieve with Conversion Optimization Services?' }}
+      {{ content?.title || 'What do you want to achieve with Conversion Optimization Services?' }}
     </h2>
 
     <div class="achive__list">
@@ -40,19 +50,15 @@ function setActiveItem(index: number) {
           </div>
         </div>
         <div class="item__descr">
-          <p>
-            The core goal of Conversion Rate Optimization is to increase your
-            CvR and ARPU by making your funnel more efficient and boosting
-            average order value.
-          </p>
-          <p>
-            We achieve this by reducing friction at key funnel steps —
-            addressing user concerns and uncertainties while amplifying
-            conversion drivers.
-          </p>
-          <p>
-            Our focus is on pinpointing drop-off points and fixing them with
-            high-impact UX, UI, and copy improvements.
+          <p
+            v-for="(text, index) in content?.list?.cvr || [
+              'The core goal of Conversion Rate Optimization is to increase your CvR and ARPU by making your funnel more efficient and boosting average order value.',
+              'We achieve this by reducing friction at key funnel steps — addressing user concerns and uncertainties while amplifying conversion drivers.',
+              'Our focus is on pinpointing drop-off points and fixing them with high-impact UX, UI, and copy improvements.'
+            ]"
+            :key="index"
+          >
+            {{ text }}
           </p>
         </div>
       </div>
@@ -71,17 +77,15 @@ function setActiveItem(index: number) {
           </div>
         </div>
         <div class="item__descr">
-          <p>
-            CAC is influenced by two factors: the cost of bringing users to your
-            site or product (CPC) and your conversion rate.
-          </p>
-          <p>
-            CRO focuses on optimizing the funnel to improve CvR — making
-            customer acquisition more efficient.
-          </p>
-          <p>
-            In short, CRO helps you convert more users from the same traffic
-            volume, lowering your CAC.
+          <p
+            v-for="(text, index) in content?.list?.cac || [
+              'CAC is influenced by two factors: the cost of bringing users to your site or product (CPC) and your conversion rate.',
+              'CRO focuses on optimizing the funnel to improve CvR — making customer acquisition more efficient.',
+              'In short, CRO helps you convert more users from the same traffic volume, lowering your CAC.'
+            ]"
+            :key="index"
+          >
+            {{ text }}
           </p>
         </div>
       </div>
@@ -100,20 +104,15 @@ function setActiveItem(index: number) {
           </div>
         </div>
         <div class="item__descr">
-          <p>
-            ROAS depends on both funnel efficiency and the monetary value of
-            each conversion.
-          </p>
-
-          <p>
-            CRO improves ROAS by streamlining the funnel for paid traffic —
-            starting with the landing page and continuously optimizing every
-            step of the acquisition journey.
-          </p>
-
-          <p>
-            It also focuses on increasing average order value by encouraging
-            higher-value and higher-volume purchases.
+          <p
+            v-for="(text, index) in content?.list?.roas || [
+              'ROAS depends on both funnel efficiency and the monetary value of each conversion.',
+              'CRO improves ROAS by streamlining the funnel for paid traffic — starting with the landing page and continuously optimizing every step of the acquisition journey.',
+              'It also focuses on increasing average order value by encouraging higher-value and higher-volume purchases.'
+            ]"
+            :key="index"
+          >
+            {{ text }}
           </p>
         </div>
       </div>
@@ -132,15 +131,14 @@ function setActiveItem(index: number) {
           </div>
         </div>
         <div class="item__descr">
-          <p>
-            CLTV is driven by retention, repeat purchase rate, and the total
-            value of a customer’s payments over time.
-          </p>
-          <p>
-            User Experience Optimization (UXO) plays a key role by designing a
-            frictionless, compelling customer journey that fosters loyalty,
-            encourages repeat purchases, and increases order value through
-            effective upsell and cross-sell mechanisms.
+          <p
+            v-for="(text, index) in content?.list?.cltv || [
+              'CLTV is driven by retention, repeat purchase rate, and the total value of a customer\'s payments over time.',
+              'User Experience Optimization (UXO) plays a key role by designing a frictionless, compelling customer journey that fosters loyalty, encourages repeat purchases, and increases order value through effective upsell and cross-sell mechanisms.'
+            ]"
+            :key="index"
+          >
+            {{ text }}
           </p>
         </div>
       </div>

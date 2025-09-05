@@ -3,12 +3,40 @@ const page = {
   seoTitle: 'Conversion Rate Optimization Services with a Results Guarantee',
   seoDescription:
     'Grow your business with powerful Conversion Rate Optimization Services ✅ ​​We use data insights and A/B testing to improve website performance.',
-  title_h1:
-    'Conversion Rate Optimization Service with a <span>Results Guarantee</span>',
-  howItWorksTitle:
-    'Conversion Rate Optimization Service with a Results Guarantee',
-  achiveTitle:
-    'What do you want to achieve with Conversion Optimization Services?'
+  hero: {
+    title: 'Conversion Rate Optimization Service with a <span>Results Guarantee</span>'
+  },
+  howItWorks: {
+    title: 'Conversion Rate Optimization Service with a Results Guarantee'
+  },
+  achive: {
+    title: 'What do you want to achieve with Conversion Optimization Services?',
+    list: {
+      cvr: [
+        'The core goal of Conversion Rate Optimization is to increase your CvR and ARPU by making your funnel more efficient and boosting average order value.',
+        'We achieve this by reducing friction at key funnel steps — addressing user concerns and uncertainties while amplifying conversion drivers.',
+        'Our focus is on pinpointing drop-off points and fixing them with high-impact UX, UI, and copy improvements.'
+      ],
+      cac: [
+        'CAC is influenced by two factors: the cost of bringing users to your site or product (CPC) and your conversion rate.',
+        'CRO focuses on optimizing the funnel to improve CvR — making customer acquisition more efficient.',
+        'In short, CRO helps you convert more users from the same traffic volume, lowering your CAC.'
+      ],
+      roas: [
+        "ROAS depends on both funnel efficiency and the monetary value of each conversion.",
+        "CRO improves ROAS by streamlining the funnel for paid traffic — starting with the landing page and continuously optimizing every step of the acquisition journey.",
+        "It also focuses on increasing average order value by encouraging higher-value and higher-volume purchases."
+      ],
+      cltv: [
+        'CLTV is driven by retention, repeat purchase rate, and the total value of a customer\'s payments over time.',
+        'User Experience Optimization (UXO) plays a key role by designing a frictionless, compelling customer journey that fosters loyalty, encourages repeat purchases, and increases order value through effective upsell and cross-sell mechanisms.'
+      ]
+    }
+  },
+  compare: {
+    title: 'How <span>Conversion Rate Store</span> <br />compare to other CRO&nbsp;services',
+    comprateTableTitle: 'Other CRO services'
+  }
 }
 
 useSeoMeta({
@@ -100,11 +128,11 @@ const faqsItems = [
 
 <template>
   <main class="main">
-    <SectionServicesHero :title="page.title_h1" />
+    <SectionServicesHero :content="page.hero" />
     <SectionTrusted />
-    <SectionHowItWorks :title="page.howItWorksTitle" />
-    <SectionAchive :title="page.achiveTitle" />
-    <SectionCompareCroServices />
+    <SectionHowItWorks :content="page.howItWorks" />
+    <SectionAchive :content="page.achive" />
+    <SectionCompareCroServices :content="page.compare" />
     <SectionClientVideos />
     <SectionCaseStudies>
       <CtaRecieveAccess

@@ -3,11 +3,42 @@ const page = {
   seoTitle: 'Shopify CRO Services to Boost Your Store',
   seoDescription:
     'Elevate your Shopify store with expert CRO services. Increase conversions with data-driven strategies tailored to your eCommerce needs.',
-  title_h1: 'Shopify CRO Service with a <span>Results Guarantee</span>',
-  howItWorksTitle:
-    'Shopify Conversion Rate Optimization Service with a Results Guarantee',
-  achiveTitle:
-    'What do you want to achieve with Shopify Conversion Optimization Services?'
+  hero: {
+    title: 'Shopify CRO Service with a <span>Results Guarantee</span>',
+    caption: 'Estimate the conversion rate uplift for your Shopify store we’ll commit to — before you even sign.'
+  },
+  howItWorks: {
+    title: 'Our Shopify Optimization Process for High Conversion Rates'
+  },
+  achive: {
+    title: 'What do you want to achieve with Shopify Conversion Optimization Services?',
+    list: {
+      cvr: [
+        'The core goal of Shopify CRO is to elevate your CvR and ARPU through Shopify funnel optimization and strategic enhancements to your store’s performance.',
+        'We accomplish this by minimizing friction at critical stages of the customer journey, addressing user hesitations, and strengthening conversion drivers.',
+        'Our approach centers on identifying drop-off points and implementing A/B testing for Shopify to validate UX improvements, delivering high-impact UI and copy optimizations that boost average order value and drive measurable results.'
+      ],
+      cac: [
+        'CAC for your Shopify store is driven by two key factors: the cost of attracting users (CPC) and your CvR.',
+        'Shopify Conversion Rate Optimization enhances your store’s funnel efficiency, boosting CvR to make customer acquisition more cost-effective. ',
+        'By optimizing your Shopify funnel, CRO enables you to convert more visitors from existing traffic, significantly reducing your CAC.'
+      ],
+      roas: [
+        "ROAS relies on funnel efficiency and the value of each conversion.",
+        "Our Shopify CRO services enhance ROAS by optimizing the funnel for paid traffic, starting with high-converting landing pages and refining every step of the customer journey.",
+        "Through Shopify optimization services, we also increase average order value by encouraging higher-value and higher-volume purchases, ensuring your Shopify store achieves stronger profitability."
+      ],
+      cltv: [
+        'CLTV in Shopify is driven by retention, repeat purchase rates, and the total value of customer transactions over time. ',
+        'Our Shopify CRO Agency leverages User Experience Optimization (UXO) to create a seamless, engaging customer journey that fosters loyalty, drives repeat purchases, and increases order value through strategic upsell and cross-sell strategies. ',
+        'We maximize Shopify conversion rates and long-term revenue growth.'
+      ]
+    }
+  },
+  compare: {
+    title: 'How <span>Conversion Rate Store</span> <br />compare to other Shopify CRO&nbsp;agencies',
+    comprateTableTitle: 'Other Shopify CRO Agencies'
+  }
 }
 
 useSeoMeta({
@@ -51,17 +82,49 @@ const faqsItems = [
       "At ConversionRate.Store, we specialize in creating custom Shopify CRO strategies based on your unique store data and customer behavior. Our team uses a data-driven approach to identify pain points in your user journey and implement proven tactics to improve conversions.",
       "Our team of CRO experts will help you take advantage of all of the features of Shopify and Shopify Plus so that you can build the most perfectly optimized eCommerce store."
     ]
+  },
+  {
+    "question": "How to Identify the Right Shopify CRO Agency?",
+    "answer": [
+      "Selecting the ideal Shopify CRO agency involves evaluating their expertise, track record, and commitment to results.",
+      "Look for an agency with a proven history of boosting conversion rates, like Conversion Rate Store, which contractually guarantees uplift in key metrics such as CvR or ARPU. Ensure we use a data-driven approach with Shopify funnel optimization, conduct A/B testing for Shopify, and have industry recognition, such as being named CRO Agency of the Year." ,
+      "Check our case studies and client testimonials to confirm their ability to deliver measurable results for Shopify stores."
+    ]
+  },
+  {
+    "question": "How much does Shopify Conversion rate optimization cost?",
+    "answer": [
+      "The cost of Shopify CRO services varies depending on the scope and complexity of your project.",
+      "Pricing models typically include fixed project rates, monthly retainers, or hourly fees. Basic Shopify audits and small optimizations might start at a few hundred dollars, whereas comprehensive ongoing CRO programs involving UX redesign, continuous A/B testing, and data analysis can range from several thousand dollars per month.",
+      "At Conversion Rate Store, our remote model allows us to offer fees up to 40% lower than other leading US and European agencies while guaranteeing a specific uplift in revenue metrics"
+    ]
+  },
+  {
+    "question": "What is the best Shopify CRO strategy for 2025?",
+    "answer": [
+      "The best Shopify CRO strategy for 2025 focuses on personalization, mobile optimization, and data-driven experimentation. Key tactics include leveraging AI-powered product recommendations, streamlining checkout processes, and optimizing for faster page load times.",
+      "A/B testing high-impact elements like CTAs, product pages, and pricing displays remains critical. Additionally, incorporating video content and user-generated reviews can boost trust and engagement.",
+      "At Conversion Rate Store, we combine advanced analytics with tailored strategies to create a scalable CRO plan that keeps your Shopify store ahead of the curve."
+    ]
+  },
+  {
+    "question": "Can Shopify CRO improve mobile conversions?",
+    "answer": [
+      "Yes, Shopify CRO can significantly improve mobile conversions by addressing mobile-specific pain points. Optimizing for faster load times, responsive design, and intuitive navigation ensures a seamless user experience.",
+      "Simplifying mobile checkout processes, enhancing product visuals, and implementing thumb-friendly CTAs can lift conversion rates.",
+      "Our team at Conversion Rate Store uses data-driven insights to identify mobile user behavior and apply targeted optimizations, resulting in higher mobile conversions and increased revenue for your Shopify store."
+    ]
   }
 ]
 </script>
 
 <template>
   <main class="main">
-    <SectionServicesHero :title="page.title_h1" />
+    <SectionServicesHero :content="page.hero" />
     <SectionTrusted />
-    <SectionHowItWorks :title="page.howItWorksTitle" />
-    <SectionAchive :title="page.achiveTitle" />
-    <SectionCompareCroServices />
+    <SectionHowItWorks :content="page.howItWorks" />
+    <SectionAchive :content="page.achive" />
+    <SectionCompareCroServices :content="page.compare" />
     <SectionClientVideos />
     <SectionCaseStudies>
       <CtaRecieveAccess

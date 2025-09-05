@@ -1,14 +1,20 @@
 <script lang="ts" setup>
+
+defineProps<{
+  content?: {
+    title: string;
+    comprateTableTitle: string;
+  }
+}>()
 const { openModal } = useModal();
-const { t } = useI18n();
 </script>
 
 <template>
   <BaseSection class="compare text-center">
-    <h2 class="compare__title section-title title-1">
-      How <span>Conversion Rate Store</span> <br />
-      compare to other CRO&nbsp;services
-    </h2>
+    <h2
+      class="compare__title section-title title-1"
+      v-html="content?.title || `How <span>Conversion Rate Store</span> <br />compare to other CRO&nbsp;services`"
+    />
 
     <button
       class="compare__button button button_yellow compare__button_desk"
@@ -56,7 +62,9 @@ const { t } = useI18n();
       </div>
 
       <div class="compare__table table">
-        <div class="table__head subtitle-2">Other CRO services</div>
+        <div class="table__head subtitle-2">
+          {{ content?.comprateTableTitle || 'Other CRO services' }}
+        </div>
         <div class="table__cell table__cell-1">
           <div class="table__label">Result Guarantee</div>
           <div class="table__descr">
@@ -109,7 +117,7 @@ const { t } = useI18n();
       font-size: 28px;
       line-height: 1.3;
     }
-    span {
+    :deep(span) {
       color: #3C2FB0;
     }
   }

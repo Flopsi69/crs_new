@@ -1,6 +1,9 @@
 <script lang="ts" setup>
 defineProps<{
-  title?: string;
+  content?: {
+    title: string;
+    caption: string;
+  }
 }>();
 
 const { validateInput } = useValidateInput()
@@ -30,14 +33,13 @@ function handleOpenModal() {
 
         <h1
           class="info__subtitle title-1"
-          v-html="title || `Conversion Rate Optimization Service with a
+          v-html="content?.title || `Conversion Rate Optimization Service with a
           <span>Results Guarantee</span>`"
         />
 
         <div class="info__form-wrap form-wrap">
           <div class="form__caption subtitle-2">
-            Estimate the conversion rate uplift we’ll commit to — before you
-            even sign.
+            {{ content?.caption || 'Estimate the conversion rate uplift we’ll commit to — before you even sign.'}}
           </div>
           <div class="form flex">
             <BaseInput

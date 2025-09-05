@@ -1,13 +1,43 @@
 <script lang="ts" setup>
 const page = {
   seoTitle: 'App CRO Services to Boost User Engagement',
-    seoDescription:
+  seoDescription:
       'Boost your app’s performance with our CRO services. Improve user engagement and conversions with data-driven optimization strategies.',
-    title_h1: 'App CRO Service with a <span>Results Guarantee</span>',
-    howItWorksTitle:
-      'App Conversion Rate Optimization Service with a Results Guarantee',
-    achiveTitle:
-      'What do you want to achieve with App  Conversion Optimization Services?'
+  hero: {
+    title: 'App CRO Service with a <span>Results Guarantee</span>',
+    caption: 'Estimate the conversion rate uplift for your App we’ll commit to — before you even sign.'
+  },
+  howItWorks: {
+    title: 'Our App Optimization Process for High Conversion Rates'
+  },
+  achive: {
+    title: 'What do you want to achieve with App  Conversion Optimization Services?',
+    list: {
+      cvr: [
+        'The core mission of app conversion rate optimization is to increase your app conversion rate and ARPU by streamlining your app\'s funnel for maximum efficiency and boosting average transaction value.',
+        'Through mobile app conversion rate optimization, we reduce friction at key funnel stages, address user hesitations, and amplify conversion drivers.',
+        'Our app conversion optimization strategy focuses on identifying drop-off points and implementing high-impact UX, UI, and copy enhancements to drive more app conversions.'
+      ],
+      cac: [
+        'CAC for your app depends on two key factors: the cost of driving users to your app (CPC) and your conversion rate for mobile apps.',
+        'Our app conversion rate optimization services optimize your funnel to boost app conversions, making user acquisition more cost-effective.',
+        'In short, mobile app conversion rate optimization enables you to convert more users from the same traffic volume, significantly lowering your CAC.'
+      ],
+      roas: [
+        "ROAS hinges on funnel efficiency and the value of each conversion in your app.",
+        "Our app conversion optimization services enhance ROAS by refining the funnel for paid traffic, starting with optimized landing pages or app store pages and continuously improving every step of the user journey.",
+        "Additionally, app conversion rate optimization focuses on increasing average transaction value by encouraging higher-value and higher-volume in-app purchases, maximizing your app conversion rate."
+      ],
+      cltv: [
+        'CLTV in your app is driven by user retention, repeat engagement, and the total value of transactions over time.',
+        'Through mobile app conversion rate optimization and User Experience Optimization (UXO), we design a frictionless, compelling user journey that fosters loyalty, encourages repeat interactions, and boosts transaction value through effective upsell and cross-sell strategies, ultimately maximizing conversion rates for mobile apps and long-term revenue.'
+      ]
+    }
+  },
+  compare: {
+    title: 'How <span>Conversion Rate Store</span> <br />compare to other App CRO&nbsp;agencies',
+    comprateTableTitle: 'Other App CRO Agencies'
+  }
 }
 
 useSeoMeta({
@@ -50,17 +80,26 @@ const faqsItems = [
   {
     "question": "What is conversion to subscription?",
     "answer": "If you have just started a career in app development, you should learn not only the most important metrics such as conversion to subscription and their definitions, but also their interrelatedness, ways, processes, tactics, strategies to grow it and the main principles of data tracking, so that you're able to understand the optimization efforts. Schedule a consultation with our best optimization managers to get detailed answers to your specific questions."
+  },
+  {
+    "question": "What is app conversion rate optimization and how does it benefit my mobile app?",
+    "answer": "App conversion rate optimization (CRO) is the process of enhancing your app's conversion rate by improving the user journey to encourage desired actions, such as purchases or registrations. Our app conversion rate optimization services boost key metrics like conversions and revenue per user, increasing profitability without relying on additional traffic."
+  },
+  {
+    "question": "How does your app conversion rate optimization service guarantee results?",
+    "answer": "Our app conversion rate optimization services include a contractual commitment to deliver a specific uplift in key revenue metrics, such as app conversion rate or revenue per user. We analyze your app's funnel to forecast and guarantee performance improvements before you commit, ensuring predictable ROI."
   }
+
 ]
 </script>
 
 <template>
   <main class="main">
-    <SectionServicesHero :title="page.title_h1" />
+    <SectionServicesHero :content="page.hero" />
     <SectionTrusted />
-    <SectionHowItWorks :title="page.howItWorksTitle" />
-    <SectionAchive :title="page.achiveTitle" />
-    <SectionCompareCroServices />
+    <SectionHowItWorks :content="page.howItWorks" />
+    <SectionAchive :content="page.achive" />
+    <SectionCompareCroServices :content="page.compare" />
     <SectionClientVideos />
     <SectionCaseStudies>
       <CtaRecieveAccess

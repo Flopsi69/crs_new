@@ -3,11 +3,42 @@ const page = {
   seoTitle: 'eCommerce CRO Services for Max Conversions',
   seoDescription:
     'Top eCommerce CRO agency to boost your sales. Expert strategies to optimize conversions and grow your online store effectively.',
-  title_h1: 'eCommerce CRO Service with a <span>Results Guarantee</span>',
-  howItWorksTitle:
-    'eCommerce Conversion Rate Optimization Service with a Results Guarantee',
-  achiveTitle:
-    'What do you want to achieve with eCommerce  Conversion Optimization Services?'
+  hero: {
+    title: 'eCommerce CRO Service with a <span>Results Guarantee</span>',
+    caption: 'Estimate the conversion rate uplift for your Ecommerce we’ll commit to — before you even sign.'
+  },
+  howItWorks: {
+    title: 'Our Ecommerce Optimization Process for High Conversion Rates'
+  },
+  achive: {
+    title: 'What do you want to achieve with eCommerce  Conversion Optimization Services?',
+    list: {
+      cvr: [
+        'The core goal of ecommerce conversion rate optimization (CRO) is to maximize your ecommerce conversion rate and ARPU by enhancing the efficiency of your ecommerce funnel and increasing average order value.',
+        'Our CRO services for e-commerce reduce friction at critical funnel stages by addressing user pain points and uncertainties while amplifying key conversion drivers.',
+        'We identify drop-off points and implement high-impact UX, UI, and copy improvements to deliver measurable results through ecommerce optimization services.'
+      ],
+      cac: [
+        'CAC is driven by the cost of attracting users to your ecommerce store (CPC) and your ecommerce conversion rate.',
+        'Our ecommerce CRO services optimize your funnel to improve conversion rates, making customer acquisition more cost-effective.',
+        'In essence, CRO for ecommerce enables you to convert more visitors from the same traffic, reducing CAC and boosting efficiency.'
+      ],
+      roas: [
+        "ROAS relies on funnel efficiency and the value of each conversion.",
+        "Our ecommerce CRO services enhance ROAS by streamlining the funnel for paid traffic, starting with optimized landing pages and refining every step of the acquisition journey.",
+        "Through conversion rate optimization of ecommerce stores, we also focus on increasing average order value by encouraging higher-value purchases and larger order volumes."
+      ],
+      cltv: [
+        'CLTV is fueled by retention, repeat purchase rates, and the total value of a customer\'s transactions over time.',
+        'Our ecommerce optimization services prioritize a frictionless, engaging customer journey that fosters loyalty, boosts repeat purchases, and increases order value through strategic upsell and cross-sell tactics.',
+        'With CRO services for e-commerce, we create compelling experiences that maximize CLTV for your ecommerce store.'
+      ]
+    }
+  },
+  compare: {
+    title: 'How <span>Conversion Rate Store</span> <br />compare to other Ecommerce CRO&nbsp;agencies',
+    comprateTableTitle: 'Other Ecommerce CRO Agencies'
+  }
 }
 
 useSeoMeta({
@@ -48,17 +79,37 @@ const faqsItems = [
       "Development and QA of A/B tests",
       "Statistical analysis and reporting on growth results"
     ]]
+  },
+  {
+    "question": "Who are some clients that have benefited from your ecommerce conversion optimization consultant services?",
+    "answer": "Our ecommerce CRO services are trusted by market leaders, as evidenced by our portfolio and <a href='/case-studies'>the world's largest database of CRO case studies</a>. We deliver proven uplifts in ecommerce conversion rate for various business models, with clients achieving significant performance gains through our tailored ecommerce optimization services."
+  },
+  {
+    "question": "How can I estimate the uplift from your ecommerce conversion rate optimization services?",
+    "answer": "Before committing, our ecommerce conversion optimization consultant team analyzes your analytics to forecast the guaranteed uplift in key metrics like ecommerce conversion rate and ARPU. Use our estimation tool to get a preview of the potential results from conversion rate optimization of e-commerce stores, ensuring transparency and confidence in the outcomes."
+  },
+  {
+    "question": "How does your ecommerce conversion rate optimization service provide a results guarantee?",
+    "answer": "Our ecommerce conversion rate optimization services come with a contractual commitment to deliver a specific uplift in key revenue metrics, such as ecommerce conversion rate or revenue per user. As an experienced ecommerce conversion optimization consultant, we analyze your funnel to forecast and guarantee performance improvements before you sign, allowing you to confidently predict ROI."
+  },
+  {
+    "question": "How does an ecommerce conversion optimization consultant add value?",
+    "answer": "An ecommerce CRO consultant brings expertise in analyzing visitor data, performing A/B tests, and crafting targeted strategies. They provide actionable insights tailored to your store's unique audience and challenges to maximize conversions."
+  },
+  {
+    "question": "What are common conversion bottlenecks in e-commerce stores?",
+    "answer": "Typical issues include complicated checkout processes, slow loading times, poor mobile experience, unclear product information, and lack of trust signals. Optimizing these areas can significantly lift ecommerce conversion rates."
   }
 ]
 </script>
 
 <template>
   <main class="main">
-    <SectionServicesHero :title="page.title_h1" />
+    <SectionServicesHero :content="page.hero" />
     <SectionTrusted />
-    <SectionHowItWorks :title="page.howItWorksTitle" />
-    <SectionAchive :title="page.achiveTitle" />
-    <SectionCompareCroServices />
+    <SectionHowItWorks :content="page.howItWorks" />
+    <SectionAchive :content="page.achive" />
+    <SectionCompareCroServices :content="page.compare" />
     <SectionClientVideos />
     <SectionCaseStudies>
       <CtaRecieveAccess

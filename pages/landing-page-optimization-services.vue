@@ -3,11 +3,42 @@ const page = {
   seoTitle: 'Expert Landing Page Optimization Services for Uplift',
   seoDescription:
     'Optimize landing pages with Conversion Rate Store’s expert services. Proven A/B testing and UX optimization for maximum revenue uplift.',
-  title_h1: 'Landing Page Optimization Service with a <span>Results Guarantee</span>',
-  howItWorksTitle:
-    'Our Approach to Boosting Landing Page Performance',
-  achiveTitle:
-    'What do you want to achieve with Landing Page Optimization Services?'
+  hero: {
+    title: 'Landing Page Optimization Service with a <span>Results Guarantee</span>',
+    caption: 'Estimate the conversion rate uplift for your landing pages we’ll commit to — before you even sign.'
+  },
+  howItWorks: {
+    title: 'Our Approach to Boosting Landing Page Performance'
+  },
+  achive: {
+    title: 'What do you want to achieve with Landing Page Optimization Services?',
+    list: {
+      cvr: [
+        'The core goal of landing page optimization is to boost your CvR and ARPU by enhancing the efficiency of your landing page funnel and increasing average order value.',
+        'Our landing page optimization services reduce friction at critical funnel stages by addressing user concerns and uncertainties while amplifying conversion drivers.',
+        'We pinpoint drop-off points and implement high-impact UX, UI, and copy improvements to optimize your landing page performance.'
+      ],
+      cac: [
+        'CAC is driven by the cost of attracting users to your landing page (CPC) and your conversion rate.',
+        'Our landing page optimization services focus on refining the funnel to improve CvR, making customer acquisition more efficient.',
+        'In short, landing page optimization helps you convert more visitors from the same traffic volume, reducing CAC.'
+      ],
+      roas: [
+        "ROAS depends on funnel efficiency and the monetary value of each conversion.",
+        "Landing page optimization enhances ROAS by streamlining the funnel for paid traffic, starting with a highly optimized landing page and refining every step of the acquisition journey.",
+        "Our services also increase average order value by encouraging higher-value and higher-volume purchases."
+      ],
+      cltv: [
+        'CLTV is driven by retention, repeat purchase rates, and the total value of a customer\'s transactions over time.',
+        'Our landing page optimization services incorporate user experience optimization (UXO) to create a frictionless, compelling customer journey starting at the landing page.',
+        'This fosters loyalty, encourages repeat purchases, and boosts order value through strategic upsell and cross-sell mechanisms.'
+      ]
+    }
+  },
+  compare: {
+    title: 'How <span>Conversion Rate Store</span> <br />compare to other landing page optimization agencies',
+    comprateTableTitle: 'Other CRO Agencies'
+  }
 }
 
 useSeoMeta({
@@ -69,11 +100,11 @@ const faqsItems = [
 
 <template>
   <main class="main">
-    <SectionServicesHero :title="page.title_h1" />
+    <SectionServicesHero :content="page.hero" />
     <SectionTrusted />
-    <SectionHowItWorks :title="page.howItWorksTitle" />
-    <SectionAchive :title="page.achiveTitle" />
-    <SectionCompareCroServices />
+    <SectionHowItWorks :content="page.howItWorks" />
+    <SectionAchive :content="page.achive" />
+    <SectionCompareCroServices :content="page.compare" />
     <SectionClientVideos />
     <SectionCaseStudies>
       <CtaRecieveAccess

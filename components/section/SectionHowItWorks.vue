@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 defineProps<{
-  title?: string;
+  content?: {
+    title: string;
+  }
 }>();
 
 const { t } = useI18n();
@@ -22,7 +24,7 @@ function handleOpenModal() {
   <BaseSection class="how">
     <div class="how__label">How it works</div>
     <h2 class="how__title title title-1">
-      {{ title || `Conversion Rate Optimization Service with a Results Guarantee` }}
+      {{ content?.title || `Conversion Rate Optimization Service with a Results Guarantee` }}
     </h2>
 
     <div class="how__list">

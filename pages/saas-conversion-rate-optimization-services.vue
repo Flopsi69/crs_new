@@ -3,11 +3,41 @@ const page = {
   seoTitle: 'SaaS CRO Services for Higher Conversions',
   seoDescription:
     'Optimize your SaaS platform with our CRO services. Drive sign-ups and retention with expert strategies tailored for SaaS growth.',
-  title_h1: 'SaaS CRO Service with a <span>Results Guarantee</span>',
-  howItWorksTitle:
-    'Saas Conversion Rate Optimization Service with a Results Guarantee',
-  achiveTitle:
-    'What do you want to achieve with SaaS  Conversion Optimization Services?'
+  hero: {
+    title: 'SaaS CRO Service with a <span>Results Guarantee</span>',
+    caption: 'Estimate the conversion rate uplift for your SaaS we’ll commit to — before you even sign.'
+  },
+  howItWorks: {
+    title: 'Our SaaS Optimization Process for High Conversion Rates'
+  },
+  achive: {
+    title: 'What do you want to achieve with SaaS Conversion Optimization Services?',
+    list: {
+      cvr: [
+        'The primary objective of SaaS conversion rate optimization is to elevate your conversion rate in SaaS and increase ARPU by streamlining your funnel for maximum efficiency and enhancing average order value.',
+        'We achieve this through CRO for SaaS by minimizing friction at critical funnel stages, resolving user hesitations, and strengthening the drivers that fuel SaaS conversion rates.',
+        'Our SaaS conversion rate optimization strategy focuses on identifying and resolving drop-off points in your funnel with impactful UX, UI, and copy enhancements.'
+      ],
+      cac: [
+        'CAC depends on two key factors: the cost of driving traffic to your SaaS platform (CPC) and your conversion rate in SaaS.',
+        'Through CRO for SaaS, we optimize your funnel to boost SaaS conversion rates, making customer acquisition more cost-effective. ',
+        'In essence, conversion rate optimization for SaaS enables you to convert more users from existing traffic, significantly reducing CAC.'
+      ],
+      roas: [
+        "ROAS hinges on funnel efficiency and the value of each conversion, which our CRO for SaaS approach maximizes.",
+        "Conversion rate optimization for SaaS improves ROAS by refining the funnel for paid traffic, starting with optimized landing pages and extending through every stage of the acquisition journey.",
+        "Our CRO for SaaS approach also drives higher average order values by encouraging users to make higher-value and higher-volume purchases."
+      ],
+      cltv: [
+        'CLTV in SaaS is driven by retention, repeat purchase rates, and the cumulative value of customer payments over time.',
+        'Through SaaS conversion rate optimization and User Experience Optimization (UXO), we craft a frictionless, engaging customer journey that builds loyalty, promotes repeat purchases, and increases order value through strategic upsell and cross-sell tactics, ultimately maximizing conversion rates in SaaS and long-term revenue.',
+      ]
+    }
+  },
+  compare: {
+    title: 'How <span>Conversion Rate Store</span> <br />compare to other SaaS CRO&nbsp;agencies',
+    comprateTableTitle: 'Other SaaS CRO Agencies'
+  }
 }
 
 useSeoMeta({
@@ -39,17 +69,33 @@ const faqsItems = [
   {
     "question": "What is the average SaaS Free Trial Conversion Rate, and how can I exceed it?",
     "answer": "The average SaaS Free Trial Conversion Rate is around 9.24%. To exceed this benchmark, focus on providing an exceptional onboarding experience, offering clear value propositions during the trial period, and maintaining engagement through personalized communication to encourage upgrades."
+  },
+  {
+    "question": "How do you identify conversion bottlenecks in a SaaS product?",
+    "answer": "We analyze user data, heatmaps, session recordings, and funnel drop-off points to find where users abandon the process. This helps target specific pages or flows for improvement."
+  },
+  {
+    "question": "What CRO tools are commonly used for SaaS optimization?",
+    "answer": "Popular tools include Google Analytics (GA4), Hotjar, Optimizely, VWO, and Mixpanel. These help capture user behavior, run A/B tests, and measure the impact of changes."
+  },
+  {
+    "question": "How long does a typical SaaS conversion rate optimization project take?",
+    "answer": "Project duration depends on scope but generally ranges from 3 to 6 months of continuous analysis, testing, and optimizations to achieve meaningful results."
+  },
+  {
+    "question": "How do you measure success in SaaS conversion rate optimization?",
+    "answer": "Success is tracked via KPIs such as conversion rates at key funnel steps, customer acquisition cost (CAC), trial-to-paid conversion, and customer lifetime value (LTV)."
   }
 ]
 </script>
 
 <template>
   <main class="main">
-    <SectionServicesHero :title="page.title_h1" />
+    <SectionServicesHero :content="page.hero" />
     <SectionTrusted />
-    <SectionHowItWorks :title="page.howItWorksTitle" />
-    <SectionAchive :title="page.achiveTitle" />
-    <SectionCompareCroServices />
+    <SectionHowItWorks :content="page.howItWorks" />
+    <SectionAchive :content="page.achive" />
+    <SectionCompareCroServices :content="page.compare" />
     <SectionClientVideos />
     <SectionCaseStudies>
       <CtaRecieveAccess
