@@ -33,7 +33,7 @@ const headerConfig: Record<string, HeaderConfig> = {
     isDark: true,
     background: '#4d3a98'
   },
-  'cro-services': {
+  'conversion-rate-optimization-services': {
     isDark: true,
     background: '#3219AF'
   },

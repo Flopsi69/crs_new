@@ -7,7 +7,7 @@ export default {
     },
     {
       title: 'menu.croServices',
-      url: '/cro-services',
+      url: '/conversion-rate-optimization-services',
       isActive: true
     },
     {

@@ -2,7 +2,7 @@
 defineProps<{
   content?: {
     title: string;
-    caption: string;
+    caption?: string;
   }
 }>();
 
