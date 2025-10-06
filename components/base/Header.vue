@@ -260,9 +260,8 @@ const styleConfig = computed(() => {
   align-items: center;
   margin-left: auto;
   gap: 40px;
-  @media(max-width: 1100px) {
-    gap: 30px;
-    font-size: 14px;
+  @media(max-width: 1200px) {
+    gap: 25px;
   }
   @media(max-width: $md) {
     padding: 24px 20px;
@@ -380,12 +379,16 @@ const styleConfig = computed(() => {
     font-size: 18px;
     transition: color .25s;
     padding: 5px 0;
+    @media(max-width: 1200px) {
+      font-size: 14px;
+    }
     @media(hover: hover) {
       &:hover {
         color: $yellow;
       }
     }
     @media(max-width: $md) {
+      font-size: 18px;
       width: 100%;
       line-height: 26px;
       padding: 0;
