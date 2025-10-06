@@ -32,8 +32,8 @@ const styleConfig = computed(() => {
     class="footer"
     :style="{ background: styleConfig.background }"
   >
-    <div class="container">
-      <div class="footer__top flex-between">
+    <div class="container footer__container flex align-center">
+      <div class="footer__info">
         <NuxtLink
           to="/"
           class="logo lh-0"
@@ -44,42 +44,49 @@ const styleConfig = computed(() => {
           />
         </NuxtLink>
 
+        <div class="copyright copyright_desk">
+          {{ t('general.copyright') }}
+        </div>
+      </div>
+
+      <div class="footer__column">
+        <div class="footer__column-title">Our Services</div>
         <nav
-          v-if="menu?.navigation?.length"
-          class="nav flex"
+          v-if="menu?.footerServices?.length"
+          class="footer__nav nav"
         >
           <NuxtLink
-            v-for="menuItem in menu.navigation.filter(i => i.isActive)"
+            v-for="menuItem in menu.footerServices"
             :key="menuItem.title"
             :to="menuItem.url"
             class="nav__link"
-            external
+            :external="menuItem.external"
           >
             {{ t(menuItem.title) }}
           </NuxtLink>
         </nav>
       </div>
 
-      <div class="footer__bottom flex justify-between">
-        <div class="copyright">
-          {{ t('general.copyright') }}
-        </div>
-
-        <div
-          v-if="menu?.serviceLinks?.length"
-          class="meta flex"
+      <div class="footer__column">
+        <div class="footer__column-title">About Us</div>
+        <nav
+          v-if="menu?.footerAbout?.length"
+          class="footer__nav nav"
         >
           <NuxtLink
-            v-for="(linkItem, index) in menu.serviceLinks"
-            :key="index"
-            :to="linkItem.url"
-            class="meta__link"
-            target="_blank"
-            external
+            v-for="menuItem in menu.footerAbout"
+            :key="menuItem.title"
+            :to="menuItem.url"
+            class="nav__link"
+            :external="menuItem.external"
           >
-            {{ t(linkItem.title) }}
+            {{ t(menuItem.title) }}
           </NuxtLink>
-        </div>
+        </nav>
+      </div>
+
+      <div class="copyright copyright_mob">
+        {{ t('general.copyright') }}
       </div>
     </div>
   </footer>
@@ -89,75 +96,85 @@ const styleConfig = computed(() => {
 .footer {
   padding: 60px 0;
   color: #fff;
-  background: repeating-linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.11) 0,
-    rgba(255, 255, 255, 0.11) 0.5px,
-    transparent 0.5px,
-    transparent 100px
-  ), linear-gradient(180deg, #392DAC 0%, #5E4EDF 100%);
+  background: #3E3596;
+  // background: repeating-linear-gradient(
+  //   to right,
+  //   rgba(255, 255, 255, 0.11) 0,
+  //   rgba(255, 255, 255, 0.11) 0.5px,
+  //   transparent 0.5px,
+  //   transparent 100px
+  // ), linear-gradient(180deg, #392DAC 0%, #5E4EDF 100%);
   @media(max-width: $sm) {
-    padding-top: 42px;
-    padding-bottom: 25px;
-    background: linear-gradient(180deg, #392DAC 0%, #5E4EDF 100%);
+    padding: 32px 0;
+    // background: linear-gradient(180deg, #392DAC 0%, #5E4EDF 100%);
   }
-  &__top {
-    gap: 15px;
+  &__container {
+    gap: 40px;
     @media(max-width: $md) {
-      align-items: flex-start;
+      gap: 20px;
+    }
+    @media(max-width: $sm) {
       flex-flow: column;
+      align-items: flex-start;
       gap: 32px;
     }
   }
-  &__bottom {
-    margin-top: 55px;
-    @media(max-width: $md) {
-      flex-flow: column-reverse;
-      gap: 18px;
-      margin-top: 32px;
-    }
+  &__info {
+    max-width: 454px;
+    width: 100%;
+    margin-right: auto;
   }
 }
+
 
 .logo {
   line-height: 0;
   img {
-    width: 141px;
-  }
-}
-
-.nav {
-  gap: 40px;
-  @media(max-width: 1100px) {
-    font-size: 14px;
-    gap: 20px;
-  }
-  @media(max-width: $md) {
-    gap: 16px;
-  }
-  @media(max-width: $sm) {
-    flex-flow: column;
-    font-size: 16px;
-  }
-
-  &__link:hover {
-    transition: color 0.3s;
-    @media(hover:hover) {
-      color: $yellow;
+    width: 200px;
+    @media(max-width: $sm) {
+      width: 141px;
     }
   }
 }
 
 .copyright {
-  font-size: 12px;
+  margin-top: 28px;
+  font-size: 14px;
+  line-height: 24px;
+  @media(max-width: $sm) {
+    font-size: 12px;
+    margin-top: 0;
+    line-height: normal;
+  }
+  &_mob {
+    display: none;
+    @media(max-width: $sm) {
+      display: block;
+    }
+  }
+  &_desk {
+    @media(max-width: $sm) {
+      display: none;
+    }
+  }
 }
 
-.meta {
-  gap: 20px;
+.nav {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 220px;
+  margin-top: 16px;
+  @media(max-width: $md) {
+    min-width: 180px;
+  }
   &__link {
-    font-size: 12px;
-    &:hover {
-      @media(hover:hover) {
+    font-size: 14px;
+    font-weight: 400;
+    @media(hover:hover) {
+      &:hover {
+        transition: color 0.3s;
         color: $yellow;
       }
     }

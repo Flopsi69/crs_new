@@ -181,7 +181,7 @@ function handleOpenModal() {
     gap: 20px;
   }
   &__caption {
-    max-width: 440px;
+    max-width: 450px;
     @media(max-width: $sm) {
       font-size: 18px;
     }

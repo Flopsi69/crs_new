@@ -70,7 +70,7 @@ const leadersIcons = [
   }
   &__row {
     position: relative;
-    z-index: 22;
+    // z-index: 22;
     gap: 60px;
     @media(max-width: $md) {
       z-index: 1;

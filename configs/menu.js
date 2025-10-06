@@ -1,69 +1,124 @@
 export default {
-  navigation: [
+  headerNavigation: [
     {
       title: 'menu.home',
       url: '/',
-      isActive: true
     },
     {
       title: 'menu.croServices',
       url: '/conversion-rate-optimization-services',
-      isActive: true
+      subMenu: [
+        {
+          title: 'menu.seoEcommerce',
+          url: '/ecommerce-conversion-rate-optimization-services',
+        },
+        {
+          title: 'menu.seoSaas',
+          url: '/saas-conversion-rate-optimization-services',
+        },
+        {
+          title: 'menu.seoLanding',
+          url: '/landing-page-optimization-services',
+        },
+        {
+          title: 'menu.seoShopify',
+          url: '/shopify-conversion-rate-optimization-services',
+        },
+        {
+          title: 'menu.seoApp',
+          url: '/app-conversion-rate-optimization-services',
+        },
+      ]
+    },
+    {
+      title: 'menu.audit',
+      url: 'https://conversionrate.store/cro-audit',
     },
     {
       title: 'menu.caseStudies',
       url: '/case-studies',
-      isActive: true
     },
     {
       title: 'menu.aboutUs',
       url: '/about-us',
-      isActive: true
     },
     {
       title: 'menu.blog',
       url: '/blog',
-      isActive: true
-    },
-    {
-      title: 'menu.career',
-      url: 'https://conversionrate.store/career',
-      isActive: true
     },
     {
       title: 'menu.contactUs',
       url: 'https://conversionrate.store/contact-us',
-      isActive: true
     }
-    // {
-    //   title: 'menu.ecommerce',
-    //   url: 'https://conversionrate.store/ecommerce-cro-agency/',
-    //   isActive: false
-    // // },
-    // {
-    //   title: 'menu.performance',
-    //   url: 'https://conversionrate.store/performance-based-cro',
-    //   isActive: false
-    // },
-    // {
-    //   title: 'menu.retainer',
-    //   url: 'https://conversionrate.store/cro-retainer',
-    //   isActive: false
-    // },
-    // {
-    //   title: 'menu.audit',
-    //   url: 'https://conversionrate.store/cro-audit',
-    //   isActive: false
-    // }
   ],
   serviceLinks: [
     {
       title: 'menu.sitemap',
       url: '/sitemap.xml'
     },
+  ],
+  footerServices: [
+    {
+      title: 'menu.croServices',
+      url: '/conversion-rate-optimization-services',
+    },
+    {
+      title: 'menu.seoLanding',
+      url: '/landing-page-optimization-services',
+    },
+    {
+      title: 'menu.seoShopify',
+      url: '/shopify-conversion-rate-optimization-services',
+    },
+    {
+      title: 'menu.seoApp',
+      url: '/app-conversion-rate-optimization-services',
+    },
+    {
+      title: 'menu.seoEcommerce',
+      url: '/ecommerce-conversion-rate-optimization-services',
+    },
+    {
+      title: 'menu.seoSaas',
+      url: '/saas-conversion-rate-optimization-services',
+    },
+    {
+      title: 'menu.audit',
+      url: 'https://conversionrate.store/cro-audit',
+      external: true
+    },
+  ],
+  footerAbout: [
+    {
+      title: 'menu.home',
+      url: '/',
+    },
+      {
+      title: 'menu.whoWeAre',
+      url: '/about-us',
+    },
+    {
+      title: 'menu.blog',
+      url: '/blog',
+    },
+    {
+      title: 'menu.caseStudies',
+      url: '/case-studies',
+    },
+    {
+      title: 'menu.career',
+      url: 'https://conversionrate.store/career',
+      external: true
+    },
+    {
+      title: 'menu.contactUs',
+      url: 'https://conversionrate.store/contact-us',
+      external: true
+    },
     {
       title: 'menu.privacy',
-      url: 'https://conversionrate.store/privacy'
+      url: 'https://conversionrate.store/privacy',
+      external: true
     }
   ]
 }
