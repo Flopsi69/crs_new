@@ -10,18 +10,16 @@ interface Body {
 
 const { validateInput } = useValidateInput()
 
-// @ts-ignore
 defineEmits(['closeModal'])
-
 
 const list = [
   'Data-driven optimizations that increased conversion rates',
   'Proven CRO strategies with measurable results',
   'Real-world success stories of revenue growth',
-];
+]
 const logos = [
-  'microsoft.svg', 'comodo.svg', 'samcart.svg', 'macPaw.svg', 'reckitt.svg'
-];
+  'microsoft.svg', 'comodo.svg', 'samcart.svg', 'macPaw.svg', 'reckitt.svg',
+]
 
 const form = reactive({
   name: '',
@@ -30,17 +28,17 @@ const form = reactive({
   metadata: {
     page: location.href,
     form_title: 'Exit intent popup',
-    id: 'exit_intent_popup'
-  }
-});
+    id: 'exit_intent_popup',
+  },
+})
 const error = reactive({
   name: '',
   url: '',
   email: '',
-  agree: false
-});
+  agree: false,
+})
 
-const { closeModal } = useModal();
+const { closeModal } = useModal()
 const toast = useToast()
 const gtm = useGtm()
 const mailchimp = useMailchimp()
@@ -48,121 +46,121 @@ const excel = useExcel()
 const telegramBot = useTelegram()
 const mailer = useMailer()
 
-const step = ref(1);
-const isAgree = ref(true);
-const isSubmitted = ref(false);
+const step = ref(1)
+const isAgree = ref(true)
+const isSubmitted = ref(false)
 const isLoading = ref(false)
 
 async function subscribeNewsletter() {
-  error.name = validateInput(form.name, 'name');
-  error.email = validateInput(form.email, 'email');
+  error.name = validateInput(form.name, 'name')
+  error.email = validateInput(form.email, 'email')
 
   if (error.name || error.email) return
 
   if (!isAgree.value) {
-    error.agree = true;
-    toast.error('Please agree to the terms');
-    return;
+    error.agree = true
+    toast.error('Please agree to the terms')
+    return
   }
 
-  isLoading.value = true;
-  const toastLoading = toast.loading('Submitting your data...');
+  isLoading.value = true
+  const toastLoading = toast.loading('Submitting your data...')
 
   gtm?.trackEvent({
     event: 'gtm_hubspot_newsletter',
-    data: {...toRaw(form)}
+    data: { ...toRaw(form) },
   })
 
   const body: Body = {
     audience: 'newsletter',
-    data: { ...form, title: 'Exit intent popup' }
+    data: { ...form, title: 'Exit intent popup' },
   }
 
   telegramBot.send({
     name: form.name,
-    email: form.email
+    email: form.email,
   })
   excel.save(body)
   await mailchimp.save(body)
 
-  isLoading.value = false;
+  isLoading.value = false
 
   if (mailchimp.error.value) {
     toast.update(toastLoading, {
       type: 'error',
       render: 'Error submitting data',
       autoClose: true,
-      isLoading: false
-    });
+      isLoading: false,
+    })
 
-    return;
+    return
   }
 
   toast.update(toastLoading, {
     type: 'success',
     render: 'Data submitted successfully',
     autoClose: true,
-    isLoading: false
-  });
+    isLoading: false,
+  })
 
-  isSubmitted.value = true;
+  isSubmitted.value = true
 }
 
 async function saveLead() {
-  error.url = validateInput(form.url, 'url');
+  error.url = validateInput(form.url, 'url')
 
   if (error.url) {
-    toast.error('Please enter a valid URL');
-    return;
+    toast.error('Please enter a valid URL')
+    return
   }
 
-  const toastLoading = toast.loading('Submitting your data...');
-  isLoading.value = true;
+  const toastLoading = toast.loading('Submitting your data...')
+  isLoading.value = true
 
   gtm?.trackEvent({
     event: 'gtm_hubspot',
-    data:  { ...toRaw(form) }
+    data: { ...toRaw(form) },
   })
 
   const body: Body = {
     audience: 'lead',
-    data: { ...form, title: 'Exit intent popup' }
+    data: { ...form, title: 'Exit intent popup' },
   }
 
   mailchimp.save(body)
   mailer.send(form)
   await excel.save(body)
 
-  isLoading.value = false;
+  isLoading.value = false
 
   if (excel.error.value) {
     toast.update(toastLoading, {
       type: 'error',
       render: 'Error submitting data',
       autoClose: true,
-      isLoading: false
-    });
+      isLoading: false,
+    })
 
-    return;
+    return
   }
 
   toast.update(toastLoading, {
     type: 'success',
     render: 'Data submitted successfully',
     autoClose: true,
-    isLoading: false
-  });
+    isLoading: false,
+  })
 
-  window.open('https://meetings.hubspot.com/ihor-sokolov?firstName=' + form.name + '&email=' + form.email, '_blank');
+  window.open('https://meetings.hubspot.com/ihor-sokolov?firstName=' + form.name + '&email=' + form.email, '_blank')
 
-  step.value = 3;
+  step.value = 3
 }
 </script>
 
 <template>
   <div
     class="modal modal_exit-intent"
-    :class="{modal_lead: step === 2 && isSubmitted}"
+    :class="{ modal_lead: step === 2 && isSubmitted }"
   >
     <div
       v-if="isSubmitted"
@@ -191,7 +189,9 @@ async function saveLead() {
         v-if="step === 2"
         class="lead"
       >
-        <div class="lead__subtitle subtitle-1">On its way to your inbox!</div>
+        <div class="lead__subtitle subtitle-1">
+          On its way to your inbox!
+        </div>
 
         <h2 class="lead__title title-1">
           Get a <span class="color-yellow">FREE CRO audit</span> with a plan to
@@ -208,6 +208,7 @@ async function saveLead() {
 
         <div class="lead__form flex">
           <BaseInput
+            id="exit-intent_url"
             v-model="form.url"
             class="lead__input"
             required
@@ -215,7 +216,6 @@ async function saveLead() {
             icon="fa6-solid:link"
             :error="error.url"
             @click="error.url = ''"
-            id="exit-intent_url"
           />
           <!-- :error="error" -->
           <!-- @click="error = ''" -->
@@ -235,7 +235,9 @@ async function saveLead() {
         v-if="step === 3"
         class="success__info text-center"
       >
-        <div class="success__title title-1">Thank You!</div>
+        <div class="success__title title-1">
+          Thank You!
+        </div>
 
         <div class="success__subtitle subtitle-1">
           We have received your request and will be in touch shortly
@@ -262,7 +264,7 @@ async function saveLead() {
     >
       <div
         class="info bg-purple_dark"
-        :class="{info_hide: step !== 1}"
+        :class="{ info_hide: step !== 1 }"
       >
         <div class="info__head flex-between">
           <img
@@ -357,8 +359,8 @@ async function saveLead() {
       </div>
 
       <div
-        class="form__wrap bg-white"
         v-else
+        class="form__wrap bg-white"
       >
         <img
           class="logo form__logo"
@@ -384,10 +386,11 @@ async function saveLead() {
         </h3>
 
         <div
-          class="form"
           v-auto-animate
+          class="form"
         >
           <BaseInput
+            id="exit-intent_name"
             v-model="form.name"
             small
             label="Full name"
@@ -396,10 +399,10 @@ async function saveLead() {
             icon="fa6-solid:user"
             :error="error.name"
             @click="error.name = ''"
-            id="exit-intent_name"
           />
 
           <BaseInput
+            id="exit-intent_email"
             v-model="form.email"
             small
             label="Business email"
@@ -408,7 +411,6 @@ async function saveLead() {
             icon="fa6-solid:envelope"
             :error="error.email"
             @click="error.email = ''"
-            id="exit-intent_email"
           />
         </div>
 
@@ -423,7 +425,7 @@ async function saveLead() {
 
         <div
           class="agree text flex"
-          :class="{active: isAgree, error: error.agree}"
+          :class="{ active: isAgree, error: error.agree }"
           @click="isAgree = !isAgree; error.agree = false"
         >
           By submitting this form, you agree to receive the requested

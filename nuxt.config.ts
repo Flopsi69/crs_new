@@ -2,37 +2,21 @@ import { fileURLToPath } from 'url'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+
+  modules: [
+    '@nuxtjs/seo',
+    '@nuxt/eslint',
+    '@nuxt/icon',
+    '@nuxt/image',
+    '@nuxtjs/i18n',
+    '@vueuse/nuxt',
+    '@zadigetvoltaire/nuxt-gtm',
+    'vue3-carousel-nuxt',
+    '@formkit/auto-animate/nuxt',
+    'nuxt-resend',
+    'nuxt-aos',
+  ],
   devtools: { enabled: true },
-
-  features: {
-    // inlineStyles: false // or a function to determine inlining
-  },
-
-  telemetry: {
-    enabled: false
-  },
-
-  site: {
-    url: 'https://conversionrate.store',
-    name: 'Conversion Rate Store'
-  },
-
-  // experimental: {
-  //   // @ts-ignore
-  //   inlineSSRStyles: false
-  // },
-
-  // ...(process.env.NODE_ENV !== 'development' && {
-  routeRules: {
-    '/case-studies': { swr: 60 * 5 },
-    '/case-studies/**': { swr: 60 * 5 }
-    // '/cro-services': { prerender: true },
-    // '/saas-conversion-rate-optimization-services': { prerender: true },
-    // '/ecommerce-conversion-rate-optimization-services': { prerender: true },
-    // '/landing-page-optimization-services': { prerender: true },
-    // '/shopify-conversion-rate-optimization-services': { prerender: true },
-    // '/app-conversion-rate-optimization-services': { prerender: true }
-  },
 
   // nitro: {
   //   prerender: {
@@ -52,25 +36,98 @@ export default defineNuxtConfig({
       meta: [
         {
           name: 'google-site-verification',
-          content: 'Fn7FA9pzNzwU-HJR8v8udMGPONHkfD6fdENRnUt1-ps'
-        }
-      ]
-    }
+          content: 'Fn7FA9pzNzwU-HJR8v8udMGPONHkfD6fdENRnUt1-ps',
+        },
+      ],
+    },
   },
 
-  modules: [
-    '@nuxtjs/seo',
-    '@nuxt/eslint',
-    '@nuxt/icon',
-    '@nuxt/image',
-    '@nuxtjs/i18n',
-    '@vueuse/nuxt',
-    '@zadigetvoltaire/nuxt-gtm',
-    'vue3-carousel-nuxt',
-    '@formkit/auto-animate/nuxt',
-    'nuxt-resend',
-    'nuxt-aos'
-  ],
+  css: ['~/assets/styles/global.scss'],
+
+  site: {
+    url: 'https://conversionrate.store',
+    name: 'Conversion Rate Store',
+  },
+
+  runtimeConfig: {
+    mailchimp: {
+      serverPrefix: 'us17',
+      audienceNewsletterId: process.env.MAILCHIMP_AUDIENCE_NEWSLETTER_ID,
+      audienceLeadsId: process.env.MAILCHIMP_AUDIENCE_LEADS_ID,
+      apiKey: process.env.MAILCHIMP_API_KEY,
+    },
+    telegram: {
+      botToken: process.env.TELEGRAM_BOT_TOKEN,
+      chatId: process.env.TELEGRAM_CHAT_ID,
+    },
+    spreadsheetId: process.env.GOOGLE_SPREEDSHEET_ID,
+    googleCredentials: {
+      type: 'service_account',
+      project_id: process.env.GOOGLE_PROJECT_ID,
+      private_key_id: process.env.GOOGLE_PRIVATE_KEY_ID,
+      private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+      client_email: process.env.GOOGLE_CLIENT_EMAIL,
+      client_id: '116906147343419850380',
+    },
+    resend: {
+      apiKey: process.env.RESEND_API_KEY,
+    },
+  },
+
+  alias: {
+    img: fileURLToPath(new URL('./assets/images', import.meta.url)),
+  },
+
+  // experimental: {
+  //   // @ts-ignore
+  //   inlineSSRStyles: false
+  // },
+
+  // ...(process.env.NODE_ENV !== 'development' && {
+  routeRules: {
+    '/case-studies': { swr: 60 * 5 },
+    '/case-studies/**': { swr: 60 * 5 },
+    // '/cro-services': { prerender: true },
+    // '/saas-conversion-rate-optimization-services': { prerender: true },
+    // '/ecommerce-conversion-rate-optimization-services': { prerender: true },
+    // '/landing-page-optimization-services': { prerender: true },
+    // '/shopify-conversion-rate-optimization-services': { prerender: true },
+    // '/app-conversion-rate-optimization-services': { prerender: true }
+  },
+
+  features: {
+    // inlineStyles: false // or a function to determine inlining
+  },
+
+  compatibilityDate: '2025-05-15',
+
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "~/assets/styles/_variables.scss" as *;',
+        },
+      },
+    },
+  },
+
+  telemetry: {
+    enabled: false,
+  },
+
+  eslint: {
+    config: {
+      stylistic: true,
+    },
+  },
+
+  gtm: {
+    id: 'GTM-MR6SLVZ6',
+    compatibility: true,
+    enabled: process.env.NODE_ENV === 'production',
+    debug: false,
+    devtools: false,
+  },
 
   i18n: {
     locales: [
@@ -79,8 +136,8 @@ export default defineNuxtConfig({
         name: 'English',
         nameEnglish: 'English',
         language: 'en',
-        file: 'en/en.json'
-      }
+        file: 'en/en.json',
+      },
       // {
       //   code: 'de',
       //   name: 'Deutsch',
@@ -105,67 +162,18 @@ export default defineNuxtConfig({
     ],
     compilation: {
       strictMessage: false,
-      escapeHtml: false
+      escapeHtml: false,
     },
     bundle: {
       fullInstall: false,
-      optimizeTranslationDirective: false
+      optimizeTranslationDirective: false,
     },
     baseUrl: 'https://conversionrate.store',
     defaultLocale: 'en',
     debug: false,
-    lazy: true
+    lazy: true,
     // langDir: './locales/'
     // restructureDir: ''
-  },
-
-  gtm: {
-    id: 'GTM-MR6SLVZ6',
-    defer: true,
-    compatibility: true,
-    debug: process.env.NODE_ENV !== 'production' ? false : false,
-    devtools: process.env.NODE_ENV !== 'production' ? false : false
-  },
-
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: '@use "~/assets/styles/_variables.scss" as *;'
-        }
-      }
-    }
-  },
-
-  css: ['~/assets/styles/global.scss'],
-
-  alias: {
-    img: fileURLToPath(new URL('./assets/images', import.meta.url))
-  },
-
-  runtimeConfig: {
-    mailchimp: {
-      serverPrefix: 'us17',
-      audienceNewsletterId: process.env.MAILCHIMP_AUDIENCE_NEWSLETTER_ID,
-      audienceLeadsId: process.env.MAILCHIMP_AUDIENCE_LEADS_ID,
-      apiKey: process.env.MAILCHIMP_API_KEY
-    },
-    telegram: {
-      botToken: process.env.TELEGRAM_BOT_TOKEN,
-      chatId: process.env.TELEGRAM_CHAT_ID
-    },
-    spreadsheetId: process.env.GOOGLE_SPREEDSHEET_ID,
-    googleCredentials: {
-      type: 'service_account',
-      project_id: process.env.GOOGLE_PROJECT_ID,
-      private_key_id: process.env.GOOGLE_PRIVATE_KEY_ID,
-      private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
-      client_email: process.env.GOOGLE_CLIENT_EMAIL,
-      client_id: '116906147343419850380'
-    },
-    resend: {
-      apiKey: process.env.RESEND_API_KEY
-    }
   },
 
   sitemap: {
@@ -173,7 +181,7 @@ export default defineNuxtConfig({
       '/case-studies/dev',
       '/index-old',
       '/e-commerce-lp',
-      '/contact-us-new'
+      '/contact-us-new',
     ],
     sitemaps: {
       pages: {
@@ -182,48 +190,46 @@ export default defineNuxtConfig({
         //   changefreq: 'daily', // or 'weekly', 'monthly', etc.
         //   priority: 1
         // },
-        urls: [{ loc: '/cro-audit/' }, { loc: '/career/' }]
+        urls: [{ loc: '/cro-audit/' }, { loc: '/career/' }],
       },
       cases: {
         defaults: {
           changefreq: 'daily', // or 'weekly', 'monthly', etc.
-          priority: 0.7
+          priority: 0.7,
         },
         async urls() {
           const res = await fetch(
-            'https://stageserver.conversionrate.store/api/case-studies?select=url,status'
+            'https://stageserver.conversionrate.store/api/case-studies?select=url,status',
           )
 
           const urlsRaw = await res.json()
 
           return urlsRaw
-            .filter((i) => i.status !== 'INACTIVE')
+            .filter(i => i.status !== 'INACTIVE')
             .map((i: { url: string }) => ({
-              loc: `/case-studies/${i.url}`
+              loc: `/case-studies/${i.url}`,
             }))
-        }
+        },
       },
       blog: {
         defaults: {
           changefreq: 'daily', // or 'weekly', 'monthly', etc.
-          priority: 0.7
+          priority: 0.7,
         },
         async urls() {
           const res = await fetch(
-            'https://stageserver.conversionrate.store/api/case-studies/blog?select=url,status'
+            'https://stageserver.conversionrate.store/api/case-studies/blog?select=url,status',
           )
 
           const urlsRaw = await res.json()
 
           return urlsRaw
-            .filter((i) => i.status === 'ACTIVE')
+            .filter(i => i.status === 'ACTIVE')
             .map((i: { url: string }) => ({
-              loc: `/blog/${i.url}`
+              loc: `/blog/${i.url}`,
             }))
-        }
-      }
-    }
+        },
+      },
+    },
   },
-
-  compatibilityDate: '2025-05-15'
 })

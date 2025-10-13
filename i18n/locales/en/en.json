@@ -122,10 +122,10 @@
   },
   "welcome": "Welcome to our site!",
   "sectionHero": {
-    "title": "AI Powered Conversion Optimization Agency",
+    "title": "Top Rated and Award-Winning CRO Service",
     "subtitle": {
       "prefix": " Improve your",
-      "suffix": "revenue metrics with our award-winning CRO agency."
+      "suffix": "conversion and revenue with an Award-Winning CRO agency"
     },
     "funnelInfo": {
       "title": "Estimate the Potential Uplift of Your Key Revenue Metric",
@@ -151,8 +151,8 @@
       "LeadGen": "LeadGen"
     },
     "chart": {
-      "title": "Our Clients' Average Revenue ",
-      "titleNowrap": "Uplift in the first 4 months",
+      "title": "Our Clients' Average Conversion ",
+      "titleNowrap": "Uplift in 4 months",
       "footer": "*Based on performance data from our CRO projects\u00A0for\u00A0clients",
       "columns": {
         "research": {

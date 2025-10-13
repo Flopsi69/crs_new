@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-const { modalTarget, closeModal } = useModal();
-const { validateInput } = useValidateInput();
-const { t } = useI18n();
+const { modalTarget, closeModal } = useModal()
+const { validateInput } = useValidateInput()
+const { t } = useI18n()
 
 interface Body {
   audience: 'lead' | 'prelead'
@@ -15,36 +15,36 @@ interface Body {
 const props = defineProps({
   name: {
     type: String,
-    default: ''
+    default: '',
   },
   url: {
     type: String,
-    default: ''
+    default: '',
   },
   email: {
     type: String,
-    default: ''
+    default: '',
   },
   id: {
     type: String,
-    default: ''
+    default: '',
   },
   info: {
     type: Object,
     default: (): {
-      title: string,
-      subtitle: string,
-      list: string[],
-      formTitle: string,
-      cta: string,
-      note: string,
-      isGoal: boolean,
+      title: string
+      subtitle: string
+      list: string[]
+      formTitle: string
+      cta: string
+      note: string
+      isGoal: boolean
       isSpecialOffer: boolean
-    } => ({})
-  }
-});
+    } => ({}),
+  },
+})
 
-const route = useRoute();
+const route = useRoute()
 
 const info = computed(() => ({
   title: props.info.title ?? t('sectionHero.funnelInfo.title'),
@@ -52,18 +52,18 @@ const info = computed(() => ({
   list: props.info.list ?? [
     t('sectionHero.funnelInfo.list.item1'),
     t('sectionHero.funnelInfo.list.item2'),
-    t('sectionHero.funnelInfo.list.item3')
+    t('sectionHero.funnelInfo.list.item3'),
   ],
   formTitle: props.info.formTitle ?? t('sectionHero.funnelInfo.formTitle'),
   cta: props.info.cta ?? t('sectionHero.funnelInfo.cta'),
   note: props.info.note ?? t('sectionHero.funnelInfo.note'),
   isGoal: props.info.isGoal ?? false,
-  isSpecialOffer: props.info.isSpecialOffer ?? false
-}));
+  isSpecialOffer: props.info.isSpecialOffer ?? false,
+}))
 
 const logos = [
-  'microsoft.svg', 'comodo.svg', 'macPaw.svg', 'finish.png', 'samcart.svg'
-];
+  'microsoft.svg', 'comodo.svg', 'macPaw.svg', 'finish.png', 'samcart.svg',
+]
 
 const form = reactive({
   name: props.name || '',
@@ -75,16 +75,16 @@ const form = reactive({
   metadata: {
     page: location.href,
     form_title: props.info.title || '',
-    id: props.id || ''
+    id: props.id || '',
   },
-  e_target: !route.fullPath.includes('e-commerce-lp') ? 'i' : 'g'
-});
+  e_target: !route.fullPath.includes('e-commerce-lp') ? 'i' : 'g',
+})
 const error = reactive({
   name: '',
   url: '',
   email: '',
-  agree: false
-});
+  agree: false,
+})
 
 const toast = useToast()
 const gtm = useGtm()
@@ -92,15 +92,15 @@ const mailchimp = useMailchimp()
 const excel = useExcel()
 const mailer = useMailer()
 
-const step = ref(1);
-const isAgree = ref(true);
+const step = ref(1)
+const isAgree = ref(true)
 const isLoading = ref(false)
 
 const hearAboutUsItems = reactive([
   t('modal.funnel.hearAboutUs.somebody'),
   t('modal.funnel.hearAboutUs.organic'),
   t('modal.funnel.hearAboutUs.googleAds'),
-  t('modal.funnel.hearAboutUs.other')
+  t('modal.funnel.hearAboutUs.other'),
 ])
 
 let monthlyRevenueItems = reactive([
@@ -108,7 +108,7 @@ let monthlyRevenueItems = reactive([
   t('modal.funnel.monthlyRevenue.from200kTo500k'),
   t('modal.funnel.monthlyRevenue.from500kTo1m'),
   t('modal.funnel.monthlyRevenue.moreThan1m'),
-  t('modal.funnel.monthlyRevenue.preferNotToSay')
+  t('modal.funnel.monthlyRevenue.preferNotToSay'),
 ])
 
 if (props.id.includes('homepage_limited_offer')) {
@@ -120,49 +120,49 @@ if (props.id.includes('homepage_limited_offer')) {
 }
 
 function goToNextStep() {
-  error.name = validateInput(form.name, 'name');
-  error.url = validateInput(form.url, 'url');
-  error.email = validateInput(form.email, 'email');
+  error.name = validateInput(form.name, 'name')
+  error.url = validateInput(form.url, 'url')
+  error.email = validateInput(form.email, 'email')
 
   if (step.value === 1) {
     if (error.name || error.url || error.email) return
 
-    savePrelid();
+    savePrelid()
 
-    step.value = 2;
-    return;
+    step.value = 2
+    return
   }
 
   if (step.value === 2) {
     if (!isAgree.value) {
-      error.agree = true;
-      toast.error(t('modal.funnel.agreeError'));
-      return;
+      error.agree = true
+      toast.error(t('modal.funnel.agreeError'))
+      return
     }
 
-    saveLead();
+    saveLead()
   }
 }
 
 onMounted(() => {
   setTimeout(() => {
     gtm?.trackEvent({
-      event: 'popup_funnel_open'
+      event: 'popup_funnel_open',
     })
-  }, 7000);
+  }, 7000)
 })
 
 async function savePrelid() {
-  document.querySelector('#crs_survey')?.remove();
+  document.querySelector('#crs_survey')?.remove()
 
   gtm?.trackEvent({
     event: 'gtm_hubspot',
-    data:  { ...toRaw(form) }
+    data: { ...toRaw(form) },
   })
 
   const body: Body = {
     audience: 'prelead',
-    data: { ...form, title: props.info.title }
+    data: { ...form, title: props.info.title },
   }
 
   mailer.send(form, true)
@@ -170,51 +170,52 @@ async function savePrelid() {
 }
 
 async function saveLead() {
-  const toastLoading = toast.loading(t('general.async.pending'));
+  const toastLoading = toast.loading(t('general.async.pending'))
 
-  isLoading.value = true;
+  isLoading.value = true
 
   gtm?.trackEvent({
     event: 'gtm_hubspot',
-    data:  { ...toRaw(form) }
+    data: { ...toRaw(form) },
   })
 
   const body: Body = {
     audience: 'lead',
-    data: { ...form, title: props.info.title }
+    data: { ...form, title: props.info.title },
   }
 
   mailchimp.save(body)
   mailer.send(form)
   await excel.save(body)
 
-  isLoading.value = false;
+  isLoading.value = false
 
   if (excel.error.value) {
     toast.update(toastLoading, {
       type: 'error',
       render: t('general.async.error'),
       autoClose: true,
-      isLoading: false
-    });
+      isLoading: false,
+    })
 
-    return;
+    return
   }
 
   toast.update(toastLoading, {
     type: 'success',
     render: t('general.async.success'),
     autoClose: true,
-    isLoading: false
-  });
+    isLoading: false,
+  })
 
   if (!route.fullPath.includes('e-commerce-lp')) {
-    window.open('https://meetings.hubspot.com/ihor-sokolov?firstName=' + form.name + '&email=' + form.email, '_blank');
-  } else {
-    window.open('https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=' + form.name + '&email=' + form.email, '_blank');
+    window.open('https://meetings.hubspot.com/ihor-sokolov?firstName=' + form.name + '&email=' + form.email, '_blank')
+  }
+  else {
+    window.open('https://meetings.hubspot.com/gleb-hodorovskiy/schedule-call?firstName=' + form.name + '&email=' + form.email, '_blank')
   }
 
-  modalTarget.value = 'success';
+  modalTarget.value = 'success'
 }
 </script>
 
@@ -237,8 +238,12 @@ async function saveLead() {
 
         <div class="info__bages">
           <div class="info__bage info__bage-european text-center">
-            <div class="info__bage-european-caption">EUROPEAN</div>
-            <div class="info__bage-european-title">CRO Agency of the Year</div>
+            <div class="info__bage-european-caption">
+              EUROPEAN
+            </div>
+            <div class="info__bage-european-title">
+              CRO Agency of the Year
+            </div>
           </div>
           <div class="info__bage info__bage-clutch flex-center">
             <div class="info__bage-clutch-head flex-center">
@@ -256,7 +261,7 @@ async function saveLead() {
             </div>
             <div class="info__bage-clutch-caption">
               <span>BASED ON</span>
-              38 VERIFIED REVIEWS
+              40 VERIFIED REVIEWS
             </div>
           </div>
         </div>
@@ -292,7 +297,9 @@ async function saveLead() {
           class="limited-image"
         >
           <div class="limited-image__info">
-            <div class="limited-image__info-name subtitle-3">Ihor Sokolov</div>
+            <div class="limited-image__info-name subtitle-3">
+              Ihor Sokolov
+            </div>
             <div class="limited-image__info-position text text-sm">
               ConversionRateStore CEO, co-founder
             </div>
@@ -310,7 +317,9 @@ async function saveLead() {
         v-if="!info.isSpecialOffer"
         class="info__footer"
       >
-        <div class="info__footer-caption">Trusted by</div>
+        <div class="info__footer-caption">
+          Trusted by
+        </div>
         <div class="info__footer-list flex-center">
           <img
             v-for="logo of logos"
@@ -356,7 +365,9 @@ async function saveLead() {
         {{ info.title }}
       </h2>
 
-      <h3 class="form__subtitle subtitle-1">{{ info?.formTitle || '-' }}</h3>
+      <h3 class="form__subtitle subtitle-1">
+        {{ info?.formTitle || '-' }}
+      </h3>
 
       <div
         v-auto-animate
@@ -456,7 +467,7 @@ async function saveLead() {
 
           <div
             class="agree text flex"
-            :class="{active: isAgree, error: error.agree}"
+            :class="{ active: isAgree, error: error.agree }"
             @click="isAgree = !isAgree; error.agree = false"
           >
             {{ t('modal.funnel.agree') }}
@@ -474,7 +485,7 @@ async function saveLead() {
         :data-step="step"
         @click="goToNextStep"
       >
-        {{ step === 1 ?  t("modal.funnel.continue") : t("modal.funnel.strategySession") }}
+        {{ step === 1 ? t("modal.funnel.continue") : t("modal.funnel.strategySession") }}
       </button>
     </div>
   </div>

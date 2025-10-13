@@ -1,86 +1,87 @@
 <script lang="ts" setup>
-import menu from '~/configs/menu';
+import menu from '~/configs/menu'
 
-const { t, locale } = useI18n();
-const route = useRoute();
+const { t, locale } = useI18n()
+const route = useRoute()
 
-const isBurgerActive = ref(false);
+const isBurgerActive = ref(false)
 
 const toggleBurger = () => {
   if (isBurgerActive.value) {
-    document.body.style.overflow = 'auto';
-  } else {
-    document.body.style.overflow = 'hidden';
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    document.body.style.overflow = 'auto'
   }
-  isBurgerActive.value = !isBurgerActive.value;
-};
+  else {
+    document.body.style.overflow = 'hidden'
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+  isBurgerActive.value = !isBurgerActive.value
+}
 
 const closeBurger = () => {
   if (isBurgerActive.value) {
-    isBurgerActive.value = false;
-    document.body.style.overflow = 'auto';
+    isBurgerActive.value = false
+    document.body.style.overflow = 'auto'
   }
-};
+}
 
 interface HeaderConfig {
-  isDark: boolean;
-  background?: string;
+  isDark: boolean
+  background?: string
 }
 
 const headerConfig: Record<string, HeaderConfig> = {
   'index': {
     isDark: true,
-    background: '#4d3a98'
+    background: '#4d3a98',
   },
   'conversion-rate-optimization-services': {
     isDark: true,
-    background: '#3219AF'
+    background: '#3219AF',
   },
   'e-commerce-lp': {
     isDark: true,
-    background: '#4d3a98'
+    background: '#4d3a98',
   },
   'app-conversion-rate-optimization-services': {
     isDark: true,
-    background: '#3219AF'
+    background: '#3219AF',
   },
   'ecommerce-conversion-rate-optimization-services': {
     isDark: true,
-    background: '#3219AF'
+    background: '#3219AF',
   },
   'saas-conversion-rate-optimization-services': {
     isDark: true,
-    background: '#3219AF'
+    background: '#3219AF',
   },
   'landing-page-optimization-services': {
     isDark: true,
-    background: '#3219AF'
+    background: '#3219AF',
   },
   'shopify-conversion-rate-optimization-services': {
     isDark: true,
-    background: '#3219AF'
+    background: '#3219AF',
   },
   'about-us': {
     isDark: true,
-    background: 'linear-gradient(90deg, #5543AC 0%, #3A249F 100%)'
+    background: 'linear-gradient(90deg, #5543AC 0%, #3A249F 100%)',
   },
   'contact-us': {
     isDark: true,
-    background: '#4d3a98'
-  }
-};
+    background: '#3E3596',
+  },
+}
 
 const pageName = computed(() => {
-  const originalName = route.name?.toString() || '';
-  const nameWithoutLocale = originalName.replace(`___${locale.value}`, '');
+  const originalName = route.name?.toString() || ''
+  const nameWithoutLocale = originalName.replace(`___${locale.value}`, '')
 
-  return nameWithoutLocale;
-});
+  return nameWithoutLocale
+})
 
 const styleConfig = computed(() => {
-  return headerConfig[pageName.value] || { isDark: false };
-});
+  return headerConfig[pageName.value] || { isDark: false }
+})
 </script>
 
 <template>
@@ -106,8 +107,8 @@ const styleConfig = computed(() => {
       <nav
         v-if="menu?.headerNavigation?.length"
         class="nav flex"
-        :class="{active: isBurgerActive}"
-        :style="{'--nav-bg': styleConfig.background}"
+        :class="{ active: isBurgerActive }"
+        :style="{ '--nav-bg': styleConfig.background }"
       >
         <div
           v-for="menuItem in menu.headerNavigation"
@@ -120,7 +121,7 @@ const styleConfig = computed(() => {
             class="nav__link"
             :class="{
               'button button_yellow nav__link--yellow flex-center': menuItem.title.includes('contactUs'),
-              'nav__link--has-submenu': menuItem.subMenu?.length
+              'nav__link--has-submenu': menuItem.subMenu?.length,
             }"
             :external="menuItem.url.includes('http')"
             @click="closeBurger()"
@@ -134,7 +135,7 @@ const styleConfig = computed(() => {
             ></Icon>
           </NuxtLink>
 
-          <div 
+          <div
             v-if="menuItem.subMenu?.length"
             class="nav__submenu"
           >

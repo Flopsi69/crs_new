@@ -28,7 +28,7 @@ export default {
           title: 'menu.seoApp',
           url: '/app-conversion-rate-optimization-services',
         },
-      ]
+      ],
     },
     {
       title: 'menu.audit',
@@ -48,13 +48,13 @@ export default {
     },
     {
       title: 'menu.contactUs',
-      url: 'https://conversionrate.store/contact-us',
-    }
+      url: '/contact-us',
+    },
   ],
   serviceLinks: [
     {
       title: 'menu.sitemap',
-      url: '/sitemap.xml'
+      url: '/sitemap.xml',
     },
   ],
   footerServices: [
@@ -85,7 +85,7 @@ export default {
     {
       title: 'menu.audit',
       url: 'https://conversionrate.store/cro-audit',
-      external: true
+      external: true,
     },
   ],
   footerAbout: [
@@ -93,7 +93,7 @@ export default {
       title: 'menu.home',
       url: '/',
     },
-      {
+    {
       title: 'menu.whoWeAre',
       url: '/about-us',
     },
@@ -108,17 +108,17 @@ export default {
     {
       title: 'menu.career',
       url: 'https://conversionrate.store/career',
-      external: true
+      external: true,
     },
     {
       title: 'menu.contactUs',
-      url: 'https://conversionrate.store/contact-us',
-      external: true
+      url: '/contact-us',
+      external: true,
     },
     {
       title: 'menu.privacy',
       url: 'https://conversionrate.store/privacy',
-      external: true
-    }
-  ]
+      external: true,
+    },
+  ],
 }

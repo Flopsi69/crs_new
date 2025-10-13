@@ -1,23 +1,23 @@
 <script lang="ts" setup>
 defineProps<{
   content?: {
-    title: string;
-    caption?: string;
+    title: string
+    caption?: string
   }
-}>();
+}>()
 
 const { validateInput } = useValidateInput()
-const { openModal } = useModal();
-const { t } = useI18n();
+const { openModal } = useModal()
+const { t } = useI18n()
 
-const url = ref('');
-const error = ref();
+const url = ref('')
+const error = ref()
 
 function handleOpenModal() {
-  error.value = validateInput(url.value, 'url');
+  error.value = validateInput(url.value, 'url')
 
   if (!error.value) {
-    openModal({ url: url.value, id: 'cro-service_hero_0' });
+    openModal({ url: url.value, id: 'cro-service_hero_0' })
   }
 }
 </script>
@@ -39,7 +39,7 @@ function handleOpenModal() {
 
         <div class="info__form-wrap form-wrap">
           <div class="form__caption subtitle-2">
-            {{ content?.caption || 'Estimate the conversion rate uplift we’ll commit to — before you even sign.'}}
+            {{ content?.caption || 'Estimate the conversion rate uplift we’ll commit to — before you even sign.' }}
           </div>
           <div class="form flex">
             <BaseInput

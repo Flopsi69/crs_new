@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-const { closeModal } = useModal();
-const { validateInput } = useValidateInput();
-const { t } = useI18n();
+const { closeModal } = useModal()
+const { validateInput } = useValidateInput()
+const { t } = useI18n()
 
 interface Body {
   audience: 'lead' | 'prelead'
@@ -15,13 +15,13 @@ interface Body {
 const props = defineProps({
   id: {
     type: String,
-    default: ''
-  }
-});
+    default: '',
+  },
+})
 
 const logos = [
-  'microsoft.svg', 'comodo.svg', 'macPaw.svg', 'finish.png', 'samcart.svg'
-];
+  'microsoft.svg', 'comodo.svg', 'macPaw.svg', 'finish.png', 'samcart.svg',
+]
 
 const form = reactive({
   url: '',
@@ -30,16 +30,16 @@ const form = reactive({
   metadata: {
     page: location.href,
     form_title: 'Get a 20% increase in your E‑Commerce store’s conversion rate within 4 months - Guaranteed',
-    id: props.id || ''
+    id: props.id || '',
   },
-  e_target: 'g'
-});
+  e_target: 'g',
+})
 const error = reactive({
   name: '',
   url: '',
   email: '',
-  monthly_traffic: ''
-});
+  monthly_traffic: '',
+})
 
 const toast = useToast()
 const gtm = useGtm()
@@ -48,86 +48,88 @@ const excel = useExcel()
 const mailer = useMailer()
 
 const isLoading = ref(false)
-const step = ref(1);
+const step = ref(1)
 
 const monthlyTraffic = reactive([
   'Less than 50k visitors',
   '50k-250k',
   '250k - 1 million',
   'More than 1million',
-  'I prefer not to say'
+  'I prefer not to say',
 ])
 
 function goToNextStep() {
   // error.name = validateInput(form.name, 'name');
-  error.url = validateInput(form.url, 'url');
-  error.email = validateInput(form.email, 'email');
-  error.monthly_traffic = validateInput(form.monthly_traffic, 'monthly_traffic');
+  error.url = validateInput(form.url, 'url')
+  error.email = validateInput(form.email, 'email')
+  error.monthly_traffic = validateInput(form.monthly_traffic, 'monthly_traffic')
 
   if (error.name || error.url || error.email || error.monthly_traffic) return
 
-  saveLead();
+  saveLead()
 }
 
 onMounted(() => {
   setTimeout(() => {
     gtm?.trackEvent({
-      event: 'popup_funnel_open'
+      event: 'popup_funnel_open',
     })
-  }, 7000);
+  }, 7000)
 })
 
 async function saveLead() {
-  document.querySelector('#crs_survey')?.remove();
+  document.querySelector('#crs_survey')?.remove()
 
-  const toastLoading = toast.loading(t('general.async.pending'));
+  const toastLoading = toast.loading(t('general.async.pending'))
 
-  isLoading.value = true;
+  isLoading.value = true
 
   loadMeetingsEmbed()
 
   gtm?.trackEvent({
     event: 'gtm_hubspot',
-    data:  { ...toRaw(form) }
+    data: { ...toRaw(form) },
   })
 
   const body: Body = {
     audience: 'lead',
-    data: { ...form, title: 'Get a 20% increase in your E‑Commerce store’s conversion rate within 4 months - Guaranteed' }
+    data: { ...form, title: 'Get a 20% increase in your E‑Commerce store’s conversion rate within 4 months - Guaranteed' },
   }
 
   mailchimp.save(body)
   mailer.send(form)
   await excel.save(body)
 
-  isLoading.value = false;
+  isLoading.value = false
 
   if (excel.error.value) {
     toast.update(toastLoading, {
       type: 'error',
       render: t('general.async.error'),
       autoClose: true,
-      isLoading: false
-    });
+      isLoading: false,
+    })
 
-    return;
+    return
   }
 
   toast.update(toastLoading, {
     type: 'success',
     render: t('general.async.success'),
     autoClose: true,
-    isLoading: false
+    isLoading: false,
   });
 
-  (function(v, i, d, a, l, y, t, c, s) {
-      c=function(u,cb){s=i.createElement('script');s.type='text/javascript';s.async=1;s.src=u;s.onload=function(){cb();};
-        i.getElementsByTagName('head')[0].appendChild(s);};c(a+'conversion.min.js?cid=_Tu4JnJd',function(){
-      l=new v[d]['ConversionTracking']({url:'https://stats.vidalytics.com'});l.track('dsieM9by',{conversionId:'_Tu4JnJd'});});
-      })(window, document, 'VidalyticsC', 'https://fast.vidalytics.com/js/');
+  (function (v, i, d, a, l, y, t, c, s) {
+    c = function (u, cb) {
+      s = i.createElement('script'); s.type = 'text/javascript'; s.async = 1; s.src = u; s.onload = function () { cb() }
+      i.getElementsByTagName('head')[0].appendChild(s)
+    }; c(a + 'conversion.min.js?cid=_Tu4JnJd', function () {
+      l = new v[d]['ConversionTracking']({ url: 'https://stats.vidalytics.com' }); l.track('dsieM9by', { conversionId: '_Tu4JnJd' })
+    })
+  })(window, document, 'VidalyticsC', 'https://fast.vidalytics.com/js/')
 
-
-  step.value = 2;
+  step.value = 2
 
   // Make another logic
   // window.open('https://meetings.hubspot.com/ihor-sokolov?firstName=' + form.name + '&email=' + form.email, '_blank');
@@ -137,14 +139,14 @@ async function saveLead() {
 
 function loadMeetingsEmbed() {
   if (document.querySelector('.form-hubspot script[src*="MeetingsEmbedCode.js"]')) {
-    return;
+    return
   }
 
-  const script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
-  script.async = true;
-  document.querySelector('.modal .form-hubspot')?.appendChild(script);
+  const script = document.createElement('script')
+  script.type = 'text/javascript'
+  script.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js'
+  script.async = true
+  document.querySelector('.modal .form-hubspot')?.appendChild(script)
 }
 </script>
 
@@ -164,8 +166,12 @@ function loadMeetingsEmbed() {
 
         <div class="info__bages">
           <div class="info__bage info__bage-european text-center">
-            <div class="info__bage-european-caption">EUROPEAN</div>
-            <div class="info__bage-european-title">CRO Agency of the Year</div>
+            <div class="info__bage-european-caption">
+              EUROPEAN
+            </div>
+            <div class="info__bage-european-title">
+              CRO Agency of the Year
+            </div>
           </div>
           <div class="info__bage info__bage-clutch flex-center">
             <div class="info__bage-clutch-head flex-center">
@@ -183,7 +189,7 @@ function loadMeetingsEmbed() {
             </div>
             <div class="info__bage-clutch-caption">
               <span>BASED ON</span>
-              38 VERIFIED REVIEWS
+              40 VERIFIED REVIEWS
             </div>
           </div>
         </div>
@@ -216,7 +222,9 @@ function loadMeetingsEmbed() {
       </div>
 
       <div class="info__footer">
-        <div class="info__footer-caption">Trusted by</div>
+        <div class="info__footer-caption">
+          Trusted by
+        </div>
         <div class="info__footer-list flex-center">
           <img
             v-for="logo of logos"
@@ -232,8 +240,8 @@ function loadMeetingsEmbed() {
     <div
       class="form__wrap bg-white"
       :class="{
-      'form-hubspot__wrap': step === 2,
-    }"
+        'form-hubspot__wrap': step === 2,
+      }"
     >
       <img
         class="logo form__logo"
@@ -254,7 +262,9 @@ function loadMeetingsEmbed() {
         ></Icon>
       </button>
 
-      <h2 class="form__title subtitle-1">Book a CRO strategy call</h2>
+      <h2 class="form__title subtitle-1">
+        Book a CRO strategy call
+      </h2>
 
       <div
         v-show="step === 1"

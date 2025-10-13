@@ -26,7 +26,7 @@ const props = defineProps(
       default: '',
     },
   },
-);
+)
 
 const background = computed(() => 'bg--' + (props.background || 'purple-light'))
 </script>

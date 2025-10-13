@@ -42,16 +42,16 @@ const props = defineProps({
   },
 })
 
-const isOpen = ref(false);
+const isOpen = ref(false)
 // const error = ref(false);
 
-const model = defineModel();
+const model = defineModel()
 
 const toggleDropdown = () => {
-  if (!props.items?.length) return;
+  if (!props.items?.length) return
 
-  isOpen.value = !isOpen.value;
-};
+  isOpen.value = !isOpen.value
+}
 
 const target = ref(null)
 
@@ -68,17 +68,16 @@ onClickOutside(target, () => {
     :id="id + '_wrap'"
     ref="target"
     class="input__group"
-    :class="{ group_required: required, group_icon: icon, group_error: error, group_small: small, group_dropdown: items?.length, active: isOpen}"
+    :class="{ group_required: required, group_icon: icon, group_error: error, group_small: small, group_dropdown: items?.length, active: isOpen }"
   >
     <span
       v-if="label"
       class="input__label"
-      >{{ label }}&nbsp;</span
-    >
+    >{{ label }}&nbsp;</span>
 
     <div
       class="input__wrap"
-      :class="{ 'textarea__wrap': textarea }"
+      :class="{ textarea__wrap: textarea }"
     >
       <Icon
         v-if="icon"
@@ -142,7 +141,7 @@ onClickOutside(target, () => {
         v-for="(item, index) of items"
         :key="index"
         class="dropdown__item"
-        :class="{ 'active': model === item }"
+        :class="{ active: model === item }"
         @click="model = item"
       >
         {{ item }}
@@ -187,7 +186,6 @@ onClickOutside(target, () => {
   .group_error & {
     border-color: #F40000;
   }
-
 
   &__group {
     position: relative;

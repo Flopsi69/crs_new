@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { t } = useI18n();
+const { t } = useI18n()
 </script>
 
 <template>
@@ -22,7 +22,9 @@ const { t } = useI18n();
         <div class="chart__col-name">
           {{ t('sectionHero.chart.columns.research.name') }}
         </div>
-        <div class="chart__col-procent">+3%</div>
+        <div class="chart__col-procent">
+          +5%
+        </div>
         <div class="chart__col-caption">
           {{ t('sectionHero.chart.columns.research.caption') }}
         </div>
@@ -41,7 +43,9 @@ const { t } = useI18n();
         <div class="chart__col-name">
           {{ t('sectionHero.chart.columns.hypotheses.name') }}
         </div>
-        <div class="chart__col-procent">+7%</div>
+        <div class="chart__col-procent">
+          +12%
+        </div>
         <div class="chart__col-caption">
           {{ t('sectionHero.chart.columns.hypotheses.caption') }}
         </div>
@@ -60,7 +64,9 @@ const { t } = useI18n();
         <div class="chart__col-name">
           {{ t('sectionHero.chart.columns.validation.name') }}
         </div>
-        <div class="chart__col-procent">+14%</div>
+        <div class="chart__col-procent">
+          +18%
+        </div>
         <div class="chart__col-caption">
           {{ t('sectionHero.chart.columns.validation.caption') }}
         </div>
@@ -78,7 +84,9 @@ const { t } = useI18n();
         <div class="chart__col-name color-yellow">
           {{ t('sectionHero.chart.columns.scaling.name') }}
         </div>
-        <div class="chart__col-procent">+22%</div>
+        <div class="chart__col-procent">
+          +26%
+        </div>
         <div class="chart__col-caption">
           {{ t('sectionHero.chart.columns.scaling.caption') }}
         </div>
@@ -100,6 +108,9 @@ const { t } = useI18n();
   background: rgba(53, 37, 114, 0.20);
   padding: 24px 24px 0;
   overflow: hidden;
+  @media(max-width: $lg) {
+    max-width: 430px;
+  }
   @media(max-width: $md) {
     max-width: 100%;
   }
@@ -113,7 +124,6 @@ const { t } = useI18n();
       max-width: 90%;
       .lang-en & {
         text-align: left;
-        max-width: 235px;
       }
       .lang-fr & {
         font-size: 16px;

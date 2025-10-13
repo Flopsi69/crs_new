@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 const { validateInput } = useValidateInput()
-const { openModal } = useModal();
-const { t } = useI18n();
+const { openModal } = useModal()
+const { t } = useI18n()
 
-const url = ref('');
-const error = ref();
+const url = ref('')
+const error = ref()
 const info = {
   title: t('sectionHero.funnelInfo.title'),
   subtitle: t('sectionHero.funnelInfo.subtitle'),
@@ -15,16 +15,16 @@ const info = {
   ],
   formTitle: t('sectionHero.funnelInfo.formTitle'),
   cta: t('sectionHero.funnelInfo.cta'),
-  note: t('sectionHero.funnelInfo.note')
-};
+  note: t('sectionHero.funnelInfo.note'),
+}
 
-const words = [t('sectionHero.words.eCommerce'), t('sectionHero.words.SaaS'), t('sectionHero.words.App'), t('sectionHero.words.LeadGen')];
+const words = [t('sectionHero.words.eCommerce'), t('sectionHero.words.SaaS'), t('sectionHero.words.App'), t('sectionHero.words.LeadGen')]
 
 function handleOpenModal() {
-  error.value = validateInput(url.value, 'url');
+  error.value = validateInput(url.value, 'url')
 
   if (!error.value) {
-    openModal({ url: url.value, info, id: 'homepage_hero_0' });
+    openModal({ url: url.value, info, id: 'homepage_hero_0' })
   }
 }
 </script>
@@ -106,7 +106,6 @@ function handleOpenModal() {
 </style>
 
 <style lang="scss" scoped>
-
 .hero {
   padding: 65px 0 60px;
   @media(max-width: $md) {

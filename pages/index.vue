@@ -11,18 +11,18 @@ useSeoMeta({
   ogUrl: 'https://conversionrate.store/',
   ogType: 'website',
   ogImage: 'https://conversionrate.store/images/big-logo.png', // Replace with actual OG image
-  twitterCard: 'summary_large_image'
-});
+  twitterCard: 'summary_large_image',
+})
 
 useHead(() => ({
   htmlAttrs: {
-    lang: i18nHead.value.htmlAttrs.lang
+    lang: i18nHead.value.htmlAttrs.lang,
   },
   bodyAttrs: {
-    class: 'lang-' + locale.value
+    class: 'lang-' + locale.value,
   },
   link: [...(i18nHead.value.link || [])],
-  meta: [...(i18nHead.value.meta || [])]
+  meta: [...(i18nHead.value.meta || [])],
 }))
 
 const route = useRoute()
@@ -40,6 +40,11 @@ onMounted(() => {
     <SectionTrusted />
     <SectionLeader />
     <SectionClientVideos />
+
+    <BaseSection>
+      <CtaLimitedOffer />
+    </BaseSection>
+
     <SectionFounderVideos />
 
     <BaseSection>
@@ -47,10 +52,6 @@ onMounted(() => {
     </BaseSection>
 
     <SectionProcess />
-
-    <BaseSection>
-      <CtaLimitedOffer />
-    </BaseSection>
 
     <SectionCaseStudies>
       <CtaRecieveAccess class="cta" />
