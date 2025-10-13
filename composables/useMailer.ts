@@ -17,16 +17,18 @@ export function useMailer() {
         method: 'POST',
         body: {
           lead,
-          isPrelid
-        }
+          isPrelid,
+        },
       })
 
       return data.value
-    } catch (err: any) {
+    }
+    catch (err: any) {
       error.value = err
 
       return error.value
-    } finally {
+    }
+    finally {
       loading.value = false
     }
   }
@@ -35,6 +37,6 @@ export function useMailer() {
     data,
     error,
     loading,
-    send
+    send,
   }
 }

@@ -25,7 +25,7 @@ const form = reactive({
   message: '',
   metadata: {
     page: location?.href || '',
-    title: 'Contact Us',
+    form_title: 'Contact Us',
     id: 'contact-us_form',
   },
 })
@@ -75,12 +75,13 @@ async function submitForm() {
     isLoading: false,
   })
 
+  window.open('https://meetings.hubspot.com/ihor-sokolov?firstName=' + form.name + '&email=' + form.email, '_blank')
+
+  // Reset form data
   form.name = ''
   form.url = ''
   form.email = ''
   form.message = ''
-
-  window.open('https://meetings.hubspot.com/ihor-sokolov?firstName=' + form.name + '&email=' + form.email, '_blank')
 
   openModal({ target: 'success' })
 };

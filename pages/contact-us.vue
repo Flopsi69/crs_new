@@ -3,10 +3,6 @@
 
 const isMobile = ref(false)
 
-const logos = [
-  'microsoft.svg', 'comodo.svg', 'macPaw.svg', 'finish.png', 'samcart.svg',
-]
-
 onMounted(() => {
   if (window.innerWidth < 768) {
     isMobile.value = true
