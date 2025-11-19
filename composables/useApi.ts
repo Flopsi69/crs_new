@@ -1,9 +1,9 @@
 export const useApi = () => {
   const config = useRuntimeConfig()
 
-  const baseURL =
-    (config.public.apiBase as string) ??
-    'https://stageserver.conversionrate.store/api'
+  const baseURL
+    = (config.public.apiBase as string)
+      ?? 'https://stageserver.conversionrate.store/api'
 
   const $apiFetch = $fetch.create({
     baseURL,
@@ -12,18 +12,18 @@ export const useApi = () => {
           onResponse({ response }) {
             console.info('onResponse ', {
               endpoint: response.url,
-              status: response?.status
+              status: response?.status,
             })
-          }
+          },
         }
-      : {})
+      : {}),
   })
 
   return {
     get: <T = any>(url: string, options = {}) =>
       $apiFetch<T>(url, { ...options, method: 'GET' }),
     post: <T = any>(url: string, body: any, options = {}) =>
-      $apiFetch<T>(url, { ...options, method: 'POST', body })
+      $apiFetch<T>(url, { ...options, method: 'POST', body }),
   }
 
   // const get = async <T>(url: string, options: any = {}): Promise<T> => {

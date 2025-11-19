@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-
 useSeoMeta({
   title: '25+ Real Conversion Rate Optimization Case Studies',
   description: 'Get inspired by real-world CRO case studies—see how Conversionrate.store delivers guaranteed growth',
@@ -11,7 +10,7 @@ const router = useRouter()
 const isDevMode = useCookie('isDevMode')
 
 if (import.meta.client) {
-  isDevMode.value = isDevMode.value || route.query.mode === 'dev' ? 'true' : '';
+  isDevMode.value = isDevMode.value || route.query.mode === 'dev' ? 'true' : ''
 }
 
 const { data: cases } = await useCasesApi().getCases()
@@ -24,20 +23,19 @@ const newsletterText = {
 
 const breadcrumbsItems = [
   { href: '/', text: 'Home' },
-  { href: '/case-studies', text: 'Cases' }
+  { href: '/case-studies', text: 'Cases' },
 ]
 
-
-const activeTab = ref('All');
+const activeTab = ref('All')
 
 if (route.query.selectedTab) {
-  activeTab.value = route.query.selectedTab as string;
-    // router.push({
-    //   query: {
-    //     ...route.query,
-    //     selectedTab: undefined // this will remove it
-    //   }
-    // })
+  activeTab.value = route.query.selectedTab as string
+  // router.push({
+  //   query: {
+  //     ...route.query,
+  //     selectedTab: undefined // this will remove it
+  //   }
+  // })
 }
 
 watch(activeTab, (newTab) => {
@@ -45,74 +43,75 @@ watch(activeTab, (newTab) => {
     router.push({
       query: {
         ...route.query,
-        selectedTab: newTab
-      }
-    });
-  } else {
+        selectedTab: newTab,
+      },
+    })
+  }
+  else {
     router.push({
       query: {
         ...route.query,
-        selectedTab: undefined // this will remove it
-      }
-    });
+        selectedTab: undefined, // this will remove it
+      },
+    })
   }
-});
+})
 
 const publishedCases = computed(() => {
-  const filteredCase = cases.value?.filter((item) => item.status !== 'INACTIVE') || []
+  const filteredCase = cases.value?.filter(item => item.status !== 'INACTIVE') || []
 
   const sortPriority = [
-    "cleanmymac",
-    "preply",
-    "doyogawithme",
-    "comodo",
-    "depositphotos",
-    "grantme",
-    "moneygeek-funnel-conversions"
-  ];
+    'cleanmymac',
+    'preply',
+    'doyogawithme',
+    'comodo',
+    'depositphotos',
+    'grantme',
+    'moneygeek-funnel-conversions',
+  ]
 
   filteredCase.sort((a, b) => {
-    const indexA = sortPriority.indexOf(a.url);
-    const indexB = sortPriority.indexOf(b.url);
+    const indexA = sortPriority.indexOf(a.url)
+    const indexB = sortPriority.indexOf(b.url)
 
-    if (indexA === -1 && indexB === -1) return 0; // both not in priority
-    if (indexA === -1) return 1; // a not in priority, b is
-    if (indexB === -1) return -1; // b not in priority, a is
+    if (indexA === -1 && indexB === -1) return 0 // both not in priority
+    if (indexA === -1) return 1 // a not in priority, b is
+    if (indexB === -1) return -1 // b not in priority, a is
 
-    return indexA - indexB; // both in priority, sort by index
-  });
+    return indexA - indexB // both in priority, sort by index
+  })
 
   return filteredCase
-});
+})
 
 const casesToShow = computed(() => {
   if (activeTab.value === 'All') {
-    return publishedCases.value;
+    return publishedCases.value
   }
 
-  return publishedCases.value.filter((item) => item.client?.type === activeTab.value);
-});
+  return publishedCases.value.filter(item => item.client?.type === activeTab.value)
+})
 
 const filterTabs = computed(() => {
-  const types = new Set(publishedCases.value.map((item) => item.client?.type).filter(Boolean));
+  const types = new Set(publishedCases.value.map(item => item.client?.type).filter(Boolean))
 
   const tabs = Array.from(types).map((type) => {
     return {
       type,
-      amount: publishedCases.value.filter((c) => c.client?.type === type).length || 0
-    };
-  });
+      amount: publishedCases.value.filter(c => c.client?.type === type).length || 0,
+    }
+  })
 
   tabs.unshift({
     type: 'All',
-    amount: publishedCases.value.length
-  });
+    amount: publishedCases.value.length,
+  })
 
   // sort by amount
-  tabs.sort((a, b) => b.amount - a.amount);
+  tabs.sort((a, b) => b.amount - a.amount)
 
-  return tabs;
-});
+  return tabs
+})
 </script>
 
 <template>

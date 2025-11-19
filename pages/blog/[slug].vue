@@ -1,21 +1,21 @@
 <script lang="ts" setup>
-const route = useRoute();
+const route = useRoute()
 
-const { slug } = route.params as any;
+const { slug } = route.params as any
 
 if (!slug) {
-  await navigateTo('/blog');
+  await navigateTo('/blog')
 }
 
-const blogApi = useBlogApi();
+const blogApi = useBlogApi()
 
-const { data: post } = await blogApi.getPostBySlug(slug);
-const { data: slugsList } = await blogApi.getPostsSlugs();
+const { data: post } = await blogApi.getPostBySlug(slug)
+const { data: slugsList } = blogApi.getPostsSlugs()
 
 useSeoMeta({
   title: post.value?.metaTitle || post.value?.title,
   description: post.value?.metaDescription || post.value?.description,
-});
+})
 
 const contentRef = ref<HTMLElement | null>(null)
 const progress = ref<number>(0)
@@ -23,73 +23,73 @@ const progress = ref<number>(0)
 const handlerListArray = computed(() => {
   // return slugsList.value?.map((item: any) => item.url) || []
   return slugsList.value?.filter((i: any) => i.status === 'ACTIVE').map((item: any) => item.url) || []
-});
+})
 
-const currentIndex = ref(handlerListArray.value.indexOf(slug));
+const currentIndex = computed(() => handlerListArray.value.indexOf(slug))
 
 const nextId = computed(() => {
-  if (!handlerListArray.value.length) return null;
+  if (!handlerListArray.value.length) return null
 
-  const nextIndex =
-    currentIndex.value < handlerListArray.value.length - 1
+  const nextIndex
+    = currentIndex.value < handlerListArray.value.length - 1
       ? currentIndex.value + 1
-      : 0;
+      : 0
 
-  return handlerListArray.value[nextIndex];
-});
+  return handlerListArray.value[nextIndex]
+})
 
 const prevId = computed(() => {
-  if (!handlerListArray.value.length) return null;
+  if (!handlerListArray.value.length) return null
 
-  const prevIndex =
-    currentIndex.value > 0
+  const prevIndex
+    = currentIndex.value > 0
       ? currentIndex.value - 1
-      : handlerListArray.value.length - 1;
+      : handlerListArray.value.length - 1
 
-  return handlerListArray.value[prevIndex];
-});
+  return handlerListArray.value[prevIndex]
+})
 
 const mainContent = computed(() => {
-  return post.value?.content?.content || [];
-});
+  return post.value?.content?.content || []
+})
 
 const resultContent = computed(() => {
-  return post.value?.content?.result || [];
-});
+  return post.value?.content?.result || []
+})
 
 const breadcrumbs = reactive([
   {
     text: 'Home',
-    href: '/'
+    href: '/',
   },
   {
     text: 'Blog',
-    href: '/blog'
+    href: '/blog',
   },
   {
     text: post.value?.breadcrumb || 'Post',
-    href: ''
-  }
-]);
+    href: '',
+  },
+])
 
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
-    behavior: 'smooth'
-  });
-};
+    behavior: 'smooth',
+  })
+}
 
 const toc = computed(() => {
-  return mainContent.value?.filter((item: any) => item.type === "uiSubtitle" && item.props?.level === 2).map((item: any) => ({
+  return mainContent.value?.filter((item: any) => item.type === 'uiSubtitle' && item.props?.level === 2).map((item: any) => ({
     title: item.props?.content,
-    id: item.props?.id
-  }));
+    id: item.props?.id,
+  }))
 })
 
 function scrollToSection(id: string) {
-  const element = document.getElementById(id);
+  const element = document.getElementById(id)
   if (element) {
-    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 }
 

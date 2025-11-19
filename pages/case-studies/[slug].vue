@@ -1,12 +1,11 @@
 <script lang="ts" setup>
-const route = useRoute();
+const route = useRoute()
 
-const { slug } = route.params as any;
+const { slug } = route.params as any
 
 if (!slug) {
-  await navigateTo('/case-studies');
+  await navigateTo('/case-studies')
 }
-
 
 // const { data: caseStudy } = await useAsyncData(slug, () =>
 //   useApi().get(`/case-studies/${slug}`)
@@ -18,84 +17,83 @@ if (!slug) {
 //   }
 // )
 
-const casesApi = useCasesApi();
+const casesApi = useCasesApi()
 
-const { data: caseStudy } = await casesApi.getCaseBySlug(slug);
-const { data: slugsList } = await casesApi.getCasesSlugs();
-
+const { data: caseStudy } = await casesApi.getCaseBySlug(slug)
+const { data: slugsList } = casesApi.getCasesSlugs()
 
 useSeoMeta({
   title: caseStudy.value?.metaTitle || caseStudy.value?.title,
   description: caseStudy.value?.metaDescription || caseStudy.value?.description,
-});
+})
 
 const handlerListArray = computed(() => {
   return slugsList.value?.filter((i: any) => i.status === 'ACTIVE').map((item: any) => item.url) || []
-});
+})
 
-const currentIndex = ref(handlerListArray.value.indexOf(slug));
+const currentIndex = computed(() => handlerListArray.value.indexOf(slug))
 
 const nextId = computed(() => {
-  if (!handlerListArray.value.length) return null;
+  if (!handlerListArray.value.length) return null
 
-  const nextIndex =
-    currentIndex.value < handlerListArray.value.length - 1
+  const nextIndex
+    = currentIndex.value < handlerListArray.value.length - 1
       ? currentIndex.value + 1
-      : 0;
+      : 0
 
-  return handlerListArray.value[nextIndex];
-});
+  return handlerListArray.value[nextIndex]
+})
 
 const prevId = computed(() => {
-  if (!handlerListArray.value.length) return null;
+  if (!handlerListArray.value.length) return null
 
-  const prevIndex =
-    currentIndex.value > 0
+  const prevIndex
+    = currentIndex.value > 0
       ? currentIndex.value - 1
-      : handlerListArray.value.length - 1;
+      : handlerListArray.value.length - 1
 
-  return handlerListArray.value[prevIndex];
-});
+  return handlerListArray.value[prevIndex]
+})
 
 const mainContent = computed(() => {
-  return caseStudy.value?.content?.content || [];
-});
+  return caseStudy.value?.content?.content || []
+})
 
 const resultContent = computed(() => {
-  return caseStudy.value?.content?.result || [];
-});
+  return caseStudy.value?.content?.result || []
+})
 
 const previewMetrics = computed(() => {
-  return caseStudy.value?.preview2?.goals || [];
-});
+  return caseStudy.value?.preview2?.goals || []
+})
 
 const breadcrumbs = reactive([
   {
     text: 'Home',
-    href: '/'
+    href: '/',
   },
   {
     text: 'Case Studies',
-    href: '/case-studies'
+    href: '/case-studies',
   },
   {
     text: caseStudy.value?.breadcrumb || 'Case Study',
-    href: ''
-  }
-]);
+    href: '',
+  },
+])
 
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
-    behavior: 'smooth'
-  });
-};
+    behavior: 'smooth',
+  })
+}
 </script>
 
 <template>
   <main
     class="case"
-    :class="{'case_banner': caseStudy?.banner }"
+    :class="{ case_banner: caseStudy?.banner }"
   >
     <BaseBreadcrumbs
       class="container"

@@ -11,8 +11,8 @@ export const useCasesApi = () => {
         ...options,
         getCachedData: (key) => {
           return nuxtApp.payload.data[key] || nuxtApp.static.data[key]
-        }
-      }
+        },
+      },
     )
 
   const getCaseBySlug = (slug: string, options = {}) =>
@@ -25,28 +25,29 @@ export const useCasesApi = () => {
         ...options,
         getCachedData: (key) => {
           return nuxtApp.payload.data[key] || nuxtApp.static.data[key]
-        }
-      }
+        },
+      },
     )
 
   const getCasesSlugs = () =>
     useAsyncData(
-      'cases-slugs-list',
+      // 'cases-slugs-list',
+      'cases-list',
       () => {
-        return useApi().get('/case-studies?select=url,status')
+        return useApi().get('/case-studies')
       },
       {
         server: false,
         lazy: true,
         getCachedData: (key) => {
           return nuxtApp.payload.data[key] || nuxtApp.static.data[key]
-        }
-      }
+        },
+      },
     )
 
   return {
     getCases,
     getCaseBySlug,
-    getCasesSlugs
+    getCasesSlugs,
   }
 }

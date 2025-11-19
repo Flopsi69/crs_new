@@ -199,7 +199,7 @@ export default defineNuxtConfig({
         },
         async urls() {
           const res = await fetch(
-            'https://stageserver.conversionrate.store/api/case-studies?select=url,status',
+            'https://stageserver.conversionrate.store/api/case-studies',
           )
 
           const urlsRaw = await res.json()

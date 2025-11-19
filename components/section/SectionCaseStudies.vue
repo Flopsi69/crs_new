@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-const { t } = useI18n();
+const { t } = useI18n()
 
-const activeTab = ref('All');
+const activeTab = ref('All')
 
 const { data: cases } = useCasesApi().getCases({ server: false })
 // const { data: cases } = useAsyncData('cases', () =>
@@ -11,63 +11,63 @@ const { data: cases } = useCasesApi().getCases({ server: false })
 // )
 
 const publishedCases = computed(() => {
-  const filteredCase = cases.value?.filter((item) =>
-    (item.status && item.status !== 'INACTIVE') ||
-    (!item.status && !item.isHidden)
+  const filteredCase = cases.value?.filter(item =>
+    (item.status && item.status !== 'INACTIVE')
+    || (!item.status && !item.isHidden),
   ) || []
 
   const sortPriority = [
-    "cleanmymac",
-    "preply",
-    "doyogawithme",
-    "comodo",
-    "depositphotos",
-    "grantme",
-    "moneygeek-funnel-conversions"
-  ];
+    'cleanmymac',
+    'preply',
+    'doyogawithme',
+    'comodo',
+    'depositphotos',
+    'grantme',
+    'moneygeek-funnel-conversions',
+  ]
 
   filteredCase.sort((a, b) => {
-    const indexA = sortPriority.indexOf(a.url);
-    const indexB = sortPriority.indexOf(b.url);
+    const indexA = sortPriority.indexOf(a.url)
+    const indexB = sortPriority.indexOf(b.url)
 
-    if (indexA === -1 && indexB === -1) return 0; // both not in priority
-    if (indexA === -1) return 1; // a not in priority, b is
-    if (indexB === -1) return -1; // b not in priority, a is
+    if (indexA === -1 && indexB === -1) return 0 // both not in priority
+    if (indexA === -1) return 1 // a not in priority, b is
+    if (indexB === -1) return -1 // b not in priority, a is
 
-    return indexA - indexB; // both in priority, sort by index
-  });
+    return indexA - indexB // both in priority, sort by index
+  })
 
   return filteredCase
-});
+})
 
 const casesToShow = computed(() => {
   if (activeTab.value === 'All') {
-    return publishedCases.value.slice(0, 3);
+    return publishedCases.value.slice(0, 3)
   }
 
-  return publishedCases.value.filter((item) => item.client?.type === activeTab.value).slice(0, 3);
-});
+  return publishedCases.value.filter(item => item.client?.type === activeTab.value).slice(0, 3)
+})
 
 const filterTabs = computed(() => {
-  const types = new Set(publishedCases.value.map((item) => item.client?.type).filter(Boolean));
+  const types = new Set(publishedCases.value.map(item => item.client?.type).filter(Boolean))
 
   const tabs = Array.from(types).map((type) => {
     return {
       type,
-      amount: publishedCases.value.filter((c) => c.client?.type === type).length || 0
-    };
-  });
+      amount: publishedCases.value.filter(c => c.client?.type === type).length || 0,
+    }
+  })
 
   tabs.unshift({
     type: 'All',
-    amount: publishedCases.value.length
-  });
+    amount: publishedCases.value.length,
+  })
 
   // sort by amount
-  tabs.sort((a, b) => b.amount - a.amount);
+  tabs.sort((a, b) => b.amount - a.amount)
 
-  return tabs;
-});
+  return tabs
+})
 </script>
 
 <template>

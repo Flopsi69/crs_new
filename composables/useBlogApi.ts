@@ -11,8 +11,8 @@ export const useBlogApi = () => {
         ...options,
         getCachedData: (key) => {
           return nuxtApp.payload.data[key] || nuxtApp.static.data[key]
-        }
-      }
+        },
+      },
     )
 
   const getPostBySlug = (slug: string, options = {}) =>
@@ -25,8 +25,8 @@ export const useBlogApi = () => {
         ...options,
         getCachedData: (key) => {
           return nuxtApp.payload.data[key] || nuxtApp.static.data[key]
-        }
-      }
+        },
+      },
     )
 
   const getPostsSlugs = () =>
@@ -40,13 +40,13 @@ export const useBlogApi = () => {
         lazy: true,
         getCachedData: (key) => {
           return nuxtApp.payload.data[key] || nuxtApp.static.data[key]
-        }
-      }
+        },
+      },
     )
 
   return {
     getPosts,
     getPostBySlug,
-    getPostsSlugs
+    getPostsSlugs,
   }
 }
