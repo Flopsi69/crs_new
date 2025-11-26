@@ -20,6 +20,9 @@ if (!slug) {
 const casesApi = useCasesApi()
 
 const { data: caseStudy } = await casesApi.getCaseBySlug(slug)
+if (caseStudy.value?.isBlogPost) {
+  await navigateTo('/case-studies')
+}
 const { data: slugsList } = casesApi.getCasesSlugs()
 
 useSeoMeta({

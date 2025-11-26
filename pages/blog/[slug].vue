@@ -10,7 +10,10 @@ if (!slug) {
 const blogApi = useBlogApi()
 
 const { data: post } = await blogApi.getPostBySlug(slug)
-const { data: slugsList } = blogApi.getPostsSlugs()
+if (!post.value?.isBlogPost) {
+  await navigateTo('/blog')
+}
+const { data: slugsList } = await blogApi.getPostsSlugs()
 
 useSeoMeta({
   title: post.value?.metaTitle || post.value?.title,
